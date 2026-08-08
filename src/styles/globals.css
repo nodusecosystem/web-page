@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep-blue: #0047ab;
+  --color-turquoise: #00ced1;
+  --color-cyan: #00e5ff;
+  --color-teal: #008080;
+  --color-navy: #0a1f3b;
+  --color-light: #e0f7fa;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display: var(--font-montserrat), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
+
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-navy antialiased;
+  }
+
+  ::selection {
+    @apply bg-turquoise/30 text-navy;
+  }
+}
+
+@utility text-gradient-brand {
+  background-image: linear-gradient(to right, #00ced1, #00e5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-grid-pattern {
+  background-image: linear-gradient(
+      to right,
+      rgb(224 247 250 / 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(224 247 250 / 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
