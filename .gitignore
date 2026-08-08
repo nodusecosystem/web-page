@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# brand kit (assets are tracked in public/images)
+/kit-de-marca/
