@@ -23,6 +23,11 @@
       ],
       "cta": { "label": "Start today", "href": "/contact" }
     },
+    "langToggle": {
+      "ariaLabel": "Change language",
+      "es": "Español",
+      "en": "English"
+    },
     "footer": {
       "description": "Digital strategy agency: monthly plans for marketing, advertising, development and automation for companies that want to grow with data.",
       "navHeading": "Navigation",

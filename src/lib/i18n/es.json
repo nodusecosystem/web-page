@@ -23,6 +23,11 @@
       ],
       "cta": { "label": "Empieza hoy", "href": "/contact" }
     },
+    "langToggle": {
+      "ariaLabel": "Cambiar idioma",
+      "es": "Español",
+      "en": "English"
+    },
     "footer": {
       "description": "Agencia de estrategia digital: planes mensuales de marketing, publicidad, desarrollo y automatización para empresas que quieren crecer con datos.",
       "navHeading": "Navegación",

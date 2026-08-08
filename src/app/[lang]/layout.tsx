@@ -103,6 +103,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           }}
           ariaLabels={dict.layout.header}
           homeHref={localePath(locale, '/')}
+          currentLocale={locale}
+          langToggle={dict.layout.langToggle}
         />
         <main id="main-content">{children}</main>
         <Footer />
