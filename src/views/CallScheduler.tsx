@@ -3,9 +3,8 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 import { cn } from '@/lib/cn'
-
-const WEEKDAYS = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
 
 const CALENDAR_DAYS: { day: number; disabled?: boolean; selected?: boolean }[] = [
   { day: 10 },
@@ -33,18 +32,19 @@ const CALENDAR_DAYS: { day: number; disabled?: boolean; selected?: boolean }[] =
 
 const TIME_SLOTS = ['09:30', '11:00', '12:30', '16:00', '17:30']
 
-export function CallScheduler() {
+export async function CallScheduler() {
+  const dict = await getDictionary()
+  const { scheduler } = dict.contact
+
   return (
     <Section id="agendar" className="bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>Agenda una llamada</Badge>
+          <Badge>{scheduler.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Reserva una llamada gratuita de estrategia
+            {scheduler.heading}
           </h2>
-          <p className="mt-4 text-lg text-navy/60">
-            30 minutos sin compromiso para analizar tu situación y proponerte un plan de acción.
-          </p>
+          <p className="mt-4 text-lg text-navy/60">{scheduler.subheading}</p>
         </div>
 
         <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-navy/10 bg-white shadow-lg">
@@ -53,7 +53,7 @@ export function CallScheduler() {
               <div className="flex items-center justify-between">
                 <p className="flex items-center gap-2 font-display text-lg font-bold">
                   <CalendarDays aria-hidden className="h-5 w-5 text-deep-blue" />
-                  Agosto 2026
+                  {scheduler.month}
                 </p>
                 <div className="flex gap-2">
                   <span
@@ -72,7 +72,7 @@ export function CallScheduler() {
               </div>
 
               <div className="mt-6 grid grid-cols-7 gap-2">
-                {WEEKDAYS.map((weekday) => (
+                {scheduler.weekdays.map((weekday) => (
                   <span
                     key={weekday}
                     className="text-center text-xs font-semibold text-navy/40"
@@ -95,13 +95,13 @@ export function CallScheduler() {
                   </span>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-navy/40">Hora de Madrid (CET)</p>
+              <p className="mt-4 text-xs text-navy/40">{scheduler.timeZoneLabel}</p>
             </div>
 
             <div className="flex flex-col gap-6 p-6 sm:p-8">
               <div>
-                <p className="text-sm font-semibold text-navy/50">Horarios disponibles</p>
-                <p className="font-display mt-1 text-lg font-bold">Lunes 18 de agosto</p>
+                <p className="text-sm font-semibold text-navy/50">{scheduler.availableTitle}</p>
+                <p className="font-display mt-1 text-lg font-bold">{scheduler.selectedDay}</p>
               </div>
               <ul className="grid grid-cols-2 gap-3">
                 {TIME_SLOTS.map((slot, index) => (
@@ -120,22 +120,20 @@ export function CallScheduler() {
                 ))}
               </ul>
               <div className="rounded-xl bg-light p-4">
-                <p className="text-sm font-semibold text-navy">Llamada de estrategia</p>
+                <p className="text-sm font-semibold text-navy">{scheduler.callTitle}</p>
                 <p className="mt-1 text-sm text-navy/60">
                   <Video aria-hidden className="mr-1.5 inline h-4 w-4 text-teal" />
-                  30 minutos · Gratuita · Google Meet
+                  {scheduler.callDetail}
                 </p>
               </div>
               <Button href="#contacto" size="lg" className="w-full">
-                Confirmar llamada
+                {scheduler.confirm}
               </Button>
             </div>
           </div>
         </div>
 
-        <p className="mt-6 text-center text-sm text-navy/50">
-          Mockup visual: la integración real de agendamiento (Calendly / Cal.com) se conectará aquí.
-        </p>
+        <p className="mt-6 text-center text-sm text-navy/50">{scheduler.footnote}</p>
       </Container>
     </Section>
   )

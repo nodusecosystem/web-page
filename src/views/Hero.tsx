@@ -4,11 +4,12 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
-import { HERO_STATS } from '@/lib/constants/social-proof'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 
-const HERO_CHECKLIST = ['Planes mensuales flexibles', 'Reportes transparentes', 'Sin permanencia']
+export async function Hero() {
+  const dict = await getDictionary()
+  const { hero } = dict
 
-export function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden bg-navy text-white">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-pattern" />
@@ -28,26 +29,22 @@ export function Hero() {
       <Container className="relative grid items-center gap-16 pt-32 pb-20 sm:pt-40 lg:grid-cols-2 lg:gap-12 lg:pb-28">
         <FadeIn>
           <div className="flex flex-col items-start gap-6">
-            <Badge className="bg-white/10 text-turquoise">Agencia de estrategia digital</Badge>
+            <Badge className="bg-white/10 text-turquoise">{hero.badge}</Badge>
             <h1 className="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
-              Estrategia digital que convierte datos en{' '}
-              <span className="text-gradient-brand">crecimiento</span>
+              {hero.titleStart} <span className="text-gradient-brand">{hero.titleAccent}</span>
             </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-white/70">
-              Diseñamos, ejecutamos y optimizamos planes mensuales de marketing digital, desarrollo
-              web y automatización para que tu empresa crezca con datos, no con suposiciones.
-            </p>
+            <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center gap-4">
               <Button href="#contacto" size="lg" variant="secondary">
-                Empieza tu plan
+                {hero.ctaPrimary}
                 <ArrowRight aria-hidden className="h-4 w-4" />
               </Button>
               <Button href="#servicios" size="lg" variant="outline">
-                Conoce los servicios
+                {hero.ctaSecondary}
               </Button>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {HERO_CHECKLIST.map((item) => (
+              {hero.checklist.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-white/80">
                   <CheckCircle2 aria-hidden className="h-4 w-4 text-turquoise" />
                   {item}
@@ -75,7 +72,7 @@ export function Hero() {
             />
           </div>
           <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-            {HERO_STATS.map((stat) => (
+            {hero.stats.map((stat) => (
               <div
                 key={stat.label}
                 className="rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur"

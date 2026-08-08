@@ -3,10 +3,12 @@ import { FadeIn } from '@/components/animations/FadeIn'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 
-const SERVICES_CHECKLIST = ['Planes mensuales flexibles', 'Sin permanencia', 'Entregables claros']
+export async function ServicesHero() {
+  const dict = await getDictionary()
+  const { hero } = dict.servicesPage
 
-export function ServicesHero() {
   return (
     <section className="relative overflow-hidden bg-navy text-white">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-pattern" />
@@ -22,25 +24,22 @@ export function ServicesHero() {
       <Container className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
         <FadeIn>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-            <Badge className="bg-white/10 text-turquoise">Servicios</Badge>
+            <Badge className="bg-white/10 text-turquoise">{hero.badge}</Badge>
             <h1 className="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
-              Planes mensuales con <span className="text-gradient-brand">entregables claros</span>
+              {hero.titleStart} <span className="text-gradient-brand">{hero.titleAccent}</span>
             </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-white/70">
-              Estrategia, pauta, desarrollo y automatización en un solo partner. Sabrás
-              exactamente qué recibes cada mes y qué resultado buscamos alcanzar.
-            </p>
+            <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Button href="/contacto" size="lg" variant="secondary">
-                Agenda una llamada
+              <Button href="/contact" size="lg" variant="secondary">
+                {hero.ctaPrimary}
                 <ArrowRight aria-hidden className="h-4 w-4" />
               </Button>
               <Button href="#detalle" size="lg" variant="outline">
-                Ver entregables
+                {hero.ctaSecondary}
               </Button>
             </div>
             <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              {SERVICES_CHECKLIST.map((item) => (
+              {hero.checklist.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-white/80">
                   <CheckCircle2 aria-hidden className="h-4 w-4 text-turquoise" />
                   {item}

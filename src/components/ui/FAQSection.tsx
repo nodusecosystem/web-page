@@ -1,7 +1,8 @@
 import { ChevronDown } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 import { Container } from '@/components/ui/Container'
-import { FAQ_ITEMS, FAQ_SCHEMA } from '@/lib/constants/faq'
+import { getDictionary } from '@/lib/i18n/dictionaries'
+import { faqPageSchema } from '@/lib/schema'
 import { cn } from '@/lib/cn'
 
 type FAQSectionProps = {
@@ -11,25 +12,23 @@ type FAQSectionProps = {
   className?: string
 }
 
-export function FAQSection({
-  id,
-  heading = 'Preguntas frecuentes',
-  subheading = 'Todo lo que necesitas saber sobre nuestro esquema de trabajo mensual, tiempos de entrega y garantía.',
-  className,
-}: FAQSectionProps) {
+export async function FAQSection({ id, heading, subheading, className }: FAQSectionProps = {}) {
+  const dict = await getDictionary()
+  const { faq } = dict
+
   return (
     <section id={id} className={cn('scroll-mt-20 py-20 sm:py-28', className)}>
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>FAQ</Badge>
+          <Badge>{faq.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            {heading}
+            {heading ?? faq.heading}
           </h2>
           {subheading ? <p className="mt-4 text-lg text-navy/60">{subheading}</p> : null}
         </div>
 
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
-          {FAQ_ITEMS.map((item) => (
+          {faq.items.map((item) => (
             <details
               key={item.id}
               className="group rounded-2xl border border-navy/10 bg-white p-5 transition-shadow open:shadow-md"
@@ -48,7 +47,7 @@ export function FAQSection({
       </Container>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema(dict)) }}
       />
     </section>
   )

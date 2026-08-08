@@ -4,27 +4,28 @@ import { Badge } from '@/components/ui/Badge'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
-import { CASE_STUDIES, CLIENT_NAMES } from '@/lib/constants/social-proof'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 
-export function SocialProof() {
+export async function SocialProof() {
+  const dict = await getDictionary()
+  const { socialProof } = dict
+
   return (
     <Section id="resultados" className="bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>Resultados</Badge>
+          <Badge>{socialProof.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Empresas que ya crecen con estrategia
+            {socialProof.heading}
           </h2>
-          <p className="mt-4 text-lg text-navy/60">
-            Casos reales de nuestro trabajo mensual: datos que hablan, clientes que repiten.
-          </p>
+          <p className="mt-4 text-lg text-navy/60">{socialProof.subheading}</p>
         </div>
 
         <ul
-          aria-label="Empresas que confían en nodus"
+          aria-label={socialProof.clientsAriaLabel}
           className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
         >
-          {CLIENT_NAMES.map((client) => (
+          {socialProof.clients.map((client) => (
             <li key={client} className="font-display text-lg font-bold text-navy/30">
               {client}
             </li>
@@ -32,7 +33,7 @@ export function SocialProof() {
         </ul>
 
         <StaggerChildren className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {CASE_STUDIES.map((caseStudy) => (
+          {socialProof.cases.map((caseStudy) => (
             <StaggerItem key={caseStudy.id} className="h-full">
               <Card variant="elevated" className="flex h-full flex-col gap-5">
                 <div className="flex items-center justify-between gap-3">

@@ -1,29 +1,34 @@
+import Link from 'next/link'
+import { lang } from 'next/root-params'
 import { ArrowRight, Check, FileCheck2 } from 'lucide-react'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { Badge } from '@/components/ui/Badge'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
-import { SERVICES } from '@/lib/constants/services'
+import { SERVICE_ICONS } from '@/lib/constants/icons'
+import { getDictionary } from '@/lib/i18n/dictionaries'
+import { localePath } from '@/lib/format'
 import { cn } from '@/lib/cn'
 
-export function ServiceDetails() {
+export async function ServiceDetails() {
+  const dict = await getDictionary()
+  const locale = await lang()
+  const { details } = dict.servicesPage
+
   return (
     <Section id="detalle" className="bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>Oferta de valor</Badge>
+          <Badge>{details.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Cuatro servicios, un plan mensual
+            {details.heading}
           </h2>
-          <p className="mt-4 text-lg text-navy/60">
-            Cada servicio tiene un alcance y unos entregables definidos. Combínalos según tu
-            estrategia y escala cuando quieras.
-          </p>
+          <p className="mt-4 text-lg text-navy/60">{details.subheading}</p>
         </div>
 
         <div className="mt-16 flex flex-col gap-16 lg:gap-20">
-          {SERVICES.map((service, index) => {
-            const Icon = service.icon
+          {dict.services.items.map((service, index) => {
+            const Icon = SERVICE_ICONS[service.id] ?? Check
             return (
               <FadeIn key={service.id}>
                 <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
@@ -40,19 +45,19 @@ export function ServiceDetails() {
                       {service.title}
                     </h3>
                     <p className="text-base leading-relaxed text-navy/60">{service.description}</p>
-                    <a
-                      href="/contacto"
+                    <Link
+                      href={localePath(locale, '/contact')}
                       className="inline-flex items-center gap-1.5 font-semibold text-deep-blue transition-colors hover:text-navy"
                     >
-                      Solicitar este servicio
+                      {details.ctaLink}
                       <ArrowRight aria-hidden className="h-4 w-4" />
-                    </a>
+                    </Link>
                   </div>
 
                   <div className={cn('grid gap-6 sm:grid-cols-2', index % 2 === 1 && 'lg:order-1')}>
                     <div className="rounded-2xl border border-navy/10 bg-white p-6">
                       <h4 className="font-display text-sm font-bold tracking-wider text-navy/50 uppercase">
-                        Qué incluye
+                        {details.includesTitle}
                       </h4>
                       <ul className="mt-4 flex flex-col gap-3">
                         {service.features.map((feature) => (
@@ -66,7 +71,7 @@ export function ServiceDetails() {
                     <div className="rounded-2xl bg-navy p-6 text-white">
                       <h4 className="font-display flex items-center gap-2 text-sm font-bold tracking-wider text-turquoise uppercase">
                         <FileCheck2 aria-hidden className="h-4 w-4" />
-                        Entregables del plan
+                        {details.deliverablesTitle}
                       </h4>
                       <ul className="mt-4 flex flex-col gap-3">
                         {service.deliverables.map((deliverable) => (

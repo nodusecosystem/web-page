@@ -1,8 +1,10 @@
+import Link from 'next/link'
+import { lang } from 'next/root-params'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
-import { FOOTER_LEGAL_LINKS, NAV_LINKS } from '@/lib/constants/navigation'
-import { SERVICES } from '@/lib/constants/services'
 import { SITE_NAME, SOCIAL_LINKS } from '@/lib/constants/site'
+import { format, localePath } from '@/lib/format'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 
 type SocialIcon = {
   label: string
@@ -28,9 +30,10 @@ const SOCIAL_ICONS: SocialIcon[] = [
   },
 ]
 
-const LINK_CLASSES = 'text-sm text-white/70 transition-colors hover:text-turquoise'
-
-export function Footer() {
+export async function Footer() {
+  const dict = await getDictionary()
+  const locale = await lang()
+  const { footer, nav } = dict.layout
   const currentYear = new Date().getFullYear()
 
   return (
@@ -39,10 +42,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-5">
             <Logo variant="isotipo" theme="dark" className="h-16 w-auto" />
-            <p className="max-w-xs text-sm leading-relaxed text-white/70">
-              Agencia de estrategia digital: planes mensuales de marketing, publicidad, desarrollo y
-              automatización para empresas que quieren crecer con datos.
-            </p>
+            <p className="max-w-xs text-sm leading-relaxed text-white/70">{footer.description}</p>
             <ul className="flex gap-3">
               {SOCIAL_ICONS.map(({ label, href, path }) => (
                 <li key={label}>
@@ -50,7 +50,7 @@ export function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Perfil de ${label} de nodus: digital strategy`}
+                    aria-label={format(footer.socialAria, { platform: label, name: SITE_NAME })}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-turquoise hover:text-navy"
                   >
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-4 w-4">
@@ -62,16 +62,19 @@ export function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Enlaces de navegación del pie de página">
+          <nav aria-label={footer.navHeading}>
             <h2 className="font-display text-sm font-bold tracking-wider uppercase text-white/90">
-              Navegación
+              {footer.navHeading}
             </h2>
             <ul className="mt-5 flex flex-col gap-3">
-              {NAV_LINKS.map((link) => (
+              {nav.links.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className={LINK_CLASSES}>
+                  <Link
+                    href={localePath(locale, link.href)}
+                    className="text-sm text-white/70 transition-colors hover:text-turquoise"
+                  >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -79,14 +82,17 @@ export function Footer() {
 
           <div>
             <h2 className="font-display text-sm font-bold tracking-wider uppercase text-white/90">
-              Servicios
+              {footer.servicesHeading}
             </h2>
             <ul className="mt-5 flex flex-col gap-3">
-              {SERVICES.map((service) => (
+              {dict.services.items.map((service) => (
                 <li key={service.id}>
-                  <a href="/servicios" className={LINK_CLASSES}>
+                  <Link
+                    href={localePath(locale, '/services')}
+                    className="text-sm text-white/70 transition-colors hover:text-turquoise"
+                  >
                     {service.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -94,14 +100,17 @@ export function Footer() {
 
           <div>
             <h2 className="font-display text-sm font-bold tracking-wider uppercase text-white/90">
-              Legal
+              {footer.legalHeading}
             </h2>
             <ul className="mt-5 flex flex-col gap-3">
-              {FOOTER_LEGAL_LINKS.map((link) => (
+              {footer.legalLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className={LINK_CLASSES}>
+                  <Link
+                    href={localePath(locale, link.href)}
+                    className="text-sm text-white/70 transition-colors hover:text-turquoise"
+                  >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,9 +119,9 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-sm text-white/60">
-            © {currentYear} {SITE_NAME}. Todos los derechos reservados.
+            © {currentYear} {SITE_NAME}. {footer.rightsSuffix}
           </p>
-          <p className="text-sm text-white/60">Hecho con estrategia y datos.</p>
+          <p className="text-sm text-white/60">{footer.madeWith}</p>
         </div>
       </Container>
     </footer>

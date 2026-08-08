@@ -1,0 +1,461 @@
+{
+  "site": {
+    "description": "Digital strategy agency: monthly plans covering digital marketing, Meta Ads, web development and automation for companies that want to grow with data.",
+    "slogan": "Digital strategy that turns data into growth",
+    "responseTime": "Within 24 business hours",
+    "whatsappMessage": "Hi nodus, I'd like to know more about your monthly plans"
+  },
+  "layout": {
+    "skipToContent": "Skip to content",
+    "header": {
+      "logo": "Go to the home page of nodus: digital strategy",
+      "nav": "Main navigation",
+      "mobileNav": "Mobile navigation menu",
+      "openMenu": "Open navigation menu",
+      "closeMenu": "Close navigation menu"
+    },
+    "nav": {
+      "links": [
+        { "label": "Home", "href": "/" },
+        { "label": "About", "href": "/about" },
+        { "label": "Services", "href": "/services" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "cta": { "label": "Start today", "href": "/contact" }
+    },
+    "footer": {
+      "description": "Digital strategy agency: monthly plans for marketing, advertising, development and automation for companies that want to grow with data.",
+      "navHeading": "Navigation",
+      "servicesHeading": "Services",
+      "legalHeading": "Legal",
+      "legalLinks": [
+        { "label": "Legal notice", "href": "/aviso-legal" },
+        { "label": "Privacy policy", "href": "/politica-de-privacidad" },
+        { "label": "Cookie policy", "href": "/politica-de-cookies" }
+      ],
+      "rightsSuffix": "All rights reserved.",
+      "madeWith": "Built with strategy and data.",
+      "socialAria": "{platform} profile of nodus: digital strategy"
+    }
+  },
+  "hero": {
+    "badge": "Digital strategy agency",
+    "titleStart": "Digital strategy that turns data into",
+    "titleAccent": "growth",
+    "description": "We design, execute and optimize monthly digital marketing, web development and automation plans so your company grows with data, not guesswork.",
+    "ctaPrimary": "Start your plan",
+    "ctaSecondary": "Explore the services",
+    "checklist": ["Flexible monthly plans", "Transparent reporting", "No minimum commitment"],
+    "stats": [
+      { "value": "+40%", "label": "Average ROI on campaigns" },
+      { "value": "98%", "label": "Client retention" },
+      { "value": "12+", "label": "Industries digitalized" },
+      { "value": "24/7", "label": "Active automations" }
+    ]
+  },
+  "services": {
+    "badge": "Services",
+    "heading": "Monthly plans that cover your entire digital strategy",
+    "subheading": "Four areas of expertise, one goal: measurable results. Choose what your business needs today and scale whenever you want.",
+    "ctaLink": "Request information",
+    "items": [
+      {
+        "id": "estrategia",
+        "title": "Digital Strategy & Branding",
+        "description": "We analyze your market, your competitors and your data to set the course: positioning, messaging and a monthly content and SEO plan that delivers results.",
+        "features": [
+          "Full digital audit",
+          "Positioning and branding",
+          "Monthly content plan",
+          "On-page and technical SEO"
+        ],
+        "deliverables": [
+          "Strategy document and monthly plan",
+          "Brand and key messaging guide",
+          "Monthly editorial calendar",
+          "KPI and performance report"
+        ]
+      },
+      {
+        "id": "pauta-digital",
+        "title": "Paid Media Campaigns",
+        "description": "We design and optimize Meta Ads and Google Ads campaigns that convert: right targeting, right creative and budget spent wisely.",
+        "features": [
+          "Meta Ads campaigns",
+          "Google Ads campaigns",
+          "Advanced targeting",
+          "A/B testing and optimization"
+        ],
+        "deliverables": [
+          "Account and campaign structure",
+          "Ad creatives and copy",
+          "Campaign landing pages",
+          "Weekly optimization and reports"
+        ]
+      },
+      {
+        "id": "desarrollo",
+        "title": "Web & Software Development",
+        "description": "We build fast, high-converting digital experiences with Next.js and scalable architectures: from high-performance landing pages to custom software.",
+        "features": [
+          "Conversion landing pages",
+          "Stores and websites",
+          "Custom software",
+          "Performance and technical SEO"
+        ],
+        "deliverables": [
+          "Functional website or landing page",
+          "Responsive and accessible design",
+          "Core Web Vitals optimization",
+          "Monthly maintenance and support"
+        ]
+      },
+      {
+        "id": "automatizacion",
+        "title": "Automation & Integrations",
+        "description": "We automate repetitive processes so your team sells more and works better: leads answered in seconds and tasks on autopilot.",
+        "features": [
+          "Automated sales funnels",
+          "CRM and email marketing",
+          "Integrations and workflows",
+          "24/7 customer support"
+        ],
+        "deliverables": [
+          "Active automation flows",
+          "Configured and integrated CRM",
+          "Email marketing sequences",
+          "Documentation and support"
+        ]
+      }
+    ]
+  },
+  "methodology": {
+    "badge": "Methodology",
+    "heading": "A clear, actionable monthly process",
+    "subheading": "Every month we follow the same cycle: diagnose, plan, execute, optimize and report. No surprises, no fine print.",
+    "steps": [
+      {
+        "id": "diagnostico",
+        "step": "01",
+        "title": "Diagnosis",
+        "description": "We audit your digital presence, analyze your competitors and spot the opportunities with the highest impact.",
+        "duration": "Week 1"
+      },
+      {
+        "id": "plan",
+        "step": "02",
+        "title": "Action plan",
+        "description": "We define goals, KPIs and an actionable monthly plan aligned with your business and your budget.",
+        "duration": "Weeks 1-2"
+      },
+      {
+        "id": "ejecucion",
+        "step": "03",
+        "title": "Execution",
+        "description": "We launch campaigns, content and developments with a clear focus on conversion and growth.",
+        "duration": "Weeks 2-3"
+      },
+      {
+        "id": "optimizacion",
+        "step": "04",
+        "title": "Optimization",
+        "description": "We iterate with real data: we scale what works and quickly fix what doesn't.",
+        "duration": "Weeks 3-4"
+      },
+      {
+        "id": "reporte",
+        "step": "05",
+        "title": "Report & review",
+        "description": "We deliver a clear report and adjust the strategy for the next cycle in a review call.",
+        "duration": "Every month"
+      }
+    ]
+  },
+  "socialProof": {
+    "badge": "Results",
+    "heading": "Companies already growing with strategy",
+    "subheading": "Real results from our monthly work: data that speaks, clients that stay.",
+    "clientsAriaLabel": "Companies that trust nodus",
+    "clients": ["TechNova", "Clínica Sonríe", "Café Altura", "UrbanFit", "Grupo Andino", "Hotel Miramar"],
+    "cases": [
+      {
+        "id": "clinica-sonrie",
+        "client": "Clínica Sonríe",
+        "industry": "Healthcare",
+        "description": "We tripled online bookings in four months by combining Meta Ads campaigns with an automated reminder funnel.",
+        "testimonial": "We went from relying on word of mouth to having a full calendar every month. The monthly reports made it clear where every euro was going.",
+        "metrics": [
+          { "value": "+320%", "label": "online bookings" },
+          { "value": "-45%", "label": "no-shows" }
+        ]
+      },
+      {
+        "id": "cafe-altura",
+        "client": "Café Altura",
+        "industry": "Retail & Food",
+        "description": "A content plan, online store and email automation that turned a local brand into a profitable ecommerce.",
+        "testimonial": "The website they built loads in seconds and the campaigns bring us new customers every week. We finally understand our business numbers.",
+        "metrics": [
+          { "value": "+180%", "label": "online sales" },
+          { "value": "3.2x", "label": "ROAS on Meta" }
+        ]
+      },
+      {
+        "id": "grupo-andino",
+        "client": "Grupo Andino",
+        "industry": "B2B / Construction",
+        "description": "CRM automation and a B2B content strategy that shortened the sales cycle and multiplied qualified leads.",
+        "testimonial": "The automated CRM answered leads before we even knew they existed. The sales team sells — they don't chase.",
+        "metrics": [
+          { "value": "+65%", "label": "qualified leads" },
+          { "value": "-30%", "label": "response time" }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "hero": {
+      "badge": "About us",
+      "titleStart": "We are your",
+      "titleAccent": "digital growth partner",
+      "titleEnd": "",
+      "description": "nodus was born with a simple idea: companies don't need more digital activity, they need results. We combine strategy, data, technology and monthly execution to accelerate the growth of ambitious businesses.",
+      "ctaPrimary": "View services",
+      "ctaSecondary": "Let's talk",
+      "quoteCaption": "The promise we keep every month, with every client."
+    },
+    "purpose": {
+      "badge": "Purpose",
+      "heading": "Mission, vision and values",
+      "subheading": "What drives us, where we're headed and how we work with every client, every day.",
+      "missionTitle": "Mission",
+      "visionTitle": "Vision",
+      "valuesTitle": "Values",
+      "mission": "To accelerate the digital growth of ambitious companies with data-driven strategy, monthly execution and technology that scales with their business.",
+      "vision": "To be the go-to digital growth partner for SMEs and scaleups that want to compete with the big players without relying on a traditional agency.",
+      "values": [
+        {
+          "id": "datos",
+          "title": "Data-driven decisions",
+          "description": "No major decision is made on intuition: every euro invested is backed by a metric."
+        },
+        {
+          "id": "transparencia",
+          "title": "Total transparency",
+          "description": "Clear reports, account access and no fine print. You always know what we do and why."
+        },
+        {
+          "id": "velocidad",
+          "title": "Speed of execution",
+          "description": "We iterate in weeks, not quarters. In a market that doesn't wait, speed is an advantage."
+        },
+        {
+          "id": "crecimiento",
+          "title": "Shared growth",
+          "description": "We win when your business wins: we work as an in-house team, not an external vendor."
+        }
+      ]
+    },
+    "philosophy": {
+      "badge": "Philosophy",
+      "heading": "We don't publish for the sake of it: we accelerate",
+      "subheading": "We're not a traditional agency selling posts and “digital activity”. We're an acceleration partner: we measure, iterate and scale what delivers results.",
+      "points": [
+        {
+          "id": "datos",
+          "title": "Data over opinions",
+          "description": "We measure every action and every campaign. If you can't measure it, you can't improve it."
+        },
+        {
+          "id": "estrategia",
+          "title": "Strategy over publishing",
+          "description": "We don't publish just to publish: every piece of content and every ad answers a business goal."
+        },
+        {
+          "id": "resultados",
+          "title": "Results over activity",
+          "description": "We don't sell hours or tasks: we sell monthly, measurable results agreed from day one."
+        },
+        {
+          "id": "partner",
+          "title": "Partner over vendor",
+          "description": "We sit by your side, understand your business and defend your interests as if they were our own."
+        }
+      ],
+      "quote": "At nodus we don't sell hours or tasks: we sell a monthly, measurable and transparent result."
+    },
+    "stats": {
+      "heading": "Numbers that back us up",
+      "subheading": "The accumulated impact of working with strategy, data and monthly execution.",
+      "items": [
+        { "value": "+40", "label": "companies accelerated" },
+        { "value": "98%", "label": "client retention" },
+        { "value": "12+", "label": "industries digitalized" },
+        { "value": "3.2x", "label": "average ROAS on paid media" }
+      ]
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "badge": "Services",
+      "titleStart": "Monthly plans with",
+      "titleAccent": "clear deliverables",
+      "description": "Strategy, paid media, development and automation under one partner. You'll know exactly what you receive each month and the result we're aiming for.",
+      "ctaPrimary": "Book a call",
+      "ctaSecondary": "See deliverables",
+      "checklist": ["Flexible monthly plans", "No minimum commitment", "Clear deliverables"]
+    },
+    "details": {
+      "badge": "Value proposition",
+      "heading": "Four services, one monthly plan",
+      "subheading": "Each service has a defined scope and deliverables. Combine them according to your strategy and scale whenever you want.",
+      "includesTitle": "What's included",
+      "deliverablesTitle": "Plan deliverables",
+      "ctaLink": "Request this service"
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Contact",
+      "heading": "Let's talk about your growth",
+      "subheading": "Tell us where your business is today and where you want to go. We'll propose a clear monthly plan with measurable goals and no minimum commitment."
+    },
+    "form": {
+      "badge": "Contact",
+      "heading": "Let's talk about your growth",
+      "subheading": "Tell us where your business is today and where you want to go. We'll propose a clear monthly plan with measurable goals and no minimum commitment.",
+      "remoteBadge": "100% remote service",
+      "businessHours": [
+        { "day": "Monday to Friday", "hours": "09:00 – 18:00" },
+        { "day": "Weekends", "hours": "Closed" }
+      ],
+      "responsePrefix": "Average response:",
+      "fields": {
+        "name": { "label": "Name", "placeholder": "Your name" },
+        "email": { "label": "Email", "placeholder": "you@email.com" },
+        "company": { "label": "Company", "placeholder": "Your company name" },
+        "service": { "label": "Service of interest", "placeholder": "All services" },
+        "budget": { "label": "Estimated budget", "placeholder": "Select a range" },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us about your project, your goals and your current situation..."
+        }
+      },
+      "budgetOptions": [
+        { "value": "less-1000", "label": "Less than €1,000/month" },
+        { "value": "1000-2500", "label": "€1,000 – €2,500/month" },
+        { "value": "2500-5000", "label": "€2,500 – €5,000/month" },
+        { "value": "more-5000", "label": "More than €5,000/month" },
+        { "value": "unknown", "label": "Not sure yet" }
+      ],
+      "messages": {
+        "nameTooShort": "Name must be at least {min} characters",
+        "emailInvalid": "Enter a valid email address",
+        "messageTooShort": "Message must be at least {min} characters"
+      },
+      "submit": "Send message",
+      "sending": "Sending...",
+      "sendAnother": "Send another message",
+      "successTitle": "Message sent!",
+      "successDescription": "Thanks for reaching out. We'll get back to you within 24 business hours.",
+      "submitError": "Something went wrong while sending your message. Please try again."
+    },
+    "altHeading": "Tell us about your project",
+    "altSubheading": "Leave us your details, the service you're interested in and a budget range. We'll propose a tailored plan within 24 business hours.",
+    "scheduler": {
+      "badge": "Book a call",
+      "heading": "Book a free strategy call",
+      "subheading": "30 minutes with no commitment to analyze your situation and propose an action plan.",
+      "month": "August 2026",
+      "weekdays": ["M", "T", "W", "T", "F", "S", "S"],
+      "timeZoneLabel": "Madrid time (CET)",
+      "availableTitle": "Available slots",
+      "selectedDay": "Monday, August 18",
+      "callTitle": "Strategy call",
+      "callDetail": "30 minutes · Free · Google Meet",
+      "confirm": "Confirm call",
+      "footnote": "Visual mockup: the real scheduling integration (Calendly / Cal.com) will be connected here."
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "heading": "Frequently asked questions",
+    "subheading": "Everything you need to know about our monthly working model, delivery times and guarantee.",
+    "items": [
+      {
+        "id": "plan-mensual",
+        "question": "How does the monthly plan work?",
+        "answer": "Each month we run a cycle of diagnosis, planning, execution, optimization and reporting. The plan includes strategy, execution and a clear results report: you choose the scope and scale it whenever you want."
+      },
+      {
+        "id": "permanencia",
+        "question": "Is there a minimum commitment or long contracts?",
+        "answer": "No. We work month to month, with no lock-in clauses. If at any point you're not seeing the value you expected, you cancel at no cost and with no paperwork."
+      },
+      {
+        "id": "tiempos",
+        "question": "How soon will I see results?",
+        "answer": "You'll see the audit and action plan in the first week. The first measurable results arrive between the first and second month: optimized ads, active funnels and conversion improvements on your website."
+      },
+      {
+        "id": "primera-semana",
+        "question": "What does the first week include?",
+        "answer": "A full audit of your digital presence, competitive analysis, KPI definition and an actionable monthly plan. By the end of the week you'll know exactly what we're going to do and why."
+      },
+      {
+        "id": "garantia",
+        "question": "What guarantee do you offer?",
+        "answer": "Quality and transparency guarantee: if an agreed deliverable doesn't arrive, it isn't billed. Also, the first monthly report includes a joint review where we validate results before renewing."
+      },
+      {
+        "id": "cancelacion",
+        "question": "What happens if I want to cancel?",
+        "answer": "You just need to let us know before the next cycle renews. We hand over documentation of everything implemented and a continuity guide so you don't lose the work done."
+      },
+      {
+        "id": "equipo",
+        "question": "Who executes the plan?",
+        "answer": "A dedicated team: strategist, paid media specialist, developer and automation expert. We work with shared tools so you can see progress in real time, with no intermediaries."
+      },
+      {
+        "id": "equipo-interno",
+        "question": "Do you work with our in-house team?",
+        "answer": "Yes, it's our favorite way to work. We integrate with your team, document processes and train you so you depend less on us over time and can grow with our tools."
+      }
+    ]
+  },
+  "techStack": {
+    "heading": "Technologies and platforms we master"
+  },
+  "cta": {
+    "heading": "Ready to accelerate your growth?",
+    "subheading": "Book a free strategy call and we'll propose a clear monthly plan with measurable goals and no minimum commitment.",
+    "button": "Book a call"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved. Go back home to keep exploring.",
+    "button": "Back to home"
+  },
+  "floatingWhatsApp": {
+    "ariaLabel": "Chat with nodus on WhatsApp",
+    "tooltip": "Hi nodus, I'd like to know more about your monthly plans"
+  },
+  "scrollToTop": {
+    "ariaLabel": "Back to top"
+  },
+  "metadata": {
+    "about": {
+      "title": "About us",
+      "description": "Discover the story, mission and philosophy of nodus: digital strategy. A digital growth partner measured by results, not activity."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Digital strategy and branding, Meta Ads and Google Ads campaigns, Next.js web development and automation. Monthly plans with clear deliverables."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Write to us or book a free strategy call. We reply within 24 business hours."
+    }
+  }
+}

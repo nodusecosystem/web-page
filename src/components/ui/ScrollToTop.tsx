@@ -6,7 +6,11 @@ import { useEffect, useState } from 'react'
 
 const SCROLL_THRESHOLD = 300
 
-export function ScrollToTop() {
+type ScrollToTopProps = {
+  ariaLabel?: string
+}
+
+export function ScrollToTop({ ariaLabel = 'Volver al inicio' }: ScrollToTopProps) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -24,7 +28,7 @@ export function ScrollToTop() {
         <motion.button
           type="button"
           onClick={scrollToTop}
-          aria-label="Volver al inicio"
+          aria-label={ariaLabel}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}

@@ -1,14 +1,17 @@
 import { Container } from '@/components/ui/Container'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 import { TECH_STACK } from '@/lib/constants/tech-stack'
 
 const MARQUEE_ITEMS = [...TECH_STACK, ...TECH_STACK]
 
-export function TechStack() {
+export async function TechStack() {
+  const dict = await getDictionary()
+
   return (
     <section className="overflow-hidden py-10 sm:py-12">
       <Container>
         <p className="text-center text-sm font-semibold tracking-wider text-navy/50 uppercase">
-          Tecnologías y plataformas que dominamos
+          {dict.techStack.heading}
         </p>
       </Container>
       <div className="group relative mt-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
