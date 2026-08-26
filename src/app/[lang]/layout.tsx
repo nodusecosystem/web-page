@@ -72,7 +72,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a1f3b',
+  themeColor: '#071919',
 }
 
 export async function generateStaticParams() {
@@ -85,10 +85,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
   return (
     <html lang={locale} className={`${inter.variable} ${montserrat.variable}`}>
-      <body className="bg-white font-sans text-navy antialiased">
+      <body className="bg-white font-sans text-dark antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-turquoise focus:px-4 focus:py-2 focus:font-semibold focus:text-navy"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-teal-light focus:px-4 focus:py-2 focus:font-semibold focus:text-dark"
         >
           {dict.layout.skipToContent}
         </a>

@@ -1,5 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { FadeIn } from '@/components/animations/FadeIn'
+import { HeroBackground } from '@/components/animations/HeroBackground'
+import { TitleStroke } from '@/components/animations/TitleStroke'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
@@ -10,28 +12,30 @@ export async function AboutHero() {
   const { hero } = dict.about
 
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-pattern" />
+    <section className="relative overflow-hidden bg-dark text-white">
+      <HeroBackground />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -left-40 h-[30rem] w-[30rem] rounded-full bg-deep-blue/50 blur-3xl"
+        className="pointer-events-none absolute -top-40 -left-40 h-[30rem] w-[30rem] rounded-full bg-teal-light/25 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-cyan/20 blur-3xl"
+        className="pointer-events-none absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-teal-light/20 blur-3xl"
       />
 
       <Container className="relative grid items-center gap-14 pt-32 pb-20 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:pb-28">
         <FadeIn>
           <div className="flex flex-col items-start gap-6">
-            <Badge className="bg-white/10 text-turquoise">{hero.badge}</Badge>
-            <h1 className="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
-              {hero.titleStart} <span className="text-gradient-brand">{hero.titleAccent}</span>
-              {hero.titleEnd ? ` ${hero.titleEnd}` : ''}
+            <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
+            <h1 className="font-display">
+              <TitleStroke className="block text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
+                {hero.titleStart} {hero.titleAccent}
+                {hero.titleEnd ? ` ${hero.titleEnd}` : ''}
+              </TitleStroke>
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center gap-4">
-              <Button href="/services" size="lg" variant="secondary">
+              <Button href="/services" size="lg" variant="solid">
                 {hero.ctaPrimary}
                 <ArrowRight aria-hidden className="h-4 w-4" />
               </Button>

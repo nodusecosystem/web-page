@@ -10,7 +10,7 @@ export async function TechStack() {
   return (
     <section className="overflow-hidden py-10 sm:py-12">
       <Container>
-        <p className="text-center text-sm font-semibold tracking-wider text-navy/50 uppercase">
+        <p className="text-center text-sm font-semibold tracking-wider text-dark/50 uppercase">
           {dict.techStack.heading}
         </p>
       </Container>
@@ -21,10 +21,10 @@ export async function TechStack() {
             return (
               <li
                 key={`${tech.id}-${index}`}
-                className="flex items-center gap-2.5 rounded-full border border-navy/10 bg-white px-5 py-2.5 shadow-sm"
+                className="flex items-center gap-2.5 rounded-full border border-teal-light/25 bg-white px-5 py-2.5 shadow-sm"
               >
-                <Icon aria-hidden className="h-4 w-4 text-deep-blue" />
-                <span className="text-sm font-semibold whitespace-nowrap text-navy/70">
+                <Icon aria-hidden className="h-4 w-4 text-teal-light" />
+                <span className="text-sm font-semibold whitespace-nowrap text-dark/70">
                   {tech.name}
                 </span>
               </li>

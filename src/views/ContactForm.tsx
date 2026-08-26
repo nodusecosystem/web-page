@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
+import { GlowCursor } from '@/components/ui/GlowCursor'
 import { Input } from '@/components/ui/Input'
 import { Section } from '@/components/ui/Section'
 import { Textarea } from '@/components/ui/Textarea'
@@ -15,7 +16,7 @@ import type { ContactFormData, ContactFormErrors, FormStatus } from '@/lib/types
 import { validateContactForm, type ValidationMessages } from '@/lib/validation'
 
 const FIELD_CLASSES =
-  'h-11 w-full appearance-none rounded-lg border border-navy/15 bg-white px-3.5 text-sm text-navy transition-colors focus:border-deep-blue focus:outline-none focus:ring-2 focus:ring-deep-blue/20'
+  'h-11 w-full appearance-none rounded-lg border border-dark/15 bg-white px-3.5 text-sm text-dark transition-colors focus:border-teal-light focus:outline-none focus:ring-2 focus:ring-teal-light/20'
 
 type FormFieldStrings = {
   label: string
@@ -99,14 +100,15 @@ export function ContactForm({
   const isSubmitting = status === 'submitting'
 
   return (
-    <Section id="contacto" className="relative overflow-hidden bg-navy text-white">
+    <Section id="contacto" className="relative overflow-hidden bg-dark text-white">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-turquoise/20 blur-3xl"
+        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-light/20 blur-3xl"
       />
-      <Container className="relative grid gap-14 lg:grid-cols-2 lg:gap-16">
+      <GlowCursor>
+        <Container className="relative grid gap-14 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col items-start gap-6">
-          <Badge className="bg-white/10 text-turquoise">{strings.badge}</Badge>
+          <Badge className="bg-white/10 text-teal-light">{strings.badge}</Badge>
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {heading ?? strings.heading}
           </h2>
@@ -117,28 +119,28 @@ export function ContactForm({
             <li>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="flex items-center gap-3 text-white/80 transition-colors hover:text-turquoise"
+                className="flex items-center gap-3 text-white/80 transition-colors hover:text-teal-light"
               >
-                <Mail aria-hidden className="h-5 w-5 text-turquoise" />
+                <Mail aria-hidden className="h-5 w-5 text-teal-light" />
                 {CONTACT_EMAIL}
               </a>
             </li>
             <li>
               <a
                 href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}
-                className="flex items-center gap-3 text-white/80 transition-colors hover:text-turquoise"
+                className="flex items-center gap-3 text-white/80 transition-colors hover:text-teal-light"
               >
-                <Phone aria-hidden className="h-5 w-5 text-turquoise" />
+                <Phone aria-hidden className="h-5 w-5 text-teal-light" />
                 {CONTACT_PHONE}
               </a>
             </li>
             <li className="flex items-center gap-3 text-white/80">
-              <MapPin aria-hidden className="h-5 w-5 text-turquoise" />
+              <MapPin aria-hidden className="h-5 w-5 text-teal-light" />
               {CONTACT_CITY}, {CONTACT_COUNTRY} · {strings.remoteBadge}
             </li>
             <li>
               <p className="flex items-center gap-3 text-white/80">
-                <Clock aria-hidden className="h-5 w-5 text-turquoise" />
+                <Clock aria-hidden className="h-5 w-5 text-teal-light" />
                 <span>
                   {strings.businessHours.map((schedule) => (
                     <span key={schedule.day} className="block">
@@ -155,12 +157,12 @@ export function ContactForm({
           </p>
         </div>
 
-        <Card className="bg-white text-navy">
+        <Card className="text-dark">
           {status === 'success' ? (
             <div className="flex flex-col items-center gap-4 py-12 text-center">
-              <CheckCircle2 aria-hidden className="h-14 w-14 text-teal" />
+              <CheckCircle2 aria-hidden className="h-14 w-14 text-teal-light" />
               <h3 className="font-display text-2xl font-bold">{strings.successTitle}</h3>
-              <p className="max-w-md text-navy/60">{strings.successDescription}</p>
+              <p className="max-w-md text-dark/60">{strings.successDescription}</p>
               <Button type="button" variant="ghost" onClick={resetForm}>
                 {strings.sendAnother}
               </Button>
@@ -198,7 +200,7 @@ export function ContactForm({
                   onChange={handleChange('company')}
                 />
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="service" className="text-sm font-semibold text-navy">
+                  <label htmlFor="service" className="text-sm font-semibold text-dark">
                     {strings.fields.service.label}
                   </label>
                   <div className="relative">
@@ -217,13 +219,13 @@ export function ContactForm({
                     </select>
                     <ChevronDown
                       aria-hidden
-                      className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-navy/40"
+                      className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-dark/40"
                     />
                   </div>
                 </div>
               </div>
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="budget" className="text-sm font-semibold text-navy">
+                <label htmlFor="budget" className="text-sm font-semibold text-dark">
                   {strings.fields.budget.label}
                 </label>
                 <div className="relative">
@@ -242,7 +244,7 @@ export function ContactForm({
                   </select>
                   <ChevronDown
                     aria-hidden
-                    className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-navy/40"
+                    className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-dark/40"
                   />
                 </div>
               </div>
@@ -276,7 +278,8 @@ export function ContactForm({
             </form>
           )}
         </Card>
-      </Container>
+        </Container>
+      </GlowCursor>
     </Section>
   )
 }

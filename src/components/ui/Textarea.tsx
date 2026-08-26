@@ -10,7 +10,7 @@ type TextareaProps = ComponentPropsWithoutRef<'textarea'> & {
 export function Textarea({ id, label, error, className, ...rest }: TextareaProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-sm font-semibold text-navy">
+      <label htmlFor={id} className="text-sm font-semibold text-dark">
         {label}
       </label>
       <textarea
@@ -18,10 +18,10 @@ export function Textarea({ id, label, error, className, ...rest }: TextareaProps
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
-          'min-h-32 w-full rounded-lg border bg-white px-3.5 py-3 text-sm text-navy transition-colors placeholder:text-navy/40 focus:outline-none focus:ring-2',
+          'min-h-32 w-full rounded-lg border bg-white px-3.5 py-3 text-sm text-dark transition-colors placeholder:text-dark/40 focus:outline-none focus:ring-2',
           error
             ? 'border-red-500 focus:ring-red-200'
-            : 'border-navy/15 focus:border-deep-blue focus:ring-deep-blue/20',
+            : 'border-dark/15 focus:border-teal-light focus:ring-teal-light/20',
           className,
         )}
         {...rest}

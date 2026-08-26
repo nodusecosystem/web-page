@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
+import SpecularButton from '@/components/ui/reactbits/SpecularButton'
 import { cn } from '@/lib/cn'
 
 type HeaderLink = {
@@ -43,6 +44,12 @@ const LANG_OPTIONS: { code: string; labelKey: 'es' | 'en' }[] = [
   { code: 'en', labelKey: 'en' },
 ]
 
+const LIGHT_TOP_PAGES = ['/contact']
+
+const HEADER_MATCH_POINT = 24
+
+const HEADER_THEME_RE = /rgba?\(\s*(\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/
+
 export function Header({
   links,
   cta,
@@ -50,18 +57,46 @@ export function Header({
   homeHref,
   currentLocale,
   langToggle,
-}: HeaderProps) {
+}: Readonly<HeaderProps>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
-  const langRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
+  const [isLightTop, setIsLightTop] = useState(() =>
+    LIGHT_TOP_PAGES.includes(`/${pathname.split('/')[2] ?? ''}`),
+  )
+  const langRef = useRef<HTMLDivElement>(null)
+  const rafRef = useRef(0)
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8)
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    const readBackground = () => {
+      rafRef.current = 0
+      const sections = document.querySelectorAll<HTMLElement>('main section')
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect()
+        if (rect.top > HEADER_MATCH_POINT || rect.bottom < HEADER_MATCH_POINT) continue
+        const background = window.getComputedStyle(section).backgroundColor
+        const match = HEADER_THEME_RE.exec(background)
+        if (!match) return
+        const [, red, green, blue, alpha = '1'] = match
+        const luminance = 0.2126 * Number(red) + 0.7152 * Number(green) + 0.0722 * Number(blue)
+        setIsLightTop(Number(alpha) < 0.5 || luminance > 128)
+        return
+      }
+    }
+
+    const scheduleRead = () => {
+      if (!rafRef.current) rafRef.current = window.requestAnimationFrame(readBackground)
+    }
+    const initTimer = window.setTimeout(readBackground, 0)
+
+    window.addEventListener('scroll', scheduleRead, { passive: true })
+    window.addEventListener('resize', scheduleRead)
+    return () => {
+      window.clearTimeout(initTimer)
+      if (rafRef.current) window.cancelAnimationFrame(rafRef.current)
+      window.removeEventListener('scroll', scheduleRead)
+      window.removeEventListener('resize', scheduleRead)
+    }
   }, [])
 
   useEffect(() => {
@@ -98,7 +133,10 @@ export function Header({
         aria-expanded={isLangOpen}
         aria-haspopup="menu"
         aria-label={langToggle.ariaLabel}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy transition-colors hover:bg-light"
+        className={cn(
+          'inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors',
+          isLightTop ? 'text-dark hover:bg-teal-light/10' : 'text-white hover:bg-white/10',
+        )}
       >
         <Globe aria-hidden className="h-5 w-5" />
       </button>
@@ -111,7 +149,7 @@ export function Header({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full right-0 z-10 mt-2 w-40 overflow-hidden rounded-xl border border-navy/10 bg-white p-1.5 shadow-lg"
+            className="absolute top-full right-0 z-10 mt-2 w-40 overflow-hidden rounded-xl border border-teal-light/25 bg-dark/90 p-1.5 shadow-lg backdrop-blur-xl"
           >
             {LANG_OPTIONS.map((option) => {
               const isActive = option.code === currentLocale
@@ -128,8 +166,8 @@ export function Header({
                   className={cn(
                     'flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors',
                     isActive
-                      ? 'font-semibold text-deep-blue'
-                      : 'text-navy/70 hover:bg-light',
+                      ? 'font-semibold text-teal-light'
+                      : 'text-white/70 hover:bg-white/10',
                   )}
                 >
                   {langToggle[option.labelKey]}
@@ -144,29 +182,42 @@ export function Header({
   )
 
   return (
-    <header className={cn('fixed inset-x-0 top-0 z-50 transition-shadow duration-300', isScrolled && 'shadow-md')}>
-      <div className="border-b border-navy/10 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className="border-transparent bg-transparent">
         <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
           <a href={homeHref} aria-label={ariaLabels.logo} className="shrink-0" onClick={closeMenu}>
-            <Logo variant="horizontal" className="h-8 w-auto sm:h-10" />
+            <Logo variant="horizontal" theme="dark" className="h-8 w-auto sm:h-10" />
           </a>
 
-          <nav aria-label={ariaLabels.nav} className="hidden items-center gap-8 md:flex">
+          <SpecularButton
+            as="nav"
+            ariaLabel={ariaLabels.nav}
+            size="none"
+            radius={999}
+            tint="#071919"
+            tintOpacity={0.6}
+            textColor="#ffffff"
+            lineColor="#3aeaea"
+            baseColor="#3aeaea"
+            blur={12}
+            glass
+            className="hidden items-center gap-1 px-2 py-1.5 md:flex"
+          >
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-navy/80 transition-colors hover:text-deep-blue"
+                className="rounded-full px-4 py-1.5 text-sm font-medium text-white/80 transition-colors hover:bg-teal-light/10 hover:text-teal-light"
               >
                 {link.label}
               </a>
             ))}
-          </nav>
+          </SpecularButton>
 
           <div className="flex items-center gap-2 md:gap-3">
             {langDropdown}
 
-            <div className="hidden md:block">
+            <div className="hidden md:flex">
               <Button href={cta.href} size="sm">
                 {cta.label}
               </Button>
@@ -178,7 +229,10 @@ export function Header({
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMenuOpen ? ariaLabels.closeMenu : ariaLabels.openMenu}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy hover:bg-light md:hidden"
+              className={cn(
+                'inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden',
+                isLightTop ? 'text-dark hover:bg-teal-light/10' : 'text-white hover:bg-white/10',
+              )}
             >
               {isMenuOpen ? <X aria-hidden className="h-5 w-5" /> : <Menu aria-hidden className="h-5 w-5" />}
             </button>
@@ -195,7 +249,7 @@ export function Header({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="border-b border-navy/10 bg-white md:hidden"
+            className="border-b border-teal-light/25 bg-dark/90 backdrop-blur-xl md:hidden"
           >
             <Container className="flex flex-col gap-1 py-4">
               {links.map((link) => (
@@ -203,7 +257,7 @@ export function Header({
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  className="rounded-lg px-3 py-2.5 text-base font-medium text-navy hover:bg-light"
+                  className="rounded-lg px-3 py-2.5 text-base font-medium text-white hover:bg-teal-light/10"
                 >
                   {link.label}
                 </a>

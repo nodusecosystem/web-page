@@ -14,11 +14,22 @@ describe('Button', () => {
     expect(link).toHaveAttribute('href', '#contacto')
   })
 
-  it('applies the primary variant and default size classes', () => {
+  it('uses the solid variant by default with brand colors', () => {
     render(<Button>Haz clic</Button>)
     const button = screen.getByRole('button')
-    expect(button).toHaveClass('bg-deep-blue')
-    expect(button).toHaveClass('h-11')
+    expect(button).toHaveStyle('--sb-tint: #3aeaea')
+    expect(button).toHaveStyle('--sb-tint-opacity: 1')
+    expect(button).toHaveStyle('--sb-text-color: #071919')
+  })
+
+  it('uses glassmorphism on outline and ghost variants', () => {
+    render(<Button variant="outline">Outline</Button>)
+    expect(screen.getByRole('button', { name: 'Outline' })).toHaveStyle('--sb-blur: 10px')
+  })
+
+  it('preserves submit type for forms', () => {
+    render(<Button type="submit">Enviar</Button>)
+    expect(screen.getByRole('button', { name: 'Enviar' })).toHaveAttribute('type', 'submit')
   })
 
   it('calls onClick when clicked', () => {

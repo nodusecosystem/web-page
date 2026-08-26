@@ -1,23 +1,36 @@
-import type { ReactNode } from 'react'
-import { cn } from '@/lib/cn'
+'use client'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
+import type { ReactNode } from 'react'
+import SpecularButton from '@/components/ui/reactbits/SpecularButton'
+
+export type ButtonVariant = 'solid' | 'outline' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
-const BASE_CLASSES =
-  'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan disabled:cursor-not-allowed disabled:opacity-60'
-
-const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  primary: 'bg-deep-blue text-white hover:bg-navy',
-  secondary: 'bg-turquoise text-navy hover:bg-cyan',
-  outline: 'border border-white/40 text-white hover:border-white/70 hover:bg-white/10',
-  ghost: 'text-deep-blue hover:bg-light',
-}
-
-const SIZE_CLASSES: Record<ButtonSize, string> = {
-  sm: 'h-9 px-4 text-sm',
-  md: 'h-11 px-6 text-sm sm:text-base',
-  lg: 'h-12 px-7 text-base',
+const BUTTON_SPECS: Record<
+  ButtonVariant,
+  { tintOpacity: number; lineColor: string; textColor: string; tint: string; blur: number }
+> = {
+  solid: {
+    tint: '#3aeaea',
+    tintOpacity: 1,
+    lineColor: '#ffffff',
+    textColor: '#071919',
+    blur: 0,
+  },
+  outline: {
+    tint: '#071919',
+    tintOpacity: 0.35,
+    lineColor: '#3aeaea',
+    textColor: '#3aeaea',
+    blur: 10,
+  },
+  ghost: {
+    tint: '#071919',
+    tintOpacity: 0.2,
+    lineColor: '#3aeaea',
+    textColor: '#071919',
+    blur: 10,
+  },
 }
 
 type ButtonProps = {
@@ -33,27 +46,37 @@ type ButtonProps = {
 
 export function Button({
   children,
-  variant = 'primary',
+  variant = 'solid',
   size = 'md',
   className,
   href,
   type,
   disabled,
   onClick,
-}: ButtonProps) {
-  const classes = cn(BASE_CLASSES, VARIANT_CLASSES[variant], SIZE_CLASSES[size], className)
-
-  if (href) {
-    return (
-      <a href={href} className={classes} onClick={onClick}>
-        {children}
-      </a>
-    )
-  }
+}: Readonly<ButtonProps>) {
+  const spec = BUTTON_SPECS[variant]
 
   return (
-    <button type={type ?? 'button'} className={classes} disabled={disabled} onClick={onClick}>
+    <SpecularButton
+      size={size}
+      href={href}
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      className={className}
+      radius={999}
+      blur={spec.blur}
+      tint={spec.tint}
+      tintOpacity={spec.tintOpacity}
+      lineColor={spec.lineColor}
+      textColor={spec.textColor}
+      baseColor={spec.lineColor}
+      intensity={1.3}
+      thickness={1.4}
+      autoAnimate
+      glass
+    >
       {children}
-    </button>
+    </SpecularButton>
   )
 }

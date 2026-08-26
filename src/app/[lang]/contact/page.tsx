@@ -42,7 +42,7 @@ export default async function ContactPage() {
         subheading={dict.contact.altSubheading}
       />
       <CallScheduler />
-      <FAQSection className="bg-light" />
+      <FAQSection className="bg-teal-light/5" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema(dict, locale as Locale)) }}

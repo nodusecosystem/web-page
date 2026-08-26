@@ -37,7 +37,7 @@ export async function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-dark text-white">
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-5">
@@ -51,7 +51,7 @@ export async function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={format(footer.socialAria, { platform: label, name: SITE_NAME })}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-turquoise hover:text-navy"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-teal-light hover:text-dark"
                   >
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-4 w-4">
                       <path d={path} />
@@ -71,7 +71,7 @@ export async function Footer() {
                 <li key={link.href}>
                   <Link
                     href={localePath(locale, link.href)}
-                    className="text-sm text-white/70 transition-colors hover:text-turquoise"
+                    className="text-sm text-white/70 transition-colors hover:text-teal-light"
                   >
                     {link.label}
                   </Link>
@@ -89,7 +89,7 @@ export async function Footer() {
                 <li key={service.id}>
                   <Link
                     href={localePath(locale, '/services')}
-                    className="text-sm text-white/70 transition-colors hover:text-turquoise"
+                    className="text-sm text-white/70 transition-colors hover:text-teal-light"
                   >
                     {service.title}
                   </Link>
@@ -107,7 +107,7 @@ export async function Footer() {
                 <li key={link.href}>
                   <Link
                     href={localePath(locale, link.href)}
-                    className="text-sm text-white/70 transition-colors hover:text-turquoise"
+                    className="text-sm text-white/70 transition-colors hover:text-teal-light"
                   >
                     {link.label}
                   </Link>

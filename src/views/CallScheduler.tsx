@@ -44,27 +44,27 @@ export async function CallScheduler() {
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {scheduler.heading}
           </h2>
-          <p className="mt-4 text-lg text-navy/60">{scheduler.subheading}</p>
+          <p className="mt-4 text-lg text-dark/60">{scheduler.subheading}</p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-navy/10 bg-white shadow-lg">
+        <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-dark/10 bg-white shadow-lg">
           <div className="grid lg:grid-cols-[1.2fr_1fr]">
-            <div className="border-b border-navy/10 p-6 sm:p-8 lg:border-r lg:border-b-0">
+            <div className="border-b border-dark/10 p-6 sm:p-8 lg:border-r lg:border-b-0">
               <div className="flex items-center justify-between">
                 <p className="flex items-center gap-2 font-display text-lg font-bold">
-                  <CalendarDays aria-hidden className="h-5 w-5 text-deep-blue" />
+                  <CalendarDays aria-hidden className="h-5 w-5 text-teal-light" />
                   {scheduler.month}
                 </p>
                 <div className="flex gap-2">
                   <span
                     aria-hidden
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/10 text-navy/40"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-dark/10 text-dark/40"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </span>
                   <span
                     aria-hidden
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/10 text-navy/40"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-dark/10 text-dark/40"
                   >
                     <ChevronRight className="h-4 w-4" />
                   </span>
@@ -75,7 +75,7 @@ export async function CallScheduler() {
                 {scheduler.weekdays.map((weekday) => (
                   <span
                     key={weekday}
-                    className="text-center text-xs font-semibold text-navy/40"
+                    className="text-center text-xs font-semibold text-dark/40"
                   >
                     {weekday}
                   </span>
@@ -86,21 +86,21 @@ export async function CallScheduler() {
                     aria-disabled={disabled || undefined}
                     className={cn(
                       'flex h-10 items-center justify-center rounded-lg text-sm font-medium',
-                      selected && 'bg-deep-blue font-bold text-white',
-                      disabled && 'text-navy/20 line-through',
-                      !selected && !disabled && 'text-navy/70',
+                      selected && 'bg-teal-light font-bold text-dark',
+                      disabled && 'text-dark/20 line-through',
+                      !selected && !disabled && 'text-dark/70',
                     )}
                   >
                     {day}
                   </span>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-navy/40">{scheduler.timeZoneLabel}</p>
+              <p className="mt-4 text-xs text-dark/40">{scheduler.timeZoneLabel}</p>
             </div>
 
             <div className="flex flex-col gap-6 p-6 sm:p-8">
               <div>
-                <p className="text-sm font-semibold text-navy/50">{scheduler.availableTitle}</p>
+                <p className="text-sm font-semibold text-dark/50">{scheduler.availableTitle}</p>
                 <p className="font-display mt-1 text-lg font-bold">{scheduler.selectedDay}</p>
               </div>
               <ul className="grid grid-cols-2 gap-3">
@@ -110,8 +110,8 @@ export async function CallScheduler() {
                     className={cn(
                       'flex items-center justify-center gap-2 rounded-lg border py-2.5 text-sm font-semibold',
                       index === 0
-                        ? 'border-deep-blue bg-deep-blue text-white'
-                        : 'border-navy/10 text-navy/60',
+                        ? 'border-teal-light bg-teal-light text-dark'
+                        : 'border-dark/10 text-dark/60',
                     )}
                   >
                     <Clock aria-hidden className="h-3.5 w-3.5" />
@@ -119,10 +119,10 @@ export async function CallScheduler() {
                   </li>
                 ))}
               </ul>
-              <div className="rounded-xl bg-light p-4">
-                <p className="text-sm font-semibold text-navy">{scheduler.callTitle}</p>
-                <p className="mt-1 text-sm text-navy/60">
-                  <Video aria-hidden className="mr-1.5 inline h-4 w-4 text-teal" />
+              <div className="rounded-xl bg-teal-light/10 p-4">
+                <p className="text-sm font-semibold text-dark">{scheduler.callTitle}</p>
+                <p className="mt-1 text-sm text-dark/60">
+                  <Video aria-hidden className="mr-1.5 inline h-4 w-4 text-teal-light" />
                   {scheduler.callDetail}
                 </p>
               </div>
@@ -133,7 +133,7 @@ export async function CallScheduler() {
           </div>
         </div>
 
-        <p className="mt-6 text-center text-sm text-navy/50">{scheduler.footnote}</p>
+        <p className="mt-6 text-center text-sm text-dark/50">{scheduler.footnote}</p>
       </Container>
     </Section>
   )

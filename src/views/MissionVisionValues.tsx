@@ -19,33 +19,33 @@ export async function MissionVisionValues() {
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {purpose.heading}
           </h2>
-          <p className="mt-4 text-lg text-navy/60">{purpose.subheading}</p>
+          <p className="mt-4 text-lg text-dark/60">{purpose.subheading}</p>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           <FadeIn className="h-full">
             <Card variant="bordered" className="flex h-full flex-col gap-5">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-light text-deep-blue">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-light/10 text-teal-light">
                 <Target aria-hidden className="h-6 w-6" />
               </span>
               <h3 className="font-display text-lg font-bold">{purpose.missionTitle}</h3>
-              <p className="text-sm leading-relaxed text-navy/60">{purpose.mission}</p>
+              <p className="text-sm leading-relaxed text-dark/60">{purpose.mission}</p>
             </Card>
           </FadeIn>
 
           <FadeIn delay={0.1} className="h-full">
             <Card variant="bordered" className="flex h-full flex-col gap-5">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-light text-deep-blue">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-light/10 text-teal-light">
                 <Eye aria-hidden className="h-6 w-6" />
               </span>
               <h3 className="font-display text-lg font-bold">{purpose.visionTitle}</h3>
-              <p className="text-sm leading-relaxed text-navy/60">{purpose.vision}</p>
+              <p className="text-sm leading-relaxed text-dark/60">{purpose.vision}</p>
             </Card>
           </FadeIn>
 
           <FadeIn delay={0.2} className="h-full">
             <Card variant="bordered" className="flex h-full flex-col gap-5">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-light text-deep-blue">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-light/10 text-teal-light">
                 <Sparkles aria-hidden className="h-6 w-6" />
               </span>
               <h3 className="font-display text-lg font-bold">{purpose.valuesTitle}</h3>
@@ -54,9 +54,9 @@ export async function MissionVisionValues() {
                   const Icon = ABOUT_VALUE_ICONS[value.id]
                   return (
                     <li key={value.id} className="flex items-start gap-2.5">
-                      {Icon ? <Icon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-teal" /> : null}
-                      <span className="text-sm text-navy/70">
-                        <strong className="font-semibold text-navy">{value.title}:</strong>{' '}
+                      {Icon ? <Icon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" /> : null}
+                      <span className="text-sm text-dark/70">
+                        <strong className="font-semibold text-dark">{value.title}:</strong>{' '}
                         {value.description}
                       </span>
                     </li>

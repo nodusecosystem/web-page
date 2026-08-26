@@ -1,5 +1,8 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
 import { FadeIn } from '@/components/animations/FadeIn'
+import { HeroBackground } from '@/components/animations/HeroBackground'
+import { TitleStroke } from '@/components/animations/TitleStroke'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
@@ -11,31 +14,33 @@ export async function Hero() {
   const { hero } = dict
 
   return (
-    <section id="inicio" className="relative overflow-hidden bg-navy text-white">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-pattern" />
+    <section id="inicio" className="relative overflow-hidden bg-dark text-white">
+      <HeroBackground />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-deep-blue/50 blur-3xl"
+        className="pointer-events-none absolute -top-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-teal-light/25 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/3 -right-32 h-[28rem] w-[28rem] rounded-full bg-teal/30 blur-3xl"
+        className="pointer-events-none absolute top-1/3 -right-32 h-[28rem] w-[28rem] rounded-full bg-teal-light/15 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 left-1/3 h-[26rem] w-[26rem] rounded-full bg-cyan/20 blur-3xl"
+        className="pointer-events-none absolute -bottom-40 left-1/3 h-[26rem] w-[26rem] rounded-full bg-teal-light/10 blur-3xl"
       />
 
-      <Container className="relative grid items-center gap-16 pt-32 pb-20 sm:pt-40 lg:grid-cols-2 lg:gap-12 lg:pb-28">
+      <Container className="relative grid min-h-svh items-center gap-16 py-20 sm:py-24 lg:grid-cols-2 lg:gap-12">
         <FadeIn>
           <div className="flex flex-col items-start gap-6">
-            <Badge className="bg-white/10 text-turquoise">{hero.badge}</Badge>
-            <h1 className="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
-              {hero.titleStart} <span className="text-gradient-brand">{hero.titleAccent}</span>
+            <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
+            <h1 className="font-display">
+              <TitleStroke className="block text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
+                {hero.titleStart} {hero.titleAccent}
+              </TitleStroke>
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center gap-4">
-              <Button href="#contacto" size="lg" variant="secondary">
+              <Button href="#contacto" size="lg" variant="solid">
                 {hero.ctaPrimary}
                 <ArrowRight aria-hidden className="h-4 w-4" />
               </Button>
@@ -46,7 +51,7 @@ export async function Hero() {
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
               {hero.checklist.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-white/80">
-                  <CheckCircle2 aria-hidden className="h-4 w-4 text-turquoise" />
+                  <CheckCircle2 aria-hidden className="h-4 w-4 text-teal-light" />
                   {item}
                 </li>
               ))}
@@ -58,11 +63,11 @@ export async function Hero() {
           <div className="relative mx-auto flex aspect-square max-w-md items-center justify-center">
             <div
               aria-hidden
-              className="absolute inset-0 rounded-full bg-linear-to-br from-deep-blue via-teal to-cyan opacity-60 blur-2xl"
+              className="absolute inset-0 rounded-full bg-linear-to-br from-teal-light via-teal-light to-white opacity-40 blur-2xl"
             />
             <div
               aria-hidden
-              className="absolute inset-6 rounded-full border border-white/10 bg-navy/80 backdrop-blur"
+              className="absolute inset-6 rounded-full border border-white/10 bg-dark/80 backdrop-blur"
             />
             <Logo
               variant="isotipo"
@@ -78,7 +83,9 @@ export async function Hero() {
                 className="rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur"
               >
                 <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-display text-2xl font-bold text-turquoise">{stat.value}</dd>
+                <dd className="font-display text-2xl font-bold text-teal-light">
+                  <AnimatedCounter value={stat.value} />
+                </dd>
                 <p className="mt-1 text-xs text-white/60">{stat.label}</p>
               </div>
             ))}

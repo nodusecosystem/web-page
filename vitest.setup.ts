@@ -27,3 +27,4 @@ const matchMediaMock = (query: string): MediaQueryList =>
 globalThis.IntersectionObserver = IntersectionObserverMock as unknown as typeof IntersectionObserver
 globalThis.ResizeObserver = ResizeObserverMock as unknown as typeof ResizeObserver
 window.matchMedia = matchMediaMock
+HTMLCanvasElement.prototype.getContext = (() => null) as unknown as typeof HTMLCanvasElement.prototype.getContext

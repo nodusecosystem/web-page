@@ -24,23 +24,23 @@ export async function FAQSection({ id, heading, subheading, className }: FAQSect
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {heading ?? faq.heading}
           </h2>
-          {subheading ? <p className="mt-4 text-lg text-navy/60">{subheading}</p> : null}
+          {subheading ? <p className="mt-4 text-lg text-dark/60">{subheading}</p> : null}
         </div>
 
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
           {faq.items.map((item) => (
             <details
               key={item.id}
-              className="group rounded-2xl border border-navy/10 bg-white p-5 transition-shadow open:shadow-md"
+              className="group rounded-2xl border border-teal-light/25 bg-white p-5 transition-all duration-300 open:border-teal-light open:bg-teal-light/5 open:shadow-md open:glass-highlight"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-navy [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-dark [&::-webkit-details-marker]:hidden">
                 {item.question}
                 <ChevronDown
                   aria-hidden
-                  className="h-5 w-5 shrink-0 text-deep-blue transition-transform duration-200 group-open:rotate-180"
+                  className="h-5 w-5 shrink-0 text-teal-light transition-transform duration-200 group-open:rotate-180"
                 />
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-navy/60">{item.answer}</p>
+              <p className="mt-3 text-sm leading-relaxed text-dark/60">{item.answer}</p>
             </details>
           ))}
         </div>

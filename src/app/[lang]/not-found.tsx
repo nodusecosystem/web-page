@@ -1,4 +1,5 @@
 import { lang } from 'next/root-params'
+import { TitleStroke } from '@/components/animations/TitleStroke'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
@@ -9,9 +10,13 @@ export default async function NotFound() {
 
   return (
     <Container className="flex min-h-[70vh] flex-col items-center justify-center gap-6 pt-24 text-center">
-      <p className="font-display text-7xl font-bold text-deep-blue">404</p>
-      <h1 className="font-display text-3xl font-bold">{dict.notFound.title}</h1>
-      <p className="max-w-md text-navy/60">{dict.notFound.description}</p>
+      <p className="font-display text-7xl font-bold text-dark">404</p>
+      <h1 className="font-display">
+        <TitleStroke fillClassName="text-dark" className="block text-3xl font-bold">
+          {dict.notFound.title}
+        </TitleStroke>
+      </h1>
+      <p className="max-w-md text-dark/60">{dict.notFound.description}</p>
       <Button href={`/${locale}`}>{dict.notFound.button}</Button>
     </Container>
   )

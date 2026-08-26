@@ -1,5 +1,7 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { FadeIn } from '@/components/animations/FadeIn'
+import { HeroBackground } from '@/components/animations/HeroBackground'
+import { TitleStroke } from '@/components/animations/TitleStroke'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
@@ -10,27 +12,29 @@ export async function ServicesHero() {
   const { hero } = dict.servicesPage
 
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-pattern" />
+    <section className="relative overflow-hidden bg-dark text-white">
+      <HeroBackground />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[30rem] w-[30rem] rounded-full bg-deep-blue/50 blur-3xl"
+        className="pointer-events-none absolute -top-40 -right-40 h-[30rem] w-[30rem] rounded-full bg-teal-light/25 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full bg-cyan/20 blur-3xl"
+        className="pointer-events-none absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full bg-teal-light/20 blur-3xl"
       />
 
       <Container className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
         <FadeIn>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-            <Badge className="bg-white/10 text-turquoise">{hero.badge}</Badge>
-            <h1 className="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
-              {hero.titleStart} <span className="text-gradient-brand">{hero.titleAccent}</span>
+            <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
+            <h1 className="font-display">
+              <TitleStroke className="block text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
+                {hero.titleStart} {hero.titleAccent}
+              </TitleStroke>
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Button href="/contact" size="lg" variant="secondary">
+              <Button href="/contact" size="lg" variant="solid">
                 {hero.ctaPrimary}
                 <ArrowRight aria-hidden className="h-4 w-4" />
               </Button>
@@ -41,7 +45,7 @@ export async function ServicesHero() {
             <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
               {hero.checklist.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-white/80">
-                  <CheckCircle2 aria-hidden className="h-4 w-4 text-turquoise" />
+                  <CheckCircle2 aria-hidden className="h-4 w-4 text-teal-light" />
                   {item}
                 </li>
               ))}

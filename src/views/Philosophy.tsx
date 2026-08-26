@@ -11,14 +11,14 @@ export async function Philosophy() {
   const { philosophy } = dict.about
 
   return (
-    <Section className="bg-light">
+    <Section className="bg-teal-light/5">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <Badge>{philosophy.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {philosophy.heading}
           </h2>
-          <p className="mt-4 text-lg text-navy/60">{philosophy.subheading}</p>
+          <p className="mt-4 text-lg text-dark/60">{philosophy.subheading}</p>
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -27,11 +27,11 @@ export async function Philosophy() {
             return (
               <FadeIn key={point.id} delay={index * 0.1} className="h-full">
                 <Card variant="bordered" className="flex h-full flex-col gap-4">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-turquoise">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-dark text-teal-light">
                     {Icon ? <Icon aria-hidden className="h-5 w-5" /> : null}
                   </span>
                   <h3 className="font-display text-base font-bold">{point.title}</h3>
-                  <p className="text-sm leading-relaxed text-navy/60">{point.description}</p>
+                  <p className="text-sm leading-relaxed text-dark/60">{point.description}</p>
                 </Card>
               </FadeIn>
             )
@@ -39,7 +39,7 @@ export async function Philosophy() {
         </div>
 
         <FadeIn delay={0.2}>
-          <p className="mx-auto mt-12 max-w-2xl border-l-4 border-turquoise pl-5 text-lg font-semibold text-navy/80">
+          <p className="mx-auto mt-12 max-w-2xl border-l-4 border-teal-light pl-5 text-lg font-semibold text-dark/80">
             {philosophy.quote}
           </p>
         </FadeIn>

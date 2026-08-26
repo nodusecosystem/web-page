@@ -13,7 +13,7 @@ type LogoMeta = {
 const LOGO_META: Record<LogoVariant, Record<LogoTheme, LogoMeta>> = {
   horizontal: {
     light: { src: '/images/nodus-logo-horizontal.png', width: 2000, height: 529 },
-    dark: { src: '/images/nodus-logo-blanco.png', width: 2000, height: 2373 },
+    dark: { src: '/images/nodus-logo-primary.png', width: 2000, height: 2373 },
   },
   isotipo: {
     light: { src: '/images/nodus-isotipo.png', width: 2000, height: 2000 },
