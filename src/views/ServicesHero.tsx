@@ -1,7 +1,7 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
-import { TitleStroke } from '@/components/animations/TitleStroke'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
@@ -28,9 +28,13 @@ export async function ServicesHero() {
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
             <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
             <h1 className="font-display">
-              <TitleStroke className="block text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
-                {hero.titleStart} {hero.titleAccent}
-              </TitleStroke>
+              <AnimatedHeading
+                line1={hero.titleStart}
+                line2={hero.titleAccent}
+                fontSize={80}
+                align="center"
+                className="text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl"
+              />
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">

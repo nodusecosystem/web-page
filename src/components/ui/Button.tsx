@@ -11,25 +11,25 @@ const BUTTON_SPECS: Record<
   { tintOpacity: number; lineColor: string; textColor: string; tint: string; blur: number }
 > = {
   solid: {
-    tint: '#3aeaea',
+    tint: '#5BC7D0',
     tintOpacity: 1,
     lineColor: '#ffffff',
-    textColor: '#071919',
+    textColor: '#000F13',
     blur: 0,
   },
   outline: {
-    tint: '#071919',
+    tint: '#000F13',
     tintOpacity: 0.35,
-    lineColor: '#3aeaea',
-    textColor: '#3aeaea',
-    blur: 10,
+    lineColor: '#5BC7D0',
+    textColor: '#5BC7D0',
+    blur: 5,
   },
   ghost: {
-    tint: '#071919',
+    tint: '#000F13',
     tintOpacity: 0.2,
-    lineColor: '#3aeaea',
-    textColor: '#071919',
-    blur: 10,
+    lineColor: '#5BC7D0',
+    textColor: '#000F13',
+    blur: 5,
   },
 }
 
@@ -71,7 +71,7 @@ export function Button({
       lineColor={spec.lineColor}
       textColor={spec.textColor}
       baseColor={spec.lineColor}
-      intensity={1.3}
+      intensity={3}
       thickness={1.4}
       autoAnimate
       glass

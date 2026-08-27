@@ -1,11 +1,12 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
+import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
-import { TitleStroke } from '@/components/animations/TitleStroke'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { HeroLogoRing } from '@/components/ui/HeroLogoRing'
 import { Logo } from '@/components/ui/Logo'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 
@@ -18,15 +19,15 @@ export async function Hero() {
       <HeroBackground />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-teal-light/25 blur-3xl"
+        className="pointer-events-none absolute -top-40 -left-40 h-128 w-lg rounded-full bg-teal-light/25 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/3 -right-32 h-[28rem] w-[28rem] rounded-full bg-teal-light/15 blur-3xl"
+        className="pointer-events-none absolute top-1/3 -right-32 h-112 w-md rounded-full bg-teal-light/15 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 left-1/3 h-[26rem] w-[26rem] rounded-full bg-teal-light/10 blur-3xl"
+        className="pointer-events-none absolute -bottom-40 left-1/3 h-104 w-104 rounded-full bg-teal-light/10 blur-3xl"
       />
 
       <Container className="relative grid min-h-svh items-center gap-16 py-20 sm:py-24 lg:grid-cols-2 lg:gap-12">
@@ -34,9 +35,13 @@ export async function Hero() {
           <div className="flex flex-col items-start gap-6">
             <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
             <h1 className="font-display">
-              <TitleStroke className="block text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl">
-                {hero.titleStart} {hero.titleAccent}
-              </TitleStroke>
+              <AnimatedHeading
+                line1={hero.titleStart}
+                line2={hero.titleMiddle}
+                line3={hero.titleAccent}
+                fontSize={84}
+                className="text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl"
+              />
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center gap-4">
@@ -65,14 +70,10 @@ export async function Hero() {
               aria-hidden
               className="absolute inset-0 rounded-full bg-linear-to-br from-teal-light via-teal-light to-white opacity-40 blur-2xl"
             />
-            <div
-              aria-hidden
-              className="absolute inset-6 rounded-full border border-white/10 bg-dark/80 backdrop-blur"
-            />
+            <HeroLogoRing />
             <Logo
               variant="isotipo"
               theme="dark"
-              preload
               className="relative h-56 w-56 sm:h-72 sm:w-72"
             />
           </div>

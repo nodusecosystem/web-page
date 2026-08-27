@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore, type ReactNode } from 'react'
 import GlowCursorShader from '@/components/ui/reactbits/GlowCursor'
+import { useIsMobile } from '@/lib/use-mobile'
 import { cn } from '@/lib/cn'
 
 const MOTION_QUERY = '(prefers-reduced-motion: reduce)'
@@ -23,12 +24,13 @@ type GlowCursorProps = {
 
 export function GlowCursor({ children, className }: GlowCursorProps) {
   const reduceMotion = useSyncExternalStore(subscribe, getSnapshot, () => false)
+  const isMobile = useIsMobile()
 
-  if (reduceMotion) return <>{children}</>
+  if (reduceMotion || isMobile) return <>{children}</>
 
   return (
     <GlowCursorShader
-      color="#3aeaea"
+      color="#5BC7D0"
       secondaryColor="#ffffff"
       trailLength={40}
       trailWidth={8}

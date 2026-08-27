@@ -16,7 +16,7 @@ export function HeroBackground() {
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       <CursorGrid
         cellSize={48}
-        color="#3aeaea"
+        color="#5BC7D0"
         radius={170}
         falloff="smooth"
         holdTime={450}

@@ -12,9 +12,9 @@ type GlowPanelProps = {
 export function GlowPanel({ children, className, borderRadius = 24 }: GlowPanelProps) {
   return (
     <BorderGlow
-      glowColor="180 81 57"
-      backgroundColor="#071919"
-      colors={['#3aeaea', '#ffffff', '#3aeaea']}
+      glowColor="185 55 59"
+      backgroundColor="#000F13"
+      colors={['#5BC7D0', '#ffffff', '#5BC7D0']}
       borderRadius={borderRadius}
       className={className}
     >

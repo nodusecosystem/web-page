@@ -33,6 +33,7 @@ export interface SpecularButtonProps {
   as?: 'nav' | 'div';
   ariaLabel?: string;
   glass?: boolean;
+  style?: CSSProperties;
 }
 
 interface ShaderProps {
@@ -121,15 +122,15 @@ void main() {
 `;
 
 const SpecularButton = ({
-  children = 'Get Started',
+  children,
   size = 'lg',
   radius = 18,
-  tint = '#3aeaea',
+  tint = '#5BC7D0',
   tintOpacity = 1,
   blur = 0,
-  textColor = '#071919',
+  textColor = '#000F13',
   lineColor = '#ffffff',
-  baseColor = '#3aeaea',
+  baseColor = '#5BC7D0',
   intensity = 1,
   shineSize = 10,
   shineFade = 40,
@@ -145,7 +146,8 @@ const SpecularButton = ({
   href,
   as,
   ariaLabel,
-  glass = false
+  glass = false,
+  style: styleProp
 }: SpecularButtonProps) => {
   const btnRef = useRef<HTMLElement>(null);
   const fxRef = useRef<HTMLSpanElement>(null);
@@ -286,7 +288,7 @@ const SpecularButton = ({
       cancelAnimationFrame(raf);
       ro.disconnect();
       window.removeEventListener('pointermove', onPointerMove);
-      if (gl.canvas.parentNode === fx) fx.removeChild(gl.canvas);
+      if (gl.canvas.parentNode === fx) gl.canvas.remove();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [reduceMotion]);
@@ -316,18 +318,18 @@ const SpecularButton = ({
           borderWidth={0.06}
         />
       ) : null}
-      <span ref={fxRef} aria-hidden="true" className="pointer-events-none absolute -inset-5 z-[1] [&_canvas]:block [&_canvas]:h-full [&_canvas]:w-full" />
+      <span ref={fxRef} aria-hidden="true" className="pointer-events-none absolute -inset-5 z-1 [&_canvas]:block [&_canvas]:h-full [&_canvas]:w-full" />
     </>
   );
   const content = (
-    <span className="relative z-[2] flex flex-row items-center justify-center gap-2 whitespace-nowrap">
+    <span className="relative z-2 flex flex-row items-center justify-center gap-2 whitespace-nowrap">
       {children}
     </span>
   );
 
   const shared = {
     className: btnClasses,
-    style: btnStyle,
+    style: { ...btnStyle, ...styleProp } as CSSProperties,
     'aria-label': ariaLabel,
   };
 
@@ -365,7 +367,7 @@ const SpecularButton = ({
       disabled={disabled}
       onClick={onClick}
       className={btnClasses}
-      style={btnStyle}
+      style={{ ...btnStyle, ...styleProp } as CSSProperties}
     >
       {fxLayer}
       {content}

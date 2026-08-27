@@ -17,14 +17,14 @@ describe('Button', () => {
   it('uses the solid variant by default with brand colors', () => {
     render(<Button>Haz clic</Button>)
     const button = screen.getByRole('button')
-    expect(button).toHaveStyle('--sb-tint: #3aeaea')
+    expect(button).toHaveStyle('--sb-tint: #5BC7D0')
     expect(button).toHaveStyle('--sb-tint-opacity: 1')
-    expect(button).toHaveStyle('--sb-text-color: #071919')
+    expect(button).toHaveStyle('--sb-text-color: #000F13')
   })
 
   it('uses glassmorphism on outline and ghost variants', () => {
     render(<Button variant="outline">Outline</Button>)
-    expect(screen.getByRole('button', { name: 'Outline' })).toHaveStyle('--sb-blur: 10px')
+    expect(screen.getByRole('button', { name: 'Outline' })).toHaveStyle('--sb-blur: 5px')
   })
 
   it('preserves submit type for forms', () => {

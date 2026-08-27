@@ -45,7 +45,8 @@
   },
   "hero": {
     "badge": "Agencia de estrategia digital",
-    "titleStart": "Estrategia digital que convierte datos en",
+    "titleStart": "Estrategia digital",
+    "titleMiddle": "que convierte datos en",
     "titleAccent": "crecimiento",
     "description": "Diseñamos, ejecutamos y optimizamos planes mensuales de marketing digital, desarrollo web y automatización para que tu empresa crezca con datos, no con suposiciones.",
     "ctaPrimary": "Empieza tu plan",
@@ -221,9 +222,8 @@
   "about": {
     "hero": {
       "badge": "Nosotros",
-      "titleStart": "Somos tu",
-      "titleAccent": "partner de aceleración",
-      "titleEnd": "digital",
+      "titleStart": "Somos tu partner de",
+      "titleAccent": "aceleración digital",
       "description": "nodus nació con una idea simple: las empresas no necesitan más actividad digital, necesitan resultados. Unimos estrategia, datos, tecnología y ejecución mensual para acelerar el crecimiento de negocios ambiciosos.",
       "ctaPrimary": "Ver servicios",
       "ctaSecondary": "Hablemos",

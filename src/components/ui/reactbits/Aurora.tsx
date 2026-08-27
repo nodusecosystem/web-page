@@ -161,7 +161,7 @@ export default function Aurora(props: AuroraProps) {
       delete geometry.attributes.uv;
     }
 
-    const defaultStops = ['#3aeaea', '#ffffff', '#3aeaea'].map(hex => {
+    const defaultStops = ['#5BC7D0', '#ffffff', '#5BC7D0'].map(hex => {
       const c = new Color(hex);
       return [c.r, c.g, c.b];
     });
@@ -193,7 +193,7 @@ export default function Aurora(props: AuroraProps) {
       program.uniforms.uTime.value = time * speed * 0.1;
       program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
       program.uniforms.uBlend.value = propsRef.current.blend ?? 0.5;
-      const stops = propsRef.current.colorStops ?? ['#3aeaea', '#ffffff', '#3aeaea'];
+      const stops = propsRef.current.colorStops ?? ['#5BC7D0', '#ffffff', '#5BC7D0'];
       program.uniforms.uColorStops.value = stops.map((hex: string) => {
         const c = new Color(hex);
         return [c.r, c.g, c.b];

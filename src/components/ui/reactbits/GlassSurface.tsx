@@ -177,7 +177,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       '--glass-saturation': saturation
     } as React.CSSProperties;
 
-    const glassBg = dark ? 'rgb(7 25 25' : 'rgb(255 255 255';
+    const glassBg = dark ? 'rgb(0 15 19' : 'rgb(255 255 255';
     const brightnessFilter = dark ? 1.2 : 1.1;
     const hasFrost = backgroundOpacity > 0;
 
@@ -188,13 +188,13 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       WebkitBackdropFilter: `blur(12px) saturate(${saturation}) brightness(${brightnessFilter})`,
       border: hasFrost
         ? dark
-          ? '1px solid rgb(58 234 234 / 0.25)'
-          : '1px solid rgb(58 234 234 / 0.2)'
+          ? '1px solid rgb(91 199 208 / 0.25)'
+          : '1px solid rgb(91 199 208 / 0.2)'
         : 'none',
       boxShadow: hasFrost
         ? dark
-          ? 'inset 0 1px 0 0 rgb(58 234 234 / 0.2), inset 0 -1px 0 0 rgb(58 234 234 / 0.1)'
-          : '0 8px 32px 0 rgb(7 25 25 / 0.12), 0 2px 16px 0 rgb(7 25 25 / 0.08), inset 0 1px 0 0 rgb(255 255 255 / 0.6)'
+          ? 'inset 0 1px 0 0 rgb(91 199 208 / 0.2), inset 0 -1px 0 0 rgb(91 199 208 / 0.1)'
+          : '0 8px 32px 0 rgb(0 15 19 / 0.12), 0 2px 16px 0 rgb(0 15 19 / 0.08), inset 0 1px 0 0 rgb(255 255 255 / 0.6)'
         : 'none'
     };
   };

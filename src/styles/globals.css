@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-teal-light: #3aeaea;
-  --color-dark: #071919;
+  --color-teal-light: #5BC7D0;
+  --color-dark: #000F13;
   --color-white: #ffffff;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
@@ -37,7 +37,7 @@
 }
 
 @utility text-gradient-brand {
-  background-image: linear-gradient(to right, #3aeaea, #ffffff);
+  background-image: linear-gradient(to right, #5BC7D0, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -46,29 +46,29 @@
 @utility bg-grid-pattern {
   background-image: linear-gradient(
       to right,
-      rgb(58 234 234 / 0.06) 1px,
+      rgb(91 199 208 / 0.06) 1px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgb(58 234 234 / 0.06) 1px, transparent 1px);
+    linear-gradient(to bottom, rgb(91 199 208 / 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 @utility glass-panel {
-  background-color: rgb(7 25 25 / 0.6);
+  background-color: rgb(0 15 19 / 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgb(58 234 234 / 0.25);
+  border: 1px solid rgb(91 199 208 / 0.25);
 }
 
 @utility glass-panel-strong {
-  background-color: rgb(7 25 25 / 0.8);
+  background-color: rgb(0 15 19 / 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgb(58 234 234 / 0.2);
+  border-bottom: 1px solid rgb(91 199 208 / 0.2);
 }
 
 @utility glass-highlight {
-  box-shadow: 0 0 24px rgb(58 234 234 / 0.15);
+  box-shadow: 0 0 24px rgb(91 199 208 / 0.15);
   transition: box-shadow 0.3s ease;
 }
 
@@ -76,5 +76,5 @@
   background-color: rgb(255 255 255 / 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgb(58 234 234 / 0.2);
+  border: 1px solid rgb(91 199 208 / 0.2);
 }

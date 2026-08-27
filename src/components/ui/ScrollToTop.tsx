@@ -33,7 +33,7 @@ export function ScrollToTop({ ariaLabel = 'Volver al inicio' }: ScrollToTopProps
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}
           transition={{ duration: 0.25 }}
-          className="fixed bottom-24 left-5 z-40 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-teal-light text-dark shadow-lg transition-colors hover:bg-white md:bottom-24 md:left-auto md:right-6"
+          className="fixed bottom-24 right-[34px] z-40 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-teal-light text-dark shadow-lg transition-colors hover:bg-white md:right-[38px] md:bottom-24"
         >
           <ArrowUp aria-hidden className="h-5 w-5" />
         </motion.button>

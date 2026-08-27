@@ -18,7 +18,7 @@ export function professionalServiceSchema(dict: Dictionary) {
     name: SITE_NAME,
     description: dict.site.description,
     url: SITE_URL,
-    image: `${SITE_URL}/images/og-image.png`,
+    image: `${SITE_URL}/images/og-image.jpg`,
     email: CONTACT_EMAIL,
     telephone: CONTACT_PHONE,
     priceRange: '$$',

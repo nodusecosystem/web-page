@@ -55,9 +55,9 @@ src/
 
 ### Imágenes y LCP (Next 16)
 
-- **`priority` está DEPRECADO en Next 16** → usar la prop `preload` de `next/image` para la imagen LCP (hero). El componente `Logo` ya combina `preload` + `loading="eager"` + `fetchPriority="high"` cuando se activa — patrón completo de LCP según la doc de Next 16.
+- **`priority` está DEPRECADO en Next 16** → usar la prop `preload` de `next/image` para la imagen LCP (hero). Solo aplica a imágenes raster; los logos ya son SVG inline.
+- **Los logos son SVG inline** (`src/components/ui/brand/`: `IsotipoLogo`, `HorizontalLogo` + wrapper `Logo`). No usar `next/image` para logos — sin requests, crisp en cualquier resolución.
 - No usar `unoptimized` salvo que se introduzca un SVG inline o una imagen remota que Next no deba optimizar.
-- El isotipo del Hero ya lleva `preload` + `sizes` — no quitarlo.
 - Formatos modernos: Next 16 sirve WebP/AVIF automáticamente.
 
 ## Tokens de diseño (kit de marca)
@@ -66,16 +66,13 @@ Definidos en `src/styles/globals.css` (`@theme`). **No** inventar colores fuera 
 
 | Token | Hex | Uso |
 |---|---|---|
-| `deep-blue` | `#0047AB` | Acciones primarias, iconos |
-| `turquoise` | `#00CED1` | CTAs secundarios, acentos sobre navy |
-| `cyan` | `#00E5FF` | Gradientes y brillos |
-| `teal` | `#008080` | Checkmarks, detalles |
-| `navy` | `#0A1F3B` | Fondos oscuros, texto principal |
-| `light` | `#E0F7FA` | Fondos alternos, badges |
+| `teal-light` | `#5BC7D0` | Acentos, CTAs, highlights, bordes glassmorphism |
+| `dark` | `#000F13` | Fondos oscuros, texto principal, navbar |
+| `white` | `#ffffff` | Fondos claros, texto sobre oscuro |
 
 Tipografías: **Montserrat** (titulares → `font-display`) e **Inter** (cuerpo → `font-sans`), cargadas con `next/font` en `src/app/layout.tsx`.
 
-Utilities custom: `text-gradient-brand` y `bg-grid-pattern` (definidas con `@utility`).
+Utilities custom: `text-gradient-brand`, `bg-grid-pattern` y `glass-panel*` (definidas con `@utility`).
 
 ## Datos mock — dónde editarlos
 

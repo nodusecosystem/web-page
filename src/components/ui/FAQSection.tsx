@@ -37,10 +37,14 @@ export async function FAQSection({ id, heading, subheading, className }: FAQSect
                 {item.question}
                 <ChevronDown
                   aria-hidden
-                  className="h-5 w-5 shrink-0 text-teal-light transition-transform duration-200 group-open:rotate-180"
+                  className="h-5 w-5 shrink-0 text-teal-light transition-transform duration-300 group-open:rotate-180"
                 />
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-dark/60">{item.answer}</p>
+              <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-open:grid-rows-[1fr] group-open:opacity-100">
+                <div className="overflow-hidden">
+                  <p className="pt-3 text-sm leading-relaxed text-dark/60">{item.answer}</p>
+                </div>
+              </div>
             </details>
           ))}
         </div>

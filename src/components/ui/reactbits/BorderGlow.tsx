@@ -76,14 +76,14 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
   children,
   className = '',
   edgeSensitivity = 30,
-  glowColor = '180 81 57',
-  backgroundColor = '#071919',
+  glowColor = '185 55 59',
+  backgroundColor = '#000F13',
   borderRadius = 28,
   glowRadius = 40,
   glowIntensity = 1.0,
   coneSpread = 25,
   animated = false,
-  colors = ['#3aeaea', '#ffffff', '#3aeaea'],
+  colors = ['#5BC7D0', '#ffffff', '#5BC7D0'],
   fillOpacity = 0.5,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -171,12 +171,12 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       onPointerMove={handlePointerMove}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
-      className={`relative grid isolate border border-white/15 ${className}`}
+      className={`relative grid isolate border border-transparent ${className}`}
       style={{
         background: backgroundColor,
         borderRadius: `${borderRadius}px`,
         transform: 'translate3d(0, 0, 0.01px)',
-        boxShadow: 'rgb(7 25 25 / 0.1) 0 1px 2px, rgb(7 25 25 / 0.1) 0 2px 4px, rgb(7 25 25 / 0.1) 0 4px 8px, rgb(7 25 25 / 0.1) 0 8px 16px, rgb(7 25 25 / 0.1) 0 16px 32px, rgb(7 25 25 / 0.1) 0 32px 64px',
+        boxShadow: 'rgb(0 15 19 / 0.12) 0 12px 28px -12px',
       }}
     >
       {/* mesh gradient border */}
@@ -252,7 +252,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
         />
       </span>
 
-      <div className="relative z-[1] flex h-full flex-col overflow-auto">
+      <div className="relative z-[1] flex h-full flex-col overflow-hidden rounded-[inherit]">
         {children}
       </div>
     </div>

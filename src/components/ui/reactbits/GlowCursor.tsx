@@ -168,7 +168,7 @@ const hexToRgb = (hex: string): [number, number, number] => {
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
 const GlowCursor = ({
-  color = '#3aeaea',
+  color = '#5BC7D0',
   secondaryColor = '#ffffff',
   trailLength = 40,
   trailWidth = 8,

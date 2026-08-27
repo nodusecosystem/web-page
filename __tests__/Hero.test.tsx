@@ -26,10 +26,10 @@ describe('Hero', () => {
     )
   })
 
-  it('renders the brand isotipo as the LCP image with preload', async () => {
-    render(await Hero())
-    const image = screen.getByRole('img', { name: 'nodus: digital strategy' })
-    expect(image).toHaveAttribute('src', expect.stringContaining('nodus-isotipo-blanco'))
-    expect(image).toHaveAttribute('fetchpriority', 'high')
+  it('renders the brand isotipo as inline SVG (no image request)', async () => {
+    const { container } = render(await Hero())
+    const isotipo = container.querySelector('svg[width="100%"]')
+    expect(isotipo).toBeInTheDocument()
+    expect(container.querySelector('img[src*="nodus-isotipo"]')).not.toBeInTheDocument()
   })
 })

@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
+import GlassSurface from '@/components/ui/reactbits/GlassSurface'
 import SpecularButton from '@/components/ui/reactbits/SpecularButton'
 import { cn } from '@/lib/cn'
 
@@ -44,7 +45,7 @@ const LANG_OPTIONS: { code: string; labelKey: 'es' | 'en' }[] = [
   { code: 'en', labelKey: 'en' },
 ]
 
-const LIGHT_TOP_PAGES = ['/contact']
+const LIGHT_TOP_PAGES = new Set(['/contact'])
 
 const HEADER_MATCH_POINT = 24
 
@@ -60,32 +61,63 @@ export function Header({
 }: Readonly<HeaderProps>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
+  const [isPastViewport, setIsPastViewport] = useState(false)
   const pathname = usePathname()
   const [isLightTop, setIsLightTop] = useState(() =>
-    LIGHT_TOP_PAGES.includes(`/${pathname.split('/')[2] ?? ''}`),
+    LIGHT_TOP_PAGES.has(`/${pathname.split('/')[2] ?? ''}`),
   )
   const langRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef(0)
+  const bgRafRef = useRef(0)
+
+  useEffect(() => {
+    const readViewport = () => {
+      rafRef.current = 0
+      setIsPastViewport(window.scrollY > window.innerHeight)
+    }
+    const scheduleRead = () => {
+      if (!rafRef.current) rafRef.current = window.requestAnimationFrame(readViewport)
+    }
+    const initTimer = window.setTimeout(readViewport, 0)
+
+    window.addEventListener('scroll', scheduleRead, { passive: true })
+    window.addEventListener('resize', scheduleRead)
+    return () => {
+      window.clearTimeout(initTimer)
+      if (rafRef.current) window.cancelAnimationFrame(rafRef.current)
+      window.removeEventListener('scroll', scheduleRead)
+      window.removeEventListener('resize', scheduleRead)
+    }
+  }, [])
 
   useEffect(() => {
     const readBackground = () => {
-      rafRef.current = 0
+      bgRafRef.current = 0
       const sections = document.querySelectorAll<HTMLElement>('main section')
       for (const section of sections) {
         const rect = section.getBoundingClientRect()
         if (rect.top > HEADER_MATCH_POINT || rect.bottom < HEADER_MATCH_POINT) continue
         const background = window.getComputedStyle(section).backgroundColor
         const match = HEADER_THEME_RE.exec(background)
-        if (!match) return
+        if (!match) {
+          const bodyMatch = HEADER_THEME_RE.exec(window.getComputedStyle(document.body).backgroundColor)
+          if (bodyMatch) {
+            const [, r, g, b, alpha = '1'] = bodyMatch
+            const luminance = 0.2126 * Number(r) + 0.7152 * Number(g) + 0.0722 * Number(b)
+            setIsLightTop(Number(alpha) < 0.5 || luminance > 128)
+          } else {
+            setIsLightTop(true)
+          }
+          continue
+        }
         const [, red, green, blue, alpha = '1'] = match
         const luminance = 0.2126 * Number(red) + 0.7152 * Number(green) + 0.0722 * Number(blue)
         setIsLightTop(Number(alpha) < 0.5 || luminance > 128)
-        return
       }
     }
 
     const scheduleRead = () => {
-      if (!rafRef.current) rafRef.current = window.requestAnimationFrame(readBackground)
+      if (!bgRafRef.current) bgRafRef.current = window.requestAnimationFrame(readBackground)
     }
     const initTimer = window.setTimeout(readBackground, 0)
 
@@ -93,7 +125,7 @@ export function Header({
     window.addEventListener('resize', scheduleRead)
     return () => {
       window.clearTimeout(initTimer)
-      if (rafRef.current) window.cancelAnimationFrame(rafRef.current)
+      if (bgRafRef.current) window.cancelAnimationFrame(bgRafRef.current)
       window.removeEventListener('scroll', scheduleRead)
       window.removeEventListener('resize', scheduleRead)
     }
@@ -117,6 +149,8 @@ export function Header({
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  const headerIsLight = !isPastViewport && isLightTop
+
   const closeMenu = () => setIsMenuOpen(false)
 
   const alternateHref = (locale: string) => {
@@ -135,7 +169,7 @@ export function Header({
         aria-label={langToggle.ariaLabel}
         className={cn(
           'inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors',
-          isLightTop ? 'text-dark hover:bg-teal-light/10' : 'text-white hover:bg-white/10',
+          headerIsLight ? 'text-teal-light hover:bg-teal-light/10' : 'text-white hover:bg-white/10',
         )}
       >
         <Globe aria-hidden className="h-5 w-5" />
@@ -183,10 +217,19 @@ export function Header({
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="border-transparent bg-transparent">
+      <div
+        className={cn(
+          'transition-colors duration-300',
+          isPastViewport ? 'glass-panel-strong' : 'border-transparent bg-transparent',
+        )}
+      >
         <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
           <a href={homeHref} aria-label={ariaLabels.logo} className="shrink-0" onClick={closeMenu}>
-            <Logo variant="horizontal" theme="dark" className="h-8 w-auto sm:h-10" />
+            <Logo
+              variant="horizontal"
+              theme={headerIsLight ? 'light' : 'dark'}
+              className="h-10 w-auto sm:h-12"
+            />
           </a>
 
           <SpecularButton
@@ -194,11 +237,11 @@ export function Header({
             ariaLabel={ariaLabels.nav}
             size="none"
             radius={999}
-            tint="#071919"
+            tint="#000F13"
             tintOpacity={0.6}
             textColor="#ffffff"
-            lineColor="#3aeaea"
-            baseColor="#3aeaea"
+            lineColor="#5BC7D0"
+            baseColor="#5BC7D0"
             blur={12}
             glass
             className="hidden items-center gap-1 px-2 py-1.5 md:flex"
@@ -231,7 +274,7 @@ export function Header({
               aria-label={isMenuOpen ? ariaLabels.closeMenu : ariaLabels.openMenu}
               className={cn(
                 'inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden',
-                isLightTop ? 'text-dark hover:bg-teal-light/10' : 'text-white hover:bg-white/10',
+                headerIsLight ? 'text-teal-light hover:bg-teal-light/10' : 'text-white hover:bg-white/10',
               )}
             >
               {isMenuOpen ? <X aria-hidden className="h-5 w-5" /> : <Menu aria-hidden className="h-5 w-5" />}
@@ -249,25 +292,38 @@ export function Header({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="border-b border-teal-light/25 bg-dark/90 backdrop-blur-xl md:hidden"
+            className="md:hidden"
           >
-            <Container className="flex flex-col gap-1 py-4">
-              {links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="rounded-lg px-3 py-2.5 text-base font-medium text-white hover:bg-teal-light/10"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <div className="pt-2">
-                <Button href={cta.href} onClick={closeMenu} className="w-full">
-                  {cta.label}
-                </Button>
-              </div>
-            </Container>
+            <GlassSurface
+              dark
+              borderRadius={0}
+              className="w-full"
+              opacity={0.9}
+              blur={12}
+              displace={8}
+              distortionScale={-120}
+              brightness={60}
+              backgroundOpacity={0.85}
+              borderWidth={0.06}
+            >
+              <Container className="flex flex-col gap-1 py-4">
+                {links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={closeMenu}
+                    className="rounded-lg px-3 py-2.5 text-base font-medium text-white hover:bg-teal-light/10"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <div className="pt-2">
+                  <Button href={cta.href} onClick={closeMenu} className="w-full">
+                    {cta.label}
+                  </Button>
+                </div>
+              </Container>
+            </GlassSurface>
           </motion.nav>
         ) : null}
       </AnimatePresence>

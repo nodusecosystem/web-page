@@ -45,7 +45,8 @@
   },
   "hero": {
     "badge": "Digital strategy agency",
-    "titleStart": "Digital strategy that turns data into",
+    "titleStart": "Digital strategy",
+    "titleMiddle": "that turns data into",
     "titleAccent": "growth",
     "description": "We design, execute and optimize monthly digital marketing, web development and automation plans so your company grows with data, not guesswork.",
     "ctaPrimary": "Start your plan",
