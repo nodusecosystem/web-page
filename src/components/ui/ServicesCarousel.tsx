@@ -2,7 +2,7 @@
 
 import { ArrowRight, Check } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
-import DepthCarousel from '@/components/ui/reactbits/DepthCarousel'
+import Stack from '@/components/ui/reactbits/Stack'
 import { SERVICE_ICONS } from '@/lib/constants/icons'
 import { useIsMobile } from '@/lib/use-mobile'
 
@@ -61,27 +61,19 @@ export function ServicesCarousel({ services, ctaLink }: ServicesCarouselProps) {
     )
   }
 
-  const items = services.map((service) => ({
-    alt: service.title,
-    content: <ServiceCardContent service={service} ctaLink={ctaLink} />,
-  }))
+  const cards = services.map((service) => (
+    <div key={service.id} className="h-full w-full rounded-2xl border border-teal-light/25 bg-dark">
+      <ServiceCardContent service={service} ctaLink={ctaLink} />
+    </div>
+  ))
 
   return (
-    <div className="relative mt-16 h-[580px]">
-      <DepthCarousel
-        items={items}
-        depth={220}
-        spread={90}
-        tilt={22}
-        tiltDirection="right"
-        perspective={1400}
-        visibleCards={4}
-        falloff={0.2}
-        blur={6}
-        autoplay
-        loop
-        cardWidth={330}
-        cardHeight={480}
+    <div className="relative mx-auto mt-16 h-[460px] max-w-[400px]">
+      <Stack
+        randomRotation
+        sensitivity={180}
+        sendToBackOnClick
+        cards={cards}
       />
     </div>
   )

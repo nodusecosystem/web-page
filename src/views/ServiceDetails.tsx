@@ -3,8 +3,8 @@ import { lang } from 'next/root-params'
 import { ArrowRight, Check, FileCheck2 } from 'lucide-react'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { Badge } from '@/components/ui/Badge'
+import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
-import { GlowPanel } from '@/components/ui/GlowPanel'
 import { Section } from '@/components/ui/Section'
 import { SERVICE_ICONS } from '@/lib/constants/icons'
 import { getDictionary } from '@/lib/i18n/dictionaries'
@@ -56,7 +56,7 @@ export async function ServiceDetails() {
                   </div>
 
                   <div className={cn('grid gap-6 sm:grid-cols-2', index % 2 === 1 && 'lg:order-1')}>
-                    <div className="rounded-2xl border border-dark/10 bg-white p-6">
+                    <Card variant="elevated" className="flex h-full flex-col">
                       <h4 className="font-display text-sm font-bold tracking-wider text-dark/50 uppercase">
                         {details.includesTitle}
                       </h4>
@@ -68,8 +68,8 @@ export async function ServiceDetails() {
                           </li>
                         ))}
                       </ul>
-                    </div>
-                    <GlowPanel borderRadius={16} className="p-6">
+                    </Card>
+                    <Card variant="glass" className="flex h-full flex-col">
                       <h4 className="font-display flex items-center gap-2 text-sm font-bold tracking-wider text-teal-light uppercase">
                         <FileCheck2 aria-hidden className="h-4 w-4" />
                         {details.deliverablesTitle}
@@ -82,7 +82,7 @@ export async function ServiceDetails() {
                           </li>
                         ))}
                       </ul>
-                    </GlowPanel>
+                    </Card>
                   </div>
                 </div>
               </FadeIn>
