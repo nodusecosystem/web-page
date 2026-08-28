@@ -27,7 +27,7 @@ export function AnimatedHeading({
   className,
   dark = false,
   align = 'left',
-}: AnimatedHeadingProps) {
+}: Readonly<AnimatedHeadingProps>) {
   const isMobile = useIsMobile()
   const [isClient, setIsClient] = useState(false)
   const alignClass = align === 'center' ? 'text-center' : 'text-left'
