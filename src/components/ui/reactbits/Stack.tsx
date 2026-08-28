@@ -8,7 +8,7 @@ interface CardRotateProps {
   disableDrag?: boolean;
 }
 
-function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }: CardRotateProps) {
+function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }: Readonly<CardRotateProps>) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [60, -60]);
@@ -70,7 +70,7 @@ export default function Stack({
   pauseOnHover = false,
   mobileClickOnly = false,
   mobileBreakpoint = 768
-}: StackProps) {
+}: Readonly<StackProps>) {
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -160,7 +160,7 @@ export default function Stack({
   useEffect(() => {
     if (autoplay && stack.length > 1 && !isPaused) {
       const interval = setInterval(() => {
-        const topCardId = stack[stack.length - 1].id;
+        const topCardId = stack.at(-1)!.id;
         sendToBack(topCardId);
       }, autoplayDelay);
 
@@ -178,7 +178,7 @@ export default function Stack({
       onMouseLeave={() => pauseOnHover && setIsPaused(false)}
     >
       {stack.map((card, index) => {
-        // eslint-disable-next-line react-hooks/purity
+        // eslint-disable-next-line
         const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
         return (
           <CardRotate
@@ -190,6 +190,7 @@ export default function Stack({
             <motion.div
               className="rounded-2xl overflow-hidden w-full h-full"
               onClick={() => shouldEnableClick && sendToBack(card.id)}
+              suppressHydrationWarning
               animate={{
                 rotateZ: (stack.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - stack.length * 0.06,

@@ -18,7 +18,7 @@ type ServicesCarouselProps = {
   ctaLink: string
 }
 
-function ServiceCardContent({ service, ctaLink }: { service: CarouselService; ctaLink: string }) {
+function ServiceCardContent({ service, ctaLink }: Readonly<{ service: CarouselService; ctaLink: string }>) {
   const Icon = SERVICE_ICONS[service.id] ?? Check
   return (
     <div className="flex h-full flex-col gap-4 overflow-y-auto rounded-2xl p-6 text-white">
@@ -46,7 +46,7 @@ function ServiceCardContent({ service, ctaLink }: { service: CarouselService; ct
   )
 }
 
-export function ServicesCarousel({ services, ctaLink }: ServicesCarouselProps) {
+export function ServicesCarousel({ services, ctaLink }: Readonly<ServicesCarouselProps>) {
   const isMobile = useIsMobile()
 
   if (isMobile) {
@@ -68,9 +68,9 @@ export function ServicesCarousel({ services, ctaLink }: ServicesCarouselProps) {
   ))
 
   return (
-    <div className="relative mx-auto mt-16 h-[460px] max-w-[400px]">
+    <div className="relative mx-auto mt-16 h-115 max-w-100">
       <Stack
-        randomRotation
+        randomRotation={false}
         sensitivity={180}
         sendToBackOnClick
         cards={cards}

@@ -3,7 +3,6 @@ import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
-import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { HeroLogoRing } from '@/components/ui/HeroLogoRing'
@@ -33,7 +32,6 @@ export async function Hero() {
       <Container className="relative grid min-h-svh items-center gap-16 py-20 sm:py-24 lg:grid-cols-2 lg:gap-12">
         <FadeIn>
           <div className="flex flex-col items-start gap-6">
-            <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
             <h1 className="font-display">
               <AnimatedHeading
                 line1={hero.titleStart}
