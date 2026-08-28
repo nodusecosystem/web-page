@@ -26,7 +26,7 @@ export async function AboutStats() {
             {stats.items.map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur">
                 <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-display text-3xl font-bold text-teal-light sm:text-4xl">
+                <dd className="font-sans text-3xl font-bold text-teal-light sm:text-4xl">
                   <AnimatedCounter value={stat.value} />
                 </dd>
                 <p className="mt-2 text-sm text-white/60">{stat.label}</p>

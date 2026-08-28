@@ -99,7 +99,7 @@ export async function CallScheduler() {
             <div className="flex flex-col gap-6 p-6 sm:p-8">
               <div>
                 <p className="text-sm font-semibold text-dark/50">{scheduler.availableTitle}</p>
-                <p className="font-display mt-1 text-lg font-bold">{scheduler.selectedDay}</p>
+                <p className="font-sans mt-1 text-lg font-bold">{scheduler.selectedDay}</p>
               </div>
               <ul className="grid grid-cols-2 gap-3">
                 {TIME_SLOTS.map((slot, index) => (

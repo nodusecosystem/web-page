@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Sora, Didact_Gothic } from 'next/font/google'
+import localFont from 'next/font/local'
 import { lang } from 'next/root-params'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
@@ -10,16 +10,17 @@ import { getDictionary } from '@/lib/i18n/dictionaries'
 import { localePath } from '@/lib/format'
 import '@/styles/globals.css'
 
-const sora = Sora({
-  subsets: ['latin'],
-  variable: '--font-sora',
+const modica = localFont({
+  src: './fonts/modica-medium.ttf',
+  weight: '500',
+  variable: '--font-modica',
   display: 'swap',
 })
 
-const didact = Didact_Gothic({
-  subsets: ['latin'],
+const century = localFont({
+  src: './fonts/Century-Gothic.ttf',
   weight: '400',
-  variable: '--font-didact',
+  variable: '--font-century',
   display: 'swap',
 })
 
@@ -92,7 +93,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const locale = await lang()
 
   return (
-    <html lang={locale} className={`${sora.variable} ${didact.variable}`}>
+    <html lang={locale} className={`${modica.variable} ${century.variable}`}>
       <body className="bg-white font-sans text-dark antialiased">
         <a
           href="#main-content"

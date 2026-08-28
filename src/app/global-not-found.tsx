@@ -36,7 +36,7 @@ export default function GlobalNotFound() {
       </head>
       <body className="bg-dark font-sans text-white antialiased">
         <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center">
-          <p className="font-display text-7xl font-bold text-teal-light">404</p>
+          <p className="font-sans text-7xl font-bold text-teal-light">404</p>
           <div id="block-es" className="flex flex-col items-center gap-6">
             <h2 className="font-display text-3xl font-bold">{STRINGS.es.title}</h2>
             <p className="max-w-md text-base leading-relaxed text-white/70">{STRINGS.es.description}</p>

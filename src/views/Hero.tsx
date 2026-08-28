@@ -82,7 +82,7 @@ export async function Hero() {
                 className="rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur"
               >
                 <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-display text-2xl font-bold text-teal-light">
+                <dd className="font-sans text-2xl font-bold text-teal-light">
                   <AnimatedCounter value={stat.value} />
                 </dd>
                 <p className="mt-1 text-xs text-white/60">{stat.label}</p>

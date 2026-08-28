@@ -21,7 +21,7 @@ export default async function NotFound() {
 
   return (
     <Container className="flex min-h-[70vh] flex-col items-center justify-center gap-6 pt-24 text-center">
-      <p className="font-display text-7xl font-bold text-dark">404</p>
+      <p className="font-sans text-7xl font-bold text-dark">404</p>
       <h2 className="font-display">
         <AnimatedHeading
           line1={dict.notFound.title}

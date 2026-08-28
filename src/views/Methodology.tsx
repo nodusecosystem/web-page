@@ -30,7 +30,7 @@ export async function Methodology() {
                       <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-dark text-teal-light">
                         {Icon ? <Icon aria-hidden className="h-5 w-5" /> : null}
                       </span>
-                      <span aria-hidden className="font-display text-3xl font-bold text-dark/10">
+                      <span aria-hidden className="font-sans text-3xl font-bold text-dark/10">
                         {step.step}
                       </span>
                     </div>

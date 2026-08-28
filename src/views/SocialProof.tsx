@@ -47,7 +47,7 @@ export async function SocialProof() {
                   {caseStudy.metrics.map((metric) => (
                     <div key={metric.label}>
                       <dt className="sr-only">{metric.label}</dt>
-                      <dd className="font-display text-xl font-bold text-dark">
+                      <dd className="font-sans text-xl font-bold text-dark">
                         <AnimatedCounter value={metric.value} />
                       </dd>
                       <p className="text-xs text-dark/60">{metric.label}</p>
