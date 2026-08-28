@@ -1,8 +1,19 @@
+import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
+import { localePath } from '@/lib/format'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getDictionary()
+
+  return {
+    title: dict.notFound.title,
+    description: dict.notFound.description,
+  }
+}
 
 export default async function NotFound() {
   const dict = await getDictionary()
@@ -21,7 +32,14 @@ export default async function NotFound() {
         />
       </h1>
       <p className="max-w-md text-dark/60">{dict.notFound.description}</p>
-      <Button href={`/${locale}`}>{dict.notFound.button}</Button>
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <Button href={`/${locale}`} size="lg" variant="solid">
+          {dict.notFound.button}
+        </Button>
+        <Button href={localePath(locale, '/contact')} size="lg" variant="ghost">
+          {dict.notFound.contactLink}
+        </Button>
+      </div>
     </Container>
   )
 }

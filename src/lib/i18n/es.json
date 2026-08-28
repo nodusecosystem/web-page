@@ -16,12 +16,27 @@
     },
     "nav": {
       "links": [
-        { "label": "Inicio", "href": "/" },
-        { "label": "Nosotros", "href": "/about" },
-        { "label": "Servicios", "href": "/services" },
-        { "label": "Contacto", "href": "/contact" }
+        {
+          "label": "Inicio",
+          "href": "/"
+        },
+        {
+          "label": "Nosotros",
+          "href": "/about"
+        },
+        {
+          "label": "Servicios",
+          "href": "/services"
+        },
+        {
+          "label": "Contacto",
+          "href": "/contact"
+        }
       ],
-      "cta": { "label": "Empieza hoy", "href": "/contact" }
+      "cta": {
+        "label": "Empieza hoy",
+        "href": "/contact"
+      }
     },
     "langToggle": {
       "ariaLabel": "Cambiar idioma",
@@ -34,9 +49,18 @@
       "servicesHeading": "Servicios",
       "legalHeading": "Legal",
       "legalLinks": [
-        { "label": "Aviso legal", "href": "/aviso-legal" },
-        { "label": "Política de privacidad", "href": "/politica-de-privacidad" },
-        { "label": "Política de cookies", "href": "/politica-de-cookies" }
+        {
+          "label": "Aviso legal",
+          "href": "/aviso-legal"
+        },
+        {
+          "label": "Política de privacidad",
+          "href": "/politica-de-privacidad"
+        },
+        {
+          "label": "Política de cookies",
+          "href": "/politica-de-cookies"
+        }
       ],
       "rightsSuffix": "Todos los derechos reservados.",
       "madeWith": "Hecho con estrategia y datos.",
@@ -50,12 +74,28 @@
     "description": "Diseñamos, ejecutamos y optimizamos planes mensuales de marketing digital, desarrollo web y automatización para que tu empresa crezca con datos, no con suposiciones.",
     "ctaPrimary": "Empieza tu plan",
     "ctaSecondary": "Conoce los servicios",
-    "checklist": ["Planes mensuales flexibles", "Reportes transparentes", "Sin permanencia"],
+    "checklist": [
+      "Planes mensuales flexibles",
+      "Reportes transparentes",
+      "Sin permanencia"
+    ],
     "stats": [
-      { "value": "+40%", "label": "ROI promedio en campañas" },
-      { "value": "98%", "label": "Retención de clientes" },
-      { "value": "12+", "label": "Industrias digitalizadas" },
-      { "value": "24/7", "label": "Automatizaciones activas" }
+      {
+        "value": "+40%",
+        "label": "ROI promedio en campañas"
+      },
+      {
+        "value": "98%",
+        "label": "Retención de clientes"
+      },
+      {
+        "value": "12+",
+        "label": "Industrias digitalizadas"
+      },
+      {
+        "value": "24/7",
+        "label": "Automatizaciones activas"
+      }
     ]
   },
   "services": {
@@ -178,7 +218,14 @@
     "heading": "Empresas que ya crecen con estrategia",
     "subheading": "Casos reales de nuestro trabajo mensual: datos que hablan, clientes que repiten.",
     "clientsAriaLabel": "Empresas que confían en nodus",
-    "clients": ["TechNova", "Clínica Sonríe", "Café Altura", "UrbanFit", "Grupo Andino", "Hotel Miramar"],
+    "clients": [
+      "TechNova",
+      "Clínica Sonríe",
+      "Café Altura",
+      "UrbanFit",
+      "Grupo Andino",
+      "Hotel Miramar"
+    ],
     "cases": [
       {
         "id": "clinica-sonrie",
@@ -187,8 +234,14 @@
         "description": "Triplicamos las citas online en cuatro meses combinando campañas de Meta Ads con un embudo de recordatorios automatizado.",
         "testimonial": "Pasamos de depender del boca a boca a tener una agenda llena cada mes. Los reportes mensuales nos dejaban claro dónde estaba cada euro.",
         "metrics": [
-          { "value": "+320%", "label": "citas online" },
-          { "value": "-45%", "label": "no-shows" }
+          {
+            "value": "+320%",
+            "label": "citas online"
+          },
+          {
+            "value": "-45%",
+            "label": "no-shows"
+          }
         ]
       },
       {
@@ -198,8 +251,14 @@
         "description": "Plan de contenido, tienda online y automatización de email que convirtieron una marca local en un ecommerce rentable.",
         "testimonial": "La web que nos montaron carga en segundos y las campañas nos traen clientes cada semana. Por fin entendemos los números del negocio.",
         "metrics": [
-          { "value": "+180%", "label": "ventas online" },
-          { "value": "3.2x", "label": "ROAS en Meta" }
+          {
+            "value": "+180%",
+            "label": "ventas online"
+          },
+          {
+            "value": "3.2x",
+            "label": "ROAS en Meta"
+          }
         ]
       },
       {
@@ -209,8 +268,14 @@
         "description": "Automatización del CRM y estrategia de contenido B2B que acortó el ciclo de venta y multiplicó los leads calificados.",
         "testimonial": "El CRM automatizado respondía a los leads antes de que nosotros supiéramos que existían. El equipo comercial vende, no persigue.",
         "metrics": [
-          { "value": "+65%", "label": "leads calificados" },
-          { "value": "-30%", "label": "tiempo de respuesta" }
+          {
+            "value": "+65%",
+            "label": "leads calificados"
+          },
+          {
+            "value": "-30%",
+            "label": "tiempo de respuesta"
+          }
         ]
       }
     ]
@@ -286,10 +351,22 @@
       "heading": "Cifras que nos respaldan",
       "subheading": "El impacto acumulado de trabajar con estrategia, datos y ejecución mensual.",
       "items": [
-        { "value": "+40", "label": "empresas aceleradas" },
-        { "value": "98%", "label": "retención de clientes" },
-        { "value": "12+", "label": "industrias digitalizadas" },
-        { "value": "3.2x", "label": "ROAS medio en pauta" }
+        {
+          "value": "+40",
+          "label": "empresas aceleradas"
+        },
+        {
+          "value": "98%",
+          "label": "retención de clientes"
+        },
+        {
+          "value": "12+",
+          "label": "industrias digitalizadas"
+        },
+        {
+          "value": "3.2x",
+          "label": "ROAS medio en pauta"
+        }
       ]
     }
   },
@@ -300,7 +377,11 @@
       "description": "Estrategia, pauta, desarrollo y automatización en un solo partner. Sabrás exactamente qué recibes cada mes y qué resultado buscamos alcanzar.",
       "ctaPrimary": "Agenda una llamada",
       "ctaSecondary": "Ver entregables",
-      "checklist": ["Planes mensuales flexibles", "Sin permanencia", "Entregables claros"]
+      "checklist": [
+        "Planes mensuales flexibles",
+        "Sin permanencia",
+        "Entregables claros"
+      ]
     },
     "details": {
       "heading": "Cuatro servicios, un plan mensual",
@@ -320,27 +401,63 @@
       "subheading": "Cuéntanos dónde está tu negocio hoy y dónde quieres llegar. Te proponemos un plan mensual claro, con objetivos medibles y sin permanencia.",
       "remoteBadge": "Atención 100% remota",
       "businessHours": [
-        { "day": "Lunes a viernes", "hours": "09:00 – 18:00" },
-        { "day": "Sábados y domingos", "hours": "Cerrado" }
+        {
+          "day": "Lunes a viernes",
+          "hours": "09:00 – 18:00"
+        },
+        {
+          "day": "Sábados y domingos",
+          "hours": "Cerrado"
+        }
       ],
       "responsePrefix": "Respuesta media:",
       "fields": {
-        "name": { "label": "Nombre", "placeholder": "Tu nombre" },
-        "email": { "label": "Email", "placeholder": "tu@email.com" },
-        "company": { "label": "Empresa", "placeholder": "Nombre de tu empresa" },
-        "service": { "label": "Servicio de interés", "placeholder": "Todos los servicios" },
-        "budget": { "label": "Presupuesto estimado", "placeholder": "Selecciona un rango" },
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Tu nombre"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "tu@email.com"
+        },
+        "company": {
+          "label": "Empresa",
+          "placeholder": "Nombre de tu empresa"
+        },
+        "service": {
+          "label": "Servicio de interés",
+          "placeholder": "Todos los servicios"
+        },
+        "budget": {
+          "label": "Presupuesto estimado",
+          "placeholder": "Selecciona un rango"
+        },
         "message": {
           "label": "Mensaje",
           "placeholder": "Cuéntanos tu proyecto, tus objetivos y tu situación actual..."
         }
       },
       "budgetOptions": [
-        { "value": "less-1000", "label": "Menos de 1.000 €/mes" },
-        { "value": "1000-2500", "label": "1.000 – 2.500 €/mes" },
-        { "value": "2500-5000", "label": "2.500 – 5.000 €/mes" },
-        { "value": "more-5000", "label": "Más de 5.000 €/mes" },
-        { "value": "unknown", "label": "Aún no lo sé" }
+        {
+          "value": "less-1000",
+          "label": "Menos de 1.000 €/mes"
+        },
+        {
+          "value": "1000-2500",
+          "label": "1.000 – 2.500 €/mes"
+        },
+        {
+          "value": "2500-5000",
+          "label": "2.500 – 5.000 €/mes"
+        },
+        {
+          "value": "more-5000",
+          "label": "Más de 5.000 €/mes"
+        },
+        {
+          "value": "unknown",
+          "label": "Aún no lo sé"
+        }
       ],
       "messages": {
         "nameTooShort": "El nombre debe tener al menos {min} caracteres",
@@ -360,7 +477,15 @@
       "heading": "Reserva una llamada gratuita de estrategia",
       "subheading": "30 minutos sin compromiso para analizar tu situación y proponerte un plan de acción.",
       "month": "Agosto 2026",
-      "weekdays": ["L", "M", "X", "J", "V", "S", "D"],
+      "weekdays": [
+        "L",
+        "M",
+        "X",
+        "J",
+        "V",
+        "S",
+        "D"
+      ],
       "timeZoneLabel": "Hora de Madrid (CET)",
       "availableTitle": "Horarios disponibles",
       "selectedDay": "Lunes 18 de agosto",
@@ -427,7 +552,8 @@
   "notFound": {
     "title": "Página no encontrada",
     "description": "La página que buscas no existe o ha sido movida. Vuelve al inicio para seguir explorando.",
-    "button": "Volver al inicio"
+    "button": "Volver al inicio",
+    "contactLink": "O habla con nosotros"
   },
   "floatingWhatsApp": {
     "ariaLabel": "Chatea con nodus por WhatsApp",
@@ -449,5 +575,14 @@
       "title": "Contacto",
       "description": "Escríbenos o agenda una llamada gratuita de estrategia. Te respondemos en menos de 24 horas laborables."
     }
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "description": "Ocurrió un error inesperado al cargar esta página. Puedes intentarlo de nuevo o volver al inicio.",
+    "retry": "Intentar de nuevo",
+    "backHome": "Volver al inicio"
+  },
+  "loading": {
+    "label": "Cargando contenido…"
   }
 }

@@ -16,12 +16,27 @@
     },
     "nav": {
       "links": [
-        { "label": "Home", "href": "/" },
-        { "label": "About", "href": "/about" },
-        { "label": "Services", "href": "/services" },
-        { "label": "Contact", "href": "/contact" }
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "About",
+          "href": "/about"
+        },
+        {
+          "label": "Services",
+          "href": "/services"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact"
+        }
       ],
-      "cta": { "label": "Start today", "href": "/contact" }
+      "cta": {
+        "label": "Start today",
+        "href": "/contact"
+      }
     },
     "langToggle": {
       "ariaLabel": "Change language",
@@ -34,9 +49,18 @@
       "servicesHeading": "Services",
       "legalHeading": "Legal",
       "legalLinks": [
-        { "label": "Legal notice", "href": "/aviso-legal" },
-        { "label": "Privacy policy", "href": "/politica-de-privacidad" },
-        { "label": "Cookie policy", "href": "/politica-de-cookies" }
+        {
+          "label": "Legal notice",
+          "href": "/aviso-legal"
+        },
+        {
+          "label": "Privacy policy",
+          "href": "/politica-de-privacidad"
+        },
+        {
+          "label": "Cookie policy",
+          "href": "/politica-de-cookies"
+        }
       ],
       "rightsSuffix": "All rights reserved.",
       "madeWith": "Built with strategy and data.",
@@ -50,12 +74,28 @@
     "description": "We design, execute and optimize monthly digital marketing, web development and automation plans so your company grows with data, not guesswork.",
     "ctaPrimary": "Start your plan",
     "ctaSecondary": "Explore the services",
-    "checklist": ["Flexible monthly plans", "Transparent reporting", "No minimum commitment"],
+    "checklist": [
+      "Flexible monthly plans",
+      "Transparent reporting",
+      "No minimum commitment"
+    ],
     "stats": [
-      { "value": "+40%", "label": "Average ROI on campaigns" },
-      { "value": "98%", "label": "Client retention" },
-      { "value": "12+", "label": "Industries digitalized" },
-      { "value": "24/7", "label": "Active automations" }
+      {
+        "value": "+40%",
+        "label": "Average ROI on campaigns"
+      },
+      {
+        "value": "98%",
+        "label": "Client retention"
+      },
+      {
+        "value": "12+",
+        "label": "Industries digitalized"
+      },
+      {
+        "value": "24/7",
+        "label": "Active automations"
+      }
     ]
   },
   "services": {
@@ -178,7 +218,14 @@
     "heading": "Companies already growing with strategy",
     "subheading": "Real results from our monthly work: data that speaks, clients that stay.",
     "clientsAriaLabel": "Companies that trust nodus",
-    "clients": ["TechNova", "Clínica Sonríe", "Café Altura", "UrbanFit", "Grupo Andino", "Hotel Miramar"],
+    "clients": [
+      "TechNova",
+      "Clínica Sonríe",
+      "Café Altura",
+      "UrbanFit",
+      "Grupo Andino",
+      "Hotel Miramar"
+    ],
     "cases": [
       {
         "id": "clinica-sonrie",
@@ -187,8 +234,14 @@
         "description": "We tripled online bookings in four months by combining Meta Ads campaigns with an automated reminder funnel.",
         "testimonial": "We went from relying on word of mouth to having a full calendar every month. The monthly reports made it clear where every euro was going.",
         "metrics": [
-          { "value": "+320%", "label": "online bookings" },
-          { "value": "-45%", "label": "no-shows" }
+          {
+            "value": "+320%",
+            "label": "online bookings"
+          },
+          {
+            "value": "-45%",
+            "label": "no-shows"
+          }
         ]
       },
       {
@@ -198,8 +251,14 @@
         "description": "A content plan, online store and email automation that turned a local brand into a profitable ecommerce.",
         "testimonial": "The website they built loads in seconds and the campaigns bring us new customers every week. We finally understand our business numbers.",
         "metrics": [
-          { "value": "+180%", "label": "online sales" },
-          { "value": "3.2x", "label": "ROAS on Meta" }
+          {
+            "value": "+180%",
+            "label": "online sales"
+          },
+          {
+            "value": "3.2x",
+            "label": "ROAS on Meta"
+          }
         ]
       },
       {
@@ -209,8 +268,14 @@
         "description": "CRM automation and a B2B content strategy that shortened the sales cycle and multiplied qualified leads.",
         "testimonial": "The automated CRM answered leads before we even knew they existed. The sales team sells — they don't chase.",
         "metrics": [
-          { "value": "+65%", "label": "qualified leads" },
-          { "value": "-30%", "label": "response time" }
+          {
+            "value": "+65%",
+            "label": "qualified leads"
+          },
+          {
+            "value": "-30%",
+            "label": "response time"
+          }
         ]
       }
     ]
@@ -287,10 +352,22 @@
       "heading": "Numbers that back us up",
       "subheading": "The accumulated impact of working with strategy, data and monthly execution.",
       "items": [
-        { "value": "+40", "label": "companies accelerated" },
-        { "value": "98%", "label": "client retention" },
-        { "value": "12+", "label": "industries digitalized" },
-        { "value": "3.2x", "label": "average ROAS on paid media" }
+        {
+          "value": "+40",
+          "label": "companies accelerated"
+        },
+        {
+          "value": "98%",
+          "label": "client retention"
+        },
+        {
+          "value": "12+",
+          "label": "industries digitalized"
+        },
+        {
+          "value": "3.2x",
+          "label": "average ROAS on paid media"
+        }
       ]
     }
   },
@@ -301,7 +378,11 @@
       "description": "Strategy, paid media, development and automation under one partner. You'll know exactly what you receive each month and the result we're aiming for.",
       "ctaPrimary": "Book a call",
       "ctaSecondary": "See deliverables",
-      "checklist": ["Flexible monthly plans", "No minimum commitment", "Clear deliverables"]
+      "checklist": [
+        "Flexible monthly plans",
+        "No minimum commitment",
+        "Clear deliverables"
+      ]
     },
     "details": {
       "heading": "Four services, one monthly plan",
@@ -321,27 +402,63 @@
       "subheading": "Tell us where your business is today and where you want to go. We'll propose a clear monthly plan with measurable goals and no minimum commitment.",
       "remoteBadge": "100% remote service",
       "businessHours": [
-        { "day": "Monday to Friday", "hours": "09:00 – 18:00" },
-        { "day": "Weekends", "hours": "Closed" }
+        {
+          "day": "Monday to Friday",
+          "hours": "09:00 – 18:00"
+        },
+        {
+          "day": "Weekends",
+          "hours": "Closed"
+        }
       ],
       "responsePrefix": "Average response:",
       "fields": {
-        "name": { "label": "Name", "placeholder": "Your name" },
-        "email": { "label": "Email", "placeholder": "you@email.com" },
-        "company": { "label": "Company", "placeholder": "Your company name" },
-        "service": { "label": "Service of interest", "placeholder": "All services" },
-        "budget": { "label": "Estimated budget", "placeholder": "Select a range" },
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "you@email.com"
+        },
+        "company": {
+          "label": "Company",
+          "placeholder": "Your company name"
+        },
+        "service": {
+          "label": "Service of interest",
+          "placeholder": "All services"
+        },
+        "budget": {
+          "label": "Estimated budget",
+          "placeholder": "Select a range"
+        },
         "message": {
           "label": "Message",
           "placeholder": "Tell us about your project, your goals and your current situation..."
         }
       },
       "budgetOptions": [
-        { "value": "less-1000", "label": "Less than €1,000/month" },
-        { "value": "1000-2500", "label": "€1,000 – €2,500/month" },
-        { "value": "2500-5000", "label": "€2,500 – €5,000/month" },
-        { "value": "more-5000", "label": "More than €5,000/month" },
-        { "value": "unknown", "label": "Not sure yet" }
+        {
+          "value": "less-1000",
+          "label": "Less than €1,000/month"
+        },
+        {
+          "value": "1000-2500",
+          "label": "€1,000 – €2,500/month"
+        },
+        {
+          "value": "2500-5000",
+          "label": "€2,500 – €5,000/month"
+        },
+        {
+          "value": "more-5000",
+          "label": "More than €5,000/month"
+        },
+        {
+          "value": "unknown",
+          "label": "Not sure yet"
+        }
       ],
       "messages": {
         "nameTooShort": "Name must be at least {min} characters",
@@ -361,7 +478,15 @@
       "heading": "Book a free strategy call",
       "subheading": "30 minutes with no commitment to analyze your situation and propose an action plan.",
       "month": "August 2026",
-      "weekdays": ["M", "T", "W", "T", "F", "S", "S"],
+      "weekdays": [
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S",
+        "S"
+      ],
       "timeZoneLabel": "Madrid time (CET)",
       "availableTitle": "Available slots",
       "selectedDay": "Monday, August 18",
@@ -428,7 +553,8 @@
   "notFound": {
     "title": "Page not found",
     "description": "The page you're looking for doesn't exist or has been moved. Go back home to keep exploring.",
-    "button": "Back to home"
+    "button": "Back to home",
+    "contactLink": "Or talk to us"
   },
   "floatingWhatsApp": {
     "ariaLabel": "Chat with nodus on WhatsApp",
@@ -450,5 +576,14 @@
       "title": "Contact",
       "description": "Write to us or book a free strategy call. We reply within 24 business hours."
     }
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred while loading this page. You can try again or go back home.",
+    "retry": "Try again",
+    "backHome": "Back to home"
+  },
+  "loading": {
+    "label": "Loading content…"
   }
 }
