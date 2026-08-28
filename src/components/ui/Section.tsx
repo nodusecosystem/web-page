@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/lib/cn'
 
-export function Section({ className, ...rest }: ComponentPropsWithoutRef<'section'>) {
+export function Section({ className, ...rest }: Readonly<ComponentPropsWithoutRef<'section'>>) {
   return (
     <section
       className={cn(
