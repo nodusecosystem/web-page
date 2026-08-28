@@ -1,7 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import type { ReactNode } from 'react'
+import { useIsMobile } from '@/lib/use-mobile'
 
 type FadeInProps = {
   children: ReactNode
@@ -11,6 +12,13 @@ type FadeInProps = {
 }
 
 export function FadeIn({ children, className, delay = 0, y = 24 }: Readonly<FadeInProps>) {
+  const reduceMotion = useReducedMotion()
+  const isMobile = useIsMobile()
+
+  if (reduceMotion || isMobile) {
+    return <div className={className}>{children}</div>
+  }
+
   return (
     <motion.div
       className={className}

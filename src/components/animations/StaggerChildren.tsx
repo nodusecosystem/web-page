@@ -1,7 +1,8 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import type { ReactNode } from 'react'
+import { useIsMobile } from '@/lib/use-mobile'
 
 const containerVariants: Variants = {
   hidden: {},
@@ -24,7 +25,14 @@ type StaggerChildrenProps = {
   className?: string
 }
 
-export function StaggerChildren({ children, className }: StaggerChildrenProps) {
+export function StaggerChildren({ children, className }: Readonly<StaggerChildrenProps>) {
+  const reduceMotion = useReducedMotion()
+  const isMobile = useIsMobile()
+
+  if (reduceMotion || isMobile) {
+    return <div className={className}>{children}</div>
+  }
+
   return (
     <motion.div
       className={className}
@@ -38,7 +46,14 @@ export function StaggerChildren({ children, className }: StaggerChildrenProps) {
   )
 }
 
-export function StaggerItem({ children, className }: StaggerChildrenProps) {
+export function StaggerItem({ children, className }: Readonly<StaggerChildrenProps>) {
+  const reduceMotion = useReducedMotion()
+  const isMobile = useIsMobile()
+
+  if (reduceMotion || isMobile) {
+    return <div className={className}>{children}</div>
+  }
+
   return (
     <motion.div className={className} variants={itemVariants}>
       {children}
