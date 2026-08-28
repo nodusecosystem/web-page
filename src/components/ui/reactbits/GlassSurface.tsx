@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useId, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useId, useCallback } from 'react';
 
 export interface GlassSurfaceProps {
   children?: React.ReactNode;
@@ -72,6 +72,8 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const redGradId = `red-grad-${uniqueId}`;
   const blueGradId = `blue-grad-${uniqueId}`;
 
+  const [refraction, setRefraction] = useState(false);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const feImageRef = useRef<SVGFEImageElement>(null);
   const redChannelRef = useRef<SVGFEDisplacementMapElement>(null);
@@ -110,6 +112,26 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const updateDisplacementMap = useCallback(() => {
     feImageRef.current?.setAttribute('href', generateDisplacementMap());
   }, [generateDisplacementMap]);
+
+  useEffect(() => {
+    const detect = () => {
+      if (typeof window === 'undefined' || typeof document === 'undefined') {
+        return false;
+      }
+      const userAgent = navigator.userAgent || '';
+      const isWebkit = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
+      const isFirefox = /Firefox/.test(userAgent);
+      if (isWebkit || isFirefox) {
+        return false;
+      }
+      const div = document.createElement('div');
+      div.style.backdropFilter = `url(#${filterId})`;
+      return div.style.backdropFilter !== '';
+    };
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setRefraction(detect());
+  }, [filterId]);
 
   useEffect(() => {
     updateDisplacementMap();
@@ -177,15 +199,38 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       '--glass-saturation': saturation
     } as React.CSSProperties;
 
-    const glassBg = dark ? 'rgb(0 15 19' : 'rgb(255 255 255';
-    const brightnessFilter = dark ? 1.2 : 1.1;
+    if (refraction) {
+      return {
+        ...baseStyles,
+        background: dark
+          ? `rgb(0 15 19 / ${backgroundOpacity})`
+          : `rgb(255 255 255 / ${backgroundOpacity})`,
+        backdropFilter: `url(#${filterId}) saturate(${saturation})`,
+        boxShadow: dark
+          ? `0 0 2px 1px color-mix(in oklch, white, transparent 65%) inset,
+             0 0 10px 4px color-mix(in oklch, white, transparent 85%) inset,
+             0 4px 16px rgb(0 15 19 / 0.18),
+             0 16px 56px rgb(0 15 19 / 0.12)`
+          : `0 0 2px 1px rgb(0 15 19 / 0.05) inset,
+             0 0 10px 4px rgb(0 15 19 / 0.02) inset,
+             0 4px 16px rgb(0 15 19 / 0.08),
+             0 16px 56px rgb(0 15 19 / 0.05)`
+      };
+    }
+
     const hasFrost = backgroundOpacity > 0;
 
     return {
       ...baseStyles,
-      background: `${glassBg} / ${backgroundOpacity})`,
-      backdropFilter: `blur(12px) saturate(${saturation}) brightness(${brightnessFilter})`,
-      WebkitBackdropFilter: `blur(12px) saturate(${saturation}) brightness(${brightnessFilter})`,
+      background: dark
+        ? `rgb(0 15 19 / ${backgroundOpacity})`
+        : `rgb(255 255 255 / ${backgroundOpacity})`,
+      backdropFilter: dark
+        ? 'blur(12px) saturate(1.8) brightness(1.2)'
+        : 'blur(12px) saturate(1.8) brightness(1.1)',
+      WebkitBackdropFilter: dark
+        ? 'blur(12px) saturate(1.8) brightness(1.2)'
+        : 'blur(12px) saturate(1.8) brightness(1.1)',
       border: hasFrost
         ? dark
           ? '1px solid rgb(91 199 208 / 0.25)'
