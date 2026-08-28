@@ -2,11 +2,6 @@
 
 import { CSSProperties, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export type StrokeTextTrigger = 'mount' | 'hover' | 'scroll' | 'loop';
 export type StrokeTextFillMode = 'wipe' | 'fade' | 'none';
@@ -114,7 +109,7 @@ const StrokeText = ({
     };
 
     measure();
-    if (typeof document !== 'undefined' && document.fonts?.ready) {
+    if (typeof document !== 'undefined' && document.fonts) {
       document.fonts.ready.then(measure).catch(() => {});
     }
 
@@ -187,7 +182,6 @@ const StrokeText = ({
     };
 
     let timeline: gsap.core.Timeline | null = null;
-    let scrollTrigger: ReturnType<typeof ScrollTrigger.create> | null = null;
     let removeHover: (() => void) | null = null;
 
     if (trigger === 'hover') {
@@ -201,21 +195,11 @@ const StrokeText = ({
       removeHover = () => root.removeEventListener('pointerenter', play);
     } else {
       timeline = build();
-      if (trigger === 'scroll') {
-        scrollTrigger = ScrollTrigger.create({
-          trigger: root,
-          start: 'top 82%',
-          once: true,
-          onEnter: () => timeline?.play(0)
-        });
-      } else {
-        timeline.play(0);
-      }
+      timeline.play(0);
     }
 
     return () => {
       removeHover?.();
-      scrollTrigger?.kill();
       timeline?.kill();
       gsap.killTweensOf(targets);
     };
@@ -226,7 +210,7 @@ const StrokeText = ({
   return (
     <span
       ref={rootRef}
-      className={`block w-full leading-[0] ${trigger === 'hover' ? 'cursor-pointer' : ''} ${className}`.trim()}
+      className={`block w-full leading-0 ${trigger === 'hover' ? 'cursor-pointer' : ''} ${className}`.trim()}
       style={style}
       role="img"
       aria-label={String(text ?? '')}
@@ -259,7 +243,7 @@ const StrokeText = ({
           style={fontStyle}
         >
           {characters.map((char, index) => (
-            <tspan data-stroke-char key={`s-${index}`}>
+            <tspan data-stroke-char key={`s-${char}-${index}`}>
               {char}
             </tspan>
           ))}
@@ -275,7 +259,7 @@ const StrokeText = ({
           clipPath={fillMode === 'wipe' && box ? `url(#${wipeId})` : undefined}
         >
           {characters.map((char, index) => (
-            <tspan data-fill-char key={`f-${index}`}>
+            <tspan data-fill-char key={`f-${char}-${index}`}>
               {char}
             </tspan>
           ))}

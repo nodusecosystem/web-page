@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Montserrat } from 'next/font/google'
+import { Sora, Didact_Gothic } from 'next/font/google'
 import { lang } from 'next/root-params'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
@@ -10,15 +10,16 @@ import { getDictionary } from '@/lib/i18n/dictionaries'
 import { localePath } from '@/lib/format'
 import '@/styles/globals.css'
 
-const inter = Inter({
+const sora = Sora({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-sora',
   display: 'swap',
 })
 
-const montserrat = Montserrat({
+const didact = Didact_Gothic({
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  weight: '400',
+  variable: '--font-didact',
   display: 'swap',
 })
 
@@ -91,7 +92,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const locale = await lang()
 
   return (
-    <html lang={locale} className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang={locale} className={`${sora.variable} ${didact.variable}`}>
       <body className="bg-white font-sans text-dark antialiased">
         <a
           href="#main-content"

@@ -5,9 +5,9 @@
   --color-dark: #000F13;
   --color-white: #ffffff;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+  --font-sans: var(--font-didact), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
-  --font-display: var(--font-montserrat), var(--font-inter), ui-sans-serif,
+  --font-display: var(--font-sora), var(--font-didact), ui-sans-serif,
     system-ui, sans-serif;
 
   --animate-marquee: marquee 32s linear infinite;

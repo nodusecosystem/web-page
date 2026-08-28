@@ -49,7 +49,11 @@ export function AnimatedHeading({
     return (
       <span className={cn('block', className)}>
         {lines.map((line, index) => (
-          <span key={`${line}-${index}`} className="block">
+          <span
+            key={`${line}-${index}`}
+            className="block overflow-visible"
+            style={{ height: fontSize * 1.3 }}
+          >
             {line}
           </span>
         ))}
