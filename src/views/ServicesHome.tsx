@@ -1,6 +1,6 @@
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
-import { ServicesCarousel } from '@/components/ui/ServicesCarousel'
+import { ServicesGrid } from '@/components/ui/ServicesGrid'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 
 export async function ServicesHome() {
@@ -17,7 +17,7 @@ export async function ServicesHome() {
           <p className="mt-4 text-lg text-dark/60">{services.subheading}</p>
         </div>
 
-        <ServicesCarousel services={services.items} ctaLink={services.ctaLink} />
+        <ServicesGrid services={services.items} ctaLink={services.ctaLink} />
       </Container>
     </Section>
   )

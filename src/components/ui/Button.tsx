@@ -71,7 +71,7 @@ export function Button({
       lineColor={spec.lineColor}
       textColor={spec.textColor}
       baseColor={spec.lineColor}
-      intensity={3}
+      intensity={2}
       thickness={1.4}
       autoAnimate
       glass
