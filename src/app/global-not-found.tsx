@@ -38,7 +38,7 @@ export default function GlobalNotFound() {
         <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center">
           <p className="font-display text-7xl font-bold text-teal-light">404</p>
           <div id="block-es" className="flex flex-col items-center gap-6">
-            <h1 className="font-display text-3xl font-bold">{STRINGS.es.title}</h1>
+            <h2 className="font-display text-3xl font-bold">{STRINGS.es.title}</h2>
             <p className="max-w-md text-base leading-relaxed text-white/70">{STRINGS.es.description}</p>
             <Link
               href="/es"
@@ -48,7 +48,7 @@ export default function GlobalNotFound() {
             </Link>
           </div>
           <div id="block-en" hidden className="flex flex-col items-center gap-6">
-            <h1 className="font-display text-3xl font-bold">{STRINGS.en.title}</h1>
+            <h2 className="font-display text-3xl font-bold">{STRINGS.en.title}</h2>
             <p className="max-w-md text-base leading-relaxed text-white/70">{STRINGS.en.description}</p>
             <Link
               href="/en"

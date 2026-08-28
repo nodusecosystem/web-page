@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { Hero } from '@/views/Hero'
 
@@ -11,7 +11,7 @@ describe('Hero', () => {
     render(await Hero())
     const heading = screen.getByRole('heading', { level: 1 })
     expect(heading).toBeInTheDocument()
-    expect(heading.textContent).toContain('crecimiento')
+    await waitFor(() => expect(heading.textContent).toContain('crecimiento'))
   })
 
   it('renders both CTAs pointing to the right anchors', async () => {

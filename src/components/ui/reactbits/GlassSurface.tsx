@@ -110,8 +110,9 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   }, [redGradId, blueGradId, borderRadius, borderWidth, brightness, opacity, blur, mixBlendMode]);
 
   const updateDisplacementMap = useCallback(() => {
+    if (!refraction) return
     feImageRef.current?.setAttribute('href', generateDisplacementMap());
-  }, [generateDisplacementMap]);
+  }, [generateDisplacementMap, refraction]);
 
   useEffect(() => {
     const detect = () => {
@@ -164,7 +165,8 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     xChannel,
     yChannel,
     mixBlendMode,
-    updateDisplacementMap
+    updateDisplacementMap,
+    refraction
   ]);
 
   useEffect(() => {

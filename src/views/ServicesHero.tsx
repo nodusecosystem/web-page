@@ -25,7 +25,7 @@ export async function ServicesHero() {
       <Container className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
         <FadeIn>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-            <h1 className="font-display">
+            <h2 className="font-display">
               <AnimatedHeading
                 line1={hero.titleStart}
                 line2={hero.titleAccent}
@@ -33,7 +33,7 @@ export async function ServicesHero() {
                 align="center"
                 className="text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl"
               />
-            </h1>
+            </h2>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button href="/contact" size="lg" variant="solid">

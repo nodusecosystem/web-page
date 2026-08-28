@@ -25,14 +25,14 @@ export async function AboutHero() {
       <Container className="relative grid items-center gap-14 pt-32 pb-20 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:pb-28">
         <FadeIn>
           <div className="flex flex-col items-start gap-6">
-            <h1 className="font-display">
+            <h2 className="font-display">
               <AnimatedHeading
                 line1={hero.titleStart}
-                line2={`${hero.titleAccent}`}
+                line2={`${hero.titleAccent}${'titleEnd' in hero ? ` ${hero.titleEnd}` : ''}`}
                 fontSize={80}
                 className="text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl"
               />
-            </h1>
+            </h2>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center gap-4">
               <Button href="/services" size="lg" variant="solid">

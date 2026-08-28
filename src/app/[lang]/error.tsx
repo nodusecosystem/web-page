@@ -25,9 +25,9 @@ export default function ErrorPage({
       <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-light/10 text-teal-light">
         <AlertTriangle aria-hidden className="h-7 w-7" />
       </span>
-      <h1 className="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl">
+      <h2 className="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl">
         {dict.error.title}
-      </h1>
+      </h2>
       <p className="max-w-md text-lg leading-relaxed text-dark/60">{dict.error.description}</p>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Button onClick={reset} size="lg" variant="solid">

@@ -18,6 +18,7 @@ export function HeroBackground() {
   const isMobile = useIsMobile()
   const containerRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const [idle, setIdle] = useState(false)
 
   useEffect(() => {
     const node = containerRef.current
@@ -30,6 +31,11 @@ export function HeroBackground() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const timer = window.setTimeout(() => setIdle(true), 600)
+    return () => window.clearTimeout(timer)
+  }, [])
+
   if (reduceMotion) return null
 
   return (
@@ -38,7 +44,7 @@ export function HeroBackground() {
       aria-hidden
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
-      {visible ? (
+      {idle && visible ? (
         isMobile ? (
           <Aurora colorStops={['#5BC7D0', '#ffffff', '#5BC7D0']} amplitude={0.8} blend={0.5} />
         ) : (

@@ -1,8 +1,13 @@
 'use client'
 
-import StrokeText from '@/components/ui/reactbits/StrokeText'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 import { useIsMobile } from '@/lib/use-mobile'
 import { cn } from '@/lib/cn'
+
+const StrokeText = dynamic(() => import('@/components/ui/reactbits/StrokeText'), {
+  ssr: false,
+})
 
 type AnimatedHeadingProps = {
   line1: string
@@ -22,8 +27,9 @@ export function AnimatedHeading({
   className,
   dark = false,
   align = 'left',
-}: Readonly<AnimatedHeadingProps>) {
+}: AnimatedHeadingProps) {
   const isMobile = useIsMobile()
+  const [isClient, setIsClient] = useState(false)
   const alignClass = align === 'center' ? 'text-center' : 'text-left'
   const fillColor = dark ? '#000F13' : '#ffffff'
   const lines = [line1, line2, line3]
@@ -32,9 +38,14 @@ export function AnimatedHeading({
     .map((part) => part.trim())
     .filter(Boolean)
 
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsClient(true)
+  }, [])
+
   if (lines.length === 0) return null
 
-  if (isMobile) {
+  if (isMobile || !isClient) {
     return (
       <span className={cn('block', className)}>
         {lines.map((line, index) => (
