@@ -4,6 +4,7 @@ import { useRef, useEffect, type CSSProperties, type ReactNode, type MouseEventH
 import { useReducedMotion } from 'framer-motion';
 import { Renderer, Program, Mesh, Triangle, Color } from 'ogl';
 import GlassSurface from '@/components/ui/reactbits/GlassSurface';
+import { useIsMobile } from '@/lib/use-mobile';
 
 type ButtonSize = 'sm' | 'md' | 'lg' | 'none';
 
@@ -153,6 +154,7 @@ const SpecularButton = ({
   const fxRef = useRef<HTMLSpanElement>(null);
   const propsRef = useRef<ShaderProps>({} as ShaderProps);
   const reduceMotion = useReducedMotion();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     propsRef.current = { radius, lineColor, baseColor, intensity, shineSize, shineFade, thickness, speed, followMouse, proximity, autoAnimate };
@@ -161,7 +163,7 @@ const SpecularButton = ({
   useEffect(() => {
     const btn = btnRef.current;
     const fx = fxRef.current;
-    if (!btn || !fx || reduceMotion) return;
+    if (!btn || !fx || reduceMotion || isMobile) return;
 
     const dpr = window.devicePixelRatio || 1;
     const renderer = (() => {
@@ -291,7 +293,7 @@ const SpecularButton = ({
       if (gl.canvas.parentNode === fx) gl.canvas.remove();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [reduceMotion]);
+  }, [reduceMotion, isMobile]);
 
   const btnClasses = `relative m-0 flex flex-row cursor-pointer items-center justify-center gap-2 whitespace-nowrap border-none font-medium leading-none tracking-[0.01em] outline-none transition-transform duration-150 active:scale-[0.97] disabled:cursor-default disabled:opacity-55 disabled:active:scale-100 text-center [color:var(--sb-text-color)] [border-radius:var(--sb-radius)] [background:color-mix(in_srgb,var(--sb-tint)_calc(var(--sb-tint-opacity)*100%),transparent)] [backdrop-filter:blur(var(--sb-blur))] shadow-[inset_0_1px_0_rgb(255_255_255_/_0.04),0_8px_24px_rgb(7_25_25_/_0.25)] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-teal-light ${size === 'none' ? '' : SIZES[size] ?? SIZES.md}${className ? ` ${className}` : ''}`;
   const btnStyle = {
@@ -318,7 +320,9 @@ const SpecularButton = ({
           borderWidth={0.06}
         />
       ) : null}
-      <span ref={fxRef} aria-hidden="true" className="pointer-events-none absolute -inset-5 z-1 [&_canvas]:block [&_canvas]:h-full [&_canvas]:w-full" />
+      {!isMobile ? (
+        <span ref={fxRef} aria-hidden="true" className="pointer-events-none absolute -inset-5 z-1 [&_canvas]:block [&_canvas]:h-full [&_canvas]:w-full" />
+      ) : null}
     </>
   );
   const content = (

@@ -1,7 +1,6 @@
 'use client'
 
 import StrokeText from '@/components/ui/reactbits/StrokeText'
-import ShinyText from '@/components/ui/reactbits/ShinyText'
 import { useIsMobile } from '@/lib/use-mobile'
 import { cn } from '@/lib/cn'
 
@@ -39,15 +38,9 @@ export function AnimatedHeading({
     return (
       <span className={cn('block', className)}>
         {lines.map((line, index) => (
-          <ShinyText
-            key={`${line}-${index}`}
-            text={line}
-            color={fillColor}
-            shineColor="#5BC7D0"
-            speed={2}
-            spread={120}
-            direction="left"
-          />
+          <span key={`${line}-${index}`} className="block">
+            {line}
+          </span>
         ))}
       </span>
     )

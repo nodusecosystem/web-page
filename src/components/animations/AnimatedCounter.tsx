@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { cn } from '@/lib/cn'
+import { useIsMobile } from '@/lib/use-mobile'
 
 type AnimatedCounterProps = {
   value: string | number
@@ -16,18 +17,19 @@ function easeOutCubic(t: number): number {
 export function AnimatedCounter({
   value,
   className,
-}: AnimatedCounterProps) {
+}: Readonly<AnimatedCounterProps>) {
   const reduceMotion = useReducedMotion()
+  const isMobile = useIsMobile()
   const ref = useRef<HTMLSpanElement>(null)
   const [inView, setInView] = useState(false)
 
   const raw = String(value)
-  const match = raw.match(/^([^0-9]*)(\d+)([^0-9]*)$/)
+  const match = new RegExp(/^(\D*)(\d+)(\D*)$/).exec(raw)
   const target = match ? Number(match[2]) : null
   const [display, setDisplay] = useState(target ?? 0)
 
   useEffect(() => {
-    if (target === null || reduceMotion || !inView) return
+    if (target === null || reduceMotion || isMobile || !inView) return
     const start = performance.now()
     const duration = 1000
     let frame = 0
@@ -40,7 +42,7 @@ export function AnimatedCounter({
     }
     frame = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(frame)
-  }, [target, inView, reduceMotion])
+  }, [target, inView, reduceMotion, isMobile])
 
   useEffect(() => {
     if (target === null || !ref.current) return
@@ -65,7 +67,7 @@ export function AnimatedCounter({
 
   const prefix = match?.[1] ?? ''
   const suffix = match?.[3] ?? ''
-  const rendered = reduceMotion ? target : inView ? display : target
+  const rendered = reduceMotion || isMobile ? target : inView ? display : target
 
   return (
     <span ref={ref} className={cn('inline-block tabular-nums', className)}>

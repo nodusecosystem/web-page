@@ -23,7 +23,6 @@ type FormFieldStrings = {
 }
 
 type ContactFormStrings = {
-  badge: string
   heading: string
   subheading: string
   remoteBadge: string
