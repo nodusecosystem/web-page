@@ -1,5 +1,4 @@
 import { FadeIn } from '@/components/animations/FadeIn'
-import { Badge } from '@/components/ui/Badge'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -14,7 +13,6 @@ export async function Methodology() {
     <Section id="metodologia" className="bg-teal-light/5">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>{methodology.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {methodology.heading}
           </h2>

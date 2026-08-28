@@ -44,7 +44,6 @@
     }
   },
   "hero": {
-    "badge": "Digital strategy agency",
     "titleStart": "Digital strategy",
     "titleMiddle": "that turns data into",
     "titleAccent": "growth",
@@ -60,7 +59,6 @@
     ]
   },
   "services": {
-    "badge": "Services",
     "heading": "Monthly plans that cover your entire digital strategy",
     "subheading": "Four areas of expertise, one goal: measurable results. Choose what your business needs today and scale whenever you want.",
     "ctaLink": "Request information",
@@ -136,7 +134,6 @@
     ]
   },
   "methodology": {
-    "badge": "Methodology",
     "heading": "A clear, actionable monthly process",
     "subheading": "Every month we follow the same cycle: diagnose, plan, execute, optimize and report. No surprises, no fine print.",
     "steps": [
@@ -178,7 +175,6 @@
     ]
   },
   "socialProof": {
-    "badge": "Results",
     "heading": "Companies already growing with strategy",
     "subheading": "Real results from our monthly work: data that speaks, clients that stay.",
     "clientsAriaLabel": "Companies that trust nodus",
@@ -221,7 +217,6 @@
   },
   "about": {
     "hero": {
-      "badge": "About us",
       "titleStart": "We are your",
       "titleAccent": "digital growth partner",
       "titleEnd": "",
@@ -231,7 +226,6 @@
       "quoteCaption": "The promise we keep every month, with every client."
     },
     "purpose": {
-      "badge": "Purpose",
       "heading": "Mission, vision and values",
       "subheading": "What drives us, where we're headed and how we work with every client, every day.",
       "missionTitle": "Mission",
@@ -263,7 +257,6 @@
       ]
     },
     "philosophy": {
-      "badge": "Philosophy",
       "heading": "We don't publish for the sake of it: we accelerate",
       "subheading": "We're not a traditional agency selling posts and “digital activity”. We're an acceleration partner: we measure, iterate and scale what delivers results.",
       "points": [
@@ -303,7 +296,6 @@
   },
   "servicesPage": {
     "hero": {
-      "badge": "Services",
       "titleStart": "Monthly plans with",
       "titleAccent": "clear deliverables",
       "description": "Strategy, paid media, development and automation under one partner. You'll know exactly what you receive each month and the result we're aiming for.",
@@ -312,7 +304,6 @@
       "checklist": ["Flexible monthly plans", "No minimum commitment", "Clear deliverables"]
     },
     "details": {
-      "badge": "Value proposition",
       "heading": "Four services, one monthly plan",
       "subheading": "Each service has a defined scope and deliverables. Combine them according to your strategy and scale whenever you want.",
       "includesTitle": "What's included",
@@ -322,12 +313,10 @@
   },
   "contact": {
     "hero": {
-      "badge": "Contact",
       "heading": "Let's talk about your growth",
       "subheading": "Tell us where your business is today and where you want to go. We'll propose a clear monthly plan with measurable goals and no minimum commitment."
     },
     "form": {
-      "badge": "Contact",
       "heading": "Let's talk about your growth",
       "subheading": "Tell us where your business is today and where you want to go. We'll propose a clear monthly plan with measurable goals and no minimum commitment.",
       "remoteBadge": "100% remote service",
@@ -369,7 +358,6 @@
     "altHeading": "Tell us about your project",
     "altSubheading": "Leave us your details, the service you're interested in and a budget range. We'll propose a tailored plan within 24 business hours.",
     "scheduler": {
-      "badge": "Book a call",
       "heading": "Book a free strategy call",
       "subheading": "30 minutes with no commitment to analyze your situation and propose an action plan.",
       "month": "August 2026",
@@ -384,7 +372,6 @@
     }
   },
   "faq": {
-    "badge": "FAQ",
     "heading": "Frequently asked questions",
     "subheading": "Everything you need to know about our monthly working model, delivery times and guarantee.",
     "items": [

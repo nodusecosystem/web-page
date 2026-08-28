@@ -1,5 +1,4 @@
 import { ChevronDown } from 'lucide-react'
-import { Badge } from '@/components/ui/Badge'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { faqPageSchema } from '@/lib/schema'
@@ -20,7 +19,6 @@ export async function FAQSection({ id, heading, subheading, className }: FAQSect
     <section id={id} className={cn('scroll-mt-20 py-20 sm:py-28', className)}>
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>{faq.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {heading ?? faq.heading}
           </h2>

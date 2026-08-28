@@ -2,7 +2,6 @@ import { ArrowRight } from 'lucide-react'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
-import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
@@ -26,7 +25,6 @@ export async function AboutHero() {
       <Container className="relative grid items-center gap-14 pt-32 pb-20 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:pb-28">
         <FadeIn>
           <div className="flex flex-col items-start gap-6">
-            <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
             <h1 className="font-display">
               <AnimatedHeading
                 line1={hero.titleStart}

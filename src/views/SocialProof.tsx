@@ -1,7 +1,6 @@
 import { Quote } from 'lucide-react'
 import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
 import { StaggerChildren, StaggerItem } from '@/components/animations/StaggerChildren'
-import { Badge } from '@/components/ui/Badge'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -15,7 +14,6 @@ export async function SocialProof() {
     <Section id="resultados" className="bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>{socialProof.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {socialProof.heading}
           </h2>

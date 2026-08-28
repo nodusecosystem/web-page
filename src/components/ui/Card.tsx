@@ -50,7 +50,6 @@ export function Card({ variant = 'default', className, ...rest }: CardProps) {
     <GlassSurface
       dark={variantSpec.dark}
       borderRadius={16}
-      className="h-full w-full rounded-[16px]"
       opacity={0.92}
       blur={10}
       displace={4}

@@ -10,7 +10,7 @@ type CTASectionProps = {
   subheading?: string
 }
 
-export async function CTASection({ heading, subheading }: CTASectionProps) {
+export async function CTASection({ heading, subheading }: Readonly<CTASectionProps>) {
   const dict = await getDictionary()
   const cta = dict.cta
 

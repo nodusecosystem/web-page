@@ -44,7 +44,6 @@
     }
   },
   "hero": {
-    "badge": "Agencia de estrategia digital",
     "titleStart": "Estrategia digital",
     "titleMiddle": "que convierte datos en",
     "titleAccent": "crecimiento",
@@ -60,7 +59,6 @@
     ]
   },
   "services": {
-    "badge": "Servicios",
     "heading": "Planes mensuales que cubren toda tu estrategia digital",
     "subheading": "Cuatro áreas de especialización, un solo objetivo: resultados medibles. Elige lo que tu negocio necesita hoy y escala cuando quieras.",
     "ctaLink": "Solicitar información",
@@ -136,7 +134,6 @@
     ]
   },
   "methodology": {
-    "badge": "Metodología",
     "heading": "Un proceso mensual, claro y accionable",
     "subheading": "Cada mes seguimos el mismo ciclo: diagnosticar, planear, ejecutar, optimizar y reportar. Sin sorpresas, sin letra pequeña.",
     "steps": [
@@ -178,7 +175,6 @@
     ]
   },
   "socialProof": {
-    "badge": "Resultados",
     "heading": "Empresas que ya crecen con estrategia",
     "subheading": "Casos reales de nuestro trabajo mensual: datos que hablan, clientes que repiten.",
     "clientsAriaLabel": "Empresas que confían en nodus",
@@ -221,7 +217,6 @@
   },
   "about": {
     "hero": {
-      "badge": "Nosotros",
       "titleStart": "Somos tu partner de",
       "titleAccent": "aceleración digital",
       "description": "nodus nació con una idea simple: las empresas no necesitan más actividad digital, necesitan resultados. Unimos estrategia, datos, tecnología y ejecución mensual para acelerar el crecimiento de negocios ambiciosos.",
@@ -230,7 +225,6 @@
       "quoteCaption": "La promesa que cumplimos cada mes con cada cliente."
     },
     "purpose": {
-      "badge": "Propósito",
       "heading": "Misión, visión y valores",
       "subheading": "Lo que nos mueve, a dónde vamos y cómo trabajamos cada día con cada cliente.",
       "missionTitle": "Misión",
@@ -262,7 +256,6 @@
       ]
     },
     "philosophy": {
-      "badge": "Filosofía",
       "heading": "No publicamos por publicar: aceleramos",
       "subheading": "No somos una agencia tradicional que vende posts y «actividad digital». Somos un partner de aceleración: medimos, iteramos y escalamos lo que demuestra resultado.",
       "points": [
@@ -302,7 +295,6 @@
   },
   "servicesPage": {
     "hero": {
-      "badge": "Servicios",
       "titleStart": "Planes mensuales con",
       "titleAccent": "entregables claros",
       "description": "Estrategia, pauta, desarrollo y automatización en un solo partner. Sabrás exactamente qué recibes cada mes y qué resultado buscamos alcanzar.",
@@ -311,7 +303,6 @@
       "checklist": ["Planes mensuales flexibles", "Sin permanencia", "Entregables claros"]
     },
     "details": {
-      "badge": "Oferta de valor",
       "heading": "Cuatro servicios, un plan mensual",
       "subheading": "Cada servicio tiene un alcance y unos entregables definidos. Combínalos según tu estrategia y escala cuando quieras.",
       "includesTitle": "Qué incluye",
@@ -321,12 +312,10 @@
   },
   "contact": {
     "hero": {
-      "badge": "Contacto",
       "heading": "Hablemos de tu crecimiento",
       "subheading": "Cuéntanos dónde está tu negocio hoy y dónde quieres llegar. Te proponemos un plan mensual claro, con objetivos medibles y sin permanencia."
     },
     "form": {
-      "badge": "Contacto",
       "heading": "Hablemos de tu crecimiento",
       "subheading": "Cuéntanos dónde está tu negocio hoy y dónde quieres llegar. Te proponemos un plan mensual claro, con objetivos medibles y sin permanencia.",
       "remoteBadge": "Atención 100% remota",
@@ -368,7 +357,6 @@
     "altHeading": "Cuéntanos sobre tu proyecto",
     "altSubheading": "Déjanos tu información, el servicio que te interesa y un rango de presupuesto. Te proponemos un plan a medida en menos de 24 horas laborables.",
     "scheduler": {
-      "badge": "Agenda una llamada",
       "heading": "Reserva una llamada gratuita de estrategia",
       "subheading": "30 minutos sin compromiso para analizar tu situación y proponerte un plan de acción.",
       "month": "Agosto 2026",
@@ -383,7 +371,6 @@
     }
   },
   "faq": {
-    "badge": "FAQ",
     "heading": "Preguntas frecuentes",
     "subheading": "Todo lo que necesitas saber sobre nuestro esquema de trabajo mensual, tiempos de entrega y garantía.",
     "items": [

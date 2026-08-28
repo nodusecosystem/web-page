@@ -1,8 +1,7 @@
 'use client'
 
 import { AlertCircle, CheckCircle2, ChevronDown, Clock, Loader2, Mail, MapPin, Phone, Send } from 'lucide-react'
-import { useState, type ChangeEvent, type FormEvent } from 'react'
-import { Badge } from '@/components/ui/Badge'
+import { useState, type ChangeEvent, type SubmitEvent } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
@@ -62,7 +61,7 @@ export function ContactForm({
   responseTime,
   heading,
   subheading,
-}: ContactFormProps) {
+}: Readonly<ContactFormProps>) {
   const [formData, setFormData] = useState<ContactFormData>(EMPTY_CONTACT_FORM)
   const [errors, setErrors] = useState<ContactFormErrors>({})
   const [status, setStatus] = useState<FormStatus>('idle')
@@ -77,7 +76,7 @@ export function ContactForm({
       }
     }
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
     const validationErrors = validateContactForm(formData, strings.messages)
     if (Object.keys(validationErrors).length > 0) {
@@ -108,7 +107,6 @@ export function ContactForm({
       <GlowCursor>
         <Container className="relative grid gap-14 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col items-start gap-6">
-          <Badge className="bg-white/10 text-teal-light">{strings.badge}</Badge>
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {heading ?? strings.heading}
           </h2>

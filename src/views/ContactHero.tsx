@@ -1,6 +1,5 @@
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
-import { Badge } from '@/components/ui/Badge'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 
@@ -13,7 +12,6 @@ export async function ContactHero() {
       <Container className="pt-28 pb-16 sm:pt-36 sm:pb-20">
         <FadeIn>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-            <Badge>{hero.badge}</Badge>
             <h1 className="font-display">
               <AnimatedHeading
                 line1={hero.heading}

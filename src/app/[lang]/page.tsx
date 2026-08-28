@@ -6,7 +6,7 @@ import { professionalServiceSchema } from '@/lib/schema'
 import { ContactForm } from '@/views/ContactForm'
 import { Hero } from '@/views/Hero'
 import { Methodology } from '@/views/Methodology'
-import { Services } from '@/views/Services'
+import { ServicesHome } from '@/views/ServicesHome'
 import { SocialProof } from '@/views/SocialProof'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -32,7 +32,7 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <Services />
+      <ServicesHome />
       <Methodology />
       <SocialProof />
       <ContactForm

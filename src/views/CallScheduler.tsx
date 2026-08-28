@@ -1,5 +1,4 @@
 import { CalendarDays, ChevronLeft, ChevronRight, Clock, Video } from 'lucide-react'
-import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -40,7 +39,6 @@ export async function CallScheduler() {
     <Section id="agendar" className="bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>{scheduler.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {scheduler.heading}
           </h2>

@@ -2,7 +2,6 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
-import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
@@ -16,17 +15,16 @@ export async function ServicesHero() {
       <HeroBackground />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[30rem] w-[30rem] rounded-full bg-teal-light/25 blur-3xl"
+        className="pointer-events-none absolute -top-40 -right-40 h-120 w-120 rounded-full bg-teal-light/25 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full bg-teal-light/20 blur-3xl"
+        className="pointer-events-none absolute bottom-0 -left-32 h-104 w-104 rounded-full bg-teal-light/20 blur-3xl"
       />
 
       <Container className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
         <FadeIn>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-            <Badge className="bg-white/10 text-teal-light">{hero.badge}</Badge>
             <h1 className="font-display">
               <AnimatedHeading
                 line1={hero.titleStart}

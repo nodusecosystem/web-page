@@ -1,7 +1,6 @@
 import { FadeIn } from '@/components/animations/FadeIn'
 import { PHILOSOPHY_ICONS } from '@/lib/constants/icons'
 import { getDictionary } from '@/lib/i18n/dictionaries'
-import { Badge } from '@/components/ui/Badge'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -14,7 +13,6 @@ export async function Philosophy() {
     <Section className="bg-teal-light/5">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <Badge>{philosophy.badge}</Badge>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {philosophy.heading}
           </h2>
