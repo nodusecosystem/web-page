@@ -68,12 +68,11 @@ export function Header({
   )
   const langRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef(0)
-  const bgRafRef = useRef(0)
 
   useEffect(() => {
     const readViewport = () => {
       rafRef.current = 0
-      setIsPastViewport(window.scrollY > window.innerHeight)
+      setIsPastViewport(window.scrollY > window.innerHeight * 0.3)
     }
     const scheduleRead = () => {
       if (!rafRef.current) rafRef.current = window.requestAnimationFrame(readViewport)
@@ -91,44 +90,52 @@ export function Header({
   }, [])
 
   useEffect(() => {
-    const readBackground = () => {
-      bgRafRef.current = 0
-      const sections = document.querySelectorAll<HTMLElement>('main section')
-      for (const section of sections) {
-        const rect = section.getBoundingClientRect()
-        if (rect.top > HEADER_MATCH_POINT || rect.bottom < HEADER_MATCH_POINT) continue
-        const background = window.getComputedStyle(section).backgroundColor
-        const match = HEADER_THEME_RE.exec(background)
-        if (!match) {
-          const bodyMatch = HEADER_THEME_RE.exec(window.getComputedStyle(document.body).backgroundColor)
-          if (bodyMatch) {
-            const [, r, g, b, alpha = '1'] = bodyMatch
-            const luminance = 0.2126 * Number(r) + 0.7152 * Number(g) + 0.0722 * Number(b)
-            setIsLightTop(Number(alpha) < 0.5 || luminance > 128)
-          } else {
-            setIsLightTop(true)
-          }
-          continue
-        }
+    const sections = document.querySelectorAll<HTMLElement>('main section')
+    const applySectionTheme = (section: HTMLElement) => {
+      const background = window.getComputedStyle(section).backgroundColor
+      const match = HEADER_THEME_RE.exec(background)
+      if (match) {
         const [, red, green, blue, alpha = '1'] = match
         const luminance = 0.2126 * Number(red) + 0.7152 * Number(green) + 0.0722 * Number(blue)
         setIsLightTop(Number(alpha) < 0.5 || luminance > 128)
+        return
+      }
+      const bodyMatch = HEADER_THEME_RE.exec(
+        window.getComputedStyle(document.body).backgroundColor,
+      )
+      if (bodyMatch) {
+        const [, r, g, b, alpha = '1'] = bodyMatch
+        const luminance = 0.2126 * Number(r) + 0.7152 * Number(g) + 0.0722 * Number(b)
+        setIsLightTop(Number(alpha) < 0.5 || luminance > 128)
+      } else {
+        setIsLightTop(true)
       }
     }
 
-    const scheduleRead = () => {
-      if (!bgRafRef.current) bgRafRef.current = window.requestAnimationFrame(readBackground)
+    const applyOnLoad = () => {
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect()
+        if (rect.top <= HEADER_MATCH_POINT && rect.bottom >= HEADER_MATCH_POINT) {
+          applySectionTheme(section)
+          break
+        }
+      }
     }
-    const initTimer = window.setTimeout(readBackground, 0)
+    applyOnLoad()
 
-    window.addEventListener('scroll', scheduleRead, { passive: true })
-    window.addEventListener('resize', scheduleRead)
-    return () => {
-      window.clearTimeout(initTimer)
-      if (bgRafRef.current) window.cancelAnimationFrame(bgRafRef.current)
-      window.removeEventListener('scroll', scheduleRead)
-      window.removeEventListener('resize', scheduleRead)
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            applySectionTheme(entry.target as HTMLElement)
+            break
+          }
+        }
+      },
+      { rootMargin: '0px 0px -88% 0px' },
+    )
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {

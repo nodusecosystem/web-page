@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { ScrollToTop } from '@/components/ui/ScrollToTop'
 
@@ -8,7 +8,7 @@ describe('ScrollToTop', () => {
     expect(screen.queryByRole('button', { name: 'Volver al inicio' })).not.toBeInTheDocument()
   })
 
-  it('appears after scrolling past the threshold and scrolls back to top on click', () => {
+  it('appears after scrolling past the threshold and scrolls back to top on click', async () => {
     const scrollToMock = vi.fn()
     Object.defineProperty(window, 'scrollTo', {
       value: scrollToMock,
@@ -20,7 +20,7 @@ describe('ScrollToTop', () => {
     Object.defineProperty(window, 'scrollY', { value: 500, writable: true, configurable: true })
     fireEvent.scroll(window)
 
-    const button = screen.getByRole('button', { name: 'Volver al inicio' })
+    const button = await waitFor(() => screen.getByRole('button', { name: 'Volver al inicio' }))
     fireEvent.click(button)
     expect(scrollToMock).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' })
   })

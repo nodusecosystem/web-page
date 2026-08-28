@@ -71,7 +71,18 @@ export function Card({ variant = 'default', className, ...rest }: CardProps) {
   )
 
   if (isMobile) {
-    return <div className="h-full rounded-2xl">{glassSurface}</div>
+    return (
+      <div
+        className={cn(
+          'h-full rounded-2xl p-6',
+          variantSpec.dark
+            ? 'border border-teal-light/25 bg-dark/95 text-white'
+            : 'border border-teal-light/20 bg-white/95 text-dark',
+          className,
+        )}
+        {...rest}
+      />
+    )
   }
 
   return (
