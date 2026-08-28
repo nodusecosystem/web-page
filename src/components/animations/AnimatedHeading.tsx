@@ -45,7 +45,19 @@ export function AnimatedHeading({
 
   if (lines.length === 0) return null
 
-  if (isMobile || !isClient) {
+  if (isMobile) {
+    return (
+      <span className={cn('block', className)}>
+        {lines.map((line, index) => (
+          <span key={`${line}-${index}`} className="block">
+            {line}
+          </span>
+        ))}
+      </span>
+    )
+  }
+
+  if (!isClient) {
     return (
       <span className={cn('block', className)}>
         {lines.map((line, index) => (
