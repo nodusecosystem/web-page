@@ -18,9 +18,9 @@ interface BorderGlowProps {
 }
 
 function parseHSL(hslStr: string): { h: number; s: number; l: number } {
-  const match = hslStr.match(/([\d.]+)\s*([\d.]+)%?\s*([\d.]+)%?/);
+  const match = new RegExp(/([\d.]+)\s*([\d.]+)%?\s*([\d.]+)%?/).exec(hslStr);
   if (!match) return { h: 40, s: 80, l: 80 };
-  return { h: parseFloat(match[1]), s: parseFloat(match[2]), l: parseFloat(match[3]) };
+  return { h: Number.parseFloat(match[1]), s: Number.parseFloat(match[2]), l: Number.parseFloat(match[3]) };
 }
 
 function buildBoxShadow(glowColor: string, intensity: number): string {
@@ -199,7 +199,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       {/* mesh gradient border */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-[inherit] -z-[1]"
+        className="absolute inset-0 rounded-[inherit] z-[-1]"
         style={{
           border: '1px solid transparent',
           background: [
@@ -217,7 +217,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       {/* mesh gradient fill near edges */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-[inherit] -z-[1]"
+        className="absolute inset-0 rounded-[inherit] z-[-1]"
         style={{
           border: '1px solid transparent',
           background: fillBg.join(', '),
@@ -250,7 +250,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       {/* outer glow */}
       <span
         aria-hidden="true"
-        className="absolute pointer-events-none z-[1] rounded-[inherit]"
+        className="absolute pointer-events-none z-1 rounded-[inherit]"
         style={{
           inset: `${-glowRadius}px`,
           maskImage: `conic-gradient(from ${angleDeg} at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%)`,
@@ -269,7 +269,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
         />
       </span>
 
-      <div className="relative z-[1] flex h-full flex-col overflow-hidden rounded-[inherit]">
+      <div className="relative z-1 flex h-full flex-col overflow-hidden rounded-[inherit]">
         {children}
       </div>
     </div>

@@ -1,5 +1,5 @@
 export const SITE_NAME = 'nodus: digital strategy'
-export const SITE_URL = 'https://nodusdigital.com'
+export const SITE_URL = 'https://nodusecosystem.com'
 
 export const CONTACT_EMAIL = 'hola@nodusdigital.com'
 export const CONTACT_PHONE = '+34 600 000 000'
