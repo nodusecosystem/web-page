@@ -119,15 +119,32 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
     return degrees;
   }, [getCenterOfElement]);
 
+  const rafRef = useRef(0);
+  const latestPosRef = useRef({ x: 0, y: 0 });
+
   const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setEdgeProximity(getEdgeProximity(card, x, y));
-    setCursorAngle(getCursorAngle(card, x, y));
+    latestPosRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      const current = cardRef.current;
+      if (!current) return;
+      const { x, y } = latestPosRef.current;
+      setEdgeProximity(getEdgeProximity(current, x, y));
+      setCursorAngle(getCursorAngle(current, x, y));
+    });
   }, [getEdgeProximity, getCursorAngle]);
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    };
+  }, []);
 
   useEffect(() => {
     if (!animated) return;
