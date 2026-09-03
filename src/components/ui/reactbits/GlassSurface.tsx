@@ -80,6 +80,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const greenChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const blueChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const gaussianBlurRef = useRef<SVGFEGaussianBlurElement>(null);
+  const sizeRef = useRef({ w: 0, h: 0 });
 
   const generateDisplacementMap = useCallback(() => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -111,6 +112,11 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
 
   const updateDisplacementMap = useCallback(() => {
     if (!refraction) return
+    const rect = containerRef.current?.getBoundingClientRect()
+    const width = Math.round(rect?.width ?? 0)
+    const height = Math.round(rect?.height ?? 0)
+    if (width === sizeRef.current.w && height === sizeRef.current.h) return
+    sizeRef.current = { w: width, h: height }
     feImageRef.current?.setAttribute('href', generateDisplacementMap());
   }, [generateDisplacementMap, refraction]);
 

@@ -252,12 +252,12 @@ const SpecularButton = ({
     let bright = 0;
     let last = performance.now();
     let raf = 0;
+    let isVisible = true;
 
     const lineC = new Color();
     const baseC = new Color();
 
     const update = (now: number) => {
-      raf = requestAnimationFrame(update);
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
       const p = propsRef.current;
@@ -283,11 +283,27 @@ const SpecularButton = ({
       program.uniforms.uShineFade.value = (p.shineFade * Math.PI) / 180;
       program.uniforms.uThickness.value = p.thickness * dpr;
       renderer.render({ scene: mesh });
+
+      if (isVisible) {
+        raf = requestAnimationFrame(update);
+      } else {
+        raf = 0;
+      }
     };
     raf = requestAnimationFrame(update);
 
+    const io = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible && !raf) {
+        last = performance.now();
+        raf = requestAnimationFrame(update);
+      }
+    });
+    io.observe(btn);
+
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
       ro.disconnect();
       window.removeEventListener('pointermove', onPointerMove);
       if (gl.canvas.parentNode === fx) gl.canvas.remove();
