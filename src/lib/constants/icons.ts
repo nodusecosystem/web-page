@@ -23,6 +23,13 @@ export const SERVICE_ICONS: Record<string, LucideIcon> = {
   automatizacion: Workflow,
 }
 
+export const HERO_STAT_ICONS: Record<string, LucideIcon> = {
+  crecimiento: TrendingUp,
+  ads: Megaphone,
+  desarrollo: Code2,
+  automatizacion: Workflow,
+}
+
 export const METHODOLOGY_ICONS: Record<string, LucideIcon> = {
   diagnostico: ClipboardCheck,
   plan: Target,

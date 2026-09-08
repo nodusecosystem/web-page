@@ -1,5 +1,4 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
+import { ArrowRight, Check } from 'lucide-react'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
@@ -7,6 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { HeroLogoRing } from '@/components/ui/HeroLogoRing'
 import { Logo } from '@/components/ui/Logo'
+import { HERO_STAT_ICONS } from '@/lib/constants/icons'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 
 export async function Hero() {
@@ -36,12 +36,24 @@ export async function Hero() {
               <AnimatedHeading
                 line1={hero.titleStart}
                 line2={hero.titleMiddle}
-                line3={hero.titleAccent}
                 fontSize={84}
                 className="text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl"
               />
             </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
+            <p className="max-w-xl text-lg leading-relaxed text-white/70">
+              {hero.description.map((part, index) =>
+                part.highlight ? (
+                  <strong
+                    key={index}
+                    className="text-[1.1em] font-bold tracking-wide text-white uppercase"
+                  >
+                    {part.text}
+                  </strong>
+                ) : (
+                  <span key={index}>{part.text}</span>
+                ),
+              )}
+            </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button href="#contacto" size="lg" variant="solid">
                 {hero.ctaPrimary}
@@ -51,14 +63,6 @@ export async function Hero() {
                 {hero.ctaSecondary}
               </Button>
             </div>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {hero.checklist.map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-white/80">
-                  <CheckCircle2 aria-hidden className="h-4 w-4 text-teal-light" />
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
         </FadeIn>
 
@@ -76,18 +80,21 @@ export async function Hero() {
             />
           </div>
           <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-            {hero.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur"
-              >
-                <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-sans text-2xl font-bold text-teal-light">
-                  <AnimatedCounter value={stat.value} />
-                </dd>
-                <p className="mt-1 text-xs text-white/60">{stat.label}</p>
-              </div>
-            ))}
+            {hero.stats.map((stat) => {
+              const Icon = HERO_STAT_ICONS[stat.id] ?? Check
+              return (
+                <div
+                  key={stat.id}
+                  className="flex flex-col items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur"
+                >
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal-light/10 text-teal-light">
+                    <Icon aria-hidden className="h-6 w-6" />
+                  </dd>
+                  <p className="text-xs text-white/60">{stat.label}</p>
+                </div>
+              )
+            })}
           </dl>
         </FadeIn>
       </Container>

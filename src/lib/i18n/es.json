@@ -68,50 +68,52 @@
     }
   },
   "hero": {
-    "titleStart": "Estrategia digital",
-    "titleMiddle": "que convierte datos en",
-    "titleAccent": "crecimiento",
-    "description": "Diseñamos, ejecutamos y optimizamos planes mensuales de marketing digital, desarrollo web y automatización para que tu empresa crezca con datos, no con suposiciones.",
-    "ctaPrimary": "Empieza tu plan",
-    "ctaSecondary": "Conoce los servicios",
-    "checklist": [
-      "Planes mensuales flexibles",
-      "Reportes transparentes",
-      "Sin permanencia"
+    "titleStart": "Ecosistema digital de",
+    "titleMiddle": "Crecimiento",
+    "description": [
+      { "text": "Ayudamos a tu ", "highlight": false },
+      { "text": "empresa", "highlight": true },
+      { "text": " a unificar atracción, retención, infraestructura tecnológica y datos en un solo ecosistema ", "highlight": false },
+      { "text": "medible", "highlight": true },
+      { "text": ", diseñado para ", "highlight": false },
+      { "text": "escalar tu marca", "highlight": true },
+      { "text": " con procesos predecibles y métricas precisas.", "highlight": false }
     ],
+    "ctaPrimary": "Empieza tu crecimiento",
+    "ctaSecondary": "Conoce los servicios",
     "stats": [
       {
-        "value": "+40%",
-        "label": "ROI promedio en campañas"
+        "id": "crecimiento",
+        "label": "Crecimiento orgánico"
       },
       {
-        "value": "98%",
-        "label": "Retención de clientes"
+        "id": "ads",
+        "label": "Tráfico (Ads)"
       },
       {
-        "value": "12+",
-        "label": "Industrias digitalizadas"
+        "id": "desarrollo",
+        "label": "Desarrollo web"
       },
       {
-        "value": "24/7",
+        "id": "automatizacion",
         "label": "Automatizaciones activas"
       }
     ]
   },
   "services": {
-    "heading": "Planes mensuales que cubren toda tu estrategia digital",
+    "heading": "Un solo equipo, cuatro frentes integrados para tu crecimiento",
     "subheading": "Cuatro áreas de especialización, un solo objetivo: resultados medibles. Elige lo que tu negocio necesita hoy y escala cuando quieras.",
     "ctaLink": "Solicitar información",
     "items": [
       {
         "id": "estrategia",
-        "title": "Estrategia Digital y Branding",
-        "description": "Analizamos tu mercado, tu competencia y tus datos para definir el rumbo: posicionamiento, mensajes y un plan mensual de contenido y SEO que genera resultados.",
+        "title": "Estrategia de contenido",
+        "description": "Analizamos tu mercado, tu competencia y tus datos para definir el rumbo: conformación de comunidad, posicionamiento, crecimiento de métricas y retención de leads.",
         "features": [
           "Auditoría digital completa",
-          "Posicionamiento y branding",
-          "Plan mensual de contenidos",
-          "SEO on-page y técnico"
+          "Posicionamiento",
+          "Plan estratégico de contenidos",
+          "Investigación de benchmark"
         ],
         "deliverables": [
           "Documento de estrategia y plan mensual",
@@ -123,11 +125,11 @@
       {
         "id": "pauta-digital",
         "title": "Campañas y Pauta Digital",
-        "description": "Diseñamos y optimizamos campañas en Meta Ads y Google Ads que convierten: segmentación correcta, creativos adecuados y presupuesto bien invertido.",
+        "description": "Diseñamos y optimizamos campañas en Meta Ads que convierten: segmentación correcta, creativos adecuados y presupuesto bien invertido.",
         "features": [
           "Campañas Meta Ads",
-          "Campañas Google Ads",
-          "Segmentación avanzada",
+          "Direccionado a rendimiento",
+          "Leads calificados",
           "A/B testing y optimización"
         ],
         "deliverables": [
@@ -139,12 +141,12 @@
       },
       {
         "id": "desarrollo",
-        "title": "Desarrollo Web & Software",
-        "description": "Construimos experiencias digitales rápidas y convertidoras con Next.js y arquitecturas escalables: desde landing pages de alto rendimiento hasta software a medida.",
+        "title": "Desarrollo Web y Software",
+        "description": "Tecnología propia y experiencias digitales. No hacemos páginas web; construimos máquinas de conversión. Landing pages y ecosistemas ultra-rápidos conectados a tus objetivos.",
         "features": [
           "Landing pages de conversión",
-          "Tiendas y sitios web",
-          "Software a medida",
+          "Dashboards de seguimiento",
+          "Catálogos digitales",
           "Performance y SEO técnico"
         ],
         "deliverables": [
@@ -156,12 +158,12 @@
       },
       {
         "id": "automatizacion",
-        "title": "Automatización e Integraciones",
-        "description": "Automatizamos procesos repetitivos para que tu equipo venda más y trabaje mejor: leads respondidos en segundos y tareas en piloto automático.",
+        "title": "Automatización y Conversión",
+        "description": "Seguimiento comercial y CRM. Que ningún lead se enfríe. Diseñamos embudos automáticos y atención 24/7 para que tu equipo comercial se dedique a cerrar ventas.",
         "features": [
           "Embudos de venta automáticos",
           "CRM y email marketing",
-          "Integraciones y workflows",
+          "Seguimiento",
           "Atención al cliente 24/7"
         ],
         "deliverables": [

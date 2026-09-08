@@ -68,50 +68,52 @@
     }
   },
   "hero": {
-    "titleStart": "Digital strategy",
-    "titleMiddle": "that turns data into",
-    "titleAccent": "growth",
-    "description": "We design, execute and optimize monthly digital marketing, web development and automation plans so your company grows with data, not guesswork.",
-    "ctaPrimary": "Start your plan",
-    "ctaSecondary": "Explore the services",
-    "checklist": [
-      "Flexible monthly plans",
-      "Transparent reporting",
-      "No minimum commitment"
+    "titleStart": "Digital ecosystem for",
+    "titleMiddle": "Growth",
+    "description": [
+      { "text": "We help your ", "highlight": false },
+      { "text": "business", "highlight": true },
+      { "text": " unify attraction, retention, technological infrastructure and data in a single ", "highlight": false },
+      { "text": "measurable", "highlight": true },
+      { "text": " ecosystem, designed to ", "highlight": false },
+      { "text": "scale your brand", "highlight": true },
+      { "text": " with predictable processes and accurate metrics.", "highlight": false }
     ],
+    "ctaPrimary": "Start your growth",
+    "ctaSecondary": "Explore the services",
     "stats": [
       {
-        "value": "+40%",
-        "label": "Average ROI on campaigns"
+        "id": "crecimiento",
+        "label": "Organic growth"
       },
       {
-        "value": "98%",
-        "label": "Client retention"
+        "id": "ads",
+        "label": "Traffic (Ads)"
       },
       {
-        "value": "12+",
-        "label": "Industries digitalized"
+        "id": "desarrollo",
+        "label": "Web developments"
       },
       {
-        "value": "24/7",
+        "id": "automatizacion",
         "label": "Active automations"
       }
     ]
   },
   "services": {
-    "heading": "Monthly plans that cover your entire digital strategy",
+    "heading": "One team, four integrated fronts for your growth",
     "subheading": "Four areas of expertise, one goal: measurable results. Choose what your business needs today and scale whenever you want.",
     "ctaLink": "Request information",
     "items": [
       {
         "id": "estrategia",
-        "title": "Digital Strategy & Branding",
-        "description": "We analyze your market, your competitors and your data to set the course: positioning, messaging and a monthly content and SEO plan that delivers results.",
+        "title": "Digital Strategy and Branding",
+        "description": "We analyze your market, your competition and your data to define the direction: community formation, positioning, metric growth and lead retention.",
         "features": [
           "Full digital audit",
-          "Positioning and branding",
-          "Monthly content plan",
-          "On-page and technical SEO"
+          "Positioning",
+          "Strategic content plan",
+          "Benchmark research"
         ],
         "deliverables": [
           "Strategy document and monthly plan",
@@ -123,11 +125,11 @@
       {
         "id": "pauta-digital",
         "title": "Paid Media Campaigns",
-        "description": "We design and optimize Meta Ads and Google Ads campaigns that convert: right targeting, right creative and budget spent wisely.",
+        "description": "We design and optimize Meta Ads campaigns that convert: right targeting, right creative and budget spent wisely.",
         "features": [
           "Meta Ads campaigns",
-          "Google Ads campaigns",
-          "Advanced targeting",
+          "Performance-driven",
+          "Qualified leads",
           "A/B testing and optimization"
         ],
         "deliverables": [
@@ -139,12 +141,12 @@
       },
       {
         "id": "desarrollo",
-        "title": "Web & Software Development",
-        "description": "We build fast, high-converting digital experiences with Next.js and scalable architectures: from high-performance landing pages to custom software.",
+        "title": "Web and Software Development",
+        "description": "Own technology and digital experiences. We do not make web pages; we build conversion machines. Landing pages and ultra-fast ecosystems connected to your objectives.",
         "features": [
           "Conversion landing pages",
-          "Stores and websites",
-          "Custom software",
+          "Tracking dashboards",
+          "Digital catalogs",
           "Performance and technical SEO"
         ],
         "deliverables": [
@@ -156,12 +158,12 @@
       },
       {
         "id": "automatizacion",
-        "title": "Automation & Integrations",
-        "description": "We automate repetitive processes so your team sells more and works better: leads answered in seconds and tasks on autopilot.",
+        "title": "Automation and Integrations",
+        "description": "Sales follow-up and CRM. No lead goes cold. We design automated funnels and provide 24/7 support so your sales team can focus on closing deals.",
         "features": [
           "Automated sales funnels",
           "CRM and email marketing",
-          "Integrations and workflows",
+          "Follow-up",
           "24/7 customer support"
         ],
         "deliverables": [
@@ -208,7 +210,7 @@
       {
         "id": "reporte",
         "step": "05",
-        "title": "Report & review",
+        "title": "Report and review",
         "description": "We deliver a clear report and adjust the strategy for the next cycle in a review call.",
         "duration": "Every month"
       }
@@ -247,7 +249,7 @@
       {
         "id": "cafe-altura",
         "client": "Café Altura",
-        "industry": "Retail & Food",
+        "industry": "Retail and Food",
         "description": "A content plan, online store and email automation that turned a local brand into a profitable ecommerce.",
         "testimonial": "The website they built loads in seconds and the campaigns bring us new customers every week. We finally understand our business numbers.",
         "metrics": [
