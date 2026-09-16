@@ -408,8 +408,8 @@
           "hours": "09:00 – 18:00"
         },
         {
-          "day": "Sábados y domingos",
-          "hours": "Cerrado"
+          "day": "Soporte técnico",
+          "hours": "24/7 para sistemas de clientes"
         }
       ],
       "responsePrefix": "Respuesta media:",
@@ -442,29 +442,34 @@
       "budgetOptions": [
         {
           "value": "less-1000",
-          "label": "Menos de 1.000 €/mes"
+          "label": "Menos de 1.000 USD/mes"
         },
         {
           "value": "1000-2500",
-          "label": "1.000 – 2.500 €/mes"
+          "label": "1.000 – 2.500 USD/mes"
         },
         {
           "value": "2500-5000",
-          "label": "2.500 – 5.000 €/mes"
+          "label": "2.500 – 5.000 USD/mes"
         },
         {
           "value": "more-5000",
-          "label": "Más de 5.000 €/mes"
+          "label": "Más de 5.000 USD/mes"
         },
         {
           "value": "unknown",
           "label": "Aún no lo sé"
         }
       ],
+      "consent": {
+        "label": "Acepto el tratamiento de mis datos personales según la",
+        "linkLabel": "política de privacidad"
+      },
       "messages": {
         "nameTooShort": "El nombre debe tener al menos {min} caracteres",
         "emailInvalid": "Introduce un email válido",
-        "messageTooShort": "El mensaje debe tener al menos {min} caracteres"
+        "messageTooShort": "El mensaje debe tener al menos {min} caracteres",
+        "consentRequired": "Debes aceptar la política de privacidad para continuar"
       },
       "submit": "Enviar mensaje",
       "sending": "Enviando...",
@@ -488,7 +493,7 @@
         "S",
         "D"
       ],
-      "timeZoneLabel": "Hora de Madrid (CET)",
+      "timeZoneLabel": "Hora de Colombia (COT)",
       "availableTitle": "Horarios disponibles",
       "selectedDay": "Lunes 18 de agosto",
       "callTitle": "Llamada de estrategia",

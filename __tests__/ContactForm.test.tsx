@@ -13,6 +13,7 @@ function renderForm() {
       strings={FORM_STRINGS}
       services={FORM_SERVICES}
       responseTime={FORM_RESPONSE_TIME}
+      locale="es"
     />,
   )
 }
@@ -29,6 +30,26 @@ describe('ContactForm', () => {
     expect(screen.getByText(/El nombre debe tener al menos/)).toBeInTheDocument()
     expect(screen.getByText(FORM_STRINGS.messages.emailInvalid)).toBeInTheDocument()
     expect(screen.getByText(/El mensaje debe tener al menos/)).toBeInTheDocument()
+    expect(screen.getByText(FORM_STRINGS.messages.consentRequired)).toBeInTheDocument()
+  })
+
+  it('requires data processing consent before submitting', () => {
+    renderForm()
+    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.name.label), {
+      target: { value: 'Ana Pérez' },
+    })
+    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.email.label), {
+      target: { value: 'ana@example.com' },
+    })
+    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.message.label), {
+      target: { value: 'Quiero un plan mensual de estrategia digital para mi empresa.' },
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: FORM_STRINGS.submit }))
+    expect(screen.getByText(FORM_STRINGS.messages.consentRequired)).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('checkbox'))
+    expect(screen.queryByText(FORM_STRINGS.messages.consentRequired)).not.toBeInTheDocument()
   })
 
   it('clears the field error while typing', () => {
@@ -60,6 +81,7 @@ describe('ContactForm', () => {
       fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.message.label), {
         target: { value: 'Quiero un plan mensual de estrategia digital para mi empresa.' },
       })
+      fireEvent.click(screen.getByRole('checkbox'))
 
       fireEvent.click(screen.getByRole('button', { name: FORM_STRINGS.submit }))
       await act(async () => {

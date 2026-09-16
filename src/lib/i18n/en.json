@@ -409,8 +409,8 @@
           "hours": "09:00 – 18:00"
         },
         {
-          "day": "Weekends",
-          "hours": "Closed"
+          "day": "Technical support",
+          "hours": "24/7 for client systems"
         }
       ],
       "responsePrefix": "Average response:",
@@ -443,29 +443,34 @@
       "budgetOptions": [
         {
           "value": "less-1000",
-          "label": "Less than €1,000/month"
+          "label": "Less than USD 1,000/month"
         },
         {
           "value": "1000-2500",
-          "label": "€1,000 – €2,500/month"
+          "label": "USD 1,000 – 2,500/month"
         },
         {
           "value": "2500-5000",
-          "label": "€2,500 – €5,000/month"
+          "label": "USD 2,500 – 5,000/month"
         },
         {
           "value": "more-5000",
-          "label": "More than €5,000/month"
+          "label": "More than USD 5,000/month"
         },
         {
           "value": "unknown",
           "label": "Not sure yet"
         }
       ],
+      "consent": {
+        "label": "I accept the processing of my personal data in accordance with the",
+        "linkLabel": "privacy policy"
+      },
       "messages": {
         "nameTooShort": "Name must be at least {min} characters",
         "emailInvalid": "Enter a valid email address",
-        "messageTooShort": "Message must be at least {min} characters"
+        "messageTooShort": "Message must be at least {min} characters",
+        "consentRequired": "You must accept the privacy policy to continue"
       },
       "submit": "Send message",
       "sending": "Sending...",
@@ -489,7 +494,7 @@
         "S",
         "S"
       ],
-      "timeZoneLabel": "Madrid time (CET)",
+      "timeZoneLabel": "Colombia time (COT)",
       "availableTitle": "Available slots",
       "selectedDay": "Monday, August 18",
       "callTitle": "Strategy call",

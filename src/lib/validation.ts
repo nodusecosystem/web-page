@@ -6,6 +6,7 @@ export type ValidationMessages = {
   nameTooShort: string
   emailInvalid: string
   messageTooShort: string
+  consentRequired: string
 }
 
 export function validateContactForm(
@@ -24,6 +25,10 @@ export function validateContactForm(
 
   if (form.message.trim().length < MIN_MESSAGE_LENGTH) {
     errors.message = format(messages.messageTooShort, { min: MIN_MESSAGE_LENGTH })
+  }
+
+  if (!form.consent) {
+    errors.consent = messages.consentRequired
   }
 
   return errors

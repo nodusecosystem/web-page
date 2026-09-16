@@ -11,4 +11,5 @@ export const EMPTY_CONTACT_FORM: ContactFormData = {
   service: '',
   budget: '',
   message: '',
+  consent: false,
 }

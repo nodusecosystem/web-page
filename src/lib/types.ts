@@ -13,6 +13,7 @@ export type ContactFormData = {
   service: string
   budget: string
   message: string
+  consent: boolean
 }
 
 export type ContactFormErrors = Partial<Record<keyof ContactFormData, string>>

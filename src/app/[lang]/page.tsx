@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
-import { getDictionary } from '@/lib/i18n/dictionaries'
+import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
 import { professionalServiceSchema } from '@/lib/schema'
 import { ContactForm } from '@/views/ContactForm'
 import { Hero } from '@/views/Hero'
@@ -28,6 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const dict = await getDictionary()
+  const locale = await lang()
 
   return (
     <>
@@ -39,6 +40,7 @@ export default async function HomePage() {
         strings={dict.contact.form}
         services={dict.services.items}
         responseTime={dict.site.responseTime}
+        locale={locale as Locale}
       />
       <script
         type="application/ld+json"

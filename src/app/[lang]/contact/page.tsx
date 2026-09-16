@@ -38,6 +38,7 @@ export default async function ContactPage() {
         strings={dict.contact.form}
         services={dict.services.items}
         responseTime={dict.site.responseTime}
+        locale={locale as Locale}
         heading={dict.contact.altHeading}
         subheading={dict.contact.altSubheading}
       />

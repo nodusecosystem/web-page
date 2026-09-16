@@ -1,6 +1,7 @@
 'use client'
 
 import { AlertCircle, CheckCircle2, ChevronDown, Clock, Loader2, Mail, MapPin, Phone, Send } from 'lucide-react'
+import Link from 'next/link'
 import { useState, type ChangeEvent, type SubmitEvent } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
@@ -9,8 +10,11 @@ import { GlowCursor } from '@/components/ui/GlowCursor'
 import { Input } from '@/components/ui/Input'
 import { Section } from '@/components/ui/Section'
 import { Textarea } from '@/components/ui/Textarea'
+import { cn } from '@/lib/cn'
 import { EMPTY_CONTACT_FORM } from '@/lib/constants/contact'
-import { CONTACT_CITY, CONTACT_COUNTRY, CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/constants/site'
+import { CONTACT_COUNTRY, CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/constants/site'
+import { localePath } from '@/lib/format'
+import type { Locale } from '@/lib/i18n/dictionaries'
 import type { ContactFormData, ContactFormErrors, FormStatus } from '@/lib/types'
 import { validateContactForm, type ValidationMessages } from '@/lib/validation'
 
@@ -37,6 +41,10 @@ type ContactFormStrings = {
     message: FormFieldStrings
   }
   budgetOptions: { value: string; label: string }[]
+  consent: {
+    label: string
+    linkLabel: string
+  }
   messages: ValidationMessages
   submit: string
   sending: string
@@ -50,6 +58,7 @@ type ContactFormProps = {
   strings: ContactFormStrings
   services: { id: string; title: string }[]
   responseTime: string
+  locale: Locale
   heading?: string
   subheading?: string
 }
@@ -58,6 +67,7 @@ export function ContactForm({
   strings,
   services,
   responseTime,
+  locale,
   heading,
   subheading,
 }: Readonly<ContactFormProps>) {
@@ -66,7 +76,7 @@ export function ContactForm({
   const [status, setStatus] = useState<FormStatus>('idle')
 
   const handleChange =
-    (field: keyof ContactFormData) =>
+    (field: Exclude<keyof ContactFormData, 'consent'>) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       const { value } = event.target
       setFormData((current) => ({ ...current, [field]: value }))
@@ -74,6 +84,14 @@ export function ContactForm({
         setErrors((current) => ({ ...current, [field]: undefined }))
       }
     }
+
+  const handleConsentChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { checked } = event.target
+    setFormData((current) => ({ ...current, consent: checked }))
+    if (errors.consent) {
+      setErrors((current) => ({ ...current, consent: undefined }))
+    }
+  }
 
   const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -133,7 +151,7 @@ export function ContactForm({
             </li>
             <li className="flex items-center gap-3 text-white/80">
               <MapPin aria-hidden className="h-5 w-5 text-teal-light" />
-              {CONTACT_CITY}, {CONTACT_COUNTRY} · {strings.remoteBadge}
+              {CONTACT_COUNTRY} · {strings.remoteBadge}
             </li>
             <li>
               <p className="flex items-center gap-3 text-white/80">
@@ -253,6 +271,37 @@ export function ContactForm({
                 onChange={handleChange('message')}
                 error={errors.message}
               />
+              <div className="flex flex-col gap-1.5">
+                <div className="flex items-start gap-2.5">
+                  <input
+                    id="consent"
+                    type="checkbox"
+                    checked={formData.consent}
+                    onChange={handleConsentChange}
+                    aria-invalid={errors.consent ? true : undefined}
+                    aria-describedby={errors.consent ? 'consent-error' : undefined}
+                    className={cn(
+                      'mt-0.5 h-4 w-4 shrink-0 rounded accent-teal-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light',
+                      errors.consent && 'outline outline-red-500',
+                    )}
+                  />
+                  <label htmlFor="consent" className="text-sm leading-relaxed text-dark/70">
+                    {strings.consent.label}{' '}
+                    <Link
+                      href={localePath(locale, '/politica-de-privacidad')}
+                      className="font-semibold text-teal-light underline-offset-2 hover:underline"
+                    >
+                      {strings.consent.linkLabel}
+                    </Link>
+                    .
+                  </label>
+                </div>
+                {errors.consent ? (
+                  <p id="consent-error" role="alert" className="text-sm text-red-600">
+                    {errors.consent}
+                  </p>
+                ) : null}
+              </div>
               {status === 'error' ? (
                 <p role="alert" className="flex items-center gap-2 text-sm text-red-600">
                   <AlertCircle aria-hidden className="h-4 w-4 shrink-0" />

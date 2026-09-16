@@ -1,6 +1,6 @@
 import {
-  CONTACT_CITY,
   CONTACT_COUNTRY,
+  CONTACT_COUNTRY_CODE,
   CONTACT_EMAIL,
   CONTACT_PHONE,
   SITE_NAME,
@@ -25,8 +25,7 @@ export function professionalServiceSchema(dict: Dictionary) {
     areaServed: CONTACT_COUNTRY,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: CONTACT_CITY,
-      addressCountry: 'ES',
+      addressCountry: CONTACT_COUNTRY_CODE,
     },
     sameAs: Object.values(SOCIAL_LINKS),
     makesOffer: dict.services.items.map((service) => ({
@@ -57,8 +56,7 @@ export function aboutPageSchema(dict: Dictionary, locale: Locale) {
       telephone: CONTACT_PHONE,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: CONTACT_CITY,
-        addressCountry: 'ES',
+        addressCountry: CONTACT_COUNTRY_CODE,
       },
       areaServed: CONTACT_COUNTRY,
       knowsAbout: dict.services.items.map((service) => service.title),
@@ -81,8 +79,7 @@ export function contactPageSchema(dict: Dictionary, locale: Locale) {
       email: CONTACT_EMAIL,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: CONTACT_CITY,
-        addressCountry: 'ES',
+        addressCountry: CONTACT_COUNTRY_CODE,
       },
       contactPoint: {
         '@type': 'ContactPoint',
