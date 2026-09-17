@@ -12,7 +12,7 @@ export const buildWhatsAppLink = (message: string): string =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 
 export const SOCIAL_LINKS = {
-  linkedin: 'https://www.linkedin.com/company/nodus-digital-strategy',
-  instagram: 'https://www.instagram.com/nodus.digital',
-  facebook: 'https://www.facebook.com/nodusdigital',
+  linkedin: 'https://www.linkedin.com/company/nodusecosystem',
+  instagram: 'https://www.instagram.com/nodusecosystem',
+  facebook: 'https://www.facebook.com/nodusecosystem',
 }

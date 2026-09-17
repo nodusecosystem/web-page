@@ -32,7 +32,7 @@ export function Input({ id, label, hint, error, className, ...rest }: InputProps
         {...rest}
       />
       {hint ? (
-        <p id={hintId} className="text-xs text-dark/50">
+        <p id={hintId} className="text-xs text-dark/60">
           {hint}
         </p>
       ) : null}

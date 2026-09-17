@@ -1,3 +1,4 @@
+import { lang } from 'next/root-params'
 import { BookingCalendar } from '@/components/ui/BookingCalendar'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -5,6 +6,7 @@ import { getDictionary } from '@/lib/i18n/dictionaries'
 
 export async function CallScheduler() {
   const dict = await getDictionary()
+  const locale = await lang()
   const { scheduler } = dict.contact
 
   return (
@@ -17,7 +19,7 @@ export async function CallScheduler() {
           <p className="mt-4 text-lg text-dark/60">{scheduler.subheading}</p>
         </div>
 
-        <BookingCalendar strings={scheduler} />
+        <BookingCalendar strings={scheduler} locale={locale} today={new Date().toISOString()} />
 
         <p className="mt-6 text-center text-sm text-dark/50">{scheduler.footnote}</p>
       </Container>

@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "Agencia de estrategia digital: planes mensuales de marketing digital, Meta Ads, desarrollo web y automatización para empresas que quieren crecer con datos.",
+    "description": "Partner de crecimiento: planes mensuales de marketing digital, Meta Ads, desarrollo web y automatización para empresas que quieren crecer con datos.",
     "slogan": "Estrategia digital que convierte datos en crecimiento",
     "responseTime": "En menos de 24 horas con un plan de acción",
     "whatsappMessage": "Hola nodus, quiero información sobre sus planes mensuales"
@@ -44,7 +44,7 @@
       "en": "English"
     },
     "footer": {
-      "description": "Agencia de estrategia digital: planes mensuales de marketing, publicidad, desarrollo y automatización para empresas que quieren crecer con datos.",
+      "description": "Partner de crecimiento: planes mensuales de marketing, publicidad, desarrollo y automatización para empresas que quieren crecer con datos.",
       "navHeading": "Navegación",
       "servicesHeading": "Servicios",
       "legalHeading": "Legal",
@@ -108,69 +108,70 @@
       {
         "id": "estrategia",
         "title": "Estrategia de contenido",
-        "description": "Analizamos tu mercado, tu competencia y tus datos para definir el rumbo: conformación de comunidad, posicionamiento, crecimiento de métricas y retención de leads.",
+        "description": "Convertimos tu marca en contenido que vende: investigamos a tu audiencia, construimos tu embudo de conversión y organizamos una arquitectura de publicación donde cada pieza cumple un objetivo comercial claro.",
         "features": [
-          "Auditoría digital completa",
-          "Posicionamiento",
-          "Plan estratégico de contenidos",
-          "Investigación de benchmark"
+          "Inteligencia de mercado y psicografía de marca",
+          "Embudo de conversión multicanal (TOFU · MOFU · BOFU)",
+          "Arquitectura y posicionamiento de contenido (SEO Social)",
+          "Edición de contenido en video (reels y formatos cortos)"
         ],
         "deliverables": [
-          "Documento de estrategia y plan mensual",
-          "Guía de marca y mensajes clave",
-          "Calendario editorial mensual",
-          "Reporte de KPIs y rendimiento"
+          "Calendario de contenido mensual aprobado",
+          "Videos editados y listos para publicar (reels y formatos cortos)",
+          "Optimización mensual de perfiles y biografías",
+          "Reporte mensual de desempeño de contenido"
         ]
       },
       {
         "id": "pauta-digital",
         "title": "Campañas y Pauta Digital",
-        "description": "Diseñamos y optimizamos campañas en Meta Ads que convierten: segmentación correcta, creativos adecuados y presupuesto bien invertido.",
+        "description": "Estrategia, copy y optimización de campañas en Meta y Google construidas sobre tu diferencial real, con testing constante para bajar tu costo por lead.",
         "features": [
-          "Campañas Meta Ads",
-          "Direccionado a rendimiento",
-          "Leads calificados",
-          "A/B testing y optimización"
+          "Estrategia de campaña basada en tu diferencial de marca",
+          "Copy y creativos basados en resultados y testimonios reales",
+          "Testing A/B de ángulos (dolor vs. resultado)",
+          "Optimización continua hacia tu costo por lead objetivo"
         ],
         "deliverables": [
-          "Estructura de cuentas y campañas",
-          "Creativos y textos publicitarios",
-          "Landing pages de campaña",
-          "Optimización semanal y reportes"
+          "Campañas activas y configuradas en la plataforma",
+          "Piezas de copy y creativos nuevos cada mes",
+          "Reporte de resultados y costo por lead",
+          "Recomendaciones de presupuesto y ajuste mensual"
         ]
       },
       {
         "id": "desarrollo",
         "title": "Desarrollo Web y Software",
-        "description": "Tecnología propia y experiencias digitales. No hacemos páginas web; construimos máquinas de conversión. Landing pages y ecosistemas ultra-rápidos conectados a tus objetivos.",
+        "description": "Sitios, landing pages y herramientas a la medida que conectan con tu estrategia comercial: desde una landing de conversión hasta una plataforma o dashboard personalizado.",
         "features": [
-          "Landing pages de conversión",
-          "Dashboards de seguimiento",
-          "Catálogos digitales",
-          "Performance y SEO técnico"
+          "Landing pages y sitios web optimizados para conversión",
+          "Optimización técnica y SEO de tu sitio",
+          "Gestión de hosting y dominio",
+          "Integraciones y automatizaciones a la medida (CRM, formularios, pagos)",
+          "Plataformas y dashboards personalizados cuando el proyecto lo requiere"
         ],
         "deliverables": [
-          "Web o landing page funcional",
-          "Diseño responsive y accesible",
-          "Optimización Core Web Vitals",
-          "Mantenimiento y soporte mensual"
+          "Sitio o landing publicado y funcionando",
+          "Documentación de accesos y configuración",
+          "Reporte de rendimiento técnico (velocidad, SEO)",
+          "Ajustes y mantenimiento mensual"
         ]
       },
       {
         "id": "automatizacion",
         "title": "Automatización y Conversión",
-        "description": "Seguimiento comercial y CRM. Que ningún lead se enfríe. Diseñamos embudos automáticos y atención 24/7 para que tu equipo comercial se dedique a cerrar ventas.",
+        "description": "Montamos los procesos que trabajan por ti: seguimiento automático de leads, chatbot y flujos conectados entre tus canales y tu CRM, para que ningún prospecto se pierda.",
         "features": [
-          "Embudos de venta automáticos",
-          "CRM y email marketing",
-          "Seguimiento",
-          "Atención al cliente 24/7"
+          "Configuración y seguimiento de chatbot",
+          "Automatización de flujos entre canales y CRM",
+          "Funnel de prospección y seguimiento automático de leads",
+          "Reportes automatizados de resultados"
         ],
         "deliverables": [
-          "Flujos de automatización activos",
-          "CRM configurado e integrado",
-          "Secuencias de email marketing",
-          "Documentación y soporte"
+          "Automatizaciones activas y probadas",
+          "Chatbot configurado y en funcionamiento",
+          "Flujo de datos conectado a tu CRM",
+          "Reporte mensual de leads gestionados"
         ]
       }
     ]
@@ -217,66 +218,98 @@
     ]
   },
   "socialProof": {
-    "heading": "Empresas que ya crecen con estrategia",
+    "heading": "Empresas que ya crecen",
     "subheading": "Casos reales de nuestro trabajo mensual: datos que hablan, clientes que repiten.",
     "clientsAriaLabel": "Empresas que confían en nodus",
     "clients": [
-      "TechNova",
-      "Clínica Sonríe",
-      "Café Altura",
-      "UrbanFit",
-      "Grupo Andino",
-      "Hotel Miramar"
+      "Tejas",
+      "El Eje de la Licuadora",
+      "Acrílicos Pereira"
     ],
+    "detailsTitle": "Detalle de la pauta en Meta Ads",
     "cases": [
       {
-        "id": "clinica-sonrie",
-        "client": "Clínica Sonríe",
-        "industry": "Salud",
-        "description": "Triplicamos las citas online en cuatro meses combinando campañas de Meta Ads con un embudo de recordatorios automatizado.",
-        "testimonial": "Pasamos de depender del boca a boca a tener una agenda llena cada mes. Los reportes mensuales nos dejaban claro dónde estaba cada euro.",
-        "metrics": [
+        "id": "tejas",
+        "client": "Tejas",
+        "industry": "Retail — materiales de construcción (tejas)",
+        "description": "Pauta digital en Meta Ads para generar conversaciones de venta de tejas (tipos de teja, teja industrial, teja colonial) en el Eje Cafetero.",
+        "result": "Más de 1.000 mensajes en 20 días de clientes calificados para su negocio (2.314 conversaciones en 5 semanas).",
+        "testimonial": "En pocas semanas pasamos de recibir consultas sueltas a tener el WhatsApp lleno de clientes preguntando por tejas. Nunca habíamos tenido un flujo de mensajes tan constante.",
+        "period": "11 ago – 16 sep 2026",
+        "details": [
           {
-            "value": "+320%",
-            "label": "citas online"
+            "label": "Inversión total",
+            "value": "$2.340.392 COP"
           },
           {
-            "value": "-45%",
-            "label": "no-shows"
+            "label": "Conversaciones de mensajería iniciadas",
+            "value": "2.314"
+          },
+          {
+            "label": "Clics únicos",
+            "value": "4.504"
+          },
+          {
+            "label": "Mejor conjunto",
+            "value": "«Tipos de Tejas»"
+          },
+          {
+            "label": "Conversaciones del mejor conjunto",
+            "value": "1.282"
+          },
+          {
+            "label": "Costo por conversación",
+            "value": "$879 COP"
           }
         ]
       },
       {
-        "id": "cafe-altura",
-        "client": "Café Altura",
-        "industry": "Retail y Food",
-        "description": "Plan de contenido, tienda online y automatización de email que convirtieron una marca local en un ecommerce rentable.",
-        "testimonial": "La web que nos montaron carga en segundos y las campañas nos traen clientes cada semana. Por fin entendemos los números del negocio.",
-        "metrics": [
+        "id": "la-licuadora",
+        "client": "El Eje de la Licuadora",
+        "industry": "Retail — repuestos de licuadora, venta por domicilio",
+        "description": "Pauta digital en Meta Ads para generar pedidos de repuestos de licuadora a domicilio.",
+        "result": "35 domicilios generados al día, con un presupuesto muy bajo de pauta.",
+        "testimonial": "Con muy poquita inversión empezamos a recibir pedidos todos los días. La pauta nos puso en el mapa de barrios donde antes no nos conocían.",
+        "period": "11 ago – 16 sep 2026",
+        "details": [
           {
-            "value": "+180%",
-            "label": "ventas online"
+            "label": "Inversión total",
+            "value": "$582.516 COP"
           },
           {
-            "value": "3.2x",
-            "label": "ROAS en Meta"
+            "label": "Conversaciones de mensajería iniciadas",
+            "value": "776"
+          },
+          {
+            "label": "Clics únicos",
+            "value": "1.439"
+          },
+          {
+            "label": "Costo por conversación",
+            "value": "Entre $627 y $878 COP según el conjunto de anuncios"
           }
         ]
       },
       {
-        "id": "grupo-andino",
-        "client": "Grupo Andino",
-        "industry": "B2B / Construcción",
-        "description": "Automatización del CRM y estrategia de contenido B2B que acortó el ciclo de venta y multiplicó los leads calificados.",
-        "testimonial": "El CRM automatizado respondía a los leads antes de que nosotros supiéramos que existían. El equipo comercial vende, no persigue.",
-        "metrics": [
+        "id": "acrilicos-pereira",
+        "client": "Acrílicos Pereira",
+        "industry": "Retail — acrílicos y señalización",
+        "description": "Pauta digital en Meta Ads enfocada en generar conversaciones de venta por WhatsApp/Messenger, con dos frentes: catálogo abierto y ventas B2B por avisos.",
+        "result": "999 conversaciones de mensajería iniciadas entre el 9 de julio y el 31 de agosto de 2026.",
+        "testimonial": "El catálogo abierto nos trajo clientes nuevos cada semana y los avisos B2B nos abrieron puertas con empresas. Los reportes nos muestran qué conjunto funciona mejor.",
+        "period": "9 jul – 31 ago 2026",
+        "details": [
           {
-            "value": "+65%",
-            "label": "leads calificados"
+            "label": "Inversión total",
+            "value": "$804.152 COP"
           },
           {
-            "value": "-30%",
-            "label": "tiempo de respuesta"
+            "label": "Conjunto «Panini» (catálogo abierto)",
+            "value": "941 conversaciones, $535.140 COP invertidos, $569 COP por conversación"
+          },
+          {
+            "label": "Conjunto «B2B Avisos»",
+            "value": "58 conversaciones, $269.012 COP invertidos, $4.638 COP por conversación"
           }
         ]
       }
@@ -324,7 +357,7 @@
     },
     "philosophy": {
       "heading": "No ofrecemos publicaciones, damos estrategia, resultados y crecimiento.",
-      "subheading": "No somos una agencia tradicional que vende posts y «actividad digital». Somos un partner de aceleración: medimos, iteramos y escalamos lo que demuestra resultado.",
+      "subheading": "No somos un proveedor tradicional que vende posts y «actividad digital». Somos un partner de crecimiento: medimos, iteramos y escalamos lo que demuestra resultado.",
       "points": [
         {
           "id": "metricas-negocio",
@@ -376,21 +409,20 @@
     "hero": {
       "titleStart": "Planes mensuales con",
       "titleAccent": "entregables claros",
-      "description": "Estrategia, pauta, desarrollo y automatización en un solo partner. Sabrás exactamente qué recibes cada mes y qué resultado buscamos alcanzar.",
+      "description": "Estrategia, pauta, desarrollo y automatización en un solo partner. Sabrás exactamente qué recibes cada mes.",
       "ctaPrimary": "Agenda una llamada",
       "ctaSecondary": "Ver entregables",
       "checklist": [
-        "Planes mensuales flexibles",
-        "Sin permanencia",
-        "Entregables claros"
+        "Planes mensuales",
+        "Sin permanencia mínima",
+        "Entregables claros cada mes"
       ]
     },
     "details": {
       "heading": "Cuatro servicios, un plan mensual",
-      "subheading": "Cada servicio tiene un alcance y unos entregables definidos. Combínalos según tu estrategia y escala cuando quieras.",
+      "subheading": "Cada uno de estos cuatro servicios puede contratarse de forma independiente o combinada, según lo que tu negocio necesite hoy.",
       "includesTitle": "Qué incluye",
-      "deliverablesTitle": "Entregables del plan",
-      "ctaLink": "Solicitar este servicio"
+      "deliverablesTitle": "Entregables del plan"
     }
   },
   "contact": {
@@ -466,6 +498,7 @@
         "linkLabel": "política de privacidad"
       },
       "bookingTitle": "Sesión seleccionada",
+      "bookingConnector": "a las",
       "reassurance": {
         "expert": "Hablarás directamente con un estratega digital que analizará el contexto de tu empresa, sin filtros ni intermediarios.",
         "privacy": "Tus datos solo serán utilizados para auditar tu presencia digital antes de nuestra sesión de trabajo."
@@ -487,7 +520,6 @@
     "scheduler": {
       "heading": "Reserva una llamada gratuita de estrategia",
       "subheading": "¿Prefieres avanzar más rápido? Selecciona directamente el día y la hora para una videollamada de 20 minutos con nuestro equipo estratégico.",
-      "month": "Agosto 2026",
       "weekdays": [
         "L",
         "M",
@@ -497,14 +529,15 @@
         "S",
         "D"
       ],
+      "previousMonthLabel": "Mes anterior",
+      "nextMonthLabel": "Mes siguiente",
       "timeZoneLabel": "Hora de Colombia (COT)",
       "availableTitle": "Horarios disponibles",
-      "dayLabel": "{day} de agosto",
       "timeLabel": "Hora de la videollamada",
       "timeHint": "Elige una hora entre las 09:00 y las 17:00",
       "timeRangeError": "Selecciona una hora entre las 09:00 y las 17:00",
       "callTitle": "Sesión de diagnóstico",
-      "callDetail": "20 minutos · Gratuita · Google Meet",
+      "callDetail": "20 minutos, gratuita, Google Meet",
       "confirm": "Confirmar videollamada",
       "footnote": "Mockup visual: la integración real de agendamiento (Calendly / Cal.com) se conectará aquí."
     }
@@ -560,7 +593,7 @@
       },
       {
         "id": "equipo-interno",
-        "question": "¿Trabajáis con nuestro equipo interno?",
+        "question": "¿Trabajan con nuestro equipo interno?",
         "answer": "Sí, es nuestra modalidad favorita. Nos integramos con tu equipo, documentamos procesos y te formamos para que cada vez dependas menos de nosotros y puedas crecer con nuestras herramientas."
       }
     ]
@@ -570,7 +603,7 @@
   },
   "cta": {
     "heading": "¿Listo para acelerar tu crecimiento?",
-    "subheading": "Agenda una llamada gratuita de estrategia y te proponemos un plan mensual claro, con objetivos medibles y sin permanencia.",
+    "subheading": "Agenda una llamada gratuita de diagnóstico y te contamos, con objetivos medibles, cómo se vería tu plan mensual con nodus.",
     "button": "Agenda una llamada"
   },
   "notFound": {

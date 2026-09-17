@@ -55,15 +55,7 @@ export function Card({ variant = 'default', className, ...rest }: CardProps) {
       displace={4}
       distortionScale={-70}
       brightness={variantSpec.dark ? 60 : 88}
-      backgroundOpacity={
-        isMobile
-          ? variantSpec.dark
-            ? 0.85
-            : 0.7
-          : variantSpec.dark
-            ? 0.25
-            : 0.35
-      }
+      backgroundOpacity={variantSpec.dark ? 0.25 : 0.9}
       borderWidth={0.05}
     >
       <div className={cn('h-full w-full rounded-2xl p-6', variantSpec.inner, className)} {...rest} />

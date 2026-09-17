@@ -67,6 +67,7 @@ type ContactFormStrings = {
     linkLabel: string
   }
   bookingTitle: string
+  bookingConnector: string
   reassurance: {
     expert: string
     privacy: string
@@ -247,9 +248,12 @@ export function ContactForm({
             ) : (
               <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
                 {booking ? (
-                  <p className="flex items-center gap-2.5 rounded-xl bg-teal-light/10 px-4 py-3 text-sm text-dark">
-                    <CalendarCheck aria-hidden className="h-4 w-4 shrink-0 text-teal-light" />
-                    <span>{`${strings.bookingTitle}: ${booking.label} · ${booking.time}`}</span>
+                  <p className="flex items-center gap-2.5 rounded-xl border border-teal-light/50 bg-teal-light/20 px-4 py-3 text-sm text-dark">
+                    <CalendarCheck aria-hidden className="h-4 w-4 shrink-0 text-dark" />
+                    <span>
+                      <strong className="font-semibold">{strings.bookingTitle}:</strong>{' '}
+                      {`${booking.label} ${strings.bookingConnector} ${booking.time}`}
+                    </span>
                   </p>
                 ) : null}
                 <div className="grid gap-5 sm:grid-cols-2">
@@ -367,11 +371,11 @@ export function ContactForm({
                   )}
                 </Button>
                 <ul className="flex flex-col gap-2.5 border-t border-dark/10 pt-4">
-                  <li className="flex items-start gap-2.5 text-xs leading-relaxed text-dark/60">
+                  <li className="flex items-start gap-2.5 text-xs leading-relaxed text-dark/70">
                     <UserCheck aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" />
                     {strings.reassurance.expert}
                   </li>
-                  <li className="flex items-start gap-2.5 text-xs leading-relaxed text-dark/60">
+                  <li className="flex items-start gap-2.5 text-xs leading-relaxed text-dark/70">
                     <ShieldCheck aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" />
                     {strings.reassurance.privacy}
                   </li>

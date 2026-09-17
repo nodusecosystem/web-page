@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "Digital strategy agency: monthly plans covering digital marketing, Meta Ads, web development and automation for companies that want to grow with data.",
+    "description": "Growth partner: monthly plans covering digital marketing, Meta Ads, web development and automation for companies that want to grow with data.",
     "slogan": "Digital strategy that turns data into growth",
     "responseTime": "In less than 24 hours with an action plan",
     "whatsappMessage": "Hi nodus, I'd like to know more about your monthly plans"
@@ -44,7 +44,7 @@
       "en": "English"
     },
     "footer": {
-      "description": "Digital strategy agency: monthly plans for marketing, advertising, development and automation for companies that want to grow with data.",
+      "description": "Growth partner: monthly plans for marketing, advertising, development and automation for companies that want to grow with data.",
       "navHeading": "Navigation",
       "servicesHeading": "Services",
       "legalHeading": "Legal",
@@ -107,70 +107,71 @@
     "items": [
       {
         "id": "estrategia",
-        "title": "Digital Strategy and Branding",
-        "description": "We analyze your market, your competition and your data to define the direction: community formation, positioning, metric growth and lead retention.",
+        "title": "Content Strategy",
+        "description": "We turn your brand into content that sells: we research your audience, build your conversion funnel and organize a publishing architecture where every piece serves a clear commercial goal.",
         "features": [
-          "Full digital audit",
-          "Positioning",
-          "Strategic content plan",
-          "Benchmark research"
+          "Market intelligence and brand psychographics",
+          "Multichannel conversion funnel (TOFU · MOFU · BOFU)",
+          "Content architecture and positioning (Social SEO)",
+          "Video content editing (reels and short formats)"
         ],
         "deliverables": [
-          "Strategy document and monthly plan",
-          "Brand and key messaging guide",
-          "Monthly editorial calendar",
-          "KPI and performance report"
+          "Approved monthly content calendar",
+          "Edited videos ready to publish (reels and short formats)",
+          "Monthly profile and bio optimization",
+          "Monthly content performance report"
         ]
       },
       {
         "id": "pauta-digital",
         "title": "Paid Media Campaigns",
-        "description": "We design and optimize Meta Ads campaigns that convert: right targeting, right creative and budget spent wisely.",
+        "description": "Strategy, copy and campaign optimization on Meta and Google, built on your real differentiator, with constant testing to lower your cost per lead.",
         "features": [
-          "Meta Ads campaigns",
-          "Performance-driven",
-          "Qualified leads",
-          "A/B testing and optimization"
+          "Campaign strategy based on your brand differentiator",
+          "Copy and creatives based on real results and testimonials",
+          "A/B testing of angles (pain vs. outcome)",
+          "Continuous optimization toward your target cost per lead"
         ],
         "deliverables": [
-          "Account and campaign structure",
-          "Ad creatives and copy",
-          "Campaign landing pages",
-          "Weekly optimization and reports"
+          "Campaigns live and configured on the platform",
+          "New copy and creative pieces every month",
+          "Results and cost-per-lead report",
+          "Monthly budget and adjustment recommendations"
         ]
       },
       {
         "id": "desarrollo",
         "title": "Web and Software Development",
-        "description": "Own technology and digital experiences. We do not make web pages; we build conversion machines. Landing pages and ultra-fast ecosystems connected to your objectives.",
+        "description": "Custom sites, landing pages and tools that connect with your commercial strategy: from a conversion landing page to a custom platform or dashboard.",
         "features": [
-          "Conversion landing pages",
-          "Tracking dashboards",
-          "Digital catalogs",
-          "Performance and technical SEO"
+          "Landing pages and websites optimized for conversion",
+          "Technical and SEO optimization of your site",
+          "Hosting and domain management",
+          "Custom integrations and automations (CRM, forms, payments)",
+          "Custom platforms and dashboards when the project requires them"
         ],
         "deliverables": [
-          "Functional website or landing page",
-          "Responsive and accessible design",
-          "Core Web Vitals optimization",
-          "Monthly maintenance and support"
+          "Site or landing page published and running",
+          "Access and configuration documentation",
+          "Technical performance report (speed, SEO)",
+          "Monthly adjustments and maintenance"
         ]
       },
       {
         "id": "automatizacion",
-        "title": "Automation and Integrations",
-        "description": "Sales follow-up and CRM. No lead goes cold. We design automated funnels and provide 24/7 support so your sales team can focus on closing deals.",
+        "title": "Automation and Conversion",
+        "description": "We set up the processes that work for you: automatic lead follow-up, chatbot and flows connected between your channels and your CRM, so no prospect is lost.",
         "features": [
-          "Automated sales funnels",
-          "CRM and email marketing",
-          "Follow-up",
-          "24/7 customer support"
+          "Chatbot setup and follow-up",
+          "Flow automation between channels and CRM",
+          "Prospecting funnel and automatic lead follow-up",
+          "Automated results reports"
         ],
         "deliverables": [
-          "Active automation flows",
-          "Configured and integrated CRM",
-          "Email marketing sequences",
-          "Documentation and support"
+          "Active and tested automations",
+          "Chatbot configured and running",
+          "Data flow connected to your CRM",
+          "Monthly managed-leads report"
         ]
       }
     ]
@@ -217,66 +218,98 @@
     ]
   },
   "socialProof": {
-    "heading": "Companies already growing with strategy",
+    "heading": "Companies already growing",
     "subheading": "Real results from our monthly work: data that speaks, clients that stay.",
     "clientsAriaLabel": "Companies that trust nodus",
     "clients": [
-      "TechNova",
-      "Clínica Sonríe",
-      "Café Altura",
-      "UrbanFit",
-      "Grupo Andino",
-      "Hotel Miramar"
+      "Tejas",
+      "El Eje de la Licuadora",
+      "Acrílicos Pereira"
     ],
+    "detailsTitle": "Campaign detail on Meta Ads",
     "cases": [
       {
-        "id": "clinica-sonrie",
-        "client": "Clínica Sonríe",
-        "industry": "Healthcare",
-        "description": "We tripled online bookings in four months by combining Meta Ads campaigns with an automated reminder funnel.",
-        "testimonial": "We went from relying on word of mouth to having a full calendar every month. The monthly reports made it clear where every euro was going.",
-        "metrics": [
+        "id": "tejas",
+        "client": "Tejas",
+        "industry": "Retail — construction materials (roof tiles)",
+        "description": "Meta Ads campaign to generate sales conversations for roof tiles (types of tile, industrial tile, colonial tile) in the Eje Cafetero region.",
+        "result": "More than 1,000 messages in 20 days from qualified customers for the business (2,314 conversations in 5 weeks).",
+        "testimonial": "In just a few weeks we went from occasional inquiries to a WhatsApp full of customers asking about roof tiles. We had never had such a steady flow of messages.",
+        "period": "Aug 11 – Sep 16, 2026",
+        "details": [
           {
-            "value": "+320%",
-            "label": "online bookings"
+            "label": "Total investment",
+            "value": "$2,340,392 COP"
           },
           {
-            "value": "-45%",
-            "label": "no-shows"
+            "label": "Messaging conversations started",
+            "value": "2,314"
+          },
+          {
+            "label": "Unique clicks",
+            "value": "4,504"
+          },
+          {
+            "label": "Best ad set",
+            "value": "“Tipos de Tejas”"
+          },
+          {
+            "label": "Best ad set conversations",
+            "value": "1,282"
+          },
+          {
+            "label": "Cost per conversation",
+            "value": "$879 COP"
           }
         ]
       },
       {
-        "id": "cafe-altura",
-        "client": "Café Altura",
-        "industry": "Retail and Food",
-        "description": "A content plan, online store and email automation that turned a local brand into a profitable ecommerce.",
-        "testimonial": "The website they built loads in seconds and the campaigns bring us new customers every week. We finally understand our business numbers.",
-        "metrics": [
+        "id": "la-licuadora",
+        "client": "El Eje de la Licuadora",
+        "industry": "Retail — blender parts, home delivery",
+        "description": "Meta Ads campaign to generate home-delivery orders for blender spare parts.",
+        "result": "35 deliveries generated per day, on a very low ad budget.",
+        "testimonial": "With a very small budget we started getting orders every day. Ads put us on the map in neighborhoods where nobody knew us before.",
+        "period": "Aug 11 – Sep 16, 2026",
+        "details": [
           {
-            "value": "+180%",
-            "label": "online sales"
+            "label": "Total investment",
+            "value": "$582,516 COP"
           },
           {
-            "value": "3.2x",
-            "label": "ROAS on Meta"
+            "label": "Messaging conversations started",
+            "value": "776"
+          },
+          {
+            "label": "Unique clicks",
+            "value": "1,439"
+          },
+          {
+            "label": "Cost per conversation",
+            "value": "Between $627 and $878 COP depending on the ad set"
           }
         ]
       },
       {
-        "id": "grupo-andino",
-        "client": "Grupo Andino",
-        "industry": "B2B / Construction",
-        "description": "CRM automation and a B2B content strategy that shortened the sales cycle and multiplied qualified leads.",
-        "testimonial": "The automated CRM answered leads before we even knew they existed. The sales team sells — they don't chase.",
-        "metrics": [
+        "id": "acrilicos-pereira",
+        "client": "Acrílicos Pereira",
+        "industry": "Retail — acrylics and signage",
+        "description": "Meta Ads campaign focused on generating WhatsApp/Messenger sales conversations, on two fronts: open catalog and B2B signage sales.",
+        "result": "999 messaging conversations started between July 9 and August 31, 2026.",
+        "testimonial": "The open catalog brought us new customers every week and the B2B ads opened doors with companies. The reports show us which ad set performs best.",
+        "period": "Jul 9 – Aug 31, 2026",
+        "details": [
           {
-            "value": "+65%",
-            "label": "qualified leads"
+            "label": "Total investment",
+            "value": "$804,152 COP"
           },
           {
-            "value": "-30%",
-            "label": "response time"
+            "label": "“Panini” ad set (open catalog)",
+            "value": "941 conversations, $535,140 COP invested, $569 COP per conversation"
+          },
+          {
+            "label": "“B2B Avisos” ad set",
+            "value": "58 conversations, $269,012 COP invested, $4,638 COP per conversation"
           }
         ]
       }
@@ -325,7 +358,7 @@
     },
     "philosophy": {
       "heading": "We don't offer posts, we deliver strategy, results and growth.",
-      "subheading": "We're not a traditional agency selling posts and “digital activity”. We're an acceleration partner: we measure, iterate and scale what delivers results.",
+      "subheading": "We're not a traditional vendor selling posts and “digital activity”. We're a growth partner: we measure, iterate and scale what delivers results.",
       "points": [
         {
           "id": "metricas-negocio",
@@ -377,21 +410,20 @@
     "hero": {
       "titleStart": "Monthly plans with",
       "titleAccent": "clear deliverables",
-      "description": "Strategy, paid media, development and automation under one partner. You'll know exactly what you receive each month and the result we're aiming for.",
+      "description": "Strategy, paid media, development and automation under one partner. You'll know exactly what you receive each month.",
       "ctaPrimary": "Book a call",
       "ctaSecondary": "See deliverables",
       "checklist": [
-        "Flexible monthly plans",
+        "Monthly plans",
         "No minimum commitment",
-        "Clear deliverables"
+        "Clear deliverables every month"
       ]
     },
     "details": {
       "heading": "Four services, one monthly plan",
-      "subheading": "Each service has a defined scope and deliverables. Combine them according to your strategy and scale whenever you want.",
+      "subheading": "Each of these four services can be hired independently or combined, according to what your business needs today.",
       "includesTitle": "What's included",
-      "deliverablesTitle": "Plan deliverables",
-      "ctaLink": "Request this service"
+      "deliverablesTitle": "Plan deliverables"
     }
   },
   "contact": {
@@ -467,6 +499,7 @@
         "linkLabel": "privacy policy"
       },
       "bookingTitle": "Selected session",
+      "bookingConnector": "at",
       "reassurance": {
         "expert": "You'll speak directly with a digital strategist who will analyze your company's context, with no filters or intermediaries.",
         "privacy": "Your data will only be used to audit your digital presence before our working session."
@@ -488,7 +521,6 @@
     "scheduler": {
       "heading": "Book a free strategy call",
       "subheading": "Prefer to move faster? Pick a day and time directly for a 20-minute video call with our strategy team.",
-      "month": "August 2026",
       "weekdays": [
         "M",
         "T",
@@ -498,14 +530,15 @@
         "S",
         "S"
       ],
+      "previousMonthLabel": "Previous month",
+      "nextMonthLabel": "Next month",
       "timeZoneLabel": "Colombia time (COT)",
       "availableTitle": "Available slots",
-      "dayLabel": "August {day}",
       "timeLabel": "Video call time",
       "timeHint": "Pick a time between 09:00 and 17:00",
       "timeRangeError": "Select a time between 09:00 and 17:00",
       "callTitle": "Diagnostic session",
-      "callDetail": "20 minutes · Free · Google Meet",
+      "callDetail": "20 minutes, free, Google Meet",
       "confirm": "Confirm video call",
       "footnote": "Visual mockup: the real scheduling integration (Calendly / Cal.com) will be connected here."
     }
@@ -571,7 +604,7 @@
   },
   "cta": {
     "heading": "Ready to accelerate your growth?",
-    "subheading": "Book a free strategy call and we'll propose a clear monthly plan with measurable goals and no minimum commitment.",
+    "subheading": "Book a free diagnostic call and we'll tell you, with measurable goals, what your monthly plan with nodus would look like.",
     "button": "Book a call"
   },
   "notFound": {

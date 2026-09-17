@@ -1,5 +1,3 @@
-import { Quote } from 'lucide-react'
-import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
 import { StaggerChildren, StaggerItem } from '@/components/animations/StaggerChildren'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
@@ -25,7 +23,7 @@ export async function SocialProof() {
           className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
         >
           {socialProof.clients.map((client) => (
-            <li key={client} className="font-display text-lg font-bold text-dark/30">
+            <li key={client} className="font-display text-lg font-bold text-dark/50">
               {client}
             </li>
           ))}
@@ -35,28 +33,38 @@ export async function SocialProof() {
           {socialProof.cases.map((caseStudy) => (
             <StaggerItem key={caseStudy.id} className="h-full">
               <Card variant="elevated" className="flex h-full flex-col gap-5">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <h3 className="font-display text-lg font-bold">{caseStudy.client}</h3>
-                    <p className="text-sm text-dark/50">{caseStudy.industry}</p>
-                  </div>
-                  <Quote aria-hidden className="h-6 w-6 text-teal-light" />
+                <div>
+                  <h3 className="font-display text-lg font-bold">{caseStudy.client}</h3>
+                  <p className="mt-1 text-sm text-dark/60">{caseStudy.industry}</p>
                 </div>
                 <p className="text-sm leading-relaxed text-dark/70">{caseStudy.description}</p>
-                <dl className="grid grid-cols-2 gap-4 rounded-xl bg-teal-light/10 p-4">
-                  {caseStudy.metrics.map((metric) => (
-                    <div key={metric.label}>
-                      <dt className="sr-only">{metric.label}</dt>
-                      <dd className="font-sans text-xl font-bold text-dark">
-                        <AnimatedCounter value={metric.value} />
-                      </dd>
-                      <p className="text-xs text-dark/60">{metric.label}</p>
-                    </div>
-                  ))}
-                </dl>
-                <blockquote className="mt-auto border-t border-dark/10 pt-5">
+                <p className="rounded-xl border border-teal-light/40 bg-teal-light/20 p-4 text-sm leading-relaxed font-semibold text-dark">
+                  {caseStudy.result}
+                </p>
+                <div className="mt-auto">
+                  <p className="text-xs font-semibold tracking-wider text-dark/60 uppercase">
+                    {socialProof.detailsTitle}
+                  </p>
+                  <p className="mt-0.5 text-xs text-dark/50">{caseStudy.period}</p>
+                  <dl className="mt-3 flex flex-col gap-2.5">
+                    {caseStudy.details.map((detail) => (
+                      <div
+                        key={detail.label}
+                        className="flex items-baseline justify-between gap-4 border-b border-dark/10 pb-2.5 last:border-b-0 last:pb-0"
+                      >
+                        <dt className="flex-1 text-xs leading-relaxed text-dark/70">
+                          {detail.label}
+                        </dt>
+                        <dd className="text-right text-sm font-semibold text-dark">
+                          {detail.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+                <blockquote className="border-t border-dark/10 pt-5">
                   <p className="text-sm italic text-dark/70">“{caseStudy.testimonial}”</p>
-                  <footer className="mt-2 text-xs font-semibold text-dark/50">
+                  <footer className="mt-2 text-xs font-semibold text-dark/60">
                     {caseStudy.client}
                   </footer>
                 </blockquote>

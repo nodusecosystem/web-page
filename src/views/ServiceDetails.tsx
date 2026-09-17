@@ -1,18 +1,14 @@
-import Link from 'next/link'
-import { lang } from 'next/root-params'
-import { ArrowRight, Check, FileCheck2 } from 'lucide-react'
+import { Check, FileCheck2 } from 'lucide-react'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { SERVICE_ICONS } from '@/lib/constants/icons'
 import { getDictionary } from '@/lib/i18n/dictionaries'
-import { localePath } from '@/lib/format'
 import { cn } from '@/lib/cn'
 
 export async function ServiceDetails() {
   const dict = await getDictionary()
-  const locale = await lang()
   const { details } = dict.servicesPage
 
   return (
@@ -44,13 +40,6 @@ export async function ServiceDetails() {
                       {service.title}
                     </h3>
                     <p className="text-base leading-relaxed text-dark/60">{service.description}</p>
-                    <Link
-                      href={localePath(locale, '/contact')}
-                      className="inline-flex items-center gap-1.5 font-semibold text-dark transition-colors hover:text-teal-light"
-                    >
-                      {details.ctaLink}
-                      <ArrowRight aria-hidden className="h-4 w-4" />
-                    </Link>
                   </div>
 
                   <div className={cn('grid gap-6 sm:grid-cols-2', index % 2 === 1 && 'lg:order-1')}>

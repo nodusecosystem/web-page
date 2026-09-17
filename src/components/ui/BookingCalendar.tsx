@@ -1,47 +1,104 @@
 'use client'
 
 import { CalendarDays, ChevronLeft, ChevronRight, Video } from 'lucide-react'
-import { useState, type ChangeEvent } from 'react'
+import { useEffect, useState, type ChangeEvent } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { useBookingStore } from '@/lib/booking-store'
 import { cn } from '@/lib/cn'
-import { format } from '@/lib/format'
 
-const CALENDAR_DAYS: { day: number; disabled?: boolean }[] = [
-  { day: 10 },
-  { day: 11 },
-  { day: 12 },
-  { day: 13 },
-  { day: 14 },
-  { day: 15, disabled: true },
-  { day: 16, disabled: true },
-  { day: 17 },
-  { day: 18 },
-  { day: 19 },
-  { day: 20 },
-  { day: 21 },
-  { day: 22, disabled: true },
-  { day: 23, disabled: true },
-  { day: 24 },
-  { day: 25 },
-  { day: 26 },
-  { day: 27 },
-  { day: 28 },
-  { day: 29, disabled: true },
-  { day: 30, disabled: true },
-]
-
+const MIN_HOUR = 9
+const MAX_HOUR = 17
 const MIN_TIME = '09:00'
 const MAX_TIME = '17:00'
-const DEFAULT_DAY = 18
+const WEEKEND_DAYS = [0, 6]
+const DAYS_TO_SEARCH = 14
+
+const startOfDay = (date: Date): Date =>
+  new Date(date.getFullYear(), date.getMonth(), date.getDate())
+
+const toTimeValue = (hour: number): string => `${String(hour).padStart(2, '0')}:00`
+
+const isSelectable = (date: Date, today: Date): boolean =>
+  date.getTime() >= today.getTime() && !WEEKEND_DAYS.includes(date.getDay())
+
+function getMonthDays(year: number, month: number, today: Date): { day: number; disabled: boolean }[] {
+  const daysInMonth = new Date(year, month + 1, 0).getDate()
+
+  return Array.from({ length: daysInMonth }, (_, index) => {
+    const day = index + 1
+    return { day, disabled: !isSelectable(new Date(year, month, day), today) }
+  })
+}
+
+function getFirstAvailableDay(year: number, month: number, today: Date): number | null {
+  const daysInMonth = new Date(year, month + 1, 0).getDate()
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    if (isSelectable(new Date(year, month, day), today)) return day
+  }
+
+  return null
+}
+
+type CalendarState = {
+  today: Date
+  year: number
+  month: number
+  selectedDay: number
+  time: string
+}
+
+function createCalendarState(now: Date): CalendarState {
+  const today = startOfDay(now)
+  const nextHour = Math.min(Math.max(now.getHours() + 1, MIN_HOUR), MAX_HOUR)
+
+  if (isSelectable(today, today) && now.getHours() + 1 <= MAX_HOUR) {
+    return {
+      today,
+      year: today.getFullYear(),
+      month: today.getMonth(),
+      selectedDay: today.getDate(),
+      time: toTimeValue(nextHour),
+    }
+  }
+
+  for (let offset = 1; offset <= DAYS_TO_SEARCH; offset++) {
+    const candidate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + offset)
+
+    if (isSelectable(candidate, today)) {
+      return {
+        today,
+        year: candidate.getFullYear(),
+        month: candidate.getMonth(),
+        selectedDay: candidate.getDate(),
+        time: MIN_TIME,
+      }
+    }
+  }
+
+  return {
+    today,
+    year: today.getFullYear(),
+    month: today.getMonth(),
+    selectedDay: today.getDate(),
+    time: MIN_TIME,
+  }
+}
+
+const isSameState = (current: CalendarState, next: CalendarState): boolean =>
+  current.today.getTime() === next.today.getTime() &&
+  current.year === next.year &&
+  current.month === next.month &&
+  current.selectedDay === next.selectedDay &&
+  current.time === next.time
 
 type BookingCalendarStrings = {
-  month: string
   weekdays: string[]
+  previousMonthLabel: string
+  nextMonthLabel: string
   timeZoneLabel: string
   availableTitle: string
-  dayLabel: string
   timeLabel: string
   timeHint: string
   timeRangeError: string
@@ -50,27 +107,62 @@ type BookingCalendarStrings = {
   confirm: string
 }
 
-export function BookingCalendar({ strings }: Readonly<{ strings: BookingCalendarStrings }>) {
+type BookingCalendarProps = {
+  strings: BookingCalendarStrings
+  locale: string
+  today: string
+}
+
+export function BookingCalendar({ strings, locale, today }: Readonly<BookingCalendarProps>) {
   const setBooking = useBookingStore((state) => state.setBooking)
-  const [selectedDay, setSelectedDay] = useState(DEFAULT_DAY)
-  const [selectedTime, setSelectedTime] = useState(MIN_TIME)
+  const [calendar, setCalendar] = useState<CalendarState>(() => createCalendarState(new Date(today)))
   const [timeError, setTimeError] = useState<string | undefined>(undefined)
 
+  useEffect(() => {
+    const now = new Date()
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCalendar((previous) => {
+      const next = createCalendarState(now)
+      return isSameState(previous, next) ? previous : next
+    })
+  }, [])
+
+  const monthLabel = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(
+    new Date(calendar.year, calendar.month, 1),
+  )
+  const selectedLabel = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long' }).format(
+    new Date(calendar.year, calendar.month, calendar.selectedDay),
+  )
+
+  const firstWeekday = (new Date(calendar.year, calendar.month, 1).getDay() + 6) % 7
+  const days = getMonthDays(calendar.year, calendar.month, calendar.today)
+  const viewMonth = new Date(calendar.year, calendar.month, 1)
+  const currentMonth = new Date(calendar.today.getFullYear(), calendar.today.getMonth(), 1)
+  const canGoPrevious = viewMonth.getTime() > currentMonth.getTime()
+
+  const changeMonth = (offset: number) => {
+    setCalendar((previous) => {
+      const target = new Date(previous.year, previous.month + offset, 1)
+      const day = getFirstAvailableDay(target.getFullYear(), target.getMonth(), previous.today)
+
+      if (day === null) return previous
+
+      return { ...previous, year: target.getFullYear(), month: target.getMonth(), selectedDay: day }
+    })
+  }
+
   const handleTimeChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedTime(event.target.value)
+    const { value } = event.target
+    setCalendar((previous) => ({ ...previous, time: value }))
     if (timeError) setTimeError(undefined)
   }
 
   const handleConfirm = () => {
-    if (selectedTime < MIN_TIME || selectedTime > MAX_TIME) {
+    if (calendar.time < MIN_TIME || calendar.time > MAX_TIME) {
       setTimeError(strings.timeRangeError)
       return
     }
-    setBooking({
-      day: selectedDay,
-      time: selectedTime,
-      label: format(strings.dayLabel, { day: selectedDay }),
-    })
+    setBooking({ day: calendar.selectedDay, time: calendar.time, label: selectedLabel })
     document.getElementById('contacto')?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
   }
 
@@ -81,21 +173,26 @@ export function BookingCalendar({ strings }: Readonly<{ strings: BookingCalendar
           <div className="flex items-center justify-between">
             <p className="flex items-center gap-2 font-display text-lg font-bold">
               <CalendarDays aria-hidden className="h-5 w-5 text-teal-light" />
-              {strings.month}
+              {monthLabel}
             </p>
             <div className="flex gap-2">
-              <span
-                aria-hidden
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-dark/10 text-dark/40"
+              <button
+                type="button"
+                aria-label={strings.previousMonthLabel}
+                disabled={!canGoPrevious}
+                onClick={() => changeMonth(-1)}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-dark/10 text-dark/40 transition-colors hover:border-teal-light hover:text-teal-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light disabled:cursor-default disabled:opacity-40 disabled:hover:border-dark/10 disabled:hover:text-dark/40"
               >
-                <ChevronLeft className="h-4 w-4" />
-              </span>
-              <span
-                aria-hidden
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-dark/10 text-dark/40"
+                <ChevronLeft aria-hidden className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                aria-label={strings.nextMonthLabel}
+                onClick={() => changeMonth(1)}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-dark/10 text-dark/40 transition-colors hover:border-teal-light hover:text-teal-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light"
               >
-                <ChevronRight className="h-4 w-4" />
-              </span>
+                <ChevronRight aria-hidden className="h-4 w-4" />
+              </button>
             </div>
           </div>
 
@@ -105,18 +202,21 @@ export function BookingCalendar({ strings }: Readonly<{ strings: BookingCalendar
                 {weekday}
               </span>
             ))}
-            {CALENDAR_DAYS.map(({ day, disabled }) => (
+            {Array.from({ length: firstWeekday }, (_, index) => (
+              <span key={`blank-${index}`} aria-hidden className="h-10" />
+            ))}
+            {days.map(({ day, disabled }) => (
               <button
                 key={day}
                 type="button"
                 disabled={disabled}
-                aria-pressed={day === selectedDay}
-                onClick={() => setSelectedDay(day)}
+                aria-pressed={day === calendar.selectedDay}
+                onClick={() => setCalendar((previous) => ({ ...previous, selectedDay: day }))}
                 className={cn(
                   'flex h-10 items-center justify-center rounded-lg text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light',
-                  day === selectedDay && 'bg-teal-light font-bold text-dark',
+                  day === calendar.selectedDay && 'bg-teal-light font-bold text-dark',
                   disabled && 'text-dark/20 line-through',
-                  !disabled && day !== selectedDay && 'text-dark/70 hover:bg-teal-light/10',
+                  !disabled && day !== calendar.selectedDay && 'text-dark/70 hover:bg-teal-light/10',
                 )}
               >
                 {day}
@@ -128,10 +228,8 @@ export function BookingCalendar({ strings }: Readonly<{ strings: BookingCalendar
 
         <div className="flex flex-col gap-6 p-6 sm:p-8">
           <div>
-            <p className="text-sm font-semibold text-dark/50">{strings.availableTitle}</p>
-            <p className="font-sans mt-1 text-lg font-bold">
-              {format(strings.dayLabel, { day: selectedDay })}
-            </p>
+            <p className="text-sm font-semibold text-dark/70">{strings.availableTitle}</p>
+            <p className="font-sans mt-1 text-lg font-bold">{selectedLabel}</p>
           </div>
           <Input
             id="booking-time"
@@ -140,15 +238,16 @@ export function BookingCalendar({ strings }: Readonly<{ strings: BookingCalendar
             hint={strings.timeHint}
             min={MIN_TIME}
             max={MAX_TIME}
-            value={selectedTime}
+            step={3600}
+            value={calendar.time}
             onChange={handleTimeChange}
             error={timeError}
             className="appearance-auto"
           />
-          <div className="rounded-xl bg-teal-light/10 p-4">
+          <div className="rounded-xl border border-teal-light/40 bg-teal-light/20 p-4">
             <p className="text-sm font-semibold text-dark">{strings.callTitle}</p>
-            <p className="mt-1 text-sm text-dark/60">
-              <Video aria-hidden className="mr-1.5 inline h-4 w-4 text-teal-light" />
+            <p className="mt-1 text-sm text-dark/80">
+              <Video aria-hidden className="mr-1.5 inline h-4 w-4 text-dark" />
               {strings.callDetail}
             </p>
           </div>
