@@ -222,7 +222,7 @@
     "subheading": "Casos reales de nuestro trabajo mensual: datos que hablan, clientes que repiten.",
     "clientsAriaLabel": "Empresas que confían en nodus",
     "clients": [
-      "Tejas",
+      "SV Tejas y Acrílicos Internacional",
       "El Eje de la Licuadora",
       "Acrílicos Pereira"
     ],
@@ -230,7 +230,7 @@
     "cases": [
       {
         "id": "tejas",
-        "client": "Tejas",
+        "client": "SV Tejas y Acrílicos Internacional",
         "industry": "Retail — materiales de construcción (tejas)",
         "description": "Pauta digital en Meta Ads para generar conversaciones de venta de tejas (tipos de teja, teja industrial, teja colonial) en el Eje Cafetero.",
         "result": "Más de 1.000 mensajes en 20 días de clientes calificados para su negocio (2.314 conversaciones en 5 semanas).",
