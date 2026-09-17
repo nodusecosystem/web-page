@@ -2,7 +2,7 @@
   "site": {
     "description": "Agencia de estrategia digital: planes mensuales de marketing digital, Meta Ads, desarrollo web y automatización para empresas que quieren crecer con datos.",
     "slogan": "Estrategia digital que convierte datos en crecimiento",
-    "responseTime": "En menos de 24 horas laborables",
+    "responseTime": "En menos de 24 horas con un plan de acción",
     "whatsappMessage": "Hola nodus, quiero información sobre sus planes mensuales"
   },
   "layout": {
@@ -286,10 +286,10 @@
     "hero": {
       "titleStart": "Somos tu partner de",
       "titleAccent": "aceleración digital",
-      "description": "nodus nació con una idea simple: las empresas no necesitan más actividad digital, necesitan resultados. Unimos estrategia, datos, tecnología y ejecución mensual para acelerar el crecimiento de negocios ambiciosos.",
+      "description": "NODUS nació con una idea simple: las empresas no necesitan más actividad digital, necesitan resultados. Unimos estrategia, datos, tecnología y ejecución para acelerar el crecimiento de negocios ambiciosos.",
       "ctaPrimary": "Ver servicios",
       "ctaSecondary": "Hablemos",
-      "quoteCaption": "La promesa que cumplimos cada mes con cada cliente."
+      "quoteCaption": "La promesa que cumplimos con cada cliente."
     },
     "purpose": {
       "heading": "Misión, visión y valores",
@@ -297,57 +297,57 @@
       "missionTitle": "Misión",
       "visionTitle": "Visión",
       "valuesTitle": "Valores",
-      "mission": "Acelerar el crecimiento digital de empresas ambiciosas con estrategia basada en datos, ejecución mensual y tecnología que escala con su negocio.",
-      "vision": "Ser el partner de aceleración digital de referencia para pymes y scaleups que quieren competir con los grandes sin depender de una agencia tradicional.",
+      "mission": "Transformar la infraestructura digital de empresas en crecimiento, sustituyendo el gasto operativo ciego por sistemas predecibles de adquisición y automatización que aumentan el margen neto de nuestros clientes.",
+      "vision": "Ser el partner de aceleración digital de referencia para empresas que buscan competir al más alto nivel con tecnología, velocidad y rigor analítico, sin ataduras burocráticas ni contratos de permanencia.",
       "values": [
         {
-          "id": "datos",
-          "title": "Decisiones con datos",
-          "description": "Ninguna decisión importante se toma por intuición: cada euro invertido está justificado por una métrica."
+          "id": "rigor-analitico",
+          "title": "Rigor analítico",
+          "description": "Cero espacio para la intuición o modas pasajeras. Cada campaña, línea de código y automatización responde a un objetivo de conversión medible."
         },
         {
-          "id": "transparencia",
-          "title": "Transparencia total",
-          "description": "Reportes claros, acceso a las cuentas y sin letra pequeña. Sabes siempre qué hacemos y por qué."
+          "id": "transparencia-propiedad",
+          "title": "Transparencia y propiedad absoluta",
+          "description": "Cuentas publicitarias, accesos y bases de datos son 100% tuyos desde el día uno. Entregamos tableros en tiempo real y reportes claros sin tecnicismos evasivos."
         },
         {
-          "id": "velocidad",
-          "title": "Velocidad de ejecución",
-          "description": "Iteramos en semanas, no en trimestres. En un mercado que no espera, la velocidad es una ventaja."
+          "id": "agilidad-iteracion",
+          "title": "Agilidad e iteración continua",
+          "description": "Implementamos y testeamos en ciclos de días y semanas, no en revisiones trimestrales estancadas. Optimizamos sobre la marcha para proteger y maximizar el presupuesto."
         },
         {
-          "id": "crecimiento",
-          "title": "Crecimiento conjunto",
-          "description": "Ganamos cuando tu negocio gana: trabajamos como un equipo interno, no como un proveedor externo."
+          "id": "alineacion-incentivos",
+          "title": "Alineación de incentivos",
+          "description": "Operamos como un brazo ejecutor in-house de alto rendimiento. Nuestra retención no depende de una cláusula legal de permanencia, sino del beneficio y valor real que generamos cada mes."
         }
       ]
     },
     "philosophy": {
-      "heading": "No publicamos por publicar: aceleramos",
+      "heading": "No ofrecemos publicaciones, damos estrategia, resultados y crecimiento.",
       "subheading": "No somos una agencia tradicional que vende posts y «actividad digital». Somos un partner de aceleración: medimos, iteramos y escalamos lo que demuestra resultado.",
       "points": [
         {
-          "id": "datos",
-          "title": "Datos sobre opiniones",
-          "description": "Medimos cada acción y cada campaña. Si no se puede medir, no se puede mejorar."
+          "id": "metricas-negocio",
+          "title": "Métricas de negocio vs. Métricas de vanidad",
+          "description": "Un «like» no paga nóminas. Priorizamos métricas que impactan el negocio: costo por adquisición (CPA), retorno del gasto publicitario (ROAS) y generación de leads calificados."
         },
         {
-          "id": "estrategia",
-          "title": "Estrategia sobre publicación",
-          "description": "No publicamos por publicar: cada contenido y cada anuncio responde a un objetivo de negocio."
+          "id": "ecosistemas-integrados",
+          "title": "Ecosistemas integrados vs. Contenido aislado",
+          "description": "Una pauta optimizada no convierte si la web es lenta o la infraestructura técnica falla. Conectamos cada eslabón del embudo para asegurar rendimiento."
         },
         {
-          "id": "resultados",
-          "title": "Resultados sobre actividad",
-          "description": "No vendemos horas ni tareas: vendemos resultados mensuales, medibles y acordados desde el día uno."
+          "id": "entregables-impacto",
+          "title": "Entregables de impacto vs. Facturación por horas",
+          "description": "No cobramos por el tiempo que nos toma diseñar; cobramos por el rendimiento técnico y operativo que dejamos implementado cada mes."
         },
         {
-          "id": "partner",
-          "title": "Partner sobre proveedor",
-          "description": "Nos sentamos a tu lado, entendemos tu negocio y defendemos tus intereses como si fueran nuestros."
+          "id": "socios-crecimiento",
+          "title": "Socios de crecimiento vs. Proveedores pasivos",
+          "description": "No somos un proveedor desconectado; nos enfocamos en garantizar un flujo constante de tráfico altamente calificado y optimizar tus canales digitales, defendiendo la rentabilidad de tu inversión."
         }
       ],
-      "quote": "En nodus no vendemos horas ni tareas: vendemos un resultado mensual, medible y transparente."
+      "quote": "No vendemos tareas y promesas: implementamos un sistema de adquisición medible, escalable y respaldado por datos medibles."
     },
     "stats": {
       "heading": "Cifras que nos respaldan",
@@ -395,13 +395,20 @@
   },
   "contact": {
     "hero": {
-      "heading": "Hablemos de tu crecimiento",
-      "subheading": "Cuéntanos dónde está tu negocio hoy y dónde quieres llegar. Te proponemos un plan mensual claro, con objetivos medibles y sin permanencia."
+      "heading": "Diseñemos tu sistema de crecimiento",
+      "subheading": "Cuéntanos sobre tu negocio. El primer paso es una sesión de trabajo conjunta para diagnosticar tus oportunidades, sin compromiso comercial."
     },
     "form": {
-      "heading": "Hablemos de tu crecimiento",
-      "subheading": "Cuéntanos dónde está tu negocio hoy y dónde quieres llegar. Te proponemos un plan mensual claro, con objetivos medibles y sin permanencia.",
-      "remoteBadge": "Atención 100% remota",
+      "heading": "Solicita tu sesión de diagnóstico",
+      "subheading": "Responde estas preguntas guiadas y te enviaremos un plan de acción en menos de 24 horas.",
+      "operation": {
+        "heading": "Nuestra Operación: Global y Remote First",
+        "description": "Operamos como un ecosistema 100% digital. Esto nos permite conectar talento estratégico sin barreras geográficas y ofrecer atención continua en múltiples mercados."
+      },
+      "directContact": {
+        "heading": "Contacto directo",
+        "whatsappLabel": "Línea WhatsApp"
+      },
       "businessHours": [
         {
           "day": "Lunes a viernes",
@@ -412,77 +419,74 @@
           "hours": "24/7 para sistemas de clientes"
         }
       ],
-      "responsePrefix": "Respuesta media:",
+      "responsePrefix": "Tiempo de respuesta:",
       "fields": {
         "name": {
-          "label": "Nombre",
-          "placeholder": "Tu nombre"
+          "label": "Nombre y apellido",
+          "placeholder": "Tu nombre completo"
         },
         "email": {
-          "label": "Email",
-          "placeholder": "tu@email.com"
+          "label": "Correo corporativo",
+          "placeholder": "tu@empresa.com",
+          "hint": "Priorizamos respuestas a cuentas de empresa."
         },
-        "company": {
-          "label": "Empresa",
-          "placeholder": "Nombre de tu empresa"
+        "website": {
+          "label": "Sitio web o red social principal",
+          "placeholder": "https://tuempresa.com o @tuempresa"
         },
-        "service": {
-          "label": "Servicio de interés",
-          "placeholder": "Todos los servicios"
-        },
-        "budget": {
-          "label": "Presupuesto estimado",
-          "placeholder": "Selecciona un rango"
+        "challenge": {
+          "label": "¿Cuál es tu principal desafío hoy?",
+          "placeholder": "Selecciona una opción"
         },
         "message": {
-          "label": "Mensaje",
+          "label": "Detalles sobre tus objetivos actuales (Opcional)",
           "placeholder": "Cuéntanos tu proyecto, tus objetivos y tu situación actual..."
         }
       },
-      "budgetOptions": [
+      "challengeOptions": [
         {
-          "value": "less-1000",
-          "label": "Menos de 1.000 USD/mes"
+          "value": "medicion-pauta",
+          "label": "Medición de pauta"
         },
         {
-          "value": "1000-2500",
-          "label": "1.000 – 2.500 USD/mes"
+          "value": "optimizacion-web",
+          "label": "Optimización web y conversión"
         },
         {
-          "value": "2500-5000",
-          "label": "2.500 – 5.000 USD/mes"
+          "value": "automatizacion-crm",
+          "label": "Automatización y CRM"
         },
         {
-          "value": "more-5000",
-          "label": "Más de 5.000 USD/mes"
-        },
-        {
-          "value": "unknown",
-          "label": "Aún no lo sé"
+          "value": "ecosistema-completo",
+          "label": "Ecosistema digital completo"
         }
       ],
       "consent": {
         "label": "Acepto el tratamiento de mis datos personales según la",
         "linkLabel": "política de privacidad"
       },
+      "bookingTitle": "Sesión seleccionada",
+      "reassurance": {
+        "expert": "Hablarás directamente con un estratega digital que analizará el contexto de tu empresa, sin filtros ni intermediarios.",
+        "privacy": "Tus datos solo serán utilizados para auditar tu presencia digital antes de nuestra sesión de trabajo."
+      },
       "messages": {
         "nameTooShort": "El nombre debe tener al menos {min} caracteres",
         "emailInvalid": "Introduce un email válido",
-        "messageTooShort": "El mensaje debe tener al menos {min} caracteres",
         "consentRequired": "Debes aceptar la política de privacidad para continuar"
       },
-      "submit": "Enviar mensaje",
+      "submit": "Solicitar sesión de diagnóstico",
       "sending": "Enviando...",
       "sendAnother": "Enviar otro mensaje",
       "successTitle": "¡Mensaje enviado!",
-      "successDescription": "Gracias por escribirnos. Te responderemos en menos de 24 horas laborables.",
+      "successDescription": "Gracias por escribirnos. Te enviaremos un plan de acción en menos de 24 horas.",
       "submitError": "Ha ocurrido un error al enviar el mensaje. Inténtalo de nuevo."
     },
-    "altHeading": "Cuéntanos sobre tu proyecto",
-    "altSubheading": "Déjanos tu información, el servicio que te interesa y un rango de presupuesto. Te proponemos un plan a medida en menos de 24 horas laborables.",
+    "altHeading": "Cuéntanos tu desafío",
+    "altSubheading": "Completa estas preguntas guiadas y te enviaremos un plan de acción en menos de 24 horas.",
     "scheduler": {
       "heading": "Reserva una llamada gratuita de estrategia",
-      "subheading": "30 minutos sin compromiso para analizar tu situación y proponerte un plan de acción.",
+      "subheading": "¿Prefieres avanzar más rápido? Selecciona directamente el día y la hora para una videollamada de 20 minutos con nuestro equipo estratégico.",
       "month": "Agosto 2026",
       "weekdays": [
         "L",
@@ -495,26 +499,44 @@
       ],
       "timeZoneLabel": "Hora de Colombia (COT)",
       "availableTitle": "Horarios disponibles",
-      "selectedDay": "Lunes 18 de agosto",
-      "callTitle": "Llamada de estrategia",
-      "callDetail": "30 minutos · Gratuita · Google Meet",
-      "confirm": "Confirmar llamada",
+      "dayLabel": "{day} de agosto",
+      "timeLabel": "Hora de la videollamada",
+      "timeHint": "Elige una hora entre las 09:00 y las 17:00",
+      "timeRangeError": "Selecciona una hora entre las 09:00 y las 17:00",
+      "callTitle": "Sesión de diagnóstico",
+      "callDetail": "20 minutos · Gratuita · Google Meet",
+      "confirm": "Confirmar videollamada",
       "footnote": "Mockup visual: la integración real de agendamiento (Calendly / Cal.com) se conectará aquí."
     }
   },
   "faq": {
     "heading": "Preguntas frecuentes",
-    "subheading": "Todo lo que necesitas saber sobre nuestro esquema de trabajo mensual, tiempos de entrega y garantía.",
+    "subheading": "Todo lo que necesitas saber sobre el plan mensual, la inversión, la garantía y la propiedad de tus activos digitales.",
     "items": [
       {
         "id": "plan-mensual",
         "question": "¿Cómo funciona el plan mensual?",
-        "answer": "Cada mes activamos un ciclo de diagnóstico, planificación, ejecución, optimización y reporte. El plan incluye estrategia, ejecución y un reporte claro de resultados: tú eliges el alcance y lo escalas cuando quieras."
+        "answer": "Cada mes ejecutamos un ciclo continuo de diagnóstico, planificación, ejecución, optimización y reporte bajo la metodología ARR. El equipo trabaja por objetivos claros y tú decides cuándo ajustar o escalar el alcance según las prioridades de tu negocio."
       },
       {
         "id": "permanencia",
-        "question": "¿Hay permanencia o contratos largos?",
-        "answer": "No. Trabajamos mes a mes, sin cláusulas de permanencia. Si en cualquier momento no estás viendo el valor que esperas, cancelas sin coste ni burocracia."
+        "question": "¿Existe permanencia o compromiso a largo plazo?",
+        "answer": "No. Trabajamos mes a mes y sin cláusulas de permanencia. Si decides cancelar, solo requieres notificarlo antes de iniciar el siguiente ciclo. Te entregamos la propiedad total de la documentación, activos digitales y código desarrollado para garantizar la continuidad de tu empresa."
+      },
+      {
+        "id": "inversion-pauta",
+        "question": "¿El costo del plan incluye la inversión en pauta publicitaria y herramientas?",
+        "answer": "No. El plan mensual cubre la estrategia, ejecución, desarrollo y optimización de nuestro equipo. Los presupuestos de pauta (Meta, Google) y licencias de software (CRM, servidores) se pagan directamente a las plataformas a nombre de tu empresa."
+      },
+      {
+        "id": "propiedad-cuentas",
+        "question": "¿Las cuentas, desarrollos y bases de datos quedan a mi nombre?",
+        "answer": "100% sí. Todas las cuentas de anuncios, accesos al código web (Next.js), bases de datos en CRM y automatizaciones son de propiedad exclusiva de tu empresa desde el primer día."
+      },
+      {
+        "id": "zonas-horarias",
+        "question": "¿Cómo gestionamos la comunicación si estamos en diferentes países o zonas horarias?",
+        "answer": "Operamos con metodologías ágiles, mantenemos comunicación fluida a través de WhatsApp para el día a día, tableros en tiempo real para ver avances y sesiones estratégicas por videollamada programadas en tu franja horaria local."
       },
       {
         "id": "tiempos",
@@ -528,13 +550,8 @@
       },
       {
         "id": "garantia",
-        "question": "¿Qué garantía tenéis?",
-        "answer": "Garantía de calidad y transparencia: si un entregable acordado no llega, no se factura. Además, el primer reporte mensual incluye una revisión conjunta donde validamos los resultados antes de renovar."
-      },
-      {
-        "id": "cancelacion",
-        "question": "¿Qué pasa si quiero cancelar?",
-        "answer": "Solo tienes que avisarnos antes de renovar el siguiente ciclo. Te entregamos la documentación de todo lo implementado y una guía de continuidad para que no pierdas el trabajo realizado."
+        "question": "¿Qué garantía tienen en los entregables?",
+        "answer": "Garantía de cumplimiento y alcance: cada inicio de ciclo aprobamos un plan de trabajo con KPIs y fechas precisas. Si un entregable acordado no se cumple, se compensa en el siguiente ciclo o no se factura. Además, evaluamos juntos los resultados en una llamada mensual antes de renovar."
       },
       {
         "id": "equipo",
@@ -580,7 +597,7 @@
     },
     "contact": {
       "title": "Contacto",
-      "description": "Escríbenos o agenda una llamada gratuita de estrategia. Te respondemos en menos de 24 horas laborables."
+      "description": "Escríbenos o agenda una videollamada de diagnóstico. Te enviamos un plan de acción en menos de 24 horas."
     }
   },
   "error": {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
-import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
+import { SITE_NAME, SITE_URL, buildWhatsAppLink } from '@/lib/constants/site'
 import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
 import { professionalServiceSchema } from '@/lib/schema'
 import { ContactForm } from '@/views/ContactForm'
@@ -38,8 +38,8 @@ export default async function HomePage() {
       <SocialProof />
       <ContactForm
         strings={dict.contact.form}
-        services={dict.services.items}
         responseTime={dict.site.responseTime}
+        whatsappHref={buildWhatsAppLink(dict.site.whatsappMessage)}
         locale={locale as Locale}
       />
       <script

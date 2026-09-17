@@ -19,7 +19,7 @@ export async function Philosophy() {
           <p className="mt-4 text-lg text-dark/60">{philosophy.subheading}</p>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2">
           {philosophy.points.map((point, index) => {
             const Icon = PHILOSOPHY_ICONS[point.id]
             return (

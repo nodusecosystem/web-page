@@ -1,26 +1,44 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { ContactForm } from '@/views/ContactForm'
+import { buildWhatsAppLink } from '@/lib/constants/site'
+import { sendContactEmail } from '@/lib/emailjs'
 import esDict from '@/lib/i18n/es.json'
 
+vi.mock('@/lib/emailjs', () => ({
+  sendContactEmail: vi.fn(),
+}))
+
 const FORM_STRINGS = esDict.contact.form
-const FORM_SERVICES = esDict.services.items
 const FORM_RESPONSE_TIME = esDict.site.responseTime
+const FORM_WHATSAPP_HREF = buildWhatsAppLink(esDict.site.whatsappMessage)
+const sendContactEmailMock = vi.mocked(sendContactEmail)
 
 function renderForm() {
   return render(
     <ContactForm
       strings={FORM_STRINGS}
-      services={FORM_SERVICES}
       responseTime={FORM_RESPONSE_TIME}
+      whatsappHref={FORM_WHATSAPP_HREF}
       locale="es"
     />,
   )
 }
 
+function fillRequiredFields() {
+  fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.name.label), {
+    target: { value: 'Ana Pérez' },
+  })
+  fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.email.label), {
+    target: { value: 'ana@example.com' },
+  })
+  fireEvent.click(screen.getByRole('checkbox'))
+}
+
 describe('ContactForm', () => {
-  afterEach(() => {
-    vi.useRealTimers()
+  beforeEach(() => {
+    sendContactEmailMock.mockReset()
+    sendContactEmailMock.mockResolvedValue(undefined)
   })
 
   it('shows validation errors when submitting empty fields', () => {
@@ -29,27 +47,8 @@ describe('ContactForm', () => {
 
     expect(screen.getByText(/El nombre debe tener al menos/)).toBeInTheDocument()
     expect(screen.getByText(FORM_STRINGS.messages.emailInvalid)).toBeInTheDocument()
-    expect(screen.getByText(/El mensaje debe tener al menos/)).toBeInTheDocument()
     expect(screen.getByText(FORM_STRINGS.messages.consentRequired)).toBeInTheDocument()
-  })
-
-  it('requires data processing consent before submitting', () => {
-    renderForm()
-    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.name.label), {
-      target: { value: 'Ana Pérez' },
-    })
-    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.email.label), {
-      target: { value: 'ana@example.com' },
-    })
-    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.message.label), {
-      target: { value: 'Quiero un plan mensual de estrategia digital para mi empresa.' },
-    })
-
-    fireEvent.click(screen.getByRole('button', { name: FORM_STRINGS.submit }))
-    expect(screen.getByText(FORM_STRINGS.messages.consentRequired)).toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('checkbox'))
-    expect(screen.queryByText(FORM_STRINGS.messages.consentRequired)).not.toBeInTheDocument()
+    expect(sendContactEmailMock).not.toHaveBeenCalled()
   })
 
   it('clears the field error while typing', () => {
@@ -63,35 +62,66 @@ describe('ContactForm', () => {
     expect(screen.queryByText(FORM_STRINGS.messages.emailInvalid)).not.toBeInTheDocument()
   })
 
-  it('submits the form and shows the success state', async () => {
-    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined)
-    vi.useFakeTimers()
+  it('requires data processing consent before submitting', () => {
+    renderForm()
+    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.name.label), {
+      target: { value: 'Ana Pérez' },
+    })
+    fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.email.label), {
+      target: { value: 'ana@example.com' },
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: FORM_STRINGS.submit }))
+    expect(screen.getByText(FORM_STRINGS.messages.consentRequired)).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('checkbox'))
+    expect(screen.queryByText(FORM_STRINGS.messages.consentRequired)).not.toBeInTheDocument()
+  })
+
+  it('sends the form through EmailJS and shows the success state', async () => {
+    renderForm()
+    fillRequiredFields()
+
+    fireEvent.click(screen.getByRole('button', { name: FORM_STRINGS.submit }))
+
+    expect(await screen.findByText(FORM_STRINGS.successTitle)).toBeInTheDocument()
+    expect(sendContactEmailMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        name: 'Ana Pérez',
+        email: 'ana@example.com',
+        website: '',
+        challenge: '',
+        message: '',
+        bookingDay: '',
+        bookingTime: '',
+        locale: 'es',
+      }),
+    )
+  })
+
+  it('shows the submit error when EmailJS fails', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    sendContactEmailMock.mockRejectedValueOnce(new Error('EmailJS unavailable'))
 
     try {
       renderForm()
-      fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.name.label), {
-        target: { value: 'Ana Pérez' },
-      })
-      fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.email.label), {
-        target: { value: 'ana@example.com' },
-      })
-      fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.budget.label), {
-        target: { value: '1000-2500' },
-      })
-      fireEvent.change(screen.getByLabelText(FORM_STRINGS.fields.message.label), {
-        target: { value: 'Quiero un plan mensual de estrategia digital para mi empresa.' },
-      })
-      fireEvent.click(screen.getByRole('checkbox'))
-
+      fillRequiredFields()
       fireEvent.click(screen.getByRole('button', { name: FORM_STRINGS.submit }))
-      await act(async () => {
-        await vi.advanceTimersByTimeAsync(1300)
-      })
 
-      expect(consoleSpy).toHaveBeenCalledWith('Contact form payload (mock):', expect.any(Object))
-      expect(screen.getByText(FORM_STRINGS.successTitle)).toBeInTheDocument()
+      expect(await screen.findByText(FORM_STRINGS.submitError)).toBeInTheDocument()
     } finally {
       consoleSpy.mockRestore()
     }
+  })
+
+  it('renders the direct contact channels including WhatsApp', () => {
+    renderForm()
+
+    expect(
+      screen.getByRole('link', { name: new RegExp(FORM_STRINGS.directContact.whatsappLabel) }),
+    ).toHaveAttribute('href', FORM_WHATSAPP_HREF)
+    expect(screen.getByText(FORM_STRINGS.operation.heading)).toBeInTheDocument()
+    expect(screen.getByText(FORM_STRINGS.reassurance.expert)).toBeInTheDocument()
+    expect(screen.getByText(FORM_STRINGS.reassurance.privacy)).toBeInTheDocument()
   })
 })

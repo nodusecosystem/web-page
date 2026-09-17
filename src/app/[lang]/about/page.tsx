@@ -5,7 +5,6 @@ import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
 import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
 import { aboutPageSchema } from '@/lib/schema'
 import { AboutHero } from '@/views/AboutHero'
-import { AboutStats } from '@/views/AboutStats'
 import { CTASection } from '@/views/CTASection'
 import { MissionVisionValues } from '@/views/MissionVisionValues'
 import { Philosophy } from '@/views/Philosophy'
@@ -38,7 +37,6 @@ export default async function AboutPage() {
       <AboutHero />
       <MissionVisionValues />
       <Philosophy />
-      <AboutStats />
       <TechStack />
       <CTASection />
       <script

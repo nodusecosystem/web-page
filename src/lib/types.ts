@@ -9,9 +9,8 @@ export type TechItem = {
 export type ContactFormData = {
   name: string
   email: string
-  company: string
-  service: string
-  budget: string
+  website: string
+  challenge: string
   message: string
   consent: boolean
 }

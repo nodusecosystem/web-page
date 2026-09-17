@@ -2,7 +2,6 @@ import {
   BarChart3,
   ClipboardCheck,
   Code2,
-  Compass,
   FileText,
   Gauge,
   Handshake,
@@ -39,15 +38,15 @@ export const METHODOLOGY_ICONS: Record<string, LucideIcon> = {
 }
 
 export const ABOUT_VALUE_ICONS: Record<string, LucideIcon> = {
-  datos: BarChart3,
-  transparencia: ShieldCheck,
-  velocidad: Zap,
-  crecimiento: TrendingUp,
+  'rigor-analitico': BarChart3,
+  'transparencia-propiedad': ShieldCheck,
+  'agilidad-iteracion': Zap,
+  'alineacion-incentivos': Handshake,
 }
 
 export const PHILOSOPHY_ICONS: Record<string, LucideIcon> = {
-  datos: BarChart3,
-  estrategia: Compass,
-  resultados: Gauge,
-  partner: Handshake,
+  'metricas-negocio': BarChart3,
+  'ecosistemas-integrados': Workflow,
+  'entregables-impacto': Gauge,
+  'socios-crecimiento': Handshake,
 }

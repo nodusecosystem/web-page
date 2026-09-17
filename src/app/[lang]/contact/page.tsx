@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
 import { FAQSection } from '@/components/ui/FAQSection'
-import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
+import { SITE_NAME, SITE_URL, buildWhatsAppLink } from '@/lib/constants/site'
 import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
 import { contactPageSchema } from '@/lib/schema'
 import { CallScheduler } from '@/views/CallScheduler'
@@ -34,15 +34,15 @@ export default async function ContactPage() {
   return (
     <>
       <ContactHero />
+      <CallScheduler />
       <ContactForm
         strings={dict.contact.form}
-        services={dict.services.items}
         responseTime={dict.site.responseTime}
+        whatsappHref={buildWhatsAppLink(dict.site.whatsappMessage)}
         locale={locale as Locale}
         heading={dict.contact.altHeading}
         subheading={dict.contact.altSubheading}
       />
-      <CallScheduler />
       <FAQSection className="bg-teal-light/5" />
       <script
         type="application/ld+json"

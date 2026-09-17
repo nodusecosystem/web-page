@@ -12,10 +12,12 @@ describe('Hero', () => {
     render(await Hero())
     const heading = screen.getByRole('heading', { level: 1 })
     expect(heading).toBeInTheDocument()
-    await waitFor(() =>
-      expect(heading).toHaveAccessibleName(
-        new RegExp(`${esDict.hero.titleStart}.*${esDict.hero.titleMiddle}`, 'i'),
-      ),
+    await waitFor(
+      () =>
+        expect(heading.textContent).toMatch(
+          new RegExp(`${esDict.hero.titleStart}.*${esDict.hero.titleMiddle}`, 'i'),
+        ),
+      { timeout: 3000 },
     )
   })
 

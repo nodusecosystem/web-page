@@ -4,10 +4,15 @@ import { cn } from '@/lib/cn'
 type InputProps = ComponentPropsWithoutRef<'input'> & {
   id: string
   label: string
+  hint?: string
   error?: string
 }
 
-export function Input({ id, label, error, className, ...rest }: InputProps) {
+export function Input({ id, label, hint, error, className, ...rest }: InputProps) {
+  const hintId = `${id}-hint`
+  const errorId = `${id}-error`
+  const describedBy = [hint ? hintId : null, error ? errorId : null].filter(Boolean).join(' ')
+
   return (
     <div className="flex flex-col gap-1.5">
       <label htmlFor={id} className="text-sm font-semibold text-dark">
@@ -16,7 +21,7 @@ export function Input({ id, label, error, className, ...rest }: InputProps) {
       <input
         id={id}
         aria-invalid={error ? true : undefined}
-        aria-describedby={error ? `${id}-error` : undefined}
+        aria-describedby={describedBy || undefined}
         className={cn(
           'h-11 w-full rounded-lg border bg-white px-3.5 text-sm text-dark transition-colors placeholder:text-dark/40 focus:outline-none focus:ring-2',
           error
@@ -26,8 +31,13 @@ export function Input({ id, label, error, className, ...rest }: InputProps) {
         )}
         {...rest}
       />
+      {hint ? (
+        <p id={hintId} className="text-xs text-dark/50">
+          {hint}
+        </p>
+      ) : null}
       {error ? (
-        <p id={`${id}-error`} role="alert" className="text-sm text-red-600">
+        <p id={errorId} role="alert" className="text-sm text-red-600">
           {error}
         </p>
       ) : null}
