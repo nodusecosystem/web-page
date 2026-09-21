@@ -101,6 +101,7 @@ Utilities custom: `text-gradient-brand`, `bg-grid-pattern` y `glass-panel*` (def
 - **Contacto y redes:** `src/lib/constants/site.ts` (email, teléfono, WhatsApp, RRSS).
 - **Formulario:** `src/lib/constants/contact.ts` + `src/lib/validation.ts` (los mensajes viven en el JSON).
 - **JSON-LD:** `src/lib/schema.ts`.
+- **Analítica:** GA4 en `src/components/analytics/GoogleAnalytics.tsx` (ID en `src/lib/constants/site.ts`), cargado con `next/script` (`afterInteractive`) solo en producción.
 - **Páginas legales:** rutas y metadata en `src/lib/legal.ts`; hoy se sirven con `noindex` y con un contenido provisional hasta que se peguen los documentos definitivos.
 
 Para cambiar copias, casos o datos de contacto: **editar los JSON/constants**, nunca el código de las vistas.

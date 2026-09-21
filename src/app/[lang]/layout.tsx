@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { lang } from 'next/root-params'
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
+import { CookieConsent } from '@/components/consent/CookieConsent'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { FloatingWhatsApp } from '@/components/ui/FloatingWhatsApp'
@@ -124,6 +126,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           tooltip={dict.floatingWhatsApp.tooltip}
         />
         <ScrollToTop ariaLabel={dict.scrollToTop.ariaLabel} />
+        <CookieConsent strings={dict.cookieConsent} locale={locale} />
+        <GoogleAnalytics />
       </body>
     </html>
   )

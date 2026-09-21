@@ -620,6 +620,14 @@
   "scrollToTop": {
     "ariaLabel": "Back to top"
   },
+  "cookieConsent": {
+    "ariaLabel": "Cookie notice",
+    "message": "We use first- and third-party cookies to analyze traffic and improve your experience. Learn more in our",
+    "policyLabel": "cookie policy",
+    "accept": "Accept",
+    "reject": "Reject",
+    "preferencesLabel": "Cookie preferences"
+  },
   "legal": {
     "notice": {
       "title": "Legal notice",

@@ -1,6 +1,8 @@
 export const SITE_NAME = 'nodus: digital strategy'
 export const SITE_URL = 'https://nodusecosystem.com'
 
+export const GA_MEASUREMENT_ID = 'G-KHHHJZD9LB'
+
 export const CONTACT_EMAIL = 'nodusecosystem@gmail.com'
 export const CONTACT_PHONE = '+57 310 6769289'
 export const CONTACT_COUNTRY = 'Colombia'

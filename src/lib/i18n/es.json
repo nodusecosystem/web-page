@@ -619,6 +619,14 @@
   "scrollToTop": {
     "ariaLabel": "Volver al inicio"
   },
+  "cookieConsent": {
+    "ariaLabel": "Aviso de cookies",
+    "message": "Usamos cookies propias y de terceros para analizar el tráfico y mejorar tu experiencia. Más información en la",
+    "policyLabel": "política de cookies",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "preferencesLabel": "Preferencias de cookies"
+  },
   "legal": {
     "notice": {
       "title": "Aviso legal",

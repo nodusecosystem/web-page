@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { lang } from 'next/root-params'
+import { CookiePreferencesButton } from '@/components/consent/CookiePreferencesButton'
 import { LogoFull } from '@/components/ui/brand/LogoFull'
 import { Container } from '@/components/ui/Container'
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from '@/components/ui/social-icons'
@@ -101,6 +102,9 @@ export async function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookiePreferencesButton label={dict.cookieConsent.preferencesLabel} />
+              </li>
             </ul>
           </div>
         </div>
