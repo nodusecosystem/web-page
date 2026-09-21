@@ -44,7 +44,7 @@ export async function ServiceDetails() {
 
                   <div className={cn('grid gap-6 sm:grid-cols-2', index % 2 === 1 && 'lg:order-1')}>
                     <Card variant="elevated" className="flex h-full flex-col">
-                      <h4 className="font-display text-sm font-bold tracking-wider text-dark/50 uppercase">
+                      <h4 className="font-display text-sm font-bold tracking-wider text-dark/60 uppercase">
                         {details.includesTitle}
                       </h4>
                       <ul className="mt-4 flex flex-col gap-3">

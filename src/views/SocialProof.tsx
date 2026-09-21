@@ -23,7 +23,7 @@ export async function SocialProof() {
           className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
         >
           {socialProof.clients.map((client) => (
-            <li key={client} className="font-display text-lg font-bold text-dark/50">
+            <li key={client} className="font-display text-lg font-bold text-dark/60">
               {client}
             </li>
           ))}
@@ -45,7 +45,7 @@ export async function SocialProof() {
                   <p className="text-xs font-semibold tracking-wider text-dark/60 uppercase">
                     {socialProof.detailsTitle}
                   </p>
-                  <p className="mt-0.5 text-xs text-dark/50">{caseStudy.period}</p>
+                  <p className="mt-0.5 text-xs text-dark/60">{caseStudy.period}</p>
                   <dl className="mt-3 flex flex-col gap-2.5">
                     {caseStudy.details.map((detail) => (
                       <div

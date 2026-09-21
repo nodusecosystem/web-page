@@ -1,8 +1,10 @@
 import { ArrowRight } from 'lucide-react'
+import { lang } from 'next/root-params'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { GlowCursor } from '@/components/ui/GlowCursor'
 import { Section } from '@/components/ui/Section'
+import { localePath } from '@/lib/format'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 
 type CTASectionProps = {
@@ -12,6 +14,7 @@ type CTASectionProps = {
 
 export async function CTASection({ heading, subheading }: Readonly<CTASectionProps>) {
   const dict = await getDictionary()
+  const locale = await lang()
   const cta = dict.cta
 
   return (
@@ -30,7 +33,7 @@ export async function CTASection({ heading, subheading }: Readonly<CTASectionPro
             {heading ?? cta.heading}
           </h2>
           <p className="max-w-xl text-lg text-white/70">{subheading ?? cta.subheading}</p>
-          <Button href="/contact" size="lg" variant="solid">
+          <Button href={localePath(locale, '/contact')} size="lg" variant="solid">
             {cta.button}
             <ArrowRight aria-hidden className="h-4 w-4" />
           </Button>

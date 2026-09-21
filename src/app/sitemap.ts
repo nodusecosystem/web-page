@@ -23,12 +23,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       alternates: {
-        languages: Object.fromEntries(
-          LOCALES.map((otherLocale) => [
-            otherLocale,
-            `${SITE_URL}/${otherLocale}${route.path}`,
-          ]),
-        ),
+        languages: {
+          ...Object.fromEntries(
+            LOCALES.map((otherLocale) => [
+              otherLocale,
+              `${SITE_URL}/${otherLocale}${route.path}`,
+            ]),
+          ),
+          'x-default': `${SITE_URL}/es${route.path}`,
+        },
       },
     })),
   )

@@ -10,7 +10,7 @@ export async function TechStack() {
   return (
     <section className="overflow-hidden py-10 sm:py-12">
       <Container>
-        <p className="text-center text-sm font-semibold tracking-wider text-dark/50 uppercase">
+        <p className="text-center text-sm font-semibold tracking-wider text-dark/60 uppercase">
           {dict.techStack.heading}
         </p>
       </Container>

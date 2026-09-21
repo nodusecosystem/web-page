@@ -619,7 +619,51 @@
   "scrollToTop": {
     "ariaLabel": "Volver al inicio"
   },
+  "legal": {
+    "notice": {
+      "title": "Aviso legal",
+      "description": "Información legal de nodus: digital strategy: titularidad del sitio, condiciones de uso y responsabilidades.",
+      "lastUpdated": "Última actualización: documento en preparación.",
+      "sections": [
+        {
+          "heading": "Documento en preparación",
+          "paragraphs": [
+            "Este documento está siendo redactado y se publicará en los próximos días. Mientras tanto, si tienes cualquier duda legal, escríbenos a través del formulario de contacto."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "description": "Cómo tratamos tus datos personales en nodus: digital strategy: finalidad, base legal, conservación y derechos.",
+      "lastUpdated": "Última actualización: documento en preparación.",
+      "sections": [
+        {
+          "heading": "Documento en preparación",
+          "paragraphs": [
+            "Este documento está siendo redactado y se publicará en los próximos días. Mientras tanto, si tienes cualquier duda sobre el tratamiento de tus datos, escríbenos a través del formulario de contacto."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de cookies",
+      "description": "Qué cookies y tecnologías similares utiliza el sitio de nodus: digital strategy y cómo puedes gestionarlas.",
+      "lastUpdated": "Última actualización: documento en preparación.",
+      "sections": [
+        {
+          "heading": "Documento en preparación",
+          "paragraphs": [
+            "Este documento está siendo redactado y se publicará en los próximos días. Mientras tanto, si tienes cualquier duda sobre el uso de cookies, escríbenos a través del formulario de contacto."
+          ]
+        }
+      ]
+    }
+  },
   "metadata": {
+    "home": {
+      "title": "nodus: digital strategy | Agencia de estrategia digital"
+    },
     "about": {
       "title": "Nosotros",
       "description": "Descubre la historia, misión y filosofía de nodus: digital strategy. Un partner de aceleración digital que se mide por resultados, no por actividad."

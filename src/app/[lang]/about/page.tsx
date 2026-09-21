@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: dict.metadata.about.description,
     alternates: {
       canonical: `/${locale}/about`,
-      languages: { es: '/es/about', en: '/en/about' },
+      languages: { es: '/es/about', en: '/en/about', 'x-default': '/es/about' },
     },
     openGraph: {
       title: `${dict.metadata.about.title} | ${SITE_NAME}`,

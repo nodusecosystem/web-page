@@ -198,7 +198,7 @@ export function BookingCalendar({ strings, locale, today }: Readonly<BookingCale
 
           <div className="mt-6 grid grid-cols-7 gap-2">
             {strings.weekdays.map((weekday) => (
-              <span key={weekday} className="text-center text-xs font-semibold text-dark/40">
+              <span key={weekday} className="text-center text-xs font-semibold text-dark/60">
                 {weekday}
               </span>
             ))}
@@ -223,7 +223,7 @@ export function BookingCalendar({ strings, locale, today }: Readonly<BookingCale
               </button>
             ))}
           </div>
-          <p className="mt-4 text-xs text-dark/40">{strings.timeZoneLabel}</p>
+          <p className="mt-4 text-xs text-dark/60">{strings.timeZoneLabel}</p>
         </div>
 
         <div className="flex flex-col gap-6 p-6 sm:p-8">

@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useRef, type CSSProperties, type ReactNode, type MouseEventHandler, type Ref } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import GlassSurface from '@/components/ui/reactbits/GlassSurface';
@@ -141,6 +142,15 @@ const SpecularButton = ({
   };
 
   if (href) {
+    if (href.startsWith('/')) {
+      return (
+        <Link ref={btnRef as Ref<HTMLAnchorElement>} href={href} onClick={onClick} {...shared}>
+          {fxLayer}
+          {content}
+        </Link>
+      );
+    }
+
     return (
       <a ref={btnRef as Ref<HTMLAnchorElement>} href={href} onClick={onClick} {...shared}>
         {fxLayer}

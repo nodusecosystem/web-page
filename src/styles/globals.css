@@ -10,7 +10,7 @@
   --font-display: var(--font-modica), var(--font-century), ui-sans-serif,
     system-ui, sans-serif;
 
-  --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee: marquee 48s linear infinite;
 
   @keyframes marquee {
     from {

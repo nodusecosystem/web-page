@@ -1,13 +1,16 @@
 import { ArrowRight } from 'lucide-react'
+import { lang } from 'next/root-params'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { localePath } from '@/lib/format'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 
 export async function AboutHero() {
   const dict = await getDictionary()
+  const locale = await lang()
   const { hero } = dict.about
 
   return (
@@ -35,11 +38,11 @@ export async function AboutHero() {
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-white/70">{hero.description}</p>
             <div className="flex flex-wrap items-center gap-4">
-              <Button href="/services" size="lg" variant="solid">
+              <Button href={localePath(locale, '/services')} size="lg" variant="solid">
                 {hero.ctaPrimary}
                 <ArrowRight aria-hidden className="h-4 w-4" />
               </Button>
-              <Button href="/contact" size="lg" variant="outline">
+              <Button href={localePath(locale, '/contact')} size="lg" variant="outline">
                 {hero.ctaSecondary}
               </Button>
             </div>

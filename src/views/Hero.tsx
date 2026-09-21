@@ -30,7 +30,7 @@ export async function Hero() {
       />
 
       <Container className="relative grid min-h-svh items-center gap-16 py-20 sm:py-24 lg:grid-cols-2 lg:gap-12">
-        <FadeIn>
+        <FadeIn immediate>
           <div className="flex flex-col items-start gap-6">
             <h1 className="font-display">
               <AnimatedHeading
@@ -88,10 +88,12 @@ export async function Hero() {
                   className="flex flex-col items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur"
                 >
                   <dt className="sr-only">{stat.label}</dt>
-                  <dd className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal-light/10 text-teal-light">
-                    <Icon aria-hidden className="h-6 w-6" />
+                  <dd className="flex flex-col items-center gap-3">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal-light/10 text-teal-light">
+                      <Icon aria-hidden className="h-6 w-6" />
+                    </span>
+                    <span className="text-xs text-white/60">{stat.label}</span>
                   </dd>
-                  <p className="text-xs text-white/60">{stat.label}</p>
                 </div>
               )
             })}

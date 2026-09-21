@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
     applicationName: SITE_NAME,
     alternates: {
       canonical: `/${locale}`,
-      languages: { es: '/es', en: '/en' },
+      languages: { es: '/es', en: '/en', 'x-default': '/es' },
     },
     openGraph: {
       type: 'website',

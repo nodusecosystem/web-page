@@ -9,13 +9,20 @@ type FadeInProps = {
   className?: string
   delay?: number
   y?: number
+  immediate?: boolean
 }
 
-export function FadeIn({ children, className, delay = 0, y = 24 }: Readonly<FadeInProps>) {
+export function FadeIn({
+  children,
+  className,
+  delay = 0,
+  y = 24,
+  immediate = false,
+}: Readonly<FadeInProps>) {
   const reduceMotion = useReducedMotion()
   const isMobile = useIsMobile()
 
-  if (reduceMotion || isMobile) {
+  if (reduceMotion || isMobile || immediate) {
     return <div className={className}>{children}</div>
   }
 

@@ -21,7 +21,7 @@ export async function CallScheduler() {
 
         <BookingCalendar strings={scheduler} locale={locale} today={new Date().toISOString()} />
 
-        <p className="mt-6 text-center text-sm text-dark/50">{scheduler.footnote}</p>
+        <p className="mt-6 text-center text-sm text-dark/60">{scheduler.footnote}</p>
       </Container>
     </Section>
   )

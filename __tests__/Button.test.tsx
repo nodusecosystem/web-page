@@ -14,6 +14,14 @@ describe('Button', () => {
     expect(link).toHaveAttribute('href', '#contacto')
   })
 
+  it('renders internal hrefs as a Next link', () => {
+    render(<Button href="/es/contact">Ir a contacto</Button>)
+    expect(screen.getByRole('link', { name: 'Ir a contacto' })).toHaveAttribute(
+      'href',
+      '/es/contact',
+    )
+  })
+
   it('uses the solid variant by default with brand colors', () => {
     render(<Button>Haz clic</Button>)
     const button = screen.getByRole('button')

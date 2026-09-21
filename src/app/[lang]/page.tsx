@@ -14,9 +14,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await lang()
 
   return {
+    title: { absolute: dict.metadata.home.title },
     alternates: {
       canonical: `/${locale}`,
-      languages: { es: '/es', en: '/en' },
+      languages: { es: '/es', en: '/en', 'x-default': '/es' },
     },
     openGraph: {
       title: SITE_NAME,

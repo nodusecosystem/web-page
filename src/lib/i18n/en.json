@@ -620,7 +620,51 @@
   "scrollToTop": {
     "ariaLabel": "Back to top"
   },
+  "legal": {
+    "notice": {
+      "title": "Legal notice",
+      "description": "Legal information for nodus: digital strategy: site ownership, terms of use and responsibilities.",
+      "lastUpdated": "Last updated: document in preparation.",
+      "sections": [
+        {
+          "heading": "Document in preparation",
+          "paragraphs": [
+            "This document is being drafted and will be published shortly. In the meantime, if you have any legal question, write to us through the contact form."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "How we process your personal data at nodus: digital strategy: purpose, legal basis, retention and rights.",
+      "lastUpdated": "Last updated: document in preparation.",
+      "sections": [
+        {
+          "heading": "Document in preparation",
+          "paragraphs": [
+            "This document is being drafted and will be published shortly. In the meantime, if you have any question about how we process your data, write to us through the contact form."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie policy",
+      "description": "Which cookies and similar technologies the nodus: digital strategy site uses and how you can manage them.",
+      "lastUpdated": "Last updated: document in preparation.",
+      "sections": [
+        {
+          "heading": "Document in preparation",
+          "paragraphs": [
+            "This document is being drafted and will be published shortly. In the meantime, if you have any question about the use of cookies, write to us through the contact form."
+          ]
+        }
+      ]
+    }
+  },
   "metadata": {
+    "home": {
+      "title": "nodus: digital strategy | Digital strategy & web agency"
+    },
     "about": {
       "title": "About us",
       "description": "Discover the story, mission and philosophy of nodus: digital strategy. A digital growth partner measured by results, not activity."
