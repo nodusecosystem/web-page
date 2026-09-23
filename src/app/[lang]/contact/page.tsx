@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
+import { PageTransition } from '@/components/animations/PageTransition'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SITE_NAME, SITE_URL, buildWhatsAppLink } from '@/lib/constants/site'
 import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
@@ -32,7 +33,7 @@ export default async function ContactPage() {
   const locale = await lang()
 
   return (
-    <>
+    <PageTransition>
       <ContactHero />
       <CallScheduler />
       <ContactForm
@@ -48,6 +49,6 @@ export default async function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema(dict, locale as Locale)) }}
       />
-    </>
+    </PageTransition>
   )
 }

@@ -1,0 +1,314 @@
+/* Superficies de vidrio (botones, nav, anillo): vidrio esmerilado con borde
+   refractado y brillo que sigue al puntero. Solo CSS + JS mínimo, sin WebGL.
+   El brillo usa --mx/--my (los fija el hook useGlassPointer) y el anillo
+   además --glass-highlight, porque es pointer-events: none. */
+
+@property --rim-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 220deg;
+}
+
+.glass-surface {
+  --glow: var(--color-teal-light);
+  --ink: var(--color-white);
+  --rim-angle: 220deg;
+  --glass-shadow:
+    inset 0 -1px 6px rgb(0 0 0 / 0.18),
+    0 10px 30px -8px rgb(0 0 0 / 0.55);
+
+  /* Anillo refractado: claro donde incide la luz y oscuro en el resto del
+     borde. El ángulo viaja al hacer hover (no es un inset-shadow plano). */
+  --rim: conic-gradient(
+    from var(--rim-angle),
+    rgb(255 255 255 / 0.95) 0deg,
+    rgb(255 255 255 / 0.08) 55deg,
+    rgb(255 255 255 / 0.02) 120deg,
+    rgb(255 255 255 / 0.35) 180deg,
+    rgb(255 255 255 / 0.85) 205deg,
+    rgb(255 255 255 / 0.1) 260deg,
+    rgb(255 255 255 / 0.02) 330deg,
+    rgb(255 255 255 / 0.95) 360deg
+  );
+
+  position: relative;
+  isolation: isolate;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 140% at 20% -20%, rgb(255 255 255 / 0.26), transparent 55%),
+    linear-gradient(180deg, rgb(255 255 255 / 0.14), rgb(255 255 255 / 0.04));
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: var(--glass-shadow);
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.9, 0.25, 1),
+    box-shadow 220ms cubic-bezier(0.2, 0.9, 0.25, 1),
+    background 220ms ease,
+    --rim-angle 480ms cubic-bezier(0.2, 0.9, 0.25, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* El anillo se pinta solo en un borde de 1.5px con padding + mask-composite */
+.glass-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: var(--rim);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 220ms ease;
+}
+
+/* Brillo especular que sigue al puntero */
+.glass-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    120px 120px at var(--mx, 30%) var(--my, 20%),
+    rgb(255 255 255 / 0.55),
+    rgb(255 255 255 / 0) 60%
+  );
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-surface > * {
+  position: relative;
+  z-index: 2;
+}
+
+.glass-surface:hover {
+  --rim-angle: 340deg;
+}
+
+.glass-surface:hover::before,
+.glass-surface:focus-visible::before {
+  opacity: 0.5;
+}
+
+/* --- Variantes nodus --------------------------------------------------- */
+
+/* CTA principal: teal sólido con tinta dark */
+.glass-surface.variant-solid {
+  --ink: var(--color-dark);
+  --glass-shadow:
+    inset 0 -1px 6px rgb(0 15 19 / 0.25),
+    0 10px 30px -8px rgb(0 15 19 / 0.45);
+  background:
+    radial-gradient(120% 140% at 20% -20%, rgb(255 255 255 / 0.5), transparent 55%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-teal-light) 78%, var(--color-white)),
+      var(--color-teal-light) 55%,
+      color-mix(in srgb, var(--color-teal-light) 88%, var(--color-dark))
+    );
+}
+
+/* Secundario sobre fondos oscuros: vidrio oscuro con tinta teal */
+.glass-surface.variant-outline {
+  --ink: var(--color-teal-light);
+  background:
+    radial-gradient(120% 140% at 20% -20%, rgb(91 199 208 / 0.18), transparent 55%),
+    linear-gradient(180deg, rgb(0 15 19 / 0.5), rgb(0 15 19 / 0.32));
+  --rim: conic-gradient(
+    from var(--rim-angle),
+    rgb(91 199 208 / 0.95) 0deg,
+    rgb(91 199 208 / 0.1) 55deg,
+    rgb(91 199 208 / 0.03) 120deg,
+    rgb(91 199 208 / 0.4) 180deg,
+    rgb(91 199 208 / 0.85) 205deg,
+    rgb(91 199 208 / 0.12) 260deg,
+    rgb(91 199 208 / 0.03) 330deg,
+    rgb(91 199 208 / 0.95) 360deg
+  );
+}
+
+/* Terciario sobre fondos claros: vidrio tenue con tinta dark */
+.glass-surface.variant-ghost {
+  --ink: var(--color-dark);
+  --glass-shadow:
+    inset 0 -1px 6px rgb(0 15 19 / 0.08),
+    0 10px 30px -10px rgb(0 15 19 / 0.25);
+  background:
+    radial-gradient(120% 140% at 20% -20%, rgb(255 255 255 / 0.9), transparent 55%),
+    linear-gradient(180deg, rgb(0 15 19 / 0.08), rgb(0 15 19 / 0.03));
+  --rim: conic-gradient(
+    from var(--rim-angle),
+    rgb(91 199 208 / 0.85) 0deg,
+    rgb(91 199 208 / 0.18) 55deg,
+    rgb(91 199 208 / 0.06) 120deg,
+    rgb(91 199 208 / 0.35) 180deg,
+    rgb(91 199 208 / 0.75) 205deg,
+    rgb(91 199 208 / 0.2) 260deg,
+    rgb(91 199 208 / 0.06) 330deg,
+    rgb(91 199 208 / 0.85) 360deg
+  );
+}
+
+/* --- Botón ------------------------------------------------------------- */
+
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Refracción real del fondo con el filtro SVG (<GlassFilterDefs/>). Si el
+     navegador no soporta url() en backdrop-filter, la declaración con url()
+     se ignora y queda el blur simple. */
+  -webkit-backdrop-filter: blur(6px) saturate(160%);
+  backdrop-filter: blur(6px) saturate(160%);
+  -webkit-backdrop-filter: blur(6px) saturate(160%) url(#glass-distortion);
+  backdrop-filter: blur(6px) saturate(160%) url(#glass-distortion);
+
+  /* Inclinación 3D: --rx/--ry las fija el puntero desde JS; --ty/--s vienen
+     de CSS (hover/active), así JS y CSS no compiten por la propiedad. */
+  transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    translateY(var(--ty, 0px)) scale(var(--s, 1));
+}
+
+.glass-btn:hover {
+  --ty: -2px;
+  box-shadow:
+    var(--glass-shadow),
+    0 16px 40px -10px rgb(0 0 0 / 0.6),
+    0 0 32px -4px color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+.glass-btn:active {
+  --ty: 0px;
+  --s: 0.96;
+  box-shadow:
+    inset 0 2px 10px rgb(0 0 0 / 0.28),
+    0 6px 16px -6px rgb(0 0 0 / 0.5);
+}
+
+.glass-btn:active::after {
+  opacity: 0.6;
+}
+
+.glass-btn:focus-visible {
+  outline: 2px solid var(--color-teal-light);
+  outline-offset: 3px;
+}
+
+.glass-btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.4;
+  filter: saturate(0.6);
+  transform: none !important;
+}
+
+.glass-btn[disabled]:hover::before {
+  opacity: 0;
+}
+
+/* Icono y texto en una sola línea, como items flex */
+.glass-btn-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.glass-btn-label > svg {
+  flex: none;
+}
+
+.glass-btn.size-sm {
+  padding: 0.625rem 1.375rem;
+  font-size: 0.85rem;
+}
+
+.glass-btn.size-md {
+  padding: 0.875rem 1.875rem;
+  font-size: 1rem;
+}
+
+.glass-btn.size-lg {
+  padding: 1.125rem 2.5rem;
+  font-size: 1.15rem;
+}
+
+/* --- Nav del header ---------------------------------------------------- */
+
+.glass-nav {
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 999px;
+  padding: 0.375rem 0.5rem;
+}
+
+/* --- Anillo del hero --------------------------------------------------- */
+
+/* La posición va aquí (no con utilidades): .glass-surface fija
+   position: relative y, al cargarse después de Tailwind, pisaría un
+   `absolute` de clase. El relleno es vidrio neutro (sin tinte): el color
+   de marca queda solo para los botones; el borde es el rim base. */
+.glass-ring {
+  position: absolute;
+  inset: 1.5rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.04);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  box-shadow: inset 0 0 80px rgb(255 255 255 / 0.05);
+}
+
+/* El anillo no recibe hover (pointer-events: none): el brillo lo activa el
+   tracking de puntero desde HeroLogoRing */
+.glass-ring::before {
+  opacity: var(--glass-highlight, 0);
+}
+
+/* --- Ripple de click (se añade y elimina desde JS) --------------------- */
+
+.glass-btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.55);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  animation: glass-btn-ripple-out 650ms ease-out forwards;
+  z-index: 1;
+}
+
+@keyframes glass-btn-ripple-out {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-surface,
+  .glass-btn-ripple {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .glass-btn:hover,
+  .glass-btn:active {
+    --ty: 0px;
+    --s: 1;
+  }
+}

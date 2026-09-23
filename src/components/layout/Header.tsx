@@ -8,9 +8,8 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
-import GlassSurface from '@/components/ui/reactbits/GlassSurface'
-import SpecularButton from '@/components/ui/reactbits/SpecularButton'
 import { cn } from '@/lib/cn'
+import { useGlassPointer } from '@/lib/use-glass-pointer'
 
 type HeaderLink = {
   label: string
@@ -67,7 +66,9 @@ export function Header({
     LIGHT_TOP_PAGES.has(`/${pathname.split('/')[2] ?? ''}`),
   )
   const langRef = useRef<HTMLDivElement>(null)
+  const navRef = useRef<HTMLElement>(null)
   const rafRef = useRef(0)
+  const { handlePointerMove: handleNavPointerMove } = useGlassPointer(navRef)
 
   useEffect(() => {
     const readViewport = () => {
@@ -231,38 +232,35 @@ export function Header({
         )}
       >
         <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
-          <a href={homeHref} aria-label={ariaLabels.logo} className="shrink-0" onClick={closeMenu}>
+          <Link
+            href={homeHref}
+            aria-label={ariaLabels.logo}
+            className="shrink-0"
+            onClick={closeMenu}
+          >
             <Logo
               variant="horizontal"
               theme={headerIsLight ? 'light' : 'dark'}
               className="h-10 w-auto sm:h-12"
             />
-          </a>
+          </Link>
 
-          <SpecularButton
-            as="nav"
-            ariaLabel={ariaLabels.nav}
-            size="none"
-            radius={999}
-            tint="#000F13"
-            tintOpacity={0.6}
-            textColor="#ffffff"
-            lineColor="#5BC7D0"
-            baseColor="#5BC7D0"
-            blur={12}
-            glass
-            className="hidden items-center gap-1 px-2 py-1.5 md:flex"
+          <nav
+            ref={navRef}
+            onPointerMove={handleNavPointerMove}
+            aria-label={ariaLabels.nav}
+            className="glass-surface glass-nav variant-outline hidden md:flex"
           >
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="rounded-full px-4 py-1.5 text-sm font-medium text-white/80 transition-colors hover:bg-teal-light/10 hover:text-teal-light"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-          </SpecularButton>
+          </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
             {langDropdown}
@@ -301,28 +299,17 @@ export function Header({
             transition={{ duration: 0.2 }}
             className="md:hidden"
           >
-            <GlassSurface
-              dark
-              borderRadius={0}
-              className="w-full"
-              opacity={0.9}
-              blur={12}
-              displace={8}
-              distortionScale={-120}
-              brightness={60}
-              backgroundOpacity={0.85}
-              borderWidth={0.06}
-            >
+            <div className="glass-panel-strong w-full">
               <Container className="flex flex-col gap-1 py-4">
                 {links.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
                     onClick={closeMenu}
                     className="rounded-lg px-3 py-2.5 text-base font-medium text-white hover:bg-teal-light/10"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
                 <div className="pt-2">
                   <Button href={cta.href} onClick={closeMenu} className="w-full">
@@ -330,7 +317,7 @@ export function Header({
                   </Button>
                 </div>
               </Container>
-            </GlassSurface>
+            </div>
           </motion.nav>
         ) : null}
       </AnimatePresence>

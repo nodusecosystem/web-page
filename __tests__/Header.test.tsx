@@ -47,6 +47,16 @@ describe('Header', () => {
     )
   })
 
+  it('uses the glass surface on the nav and the mobile menu panel', () => {
+    render(<Header {...HEADER_PROPS} />)
+    const nav = screen.getByRole('navigation', { name: HEADER_PROPS.ariaLabels.nav })
+    expect(nav).toHaveClass('glass-surface', 'glass-nav', 'variant-outline')
+
+    fireEvent.click(screen.getByRole('button', { name: HEADER_PROPS.ariaLabels.openMenu }))
+    const mobileNav = screen.getByRole('navigation', { name: HEADER_PROPS.ariaLabels.mobileNav })
+    expect(mobileNav.querySelector('.glass-panel-strong')).toBeInTheDocument()
+  })
+
   it('opens the language dropdown and marks the current locale as active', () => {
     render(<Header {...HEADER_PROPS} />)
     const toggle = screen.getByRole('button', { name: HEADER_PROPS.langToggle.ariaLabel })

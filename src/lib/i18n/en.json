@@ -691,8 +691,5 @@
     "description": "An unexpected error occurred while loading this page. You can try again or go back home.",
     "retry": "Try again",
     "backHome": "Back to home"
-  },
-  "loading": {
-    "label": "Loading content…"
   }
 }

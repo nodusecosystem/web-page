@@ -690,8 +690,5 @@
     "description": "Ocurrió un error inesperado al cargar esta página. Puedes intentarlo de nuevo o volver al inicio.",
     "retry": "Intentar de nuevo",
     "backHome": "Volver al inicio"
-  },
-  "loading": {
-    "label": "Cargando contenido…"
   }
 }

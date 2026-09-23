@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
+import { PageTransition } from '@/components/animations/PageTransition'
 import { TechStack } from '@/components/ui/TechStack'
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
 import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
@@ -33,7 +34,7 @@ export default async function AboutPage() {
   const locale = await lang()
 
   return (
-    <>
+    <PageTransition>
       <AboutHero />
       <MissionVisionValues />
       <Philosophy />
@@ -43,6 +44,6 @@ export default async function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema(dict, locale as Locale)) }}
       />
-    </>
+    </PageTransition>
   )
 }

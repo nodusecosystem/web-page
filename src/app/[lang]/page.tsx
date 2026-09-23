@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
+import { PageTransition } from '@/components/animations/PageTransition'
 import { SITE_NAME, SITE_URL, buildWhatsAppLink } from '@/lib/constants/site'
 import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
 import { professionalServiceSchema } from '@/lib/schema'
@@ -32,7 +33,7 @@ export default async function HomePage() {
   const locale = await lang()
 
   return (
-    <>
+    <PageTransition>
       <Hero />
       <ServicesHome />
       <Methodology />
@@ -47,6 +48,6 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema(dict)) }}
       />
-    </>
+    </PageTransition>
   )
 }

@@ -1,11 +1,48 @@
 'use client'
 
-import GlassSurface from '@/components/ui/reactbits/GlassSurface'
-import SpecularButton from '@/components/ui/reactbits/SpecularButton'
+import { useEffect, useRef } from 'react'
 import { useIsMobile } from '@/lib/use-mobile'
 
 export function HeroLogoRing() {
   const isMobile = useIsMobile()
+  const ringRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const node = ringRef.current
+    if (!node || isMobile) return
+
+    let frame = 0
+    const update = (event: PointerEvent) => {
+      frame = 0
+      const rect = node.getBoundingClientRect()
+      if (!rect.width || !rect.height) return
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
+      const inside = x >= 0 && y >= 0 && x <= rect.width && y <= rect.height
+      node.style.setProperty('--glass-highlight', inside ? '0.5' : '0')
+
+      if (!inside) {
+        node.style.setProperty('--rim-angle', '220deg')
+        return
+      }
+
+      node.style.setProperty('--mx', `${(x / rect.width) * 100}%`)
+      node.style.setProperty('--my', `${(y / rect.height) * 100}%`)
+      const angle = (Math.atan2(y - rect.height / 2, x - rect.width / 2) * 180) / Math.PI + 90
+      node.style.setProperty('--rim-angle', `${angle}deg`)
+    }
+
+    const handlePointerMove = (event: PointerEvent) => {
+      if (frame) return
+      frame = window.requestAnimationFrame(() => update(event))
+    }
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true })
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
+  }, [isMobile])
 
   if (isMobile) {
     return (
@@ -17,32 +54,10 @@ export function HeroLogoRing() {
   }
 
   return (
-    <div aria-hidden className="pointer-events-none absolute top-6 right-6 bottom-6 left-6">
-      <GlassSurface
-        dark
-        borderRadius={999}
-        className="z-0 h-full w-full"
-        opacity={0.1}
-        blur={4}
-        displace={8}
-        distortionScale={-120}
-        brightness={60}
-        backgroundOpacity={0.2}
-        borderWidth={0.6}
-      />
-      <SpecularButton
-        as="div"
-        size="none"
-        radius={999}
-        tint="#000F13"
-        tintOpacity={0}
-        blur={0}
-        lineColor="#5BC7D0"
-        baseColor="#5BC7D0"
-        intensity={10}
-        className="pointer-events-none"
-        style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, zIndex: 1 }}
-      />
-    </div>
+    <div
+      ref={ringRef}
+      aria-hidden
+      className="glass-surface glass-ring pointer-events-none"
+    />
   )
 }

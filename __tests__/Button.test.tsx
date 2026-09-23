@@ -14,25 +14,21 @@ describe('Button', () => {
     expect(link).toHaveAttribute('href', '#contacto')
   })
 
-  it('renders internal hrefs as a Next link', () => {
-    render(<Button href="/es/contact">Ir a contacto</Button>)
-    expect(screen.getByRole('link', { name: 'Ir a contacto' })).toHaveAttribute(
-      'href',
-      '/es/contact',
-    )
-  })
-
-  it('uses the solid variant by default with brand colors', () => {
+  it('uses the solid variant and medium size by default', () => {
     render(<Button>Haz clic</Button>)
-    const button = screen.getByRole('button')
-    expect(button).toHaveStyle('--sb-tint: #5BC7D0')
-    expect(button).toHaveStyle('--sb-tint-opacity: 1')
-    expect(button).toHaveStyle('--sb-text-color: #000F13')
+    expect(screen.getByRole('button')).toHaveClass('glass-btn', 'variant-solid', 'size-md')
   })
 
-  it('uses glassmorphism on outline and ghost variants', () => {
-    render(<Button variant="outline">Outline</Button>)
-    expect(screen.getByRole('button', { name: 'Outline' })).toHaveStyle('--sb-blur: 5px')
+  it('applies the requested variant and size', () => {
+    render(
+      <Button variant="outline" size="lg">
+        Outline
+      </Button>,
+    )
+    expect(screen.getByRole('button', { name: 'Outline' })).toHaveClass(
+      'variant-outline',
+      'size-lg',
+    )
   })
 
   it('preserves submit type for forms', () => {
@@ -45,5 +41,13 @@ describe('Button', () => {
     render(<Button onClick={handleClick}>Haz clic</Button>)
     fireEvent.click(screen.getByRole('button'))
     expect(handleClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('renders internal hrefs as a Next link', () => {
+    render(<Button href="/es/contact">Ir a contacto</Button>)
+    expect(screen.getByRole('link', { name: 'Ir a contacto' })).toHaveAttribute(
+      'href',
+      '/es/contact',
+    )
   })
 })

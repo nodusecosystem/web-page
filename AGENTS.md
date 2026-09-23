@@ -44,12 +44,12 @@ src/
 │   │   └── layout.tsx       # Metadata global, Header, Footer, WhatsApp, ScrollToTop
 │   ├── robots.ts, sitemap.ts, global-not-found.tsx
 ├── components/
-│   ├── ui/                  # Button, Card, Container, Section, Badge, Input, Textarea,
+│   ├── ui/                  # Button, GlassButton, Card, Container, Section, Badge, Input, Textarea,
 │   │   │                    # Logo, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop,
 │   │   │                    # BookingCalendar, GlowCursor, ServicesGrid
 │   │   ├── brand/           # IsotipoLogo, HorizontalLogo, LogoFull (SVG inline)
-│   │   └── reactbits/       # Efectos GSAP/WebGL (StrokeText, SpecularButton, CursorGrid, GlassSurface…)
-│   ├── animations/          # 'use client' — FadeIn, StaggerChildren, AnimatedHeading, AnimatedCounter, HeroBackground
+│   │   └── reactbits/       # Efectos GSAP/WebGL (StrokeText, CursorGrid, GlassSurface, BorderGlow…)
+│   ├── animations/          # 'use client' — FadeIn, StaggerChildren, AnimatedHeading, AnimatedCounter, HeroBackground; PageTransition (server)
 │   └── layout/              # Header ('use client'), Footer (server)
 ├── views/                   # Secciones complejas (Hero, Services, ContactForm…) — siempre Server Components
 ├── lib/
@@ -67,14 +67,31 @@ src/
 1. **Server Components por defecto.** `'use client'` solo en hojas finales interactivas: `Header`, `ContactForm`, `BookingCalendar`, `GlowCursor` y los wrappers de `animations/`/`reactbits/`.
 2. **Las vistas (views/) SIEMPRE son Server Components.** Las animaciones se aplican anidando wrappers cliente (`FadeIn`, `StaggerItem`) — nunca marques una vista entera como `'use client'`.
 3. Componentes pequeños, sin lógica compleja en el render. Complejidad cognitiva baja (Sonar).
-4. Los enlaces internos se construyen con `localePath(locale, path)`; `SpecularButton` renderiza `next/link` para rutas internas y `<a>` para externas/anclas.
+4. Los enlaces internos se construyen con `localePath(locale, path)`; `GlassButton` renderiza `next/link` para rutas internas y `<a>` para externas/anclas.
+
+### Botones (GlassButton)
+
+`Button` delega en `GlassButton` (`components/ui/`): vidrio esmerilado con borde refractado, brillo que sigue al puntero, inclinación 3D y ripple, **solo CSS + JS mínimo** (`styles/glass-button.css`), sin WebGL/GSAP. Variantes `solid` (CTA teal), `outline` (vidrio oscuro, tinta teal) y `ghost` (vidrio claro, tinta dark), tamaños `sm|md|lg`. No reintroducir efectos canvas en botones: eran el mayor coste de JS por página.
+
+- **Tilt 3D**: `--rx/--ry` (máx. 9°) las fija `useGlassPointer` desde el puntero; `--ty/--s` vienen de CSS (hover/active). Se combinan en un solo `transform` para que JS y CSS no compitan. Con `prefers-reduced-motion` no se inclina.
+- **Refracción real**: los botones usan `backdrop-filter: … url(#glass-distortion)`; el filtro SVG lo define `GlassFilterDefs`, montado **una sola vez** en `app/[lang]/layout.tsx`. Si el navegador no soporta `url()` en `backdrop-filter`, queda el blur simple. Solo botones: la nav y el anillo usan la superficie compartida sin tilt ni refracción.
 
 ### Core Web Vitals (medido con Lighthouse)
 
 - **El contenido crítico del hero no se oculta en SSR.** `FadeIn` acepta `immediate` para renderizar sin animación de entrada (evita que el LCP dependa de la hidratación); `Hero` lo usa en la columna de texto.
 - `AnimatedHeading` reserva la altura de línea en SSR con `md:h-[var(--heading-line-height)]` y `minHeight` en cliente, para que el swap a `StrokeText` (canvas/SVG) no produzca CLS. En móvil el texto se renderiza natural.
-- Los efectos WebGL (`CursorGrid`, `SpecularFx`, `GlowCursor`) solo se montan en desktop (`useIsMobile`) y tras idle/visibilidad; `HeroBackground` los difiere.
+- Los efectos WebGL (`CursorGrid`, `GlassSurface`, `GlowCursorFx`) solo se montan en desktop (`useIsMobile`) y tras idle/visibilidad; `HeroBackground` los difiere.
 - `Section` usa `content-visibility: auto` con `contain-intrinsic-size`.
+
+### Transición de página (wipe)
+
+`PageTransition` (`components/animations/`) usa la View Transitions API vía `<ViewTransition>` de React (lo incluye Next, 0 kB extra). Reglas:
+
+- Envolver **todo** el contenido de cada página (JSON-LD incluido) y dejarlo como **primer hijo de `<main>`**: enter/exit exige preceder a cualquier nodo DOM del contenedor.
+- El panel `dark` es un `<ViewTransition name="page-wipe-panel">` **hermano**, animado desde `globals.css`; enter/exit anidados no se activan. El panel persiste entre páginas (React reutiliza el nodo), así que el barrido va en `default="page-wipe-sweep"`, no en `share` (con `default="none"` el panel no se animaría).
+- `<main>` debe ser opaco (`relative bg-white`) para ocultar el panel en reposo (`z-index: -1`).
+- Sin soporte del navegador (Firefox) la navegación ocurre con normalidad, sin animación; `prefers-reduced-motion` desactiva el barrido.
+- **No re-añadir `loading.tsx`**: su fallback de Suspense hace parpadear el loader y compite con el wipe; la transición es la única señal de navegación. Los enlaces internos deben usar `next/link` (nunca `<a>`), o la navegación será una recarga completa sin transición.
 
 ### Imágenes
 
@@ -120,7 +137,7 @@ Para cambiar copias, casos o datos de contacto: **editar los JSON/constants**, n
 - Imports explícitos desde `vitest` (`describe`, `it`, `expect`, `vi`) — sin globals.
 - `next/root-params` se mockea en los tests de server components: `vi.mock('next/root-params', () => ({ lang: () => Promise.resolve('es') }))`.
 - El setup (`vitest.setup.ts`) mockea IntersectionObserver/ResizeObserver/matchMedia y el contexto de canvas para framer-motion/GSAP/OGL.
-- Tests de componentes críticos: Button, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas. Añadir tests al crear UI nueva.
+- Tests de componentes críticos: Button, GlassButton, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas. Añadir tests al crear UI nueva.
 
 ## Política de calidad (Sonar / ESLint)
 

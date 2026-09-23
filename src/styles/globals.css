@@ -78,3 +78,80 @@
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgb(91 199 208 / 0.2);
 }
+
+/* Transición de página (PageTransition): un panel dark con borde diagonal
+   cruza la pantalla y descubre la página nueva. En reposo queda detrás del
+   contenido (main opaco) y solo se ve durante la transición. */
+:root {
+  --page-wipe-skew: 20vh;
+}
+
+.page-wipe-panel {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-dark);
+  pointer-events: none;
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+/* La página saliente espera quieta a ser cubierta por el panel */
+::view-transition-old(.page-wipe) {
+  animation: none;
+}
+
+/* La página entrante se descubre tras el borde diagonal del panel, con la
+   misma duración y curva que el barrido para que ambos bordes avancen pegados */
+::view-transition-new(.page-wipe) {
+  animation: page-wipe-reveal 850ms both;
+}
+
+/* El grupo del panel barre en diagonal: entra por la izquierda, cubre el
+   viewport a mitad y sale por la derecha */
+::view-transition-group(.page-wipe-sweep) {
+  z-index: 10;
+  animation: page-wipe-sweep 850ms both;
+}
+
+@keyframes page-wipe-reveal {
+  0% {
+    clip-path: polygon(0 0, 0 0, calc(var(--page-wipe-skew) * -1) 100%, 0 100%);
+  }
+  50%,
+  100% {
+    clip-path: polygon(0 0, calc(100% + var(--page-wipe-skew)) 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes page-wipe-sweep {
+  0% {
+    clip-path: polygon(0 0, 0 0, calc(var(--page-wipe-skew) * -1) 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, calc(100% + var(--page-wipe-skew)) 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(
+      calc(100% + var(--page-wipe-skew)) 0,
+      calc(100% + var(--page-wipe-skew)) 0,
+      100% 100%,
+      100% 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

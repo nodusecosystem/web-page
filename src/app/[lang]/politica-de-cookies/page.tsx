@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { lang } from 'next/root-params'
+import { PageTransition } from '@/components/animations/PageTransition'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { legalMetadata } from '@/lib/legal'
 import { LegalPage } from '@/views/LegalPage'
@@ -17,5 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function CookiePolicyPage() {
-  return <LegalPage documentKey="cookies" />
+  return (
+    <PageTransition>
+      <LegalPage documentKey="cookies" />
+    </PageTransition>
+  )
 }

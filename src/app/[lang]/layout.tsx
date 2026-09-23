@@ -6,11 +6,13 @@ import { CookieConsent } from '@/components/consent/CookieConsent'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { FloatingWhatsApp } from '@/components/ui/FloatingWhatsApp'
+import { GlassFilterDefs } from '@/components/ui/GlassButton'
 import { ScrollToTop } from '@/components/ui/ScrollToTop'
 import { SITE_NAME, SITE_URL, buildWhatsAppLink } from '@/lib/constants/site'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { localePath } from '@/lib/format'
 import '@/styles/globals.css'
+import '@/styles/glass-button.css'
 
 const modica = localFont({
   src: './fonts/modica-medium.ttf',
@@ -104,6 +106,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         >
           {dict.layout.skipToContent}
         </a>
+        <GlassFilterDefs />
         <Header
           links={dict.layout.nav.links.map((link) => ({
             ...link,
@@ -118,7 +121,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           currentLocale={locale}
           langToggle={dict.layout.langToggle}
         />
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="relative bg-white">
+          {children}
+        </main>
         <Footer />
         <FloatingWhatsApp
           href={buildWhatsAppLink(dict.site.whatsappMessage)}
