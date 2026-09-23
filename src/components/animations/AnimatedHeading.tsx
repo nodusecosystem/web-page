@@ -41,6 +41,10 @@ export function AnimatedHeading({
     .map((part) => part.trim())
     .filter(Boolean)
 
+  // Separa las líneas con un espacio en el DOM: son bloques y, sin él, el
+  // texto extraído queda pegado («deCrecimiento»).
+  const lineSeparator = (index: number) => (index < lines.length - 1 ? ' ' : null)
+
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true)
@@ -54,6 +58,7 @@ export function AnimatedHeading({
         {lines.map((line, index) => (
           <span key={`${line}-${index}`} className="block">
             {line}
+            {lineSeparator(index)}
           </span>
         ))}
       </span>
@@ -70,6 +75,7 @@ export function AnimatedHeading({
             style={{ '--heading-line-height': `${lineHeight}px` } as CSSProperties}
           >
             {line}
+            {lineSeparator(index)}
           </span>
         ))}
       </span>
@@ -99,6 +105,7 @@ export function AnimatedHeading({
             fillMode="wipe"
             className={cn('block', alignClass)}
           />
+          {lineSeparator(index)}
         </span>
       ))}
     </>

@@ -1,4 +1,4 @@
-export const SITE_NAME = 'nodus: digital strategy'
+export const SITE_NAME = 'NODUS ECOSYSTEM: digital strategy'
 export const SITE_URL = 'https://nodusecosystem.com'
 
 export const GA_MEASUREMENT_ID = 'G-KHHHJZD9LB'
