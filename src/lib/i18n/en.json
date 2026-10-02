@@ -5,6 +5,15 @@
     "responseTime": "In less than 24 hours with an action plan",
     "whatsappMessage": "Hi nodus, I'd like to know more about your monthly plans"
   },
+  "llms": {
+    "intro": "nodus: digital strategy is a growth partner for companies across Latin America and North America. It combines content strategy, paid media campaigns (Meta Ads and Google Ads), web and software development, and automation and conversion into monthly plans with no lock-in, clear deliverables and full ownership of the client's accounts, data and digital assets. Remote-first operation based in Colombia; response within 24 hours with an action plan.",
+    "keyFacts": [
+      "Monthly plans with no lock-in: the client decides when to adjust or scale.",
+      "100% client ownership: ad accounts, code (Next.js), CRM databases and automations from day one.",
+      "Results model: business metrics (CPA, ROAS, qualified leads) instead of vanity metrics.",
+      "Coverage: Latin America and North America, with communication in Spanish and English."
+    ]
+  },
   "layout": {
     "skipToContent": "Skip to content",
     "header": {

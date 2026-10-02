@@ -5,6 +5,15 @@
     "responseTime": "En menos de 24 horas con un plan de acción",
     "whatsappMessage": "Hola nodus, quiero información sobre sus planes mensuales"
   },
+  "llms": {
+    "intro": "nodus: digital strategy es un partner de crecimiento para empresas de Latinoamérica y Norteamérica. Integra estrategia de contenido, campañas y pauta digital (Meta Ads y Google Ads), desarrollo web y software, y automatización y conversión en planes mensuales sin permanencia, con entregables claros y propiedad total de las cuentas, datos y activos digitales del cliente. Operación remote-first con base en Colombia; respuesta en menos de 24 horas con un plan de acción.",
+    "keyFacts": [
+      "Planes mensuales sin permanencia: el cliente decide cuándo ajustar o escalar.",
+      "Propiedad 100% del cliente: cuentas publicitarias, código (Next.js), bases de datos CRM y automatizaciones desde el día uno.",
+      "Modelo de resultados: métricas de negocio (CPA, ROAS, leads calificados) en lugar de métricas de vanidad.",
+      "Cobertura: Latinoamérica y Norteamérica, con comunicación en español e inglés."
+    ]
+  },
   "layout": {
     "skipToContent": "Saltar al contenido",
     "header": {

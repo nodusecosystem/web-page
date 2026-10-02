@@ -100,6 +100,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang={locale} className={`${modica.variable} ${century.variable}`}>
       <body className="bg-white font-sans text-dark antialiased">
+        <link rel="describedby" href="/llms.txt" type="text/markdown" />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-teal-light focus:px-4 focus:py-2 focus:font-semibold focus:text-dark"
