@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/*
+ * El TTF de Modica es una demo de Fontspring que sustituye 28 signos
+ * (! " # $ % & ' ( ) * + - / 4 < = > @ [ \ ] ^ _ ` { | } ~) por un glifo de
+ * marca de agua. Este subset de Century Gothic los intercepta por
+ * unicode-range antes de Modica para que se rendericen correctamente.
+ * Sustituir por la licencia completa de Modica y eliminar este bloque.
+ */
+@font-face {
+  font-family: "DisplayPunctuation";
+  src: url("/fonts/display-punctuation.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0021-002B, U+002D, U+002F, U+0034, U+003C-003E, U+0040,
+    U+005B-0060, U+007B-007E;
+}
+
 @theme {
   --color-teal-light: #5BC7D0;
   --color-dark: #000F13;
@@ -7,8 +22,8 @@
 
   --font-sans: var(--font-century), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
-  --font-display: var(--font-modica), var(--font-century), ui-sans-serif,
-    system-ui, sans-serif;
+  --font-display: "DisplayPunctuation", var(--font-modica), var(--font-century),
+    ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 48s linear infinite;
 
