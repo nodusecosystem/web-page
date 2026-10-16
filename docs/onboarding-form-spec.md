@@ -20,7 +20,7 @@ Spec generada desde el código fuente. El formulario vive en `/{locale}/onboardi
 | Archivo | Rol |
 |---|---|
 | `src/components/onboarding/OnboardingWizard.tsx` | Wizard cliente: pasos, estado, validación, toast, borrador, envío, éxito |
-| `src/app/[lang]/onboarding/actions.ts` | Server Action `submitOnboarding`: puente a n8n vía `N8N_ONBOARDING_WEBHOOK_URL` |
+| `src/app/[lang]/onboarding/actions.ts` | Server Action `submitOnboarding`: puente a n8n vía `N8N_ONBOARDING_WEBHOOK_URL` + cabecera auth `X-Nodus-Key` (`N8N_ONBOARDING_WEBHOOK_SECRET`, solo servidor) |
 | `src/lib/constants/onboarding.ts` | Grupos, campos por paso, obligatorios, `EMPTY_ONBOARDING_FORM`, `ONBOARDING_STORAGE_KEY` |
 | `src/lib/validation.ts` | `validateOnboardingStep` / `validateOnboardingForm` |
 | `src/lib/types.ts` | `OnboardingField` (unión de 68 literales), `OnboardingSelectField` (13), `OnboardingFormData/Errors`, `OnboardingStepId` |
