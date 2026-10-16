@@ -1,6 +1,16 @@
 import { EMAIL_REGEX, MIN_NAME_LENGTH } from '@/lib/constants/contact'
+import {
+  ONBOARDING_STEPS,
+  REQUIRED_ONBOARDING_FIELDS,
+} from '@/lib/constants/onboarding'
 import { format } from '@/lib/format'
-import type { ContactFormData, ContactFormErrors } from '@/lib/types'
+import type {
+  ContactFormData,
+  ContactFormErrors,
+  OnboardingFormData,
+  OnboardingFormErrors,
+  OnboardingStepId,
+} from '@/lib/types'
 
 export type ValidationMessages = {
   nameTooShort: string
@@ -27,4 +37,39 @@ export function validateContactForm(
   }
 
   return errors
+}
+
+export type OnboardingValidationMessages = {
+  required: string
+  emailInvalid: string
+}
+
+export function validateOnboardingStep(
+  step: OnboardingStepId,
+  form: OnboardingFormData,
+  messages: OnboardingValidationMessages,
+): OnboardingFormErrors {
+  const errors: OnboardingFormErrors = {}
+
+  for (const field of REQUIRED_ONBOARDING_FIELDS[step]) {
+    if (form[field].trim().length === 0) {
+      errors[field] = messages.required
+    }
+  }
+
+  if (form.emailContacto.trim().length > 0 && !EMAIL_REGEX.test(form.emailContacto.trim())) {
+    errors.emailContacto = messages.emailInvalid
+  }
+
+  return errors
+}
+
+export function validateOnboardingForm(
+  form: OnboardingFormData,
+  messages: OnboardingValidationMessages,
+): OnboardingFormErrors {
+  return ONBOARDING_STEPS.reduce<OnboardingFormErrors>(
+    (errors, step) => ({ ...errors, ...validateOnboardingStep(step, form, messages) }),
+    {},
+  )
 }

@@ -551,6 +551,252 @@
       "footnote": "Mockup visual: la integración real de agendamiento (Calendly / Cal.com) se conectará aquí."
     }
   },
+  "onboarding": {
+    "hero": {
+      "eyebrow": "Onboarding · Solo con enlace",
+      "title": "Onboarding del cliente",
+      "subheading": "Tres bloques: tu marca, tu web y tu automatización. Responde con datos reales; si no tienes el dato, escribe PENDIENTE.",
+      "timeBadge": "15–20 min",
+      "privacyNote": "Tus datos solo se usan para diseñar tu automatización y tu web."
+    },
+    "steps": [
+      {
+        "id": "brand",
+        "label": "1 · Marca",
+        "title": "Tu marca y tu oferta",
+        "description": "Quién eres, qué vendes y a quién le vendes."
+      },
+      {
+        "id": "web",
+        "label": "2 · Web",
+        "title": "Tu web",
+        "description": "Objetivo, contenidos e integraciones del sitio."
+      },
+      {
+        "id": "automation",
+        "label": "3 · Automatización",
+        "title": "Automatización de chats",
+        "description": "Filtros, voz, agenda y conexiones del bot."
+      }
+    ],
+    "groups": {
+      "contact": {
+        "title": "Antes de empezar — ¿cómo te contactamos?",
+        "description": "Para enviarte el diagnóstico en 24h."
+      },
+      "identidad": {
+        "title": "¿Quién eres? — tu marca",
+        "description": "Para que el bot se presente como tú y no como un asistente genérico."
+      },
+      "oferta": {
+        "title": "¿Qué vendes?",
+        "description": "Solo lo que el bot puede ofrecer. Si no está aquí, el bot no lo promete."
+      },
+      "clienteIdeal": {
+        "title": "¿A quién le vendes?"
+      },
+      "webBase": {
+        "title": "Objetivo y alcance",
+        "description": "Qué debe conseguir la web y qué incluirá."
+      },
+      "webContenido": {
+        "title": "Identidad y contenidos",
+        "description": "Marca, materiales y referencias visuales."
+      },
+      "webTech": {
+        "title": "Funcionalidad y técnica",
+        "description": "Lo que la web debe hacer por dentro."
+      },
+      "filtro": {
+        "title": "¿Cuándo el bot agenda y cuándo no?",
+        "description": "Reglas binarias: si no se cumplen, el bot no agenda y deriva con respeto."
+      },
+      "voz": {
+        "title": "¿Cómo quieres sonar?",
+        "description": "De aquí clonamos tu voz. Mientras más real, más humano suena el bot."
+      },
+      "proceso": {
+        "title": "Cómo vendes hoy"
+      },
+      "agenda": {
+        "title": "¿Cuándo agendamos?",
+        "description": "Sin esto no podemos agendar. Es lo más crítico del bot."
+      },
+      "conexiones": {
+        "title": "¿Qué necesitamos para conectar?",
+        "description": "Sin estos accesos no podemos construir. Lo sensible se comparte en la reunión, no aquí."
+      },
+      "prueba": {
+        "title": "¿Qué mostramos para generar confianza?"
+      },
+      "reglas": {
+        "title": "¿Qué nunca hace el bot?"
+      }
+    },
+    "fields": {
+      "nombreContacto": { "label": "Nombre y apellido", "placeholder": "Ej: Johan Bedoya" },
+      "emailContacto": { "label": "Email", "placeholder": "tu@empresa.com" },
+      "telefonoContacto": { "label": "WhatsApp", "placeholder": "+57 310 6769289" },
+      "marca": { "label": "Nombre legal y marca comercial", "placeholder": "Ej: Inversiones Nodus S.A.S. → Nodus Ecosystem" },
+      "frase": { "label": "En una frase: ¿qué haces por tus clientes?", "placeholder": "Ej: Ayudamos a empresas a conseguir clientes con pauta y automatización" },
+      "web": { "label": "Página web y redes principales", "placeholder": "Ej: nodusecosystem.com — IG @tu_marca" },
+      "historia": { "label": "Historia corta de la marca (2-3 líneas)", "placeholder": "Ej: Llevamos 5 años ayudando a negocios locales a escalar..." },
+      "ubicacionZona": { "label": "¿Dónde atiendes y en qué zona horaria?", "placeholder": "Ej: Colombia y LATAM — Hora Bogotá (COT)" },
+      "servicios": { "label": "Lista todos tus servicios o productos", "placeholder": "1. Servicio principal (el que más vendes)\n2. Servicio secundario\n3. Producto / asesoría / programa" },
+      "servicioEstrella": { "label": "¿Cuál es el servicio estrella para el bot? (uno solo)" },
+      "incluyeNoIncluye": { "label": "¿Qué incluye y qué no incluye?", "placeholder": "Incluye: estrategia, pauta, dashboard...\nNo incluye: community diario, ventas garantizadas...", "hint": "Sé específico: «4 semanas de acompañamiento y dashboard» es mejor que «acompañamiento completo»." },
+      "precio": { "label": "Inversión / precio y forma de pago", "placeholder": "Ej: 2.000 USD — pago anticipado — o «solo en la llamada»", "hint": "Si prefieres no dar precio por chat, escribe: «el precio se define en la llamada»." },
+      "duracion": { "label": "Duración / contrato mínimo", "placeholder": "Ej: 30 días / 3 meses mínimo / sin permanencia" },
+      "casosLink": { "label": "Link de casos de éxito o testimonios", "placeholder": "Ej: https://drive.google.com/... o https://tuweb.com/casos" },
+      "metrica": { "label": "Métrica real que sí podemos decir", "placeholder": "Ej: +120 clientes / 4.8★ en Google" },
+      "clienteIdeal": { "label": "Describe a tu cliente ideal en 2 líneas", "placeholder": "Ej: Dueños de negocios locales que ya venden pero dependen del voz a voz" },
+      "aptos": { "label": "Perfiles aptos (a los que sí les vendes)", "placeholder": "Ej: Servicios profesionales, e-commerce con tracción, academias..." },
+      "noAptos": { "label": "Perfiles no aptos (el bot los descalifica)", "placeholder": "Ej: Proyectos sin ventas, rifas/apuestas...", "hint": "El bot los descalifica con cariño y no agenda." },
+      "ticket": { "label": "Ticket promedio y volumen típico", "placeholder": "Ej: Ticket $800.000 COP, 40 clientes/mes" },
+      "referidores": { "label": "¿Tienes referidores B2B?", "placeholder": "Ej: Contadores, agencias aliadas — o «No aplica»" },
+      "webObjetivo": { "label": "Objetivo de la web en una frase", "placeholder": "Ej: Captar leads calificados para el servicio estrella" },
+      "webTipo": { "label": "Tipo de sitio" },
+      "webPaginas": { "label": "Páginas o secciones necesarias", "placeholder": "Ej: Inicio, servicios, casos, contacto, aviso legal" },
+      "webDominio": { "label": "Dominio y hosting", "placeholder": "Ej: Ya tengo midominio.com en Hostinger — o «No tengo aún»" },
+      "webIdentidad": { "label": "Identidad visual (logo, colores, tipografías)", "placeholder": "Ej: Link al Drive con logo y manual de marca" },
+      "webContenidos": { "label": "Contenidos: textos, fotos, videos", "placeholder": "Ej: Tengo fotos y textos — me faltan videos" },
+      "webReferencias": { "label": "3 webs que te gusten y por qué", "placeholder": "Ej: tuweb.com — me gusta su hero directo..." },
+      "webFuncionalidades": { "label": "Funcionalidades necesarias", "placeholder": "Ej: Blog, reservas, pagos, formularios, chat" },
+      "webIntegraciones": { "label": "Integraciones (CRM, analítica, WhatsApp...)", "placeholder": "Ej: GHL, GA4, WhatsApp — o «No aplica»" },
+      "webMantenimiento": { "label": "¿Quieres mantenimiento mensual?" },
+      "webFechaObjetivo": { "label": "Fecha objetivo de lanzamiento", "placeholder": "Ej: 15 de diciembre de 2026 — o «Sin fecha»" },
+      "requisitoMinimo": { "label": "Facturación o requisito mínimo para calificar", "placeholder": "Ej: Que facture +3.000 USD/mes — o «No aplica»" },
+      "inversionMinima": { "label": "Inversión mínima disponible", "placeholder": "Ej: 1.500 USD para iniciar" },
+      "datosObligatorios": { "label": "Datos obligatorios antes de agendar", "placeholder": "Ej: Nombre, teléfono, correo, ciudad, Instagram/web" },
+      "noCalificaDerivacion": { "label": "Si no califica, ¿qué le dice el bot?", "placeholder": "Ej: Agradece, explica que cuidan su inversión y lo invita a seguir en @tu_ig" },
+      "muyCalificado": { "label": "Señal de cliente muy calificado", "placeholder": "Ej: Factura muy por encima, marca reconocida — o «No aplica»" },
+      "nombreBot": { "label": "¿Cómo se presenta el bot?", "placeholder": "Ej: Soy Ana de Nodus" },
+      "tono": { "label": "Tono en 3 adjetivos", "placeholder": "Ej: Cálido, directo, experto" },
+      "frasesReales": { "label": "3 frases reales que tú usas con clientes", "placeholder": "Ej: ¡Hola! Qué bueno que escribiste 🙌 Cuéntame de tu negocio", "hint": "La parte más importante: de aquí clonamos tu voz." },
+      "frasesNunca": { "label": "Frases que nunca debe decir", "placeholder": "Ej: No decir «Estimado usuario», no prometer resultados garantizados" },
+      "emojis": { "label": "Uso de emojis" },
+      "tuteoIdiomas": { "label": "¿Tuteo o usteo? ¿En qué idiomas atiende?", "placeholder": "Ej: Siempre tuteo, atiendo ES y EN" },
+      "origenLeads": { "label": "¿De dónde te llegan los leads hoy?", "placeholder": "Ej: IG DM, WhatsApp, pauta en Meta, voz a voz" },
+      "automaticoAntes": { "label": "¿Hay algo automático antes del bot?", "placeholder": "Ej: Si comentan «INFO» les pido nombre y correo — o «No»" },
+      "quienHaceLlamada": { "label": "¿Quién hace la llamada?", "placeholder": "Ej: Yo hago la sesión de diagnóstico" },
+      "queHaceSesion": { "label": "¿Qué haces en esa sesión?", "placeholder": "Ej: Reviso su presencia digital y armo el plan a medida" },
+      "objeciones": { "label": "Objeciones que más escuchas", "placeholder": "Ej: Precio, «lo pienso», tiempo, desconfianza" },
+      "duracionSesion": { "label": "Duración de la sesión" },
+      "calendario": { "label": "Calendario donde se agenda", "placeholder": "Ej: https://... o GHL Calendar ID: abc123", "hint": "Si usas GoHighLevel necesitamos el Calendar ID; si usas Calendly o Google, pega el link." },
+      "horarioZona": { "label": "Horario de atención y zona horaria", "placeholder": "Ej: Lun-Vie 9am-6pm — Hora Colombia (COT)" },
+      "asignacion": { "label": "¿Quién atiende qué tipo de lead?", "placeholder": "Ej: Yo atiendo todos / Ana los normales, yo los muy calificados" },
+      "reagendar": { "label": "Si pide reagendar o cancelar, ¿qué hace el bot?" },
+      "briefing": { "label": "Briefing que necesita el closer", "placeholder": "Ej: Nombre, teléfono, correo, ciudad, nicho, facturación, problema principal" },
+      "crm": { "label": "¿Qué CRM usas?" },
+      "tokenCRM": { "label": "Token / acceso del CRM", "placeholder": "Si es sensible, escribe «Lo comparto en la reunión»", "hint": "Nunca dejes tokens en un formulario: lo vemos por privado." },
+      "canalBot": { "label": "¿Por dónde hablará el bot con tus leads?" },
+      "whatsappEquipo": { "label": "WhatsApp / email del equipo para avisos", "placeholder": "Ej: +57 310 0000000 — equipo@tuempresa.com" },
+      "pipelineEtiquetas": { "label": "Pipeline y etiquetas en el CRM", "placeholder": "Ej: Pipeline «Oportunidades»: Nuevo → Calificado → Agendado → Ganado" },
+      "driveMarca": { "label": "Link a tu Drive con logo y material de marca", "placeholder": "Ej: https://drive.google.com/..." },
+      "conversacionesReales": { "label": "¿Puedes compartir 10-20 conversaciones reales?", "hint": "De aquí clonamos tu voz real." },
+      "audios": { "label": "¿Tienes audios de llamadas reales? (3-5)" },
+      "vslLink": { "label": "Link a tu VSL / landing / formulario", "placeholder": "Ej: https://tuweb.com/diagnostico" },
+      "precioChatOLlamada": { "label": "¿El bot puede decir el precio por chat?" },
+      "prometeResultados": { "label": "¿Puede prometer resultados garantizados?" },
+      "descuentos": { "label": "¿Puede ofrecer descuentos?" },
+      "pideHumano": { "label": "Si pide hablar con humano, ¿qué hace?", "placeholder": "Ej: Avisa al equipo y le dice que ya le avisamos 🙌" },
+      "leadsConCita": { "label": "¿Hay leads que ya llegan con cita? ¿Qué hace el bot?", "placeholder": "Ej: No, todos pasan por el bot / Sí, que avise al equipo" },
+      "algoMas": { "label": "¿Algo más que el bot debe saber?", "placeholder": "Cuéntanos lo importante que no preguntamos..." }
+    },
+    "selectOptions": {
+      "servicioEstrella": [
+        { "value": "estrella1", "label": "El #1 — el que quiero que el bot venda" },
+        { "value": "estrella2", "label": "El #2" },
+        { "value": "estrella3", "label": "El #3" },
+        { "value": "todos", "label": "Todos por igual" }
+      ],
+      "emojis": [
+        { "value": "max1", "label": "Máx 1 por mensaje, solo en momentos cálidos (recomendado)" },
+        { "value": "uno-dos", "label": "1-2 por mensaje" },
+        { "value": "sin", "label": "Sin emojis" },
+        { "value": "libre", "label": "Como yo los uso, sin límite" }
+      ],
+      "duracionSesion": [
+        { "value": "30", "label": "30 minutos" },
+        { "value": "45", "label": "45 minutos" },
+        { "value": "60", "label": "60 minutos" },
+        { "value": "otro", "label": "Otro" }
+      ],
+      "reagendar": [
+        { "value": "avisa", "label": "Avisa al equipo, no reagenda solo (recomendado)" },
+        { "value": "auto", "label": "Reagenda automático si hay hueco" },
+        { "value": "otro", "label": "Otro" }
+      ],
+      "crm": [
+        { "value": "ghl", "label": "GoHighLevel (GHL)" },
+        { "value": "hubspot", "label": "HubSpot" },
+        { "value": "otro", "label": "Otro" },
+        { "value": "ninguno", "label": "No uso CRM aún" }
+      ],
+      "canalBot": [
+        { "value": "ig-whatsapp", "label": "Instagram DM + WhatsApp vía GHL (recomendado)" },
+        { "value": "whatsapp", "label": "Solo WhatsApp" },
+        { "value": "instagram", "label": "Solo Instagram" },
+        { "value": "telegram", "label": "Telegram" },
+        { "value": "webchat", "label": "Webchat en tu web" }
+      ],
+      "conversacionesReales": [
+        { "value": "ghl", "label": "Sí, exporto de GHL / CRM" },
+        { "value": "capturas", "label": "Sí, envío capturas" },
+        { "value": "no", "label": "No tengo aún" }
+      ],
+      "audios": [
+        { "value": "si", "label": "Sí, los subo al Drive" },
+        { "value": "no", "label": "No" }
+      ],
+      "precioChatOLlamada": [
+        { "value": "solo-llamada", "label": "Solo en la llamada, por chat da encuadre sin cifras (recomendado)" },
+        { "value": "con-precio", "label": "Sí, puede dar precio por chat" },
+        { "value": "depende", "label": "Depende del caso" }
+      ],
+      "prometeResultados": [
+        { "value": "no", "label": "No, nunca" },
+        { "value": "si", "label": "Sí" }
+      ],
+      "descuentos": [
+        { "value": "no", "label": "No, nunca" },
+        { "value": "si", "label": "Sí" }
+      ],
+      "webTipo": [
+        { "value": "corporativa", "label": "Corporativa" },
+        { "value": "landing", "label": "Landing page" },
+        { "value": "catalogo", "label": "Catálogo" },
+        { "value": "ecommerce", "label": "E-commerce" },
+        { "value": "blog", "label": "Blog" },
+        { "value": "otro", "label": "Otro" }
+      ],
+      "webMantenimiento": [
+        { "value": "si", "label": "Sí" },
+        { "value": "no", "label": "No" },
+        { "value": "nose", "label": "Aún no lo sé" }
+      ]
+    },
+    "selectPlaceholder": "Selecciona una opción",
+    "navigation": {
+      "back": "Atrás",
+      "next": "Continuar",
+      "submit": "Enviar a Nodus",
+      "stepOf": "Paso {current} de {total}",
+      "saveDraft": "Guardar borrador",
+      "discardDraft": "Descartar borrador",
+      "draftSaved": "Borrador guardado en tu navegador",
+      "startAgain": "Enviar otra respuesta",
+      "requiredNote": "Los campos marcados con * son obligatorios"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio",
+      "emailInvalid": "Introduce un email válido"
+    },
+    "success": {
+      "title": "¡Formulario completo!",
+      "description": "Completaste las 3 secciones. El envío automático aún no está activo: conserva tu borrador guardado, te pediremos estas respuestas cuando conectemos el sistema."
+    }
+  },
   "faq": {
     "heading": "Preguntas frecuentes",
     "subheading": "Todo lo que necesitas saber sobre el plan mensual, la inversión, la garantía y la propiedad de tus activos digitales.",
@@ -692,6 +938,10 @@
     "contact": {
       "title": "Contacto",
       "description": "Escríbenos o agenda una videollamada de diagnóstico. Te enviamos un plan de acción en menos de 24 horas."
+    },
+    "onboarding": {
+      "title": "Onboarding del cliente",
+      "description": "Formulario privado de onboarding: tu marca, tu web y tu automatización."
     }
   },
   "error": {
