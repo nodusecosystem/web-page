@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { OnboardingWizard } from '@/components/onboarding/OnboardingWizard'
 import { ONBOARDING_STEPS, ONBOARDING_STORAGE_KEY } from '@/lib/constants/onboarding'
@@ -53,7 +53,7 @@ function fillAutomationStep() {
 }
 
 function renderWizard() {
-  return render(<OnboardingWizard strings={STRINGS} />)
+  return render(<OnboardingWizard strings={STRINGS} locale="es" />)
 }
 
 describe('OnboardingWizard', () => {
@@ -84,6 +84,20 @@ describe('OnboardingWizard', () => {
     expect(screen.getByLabelText(requiredLabel('nombreContacto'))).toBeInTheDocument()
   })
 
+  it('shows a toast notice and focuses the first invalid field when blocked', async () => {
+    renderWizard()
+
+    fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.next }))
+
+    const alert = screen.getByText(
+      'Completa los 14 campos obligatorios marcados para continuar',
+    )
+    expect(alert).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByLabelText(requiredLabel('nombreContacto'))).toHaveFocus()
+    })
+  })
+
   it('clears the field error while typing', () => {
     renderWizard()
 
@@ -93,6 +107,19 @@ describe('OnboardingWizard', () => {
     fillField(requiredLabel('nombreContacto'), 'Ana Pérez')
     const alerts = screen.getAllByText(STRINGS.validation.required)
     expect(alerts.length).toBeLessThan(14)
+  })
+
+  it('dismisses the toast notice with its close button', async () => {
+    renderWizard()
+
+    fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.next }))
+    const toastText = 'Completa los 14 campos obligatorios marcados para continuar'
+    expect(screen.getByText(toastText)).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.dismiss }))
+    await waitFor(() => {
+      expect(screen.queryByText(toastText)).not.toBeInTheDocument()
+    })
   })
 
   it('advances to the web step once the brand step is valid and goes back', () => {
@@ -142,6 +169,9 @@ describe('OnboardingWizard', () => {
 
     expect(screen.getByText(STRINGS.success.title)).toBeInTheDocument()
     expect(screen.getByText(STRINGS.success.description)).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', { name: STRINGS.navigation.backToSite }),
+    ).toHaveAttribute('href', '/es')
   })
 
   it('submitting an incomplete last step jumps back to the first failing step', () => {

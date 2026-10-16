@@ -1,7 +1,7 @@
 'use client'
 
-import { ArrowLeft, ArrowRight, CheckCircle2, Save, Send, Trash2 } from 'lucide-react'
-import { useEffect, useState, type ChangeEvent } from 'react'
+import { AlertCircle, ArrowLeft, ArrowRight, CheckCircle2, Home, Save, Send, Trash2, X } from 'lucide-react'
+import { useEffect, useRef, useState, type ChangeEvent } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
@@ -17,8 +17,10 @@ import {
   ONBOARDING_STORAGE_KEY,
   ONBOARDING_TEXTAREA_FIELDS,
   REQUIRED_ONBOARDING_FIELDS,
+  getStepFields,
 } from '@/lib/constants/onboarding'
-import { format } from '@/lib/format'
+import { format, localePath } from '@/lib/format'
+import type { Locale } from '@/lib/i18n/dictionaries'
 import type {
   OnboardingField,
   OnboardingFormData,
@@ -59,9 +61,11 @@ export type OnboardingStrings = {
     discardDraft: string
     draftSaved: string
     startAgain: string
+    backToSite: string
+    dismiss: string
     requiredNote: string
   }
-  validation: OnboardingValidationMessages
+  validation: OnboardingValidationMessages & { blocked: string }
   success: {
     title: string
     description: string
@@ -70,6 +74,7 @@ export type OnboardingStrings = {
 
 type OnboardingWizardProps = {
   strings: OnboardingStrings
+  locale: Locale
 }
 
 const ALL_REQUIRED_FIELDS = new Set<OnboardingField>(
@@ -82,12 +87,14 @@ const EMAIL_FIELDS: Partial<Record<OnboardingField, { type: string; autoComplete
   nombreContacto: { type: 'text', autoComplete: 'name' },
 }
 
-export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
+export function OnboardingWizard({ strings, locale }: Readonly<OnboardingWizardProps>) {
   const [stepIndex, setStepIndex] = useState(0)
   const [formData, setFormData] = useState<OnboardingFormData>(EMPTY_ONBOARDING_FORM)
   const [errors, setErrors] = useState<OnboardingFormErrors>({})
   const [status, setStatus] = useState<'idle' | 'success'>('idle')
   const [draftSaved, setDraftSaved] = useState(false)
+  const [notice, setNotice] = useState<string | null>(null)
+  const noticeTimer = useRef(0)
 
   const stepId: OnboardingStepId = ONBOARDING_STEPS[stepIndex] ?? 'brand'
   const totalSteps = ONBOARDING_STEPS.length
@@ -109,6 +116,36 @@ export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
     return () => window.clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    const timer = noticeTimer.current
+    return () => window.clearTimeout(timer)
+  }, [])
+
+  const showNotice = (message: string) => {
+    setNotice(message)
+    window.clearTimeout(noticeTimer.current)
+    noticeTimer.current = window.setTimeout(() => setNotice(null), 6000)
+  }
+
+  const dismissNotice = () => {
+    window.clearTimeout(noticeTimer.current)
+    setNotice(null)
+  }
+
+  const focusFirstError = (step: OnboardingStepId, stepErrors: OnboardingFormErrors) => {
+    const first = getStepFields(step).find((field) => stepErrors[field] !== undefined)
+    if (!first) return
+    window.setTimeout(() => {
+      document.getElementById(`onboarding-${first}`)?.focus()
+    }, 0)
+  }
+
+  const blockWithNotice = (step: OnboardingStepId, stepErrors: OnboardingFormErrors) => {
+    const count = Object.keys(stepErrors).length
+    showNotice(format(strings.validation.blocked, { count }))
+    focusFirstError(step, stepErrors)
+  }
+
   const handleChange =
     (field: OnboardingField) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -125,7 +162,9 @@ export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
     setErrors(stepErrors)
     if (Object.keys(stepErrors).length === 0) {
       setStepIndex((current) => Math.min(current + 1, totalSteps - 1))
+      return
     }
+    blockWithNotice(stepId, stepErrors)
   }
 
   const handleBack = () => {
@@ -150,10 +189,14 @@ export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
     const formErrors = validateOnboardingForm(formData, strings.validation)
     setErrors(formErrors)
     if (Object.keys(formErrors).length > 0) {
-      const firstFailing = ONBOARDING_STEPS.findIndex((step) =>
-        Object.keys(validateOnboardingStep(step, formData, strings.validation)).length > 0,
-      )
-      if (firstFailing >= 0) setStepIndex(firstFailing)
+      const firstFailing =
+        ONBOARDING_STEPS.find(
+          (step) =>
+            Object.keys(validateOnboardingStep(step, formData, strings.validation)).length > 0,
+        ) ?? stepId
+      if (firstFailing !== stepId) setStepIndex(ONBOARDING_STEPS.indexOf(firstFailing))
+      const failingErrors = validateOnboardingStep(firstFailing, formData, strings.validation)
+      blockWithNotice(firstFailing, failingErrors)
       return
     }
     // TODO: enviar a n8n cuando se defina el webhook (Server Action + N8N_ONBOARDING_WEBHOOK_URL).
@@ -166,6 +209,7 @@ export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
     setFormData(EMPTY_ONBOARDING_FORM)
     setErrors({})
     setDraftSaved(false)
+    setNotice(null)
     setStatus('idle')
     setStepIndex(0)
   }
@@ -213,9 +257,15 @@ export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
                 <CheckCircle2 aria-hidden className="h-14 w-14 text-teal-light" />
                 <h2 className="font-display text-2xl font-bold">{strings.success.title}</h2>
                 <p className="max-w-md text-dark/60">{strings.success.description}</p>
-                <Button type="button" variant="ghost" onClick={handleStartAgain}>
-                  {strings.navigation.startAgain}
-                </Button>
+                <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
+                  <Button type="button" href={localePath(locale, '/')}>
+                    <Home aria-hidden className="h-4 w-4" />
+                    {strings.navigation.backToSite}
+                  </Button>
+                  <Button type="button" variant="ghost" onClick={handleStartAgain}>
+                    {strings.navigation.startAgain}
+                  </Button>
+                </div>
               </div>
             </Card>
           </div>
@@ -296,7 +346,7 @@ export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between gap-3">
               {stepIndex > 0 ? (
-                <Button type="button" variant="outline" onClick={handleBack}>
+                <Button type="button" variant="ghost" onClick={handleBack}>
                   <ArrowLeft aria-hidden className="h-4 w-4" />
                   {strings.navigation.back}
                 </Button>
@@ -333,6 +383,25 @@ export function OnboardingWizard({ strings }: Readonly<OnboardingWizardProps>) {
           </div>
         </div>
       </Container>
+      {notice ? (
+        <div className="fixed bottom-6 left-1/2 z-50 w-[calc(100%-2rem)] max-w-md -translate-x-1/2">
+          <p
+            role="alert"
+            className="flex items-center gap-3 rounded-2xl bg-dark px-4 py-3 text-sm text-white shadow-xl"
+          >
+            <AlertCircle aria-hidden className="h-5 w-5 shrink-0 text-teal-light" />
+            <span className="flex-1">{notice}</span>
+            <button
+              type="button"
+              onClick={dismissNotice}
+              aria-label={strings.navigation.dismiss}
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <X aria-hidden className="h-4 w-4" />
+            </button>
+          </p>
+        </div>
+      ) : null}
     </Section>
   )
 }

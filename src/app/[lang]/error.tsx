@@ -33,7 +33,7 @@ export default function ErrorPage({
         <Button onClick={reset} size="lg" variant="solid">
           {dict.error.retry}
         </Button>
-        <Button href={`/${locale}`} size="lg" variant="outline">
+        <Button href={`/${locale}`} size="lg" variant="ghost">
           {dict.error.backHome}
         </Button>
       </div>

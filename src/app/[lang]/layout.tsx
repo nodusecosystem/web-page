@@ -3,14 +3,9 @@ import localFont from 'next/font/local'
 import { lang } from 'next/root-params'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 import { CookieConsent } from '@/components/consent/CookieConsent'
-import { Footer } from '@/components/layout/Footer'
-import { Header } from '@/components/layout/Header'
-import { FloatingWhatsApp } from '@/components/ui/FloatingWhatsApp'
 import { GlassFilterDefs } from '@/components/ui/GlassButton'
-import { ScrollToTop } from '@/components/ui/ScrollToTop'
-import { SITE_NAME, SITE_URL, buildWhatsAppLink } from '@/lib/constants/site'
+import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
 import { getDictionary } from '@/lib/i18n/dictionaries'
-import { localePath } from '@/lib/format'
 import '@/styles/globals.css'
 import '@/styles/glass-button.css'
 
@@ -108,30 +103,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           {dict.layout.skipToContent}
         </a>
         <GlassFilterDefs />
-        <Header
-          links={dict.layout.nav.links.map((link) => ({
-            ...link,
-            href: localePath(locale, link.href),
-          }))}
-          cta={{
-            ...dict.layout.nav.cta,
-            href: localePath(locale, dict.layout.nav.cta.href),
-          }}
-          ariaLabels={dict.layout.header}
-          homeHref={localePath(locale, '/')}
-          currentLocale={locale}
-          langToggle={dict.layout.langToggle}
-        />
-        <main id="main-content" className="relative bg-white">
-          {children}
-        </main>
-        <Footer />
-        <FloatingWhatsApp
-          href={buildWhatsAppLink(dict.site.whatsappMessage)}
-          ariaLabel={dict.floatingWhatsApp.ariaLabel}
-          tooltip={dict.floatingWhatsApp.tooltip}
-        />
-        <ScrollToTop ariaLabel={dict.scrollToTop.ariaLabel} />
+        {children}
         <CookieConsent strings={dict.cookieConsent} locale={locale} />
         <GoogleAnalytics />
       </body>

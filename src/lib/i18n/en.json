@@ -787,11 +787,14 @@
       "discardDraft": "Discard draft",
       "draftSaved": "Draft saved in your browser",
       "startAgain": "Send another response",
+      "backToSite": "Back to the website",
+      "dismiss": "Dismiss notice",
       "requiredNote": "Fields marked with * are required"
     },
     "validation": {
       "required": "This field is required",
-      "emailInvalid": "Enter a valid email"
+      "emailInvalid": "Enter a valid email",
+      "blocked": "Complete the {count} marked required fields to continue"
     },
     "success": {
       "title": "Form complete!",

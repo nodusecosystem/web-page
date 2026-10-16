@@ -786,11 +786,14 @@
       "discardDraft": "Descartar borrador",
       "draftSaved": "Borrador guardado en tu navegador",
       "startAgain": "Enviar otra respuesta",
+      "backToSite": "Volver a la web",
+      "dismiss": "Cerrar aviso",
       "requiredNote": "Los campos marcados con * son obligatorios"
     },
     "validation": {
       "required": "Este campo es obligatorio",
-      "emailInvalid": "Introduce un email válido"
+      "emailInvalid": "Introduce un email válido",
+      "blocked": "Completa los {count} campos obligatorios marcados para continuar"
     },
     "success": {
       "title": "¡Formulario completo!",
