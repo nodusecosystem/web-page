@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import OnboardingLayout from '@/app/[lang]/onboarding/layout'
 import esDict from '@/lib/i18n/es.json'
@@ -26,5 +26,20 @@ describe('OnboardingLayout', () => {
     expect(
       screen.queryByRole('navigation', { name: esDict.layout.header.nav }),
     ).not.toBeInTheDocument()
+  })
+
+  it('shows the scroll-to-top button after scrolling', async () => {
+    render(await OnboardingLayout({ children: <p>Contenido</p> }))
+
+    expect(
+      screen.queryByRole('button', { name: esDict.scrollToTop.ariaLabel }),
+    ).not.toBeInTheDocument()
+
+    Object.defineProperty(window, 'scrollY', { value: 500, writable: true })
+    fireEvent.scroll(window)
+
+    expect(
+      await screen.findByRole('button', { name: esDict.scrollToTop.ariaLabel }),
+    ).toBeInTheDocument()
   })
 })

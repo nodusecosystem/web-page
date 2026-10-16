@@ -2,6 +2,7 @@ import { lang } from 'next/root-params'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
+import { ScrollToTop } from '@/components/ui/ScrollToTop'
 import { SITE_NAME } from '@/lib/constants/site'
 import { getDictionary, LOCALES } from '@/lib/i18n/dictionaries'
 import { cn } from '@/lib/cn'
@@ -48,6 +49,7 @@ export default async function OnboardingLayout({
       <main id="main-content" className="relative bg-white">
         {children}
       </main>
+      <ScrollToTop ariaLabel={dict.scrollToTop.ariaLabel} />
     </>
   )
 }
