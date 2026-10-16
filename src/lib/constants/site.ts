@@ -16,5 +16,5 @@ export const buildWhatsAppLink = (message: string): string =>
 export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/company/nodusecosystem',
   instagram: 'https://www.instagram.com/nodusecosystem',
-  facebook: 'https://www.facebook.com/nodusecosystem',
+  facebook: 'https://www.facebook.com/share/19WHZyaD8q/',
 }
