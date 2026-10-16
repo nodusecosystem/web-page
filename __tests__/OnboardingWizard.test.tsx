@@ -1,8 +1,15 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { submitOnboarding } from '@/app/[lang]/onboarding/actions'
 import { OnboardingWizard } from '@/components/onboarding/OnboardingWizard'
 import { ONBOARDING_STEPS, ONBOARDING_STORAGE_KEY } from '@/lib/constants/onboarding'
 import esDict from '@/lib/i18n/es.json'
+
+vi.mock('@/app/[lang]/onboarding/actions', () => ({
+  submitOnboarding: vi.fn(),
+}))
+
+const submitMock = vi.mocked(submitOnboarding)
 
 const STRINGS = esDict.onboarding
 const FIELDS = STRINGS.fields
@@ -59,6 +66,8 @@ function renderWizard() {
 describe('OnboardingWizard', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    submitMock.mockReset()
+    submitMock.mockResolvedValue({ ok: true })
   })
 
   it('keeps the step copy aligned with the step logic order', () => {
@@ -156,7 +165,8 @@ describe('OnboardingWizard', () => {
     expect(await screen.findByDisplayValue('Ana Pérez')).toBeInTheDocument()
   })
 
-  it('completes the three steps and shows the success state without sending', () => {
+  it('sends the three steps to n8n and shows the success state', async () => {
+    window.localStorage.setItem(ONBOARDING_STORAGE_KEY, JSON.stringify({ marca: 'Previa' }))
     renderWizard()
     fillBrandStep()
     fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.next }))
@@ -167,11 +177,37 @@ describe('OnboardingWizard', () => {
     fillAutomationStep()
     fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.submit }))
 
-    expect(screen.getByText(STRINGS.success.title)).toBeInTheDocument()
+    expect(await screen.findByText(STRINGS.success.title)).toBeInTheDocument()
     expect(screen.getByText(STRINGS.success.description)).toBeInTheDocument()
+    expect(submitMock).toHaveBeenCalledTimes(1)
+    const payload = submitMock.mock.calls[0]?.[0] as Record<string, string>
+    expect(Object.keys(payload)).toHaveLength(68)
+    expect(payload.marca).toBe('Nodus S.A.S.')
+    expect(payload.servicioEstrella).toBe('estrella1')
+    expect(window.localStorage.getItem(ONBOARDING_STORAGE_KEY)).toBeNull()
     expect(
       screen.getByRole('link', { name: STRINGS.navigation.backToSite }),
     ).toHaveAttribute('href', '/es')
+  })
+
+  it('shows an error toast and keeps the draft when n8n fails', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    submitMock.mockRejectedValueOnce(new Error('n8n down'))
+
+    try {
+      renderWizard()
+      fillBrandStep()
+      fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.next }))
+      fillWebStep()
+      fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.next }))
+      fillAutomationStep()
+      fireEvent.click(screen.getByRole('button', { name: STRINGS.navigation.submit }))
+
+      expect(await screen.findByText(STRINGS.navigation.submitError)).toBeInTheDocument()
+      expect(screen.queryByText(STRINGS.success.title)).not.toBeInTheDocument()
+    } finally {
+      consoleSpy.mockRestore()
+    }
   })
 
   it('submitting an incomplete last step jumps back to the first failing step', () => {

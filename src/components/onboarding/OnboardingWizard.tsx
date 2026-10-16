@@ -1,7 +1,8 @@
 'use client'
 
-import { AlertCircle, ArrowLeft, ArrowRight, CheckCircle2, Home, Save, Send, Trash2, X } from 'lucide-react'
+import { AlertCircle, ArrowLeft, ArrowRight, CheckCircle2, Home, Loader2, Save, Send, Trash2, X } from 'lucide-react'
 import { useEffect, useRef, useState, type ChangeEvent } from 'react'
+import { submitOnboarding } from '@/app/[lang]/onboarding/actions'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
@@ -56,6 +57,8 @@ export type OnboardingStrings = {
     back: string
     next: string
     submit: string
+    sending: string
+    submitError: string
     stepOf: string
     saveDraft: string
     discardDraft: string
@@ -93,6 +96,7 @@ export function OnboardingWizard({ strings, locale }: Readonly<OnboardingWizardP
   const [errors, setErrors] = useState<OnboardingFormErrors>({})
   const [status, setStatus] = useState<'idle' | 'success'>('idle')
   const [draftSaved, setDraftSaved] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
   const noticeTimer = useRef(0)
 
@@ -185,7 +189,7 @@ export function OnboardingWizard({ strings, locale }: Readonly<OnboardingWizardP
     setStepIndex(0)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const formErrors = validateOnboardingForm(formData, strings.validation)
     setErrors(formErrors)
     if (Object.keys(formErrors).length > 0) {
@@ -199,9 +203,18 @@ export function OnboardingWizard({ strings, locale }: Readonly<OnboardingWizardP
       blockWithNotice(firstFailing, failingErrors)
       return
     }
-    // TODO: enviar a n8n cuando se defina el webhook (Server Action + N8N_ONBOARDING_WEBHOOK_URL).
-    // Por ahora el formulario valida, guarda borrador y muestra el estado de éxito en local.
-    setStatus('success')
+    setIsSubmitting(true)
+    try {
+      await submitOnboarding(formData)
+      window.localStorage.removeItem(ONBOARDING_STORAGE_KEY)
+      setDraftSaved(false)
+      setStatus('success')
+    } catch (error) {
+      console.error('Onboarding submit failed:', error)
+      showNotice(strings.navigation.submitError)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleStartAgain = () => {
@@ -359,9 +372,18 @@ export function OnboardingWizard({ strings, locale }: Readonly<OnboardingWizardP
                   <ArrowRight aria-hidden className="h-4 w-4" />
                 </Button>
               ) : (
-                <Button type="button" onClick={handleSubmit}>
-                  <Send aria-hidden className="h-4 w-4" />
-                  {strings.navigation.submit}
+                <Button type="button" onClick={handleSubmit} disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 aria-hidden className="h-4 w-4 animate-spin" />
+                      {strings.navigation.sending}
+                    </>
+                  ) : (
+                    <>
+                      <Send aria-hidden className="h-4 w-4" />
+                      {strings.navigation.submit}
+                    </>
+                  )}
                 </Button>
               )}
             </div>

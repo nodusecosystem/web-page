@@ -781,6 +781,8 @@
       "back": "Atrás",
       "next": "Continuar",
       "submit": "Enviar a Nodus",
+      "sending": "Enviando...",
+      "submitError": "No pudimos enviar tus respuestas. Revisa tu conexión e inténtalo de nuevo.",
       "stepOf": "Paso {current} de {total}",
       "saveDraft": "Guardar borrador",
       "discardDraft": "Descartar borrador",
@@ -796,8 +798,8 @@
       "blocked": "Completa los {count} campos obligatorios marcados para continuar"
     },
     "success": {
-      "title": "¡Formulario completo!",
-      "description": "Completaste las 3 secciones. El envío automático aún no está activo: conserva tu borrador guardado, te pediremos estas respuestas cuando conectemos el sistema."
+      "title": "¡Recibido! Gracias",
+      "description": "Tus respuestas llegaron a Nodus. Las revisamos en 24h y te escribimos con el plan y las preguntas que falten."
     }
   },
   "faq": {

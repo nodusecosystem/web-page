@@ -782,6 +782,8 @@
       "back": "Back",
       "next": "Continue",
       "submit": "Send to Nodus",
+      "sending": "Sending...",
+      "submitError": "We couldn't send your answers. Check your connection and try again.",
       "stepOf": "Step {current} of {total}",
       "saveDraft": "Save draft",
       "discardDraft": "Discard draft",
@@ -797,8 +799,8 @@
       "blocked": "Complete the {count} marked required fields to continue"
     },
     "success": {
-      "title": "Form complete!",
-      "description": "You completed all 3 sections. Auto-submit isn't live yet: keep your saved draft, we'll ask for these answers when we connect the system."
+      "title": "Received! Thank you",
+      "description": "Your answers reached Nodus. We review them within 24h and write back with the plan and any missing questions."
     }
   },
   "faq": {
