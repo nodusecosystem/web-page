@@ -20,4 +20,12 @@ describe('Card', () => {
     const { container } = render(<Card variant="glass">X</Card>)
     expect(container.querySelector('svg')).toBeInTheDocument()
   })
+
+  it('renders the plain variant without glow, glass or canvas layers', () => {
+    const { container } = render(<Card variant="plain">Contenido simple</Card>)
+    expect(container).toHaveTextContent('Contenido simple')
+    expect(container.querySelector('[aria-hidden="true"]')).not.toBeInTheDocument()
+    expect(container.querySelector('svg')).not.toBeInTheDocument()
+    expect(container.querySelector('canvas')).not.toBeInTheDocument()
+  })
 })

@@ -265,7 +265,7 @@ export function OnboardingWizard({ strings, locale }: Readonly<OnboardingWizardP
       <Section id="onboarding">
         <Container>
           <div className="mx-auto max-w-2xl">
-            <Card>
+            <Card variant="plain">
               <div className="flex flex-col items-center gap-4 py-12 text-center">
                 <CheckCircle2 aria-hidden className="h-14 w-14 text-teal-light" />
                 <h2 className="font-display text-2xl font-bold">{strings.success.title}</h2>
@@ -340,7 +340,7 @@ export function OnboardingWizard({ strings, locale }: Readonly<OnboardingWizardP
           {ONBOARDING_GROUPS.filter((group) => group.step === stepId).map((group) => {
             const groupCopy = strings.groups[group.key]
             return (
-              <Card key={group.key}>
+              <Card key={group.key} variant="plain">
                 <h2 className="font-display text-xl font-bold">{groupCopy.title}</h2>
                 {groupCopy.description ? (
                   <p className="mt-1 text-sm leading-relaxed text-dark/60">

@@ -6,7 +6,7 @@ import GlassSurface from '@/components/ui/reactbits/GlassSurface'
 import { cn } from '@/lib/cn'
 import { useIsMobile } from '@/lib/use-mobile'
 
-export type CardVariant = 'default' | 'bordered' | 'elevated' | 'glass'
+export type CardVariant = 'default' | 'bordered' | 'elevated' | 'glass' | 'plain'
 
 type CardVariantSpec = {
   inner: string
@@ -25,7 +25,7 @@ const LIGHT_SPEC: Omit<CardVariantSpec, 'inner'> = {
   dark: false,
 }
 
-const VARIANT_SPECS: Record<CardVariant, CardVariantSpec> = {
+const VARIANT_SPECS: Record<Exclude<CardVariant, 'plain'>, CardVariantSpec> = {
   default: { inner: 'text-dark', ...LIGHT_SPEC },
   bordered: { inner: 'text-dark', ...LIGHT_SPEC },
   elevated: { inner: 'text-dark', ...LIGHT_SPEC },
@@ -44,8 +44,21 @@ type CardProps = ComponentPropsWithoutRef<'div'> & {
 }
 
 export function Card({ variant = 'default', className, ...rest }: CardProps) {
-  const variantSpec = VARIANT_SPECS[variant]
   const isMobile = useIsMobile()
+
+  if (variant === 'plain') {
+    return (
+      <div
+        className={cn(
+          'rounded-2xl border border-dark/10 bg-white p-6 text-dark shadow-sm sm:p-8',
+          className,
+        )}
+        {...rest}
+      />
+    )
+  }
+
+  const variantSpec = VARIANT_SPECS[variant]
   const glassSurface = (
     <GlassSurface
       dark={variantSpec.dark}
