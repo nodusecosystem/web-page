@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { GET } from '@/app/llms.txt/route'
-import { SITE_URL } from '@/lib/constants/site'
+import { CONTACT_EMAIL, SITE_URL } from '@/lib/constants/site'
 import { buildLlmsTxt } from '@/lib/llms'
 
 const PAGE_PATHS = ['', '/about', '/services', '/contact']
@@ -38,7 +38,7 @@ describe('llms.txt', () => {
   })
 
   it('includes the contact channels', () => {
-    expect(content).toContain('nodusecosystem@gmail.com')
+    expect(content).toContain(CONTACT_EMAIL)
     expect(content).toContain('+57 310 6769289')
     expect(content).toContain('https://www.linkedin.com/company/nodusecosystem')
   })

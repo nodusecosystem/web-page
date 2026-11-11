@@ -9,7 +9,7 @@ export const CRM_URL = 'https://crm.nodusecosystem.com'
 
 export const GA_MEASUREMENT_ID = 'G-KHHHJZD9LB'
 
-export const CONTACT_EMAIL = 'nodusecosystem@gmail.com'
+export const CONTACT_EMAIL = 'info@nodusecosystem.com'
 export const CONTACT_PHONE = '+57 310 6769289'
 export const CONTACT_COUNTRY = 'Colombia'
 export const CONTACT_COUNTRY_CODE = 'CO'
