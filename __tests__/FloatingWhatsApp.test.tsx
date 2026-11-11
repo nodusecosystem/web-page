@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { FloatingWhatsApp } from '@/components/ui/FloatingWhatsApp'
 import { buildWhatsAppLink } from '@/lib/constants/site'
@@ -22,5 +22,19 @@ describe('FloatingWhatsApp', () => {
   it('includes the tooltip with the pre-filled message', () => {
     render(<FloatingWhatsApp {...WHATSAPP_PROPS} />)
     expect(screen.getByText(esDict.floatingWhatsApp.tooltip)).toBeInTheDocument()
+  })
+
+  it('tracks a whatsapp_click lead event when clicked', () => {
+    const calls: unknown[][] = []
+    const target = window as Window & { gtag?: (...args: unknown[]) => void }
+    target.gtag = (...args: unknown[]) => calls.push(args)
+    render(<FloatingWhatsApp {...WHATSAPP_PROPS} />)
+
+    fireEvent.click(screen.getByRole('link', { name: /whatsapp/i }))
+
+    expect(calls).toEqual([
+      ['event', 'whatsapp_click', { lead_channel: 'whatsapp', placement: 'floating_button' }],
+    ])
+    delete target.gtag
   })
 })

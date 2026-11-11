@@ -10,7 +10,7 @@ export async function ContactHero() {
   return (
     <section className="bg-teal-light/5">
       <Container className="pt-28 pb-16 sm:pt-36 sm:pb-20">
-        <FadeIn>
+        <FadeIn immediate>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
             <h1 className="font-display">
               <AnimatedHeading

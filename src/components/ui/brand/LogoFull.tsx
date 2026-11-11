@@ -14,7 +14,7 @@ export function LogoFull({ theme = 'light', ...props }: LogoProps) {
       aria-hidden="true"
       {...props}
     >
-${theme === 'light' ? (
+{theme === 'light' ? (
       <>
 <g transform="matrix(1,0,0,1,-2118.92806,-1959.12793)">
         <g transform="matrix(2.666667,0,0,2.666667,0,0)">

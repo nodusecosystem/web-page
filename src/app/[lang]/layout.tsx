@@ -5,7 +5,8 @@ import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 import { CookieConsent } from '@/components/consent/CookieConsent'
 import { GlassFilterDefs } from '@/components/ui/GlassButton'
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
-import { getDictionary } from '@/lib/i18n/dictionaries'
+import { getDictionary, getLocale } from '@/lib/i18n/dictionaries'
+import { buildPageMetadata, samePath, siteVerification } from '@/lib/seo/metadata'
 import '@/styles/globals.css'
 import '@/styles/glass-button.css'
 
@@ -25,46 +26,27 @@ const century = localFont({
 
 export async function generateMetadata(): Promise<Metadata> {
   const dict = await getDictionary()
-  const locale = await lang()
+  const locale = await getLocale()
 
   return {
+    ...buildPageMetadata({
+      locale,
+      paths: samePath(''),
+      title: { absolute: dict.metadata.home.title },
+      description: dict.site.description,
+    }),
     metadataBase: new URL(SITE_URL),
     title: {
-      default: SITE_NAME,
+      default: dict.metadata.home.title,
       template: `%s | ${SITE_NAME}`,
     },
-    description: dict.site.description,
     applicationName: SITE_NAME,
-    alternates: {
-      canonical: `/${locale}`,
-      languages: { es: '/es', en: '/en', 'x-default': '/es' },
-    },
-    openGraph: {
-      type: 'website',
-      url: `${SITE_URL}/${locale}`,
-      siteName: SITE_NAME,
-      title: SITE_NAME,
-      description: dict.site.description,
-      locale: locale === 'es' ? 'es_ES' : 'en_US',
-      images: [
-        {
-          url: '/images/og-image.jpg',
-          width: 1200,
-          height: 630,
-          alt: SITE_NAME,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: SITE_NAME,
-      description: dict.site.description,
-      images: ['/images/og-image.jpg'],
-    },
     robots: {
       index: true,
       follow: true,
+      googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
     },
+    verification: siteVerification(),
     manifest: '/site.webmanifest',
     icons: {
       icon: [

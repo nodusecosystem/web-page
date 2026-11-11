@@ -4,6 +4,7 @@ import { CalendarDays, ChevronLeft, ChevronRight, Video } from 'lucide-react'
 import { useEffect, useState, type ChangeEvent } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
+import { trackLead } from '@/lib/analytics'
 import { useBookingStore } from '@/lib/booking-store'
 import { cn } from '@/lib/cn'
 
@@ -163,6 +164,7 @@ export function BookingCalendar({ strings, locale, today }: Readonly<BookingCale
       return
     }
     setBooking({ day: calendar.selectedDay, time: calendar.time, label: selectedLabel })
+    trackLead('call')
     document.getElementById('contacto')?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
   }
 

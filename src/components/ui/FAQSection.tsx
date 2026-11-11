@@ -1,19 +1,27 @@
 import { ChevronDown } from 'lucide-react'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { faqPageSchema } from '@/lib/schema'
 import { cn } from '@/lib/cn'
 
+type FAQItem = {
+  id: string
+  question: string
+  answer: string
+}
+
 type FAQSectionProps = {
   id?: string
+  items?: FAQItem[]
   heading?: string
   subheading?: string
   className?: string
 }
 
-export async function FAQSection({ id, heading, subheading, className }: FAQSectionProps = {}) {
-  const dict = await getDictionary()
-  const { faq } = dict
+export async function FAQSection({ id, items, heading, subheading, className }: FAQSectionProps = {}) {
+  const { faq } = await getDictionary()
+  const faqItems = items ?? faq.items
 
   return (
     <section id={id} className={cn('scroll-mt-20 py-20 sm:py-28', className)}>
@@ -26,7 +34,7 @@ export async function FAQSection({ id, heading, subheading, className }: FAQSect
         </div>
 
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
-          {faq.items.map((item) => (
+          {faqItems.map((item) => (
             <details
               key={item.id}
               className="group rounded-2xl border border-teal-light/25 bg-white p-5 transition-all duration-300 open:border-teal-light open:bg-teal-light/5 open:shadow-md open:glass-highlight"
@@ -47,10 +55,7 @@ export async function FAQSection({ id, heading, subheading, className }: FAQSect
           ))}
         </div>
       </Container>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema(dict)) }}
-      />
+      <JsonLd data={faqPageSchema(faqItems)} />
     </section>
   )
 }

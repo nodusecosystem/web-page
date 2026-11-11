@@ -1,12 +1,15 @@
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
+import { SITE_NAME } from '@/lib/constants/site'
 import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: '404 - Página no encontrada | nodus',
+export const metadata: Metadata = {
+  title: `404 - Página no encontrada | ${SITE_NAME}`,
   description: 'La página que buscas no existe o ha sido movida.',
+  robots: { index: false, follow: true },
 }
 
 const STRINGS = {
@@ -30,15 +33,20 @@ export default function GlobalNotFound() {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=window.location.pathname.split('/')[1];var en=p==='en';document.documentElement.lang=en?'en':'es';document.getElementById('block-es').hidden=en;document.getElementById('block-en').hidden=!en}catch(e){}})();`,
+            __html: `document.addEventListener('DOMContentLoaded',function(){try{var en=window.location.pathname.split('/')[1]==='en';document.documentElement.lang=en?'en':'es';document.querySelectorAll('[data-lang]').forEach(function(n){n.hidden=n.getAttribute('data-lang')!==(en?'en':'es')})}catch(e){}});`,
           }}
         />
       </head>
       <body className="bg-dark font-sans text-white antialiased">
         <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center">
           <p className="font-sans text-7xl font-bold text-teal-light">404</p>
-          <div id="block-es" className="flex flex-col items-center gap-6">
-            <h1 className="font-display text-3xl font-bold">{STRINGS.es.title}</h1>
+          <h1 className="font-display text-3xl font-bold">
+            <span data-lang="es">{STRINGS.es.title}</span>
+            <span data-lang="en" lang="en" hidden>
+              {STRINGS.en.title}
+            </span>
+          </h1>
+          <div data-lang="es" className="flex flex-col items-center gap-6">
             <p className="max-w-md text-base leading-relaxed text-white/70">{STRINGS.es.description}</p>
             <Link
               href="/es"
@@ -47,8 +55,7 @@ export default function GlobalNotFound() {
               {STRINGS.es.button}
             </Link>
           </div>
-          <div id="block-en" hidden className="flex flex-col items-center gap-6">
-            <h1 className="font-display text-3xl font-bold">{STRINGS.en.title}</h1>
+          <div data-lang="en" lang="en" hidden className="flex flex-col items-center gap-6">
             <p className="max-w-md text-base leading-relaxed text-white/70">{STRINGS.en.description}</p>
             <Link
               href="/en"

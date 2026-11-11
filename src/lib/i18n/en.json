@@ -1,23 +1,25 @@
 {
   "site": {
-    "description": "Growth partner: monthly plans covering digital marketing, Meta Ads, web development and automation for companies that want to grow with data.",
+    "description": "Digital marketing agency for companies across Latin America and North America: paid media, web development, AI automation, CRM and SEO in monthly plans.",
     "slogan": "Digital strategy that turns data into growth",
     "responseTime": "In less than 24 hours with an action plan",
-    "whatsappMessage": "Hi nodus, I'd like to know more about your monthly plans"
+    "whatsappMessage": "Hi NODUS, I'd like to know more about your monthly plans"
   },
   "llms": {
-    "intro": "nodus: digital strategy is a growth partner for companies across Latin America and North America. It combines content strategy, paid media campaigns (Meta Ads and Google Ads), web and software development, and automation and conversion into monthly plans with no lock-in, clear deliverables and full ownership of the client's accounts, data and digital assets. Remote-first operation based in Colombia; response within 24 hours with an action plan.",
+    "intro": "NODUS ECOSYSTEM (digital strategy) is a digital marketing and growth strategy agency based in Colombia that works with companies across Latin America and North America. It combines paid media (Meta Ads, Google Ads and TikTok Ads), social media content strategy, web development and landing pages with Next.js, AI automation (WhatsApp chatbots, n8n, Make), CRM implementation under its ARM concept (Automatic Relationship Management) and SEO and AI search optimization (GEO). It works in no-lock-in monthly plans with clear deliverables and full client ownership of accounts, data and digital assets. It replies within 24 hours with an action plan.",
     "keyFacts": [
       "Monthly plans with no lock-in: the client decides when to adjust or scale.",
       "100% client ownership: ad accounts, code (Next.js), CRM databases and automations from day one.",
       "Results model: business metrics (CPA, ROAS, qualified leads) instead of vanity metrics.",
-      "Coverage: Latin America and North America, with communication in Spanish and English."
+      "Coverage: Latin America and North America, with communication in Spanish and English.",
+      "ARM (Automatic Relationship Management): the NODUS concept for a self-updating CRM; a unified WhatsApp, Instagram and Telegram inbox, an automated pipeline, calendar and the NODIA AI assistant, built on the Nodus CRM platform.",
+      "Operating base: Colombia (remote-first); business hours Monday to Friday, 09:00 to 18:00 (Colombia time)."
     ]
   },
   "layout": {
     "skipToContent": "Skip to content",
     "header": {
-      "logo": "Go to the home page of nodus: digital strategy",
+      "logo": "Go to the NODUS ECOSYSTEM home page",
       "nav": "Main navigation",
       "mobileNav": "Mobile navigation menu",
       "openMenu": "Open navigation menu",
@@ -53,7 +55,7 @@
       "en": "English"
     },
     "footer": {
-      "description": "Growth partner: monthly plans for marketing, advertising, development and automation for companies that want to grow with data.",
+      "description": "Digital marketing agency based in Colombia: paid media, web development, AI automation, CRM and SEO for companies across Latin America and North America.",
       "navHeading": "Navigation",
       "servicesHeading": "Services",
       "legalHeading": "Legal",
@@ -73,12 +75,15 @@
       ],
       "rightsSuffix": "All rights reserved.",
       "madeWith": "Built with strategy and data.",
-      "socialAria": "{platform} profile of nodus: digital strategy"
+      "socialAria": "{platform} profile of {name}",
+      "contactHeading": "Contact",
+      "serviceArea": "Colombia · Serving all of Latin America and North America",
+      "languageLabel": "Language"
     }
   },
   "hero": {
-    "titleStart": "Digital ecosystem for",
-    "titleMiddle": "Growth",
+    "titleStart": "Digital marketing agency",
+    "titleMiddle": "built for growth",
     "description": [
       { "text": "We help your ", "highlight": false },
       { "text": "business", "highlight": true },
@@ -326,8 +331,8 @@
   },
   "about": {
     "hero": {
-      "titleStart": "We are your",
-      "titleAccent": "digital growth partner",
+      "titleStart": "A digital agency from Colombia,",
+      "titleAccent": "your growth partner",
       "titleEnd": "",
       "description": "NODUS was born with a simple idea: companies don't need more digital activity, they need results. We combine strategy, data, technology and execution to accelerate the growth of ambitious businesses.",
       "ctaPrimary": "View services",
@@ -391,34 +396,12 @@
         }
       ],
       "quote": "We don't sell tasks and promises: we implement a measurable, scalable acquisition system backed by measurable data."
-    },
-    "stats": {
-      "heading": "Numbers that back us up",
-      "subheading": "The accumulated impact of working with strategy, data and monthly execution.",
-      "items": [
-        {
-          "value": "+40",
-          "label": "companies accelerated"
-        },
-        {
-          "value": "98%",
-          "label": "client retention"
-        },
-        {
-          "value": "12+",
-          "label": "industries digitalized"
-        },
-        {
-          "value": "3.2x",
-          "label": "average ROAS on paid media"
-        }
-      ]
     }
   },
   "servicesPage": {
     "hero": {
-      "titleStart": "Monthly plans with",
-      "titleAccent": "clear deliverables",
+      "titleStart": "Digital marketing services",
+      "titleAccent": "with clear deliverables",
       "description": "Strategy, paid media, development and automation under one partner. You'll know exactly what you receive each month.",
       "ctaPrimary": "Book a call",
       "ctaSecondary": "See deliverables",
@@ -549,7 +532,7 @@
       "callTitle": "Diagnostic session",
       "callDetail": "20 minutes, free, Google Meet",
       "confirm": "Confirm video call",
-      "footnote": "Visual mockup: the real scheduling integration (Calendly / Cal.com) will be connected here."
+      "footnote": "Once you confirm, fill in your details in the form below and we'll email you the Google Meet invite."
     }
   },
   "onboarding": {
@@ -653,7 +636,7 @@
       "clienteIdeal": { "label": "Describe your ideal client in 2 lines", "placeholder": "E.g.: Local business owners who already sell but rely on referrals" },
       "aptos": { "label": "Good-fit profiles (who you do sell to)", "placeholder": "E.g.: Professional services, e-commerce with traction, academies..." },
       "noAptos": { "label": "Bad-fit profiles (the bot disqualifies them)", "placeholder": "E.g.: Projects with no sales, raffles/betting...", "hint": "The bot disqualifies them kindly and doesn't book." },
-      "ticket": { "label": "Average ticket and typical volume", "placeholder": "E.g.: $800 COP ticket, 40 clients/month" },
+      "ticket": { "label": "Average ticket and typical volume", "placeholder": "E.g.: $800,000 COP ticket, 40 clients/month" },
       "referidores": { "label": "Do you have B2B referrers?", "placeholder": "E.g.: Accountants, partner agencies — or “N/A”" },
       "webObjetivo": { "label": "Website goal in one sentence", "placeholder": "E.g.: Capture qualified leads for the star service" },
       "webTipo": { "label": "Site type" },
@@ -810,7 +793,7 @@
       {
         "id": "plan-mensual",
         "question": "How does the monthly plan work?",
-        "answer": "Each month we run a continuous cycle of diagnosis, planning, execution, optimization and reporting under the ARR methodology. The team works toward clear objectives and you decide when to adjust or scale the scope based on your business priorities."
+        "answer": "Each month we run a continuous cycle of diagnosis, planning, execution, optimization and reporting with our monthly cycle methodology. The team works toward clear objectives and you decide when to adjust or scale the scope based on your business priorities."
       },
       {
         "id": "permanencia",
@@ -874,8 +857,8 @@
     "contactLink": "Or talk to us"
   },
   "floatingWhatsApp": {
-    "ariaLabel": "Chat with nodus on WhatsApp",
-    "tooltip": "Hi nodus, I'd like to know more about your monthly plans"
+    "ariaLabel": "Chat with NODUS on WhatsApp",
+    "tooltip": "Hi NODUS, I'd like to know more about your monthly plans"
   },
   "scrollToTop": {
     "ariaLabel": "Back to top"
@@ -891,7 +874,7 @@
   "legal": {
     "notice": {
       "title": "Legal notice",
-      "description": "Legal information for nodus: digital strategy: site ownership, terms of use and responsibilities.",
+      "description": "Legal information for NODUS ECOSYSTEM: site ownership, terms of use and responsibilities.",
       "lastUpdated": "Last updated: document in preparation.",
       "sections": [
         {
@@ -904,7 +887,7 @@
     },
     "privacy": {
       "title": "Privacy policy",
-      "description": "How we process your personal data at nodus: digital strategy: purpose, legal basis, retention and rights.",
+      "description": "How we process your personal data at NODUS ECOSYSTEM: purpose, legal basis, retention and rights.",
       "lastUpdated": "Last updated: document in preparation.",
       "sections": [
         {
@@ -917,7 +900,7 @@
     },
     "cookies": {
       "title": "Cookie policy",
-      "description": "Which cookies and similar technologies the nodus: digital strategy site uses and how you can manage them.",
+      "description": "Which cookies and similar technologies the NODUS ECOSYSTEM site uses and how you can manage them.",
       "lastUpdated": "Last updated: document in preparation.",
       "sections": [
         {
@@ -931,19 +914,19 @@
   },
   "metadata": {
     "home": {
-      "title": "NODUS ECOSYSTEM: digital strategy | Digital strategy & web partnering"
+      "title": "Digital Marketing Agency for the Americas | NODUS ECOSYSTEM"
     },
     "about": {
-      "title": "About us",
-      "description": "Discover the story, mission and philosophy of NODUS ECOSYSTEM: digital strategy. A digital growth partner measured by results, not activity."
+      "title": "About NODUS: Digital Growth Agency",
+      "description": "Meet NODUS ECOSYSTEM, a digital strategy agency based in Colombia that helps companies across Latin America and North America grow with data, not busywork."
     },
     "services": {
-      "title": "Services",
-      "description": "Digital strategy and branding, Meta Ads and Google Ads campaigns, Next.js web development and automation. Monthly plans with clear deliverables."
+      "title": "Digital Marketing Services, Monthly Plans",
+      "description": "Paid media, web development, AI automation, CRM, SEO and content strategy in no-lock-in monthly plans for companies across Latin America and North America."
     },
     "contact": {
-      "title": "Contact",
-      "description": "Write to us or book a diagnostic video call. We'll send you an action plan within 24 hours."
+      "title": "Contact: Book a Free Strategy Call",
+      "description": "Write to us or book a free discovery video call with NODUS ECOSYSTEM. We'll send your company an action plan within 24 hours."
     },
     "onboarding": {
       "title": "Client onboarding",
@@ -955,5 +938,640 @@
     "description": "An unexpected error occurred while loading this page. You can try again or go back home.",
     "retry": "Try again",
     "backHome": "Back to home"
+  },
+  "servicePages": {
+    "common": {
+      "eyebrow": "Service",
+      "breadcrumbLabel": "Breadcrumb",
+      "includesHeading": "What the service includes",
+      "processHeading": "How we work",
+      "audienceHeading": "Who is this service for?",
+      "faqHeading": "Frequently asked questions",
+      "relatedHeading": "Related services",
+      "relatedLink": "View service",
+      "ctaPrimary": "Book a free call",
+      "ctaSecondary": "See all services",
+      "catalogName": "NODUS ECOSYSTEM services",
+      "landingLinksLabel": "Learn more:"
+    },
+    "crmPlatform": {
+      "heading": "Nodus CRM: the platform behind ARM",
+      "text": "We implement ARM on Nodus CRM, our own platform, or on the CRM your company already uses, such as GoHighLevel or Zoho. Access to Nodus CRM is by invitation and is activated as part of your NODUS plan.",
+      "linkLabel": "Explore Nodus CRM"
+    },
+    "items": {
+      "pauta-digital": {
+        "navLabel": "Paid media",
+        "serviceType": "Paid advertising management on Meta Ads, Google Ads and TikTok Ads",
+        "metaTitle": "Paid Media Agency: Meta Ads & Google Ads",
+        "metaDescription": "Paid media on Meta Ads, Google Ads and TikTok Ads for companies across the Americas: a dedicated media buyer, creative testing and a focus on cost per lead.",
+        "titleStart": "Paid media agency",
+        "titleAccent": "that lowers your cost per lead",
+        "intro": "We plan, launch and optimize your campaigns on Meta Ads (Facebook, Instagram and WhatsApp), Google Ads and TikTok Ads. A dedicated media buyer works from your real differentiator, tests angles and creatives every week and reports on business metrics: conversations, qualified leads, cost per lead and sales.",
+        "definition": {
+          "heading": "What does a paid media agency do?",
+          "paragraphs": [
+            "A paid media agency manages your company's ad spend on platforms like Meta, Google and TikTok: it defines audiences, structures campaigns, produces copy and creatives, sets up tracking and optimizes the budget to get results at the lowest possible cost. The specialist who runs this work day to day is often called a media buyer or, in Latin America, a digital trafficker.",
+            "At NODUS ECOSYSTEM paid media never runs in isolation: it connects with your content, your website or conversion landing page and the automation that answers every lead on WhatsApp. That way an ad doesn't end in a click, it ends in a conversation your team can close."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Campaign strategy and structure",
+            "description": "Goals, audiences, budget per funnel stage and account structure on Meta Ads, Google Ads and TikTok Ads."
+          },
+          {
+            "title": "Copy and creatives that convert",
+            "description": "Ads built on your differentiator and real testimonials, with fresh assets every month to avoid creative fatigue."
+          },
+          {
+            "title": "Continuous A/B testing",
+            "description": "We test pain and outcome angles, formats and audiences to find the combinations with the best cost per result."
+          },
+          {
+            "title": "WhatsApp and lead form campaigns",
+            "description": "Messaging and lead generation campaigns connected to your CRM so no lead goes unanswered."
+          },
+          {
+            "title": "Reliable tracking",
+            "description": "Meta Pixel, Conversions API and Google tags set up to measure real conversions, not just clicks."
+          },
+          {
+            "title": "Monthly business report",
+            "description": "Spend, conversations, cost per lead and budget recommendations in a clear report every month."
+          }
+        ],
+        "process": [
+          {
+            "title": "Account audit",
+            "description": "We review your current campaigns, pixel, audiences and results history to find budget leaks."
+          },
+          {
+            "title": "Campaign plan",
+            "description": "We define goals, audiences, budget and the first creative angles we will test."
+          },
+          {
+            "title": "Launch and testing",
+            "description": "We launch the campaigns and test variants during the first weeks to find the winners."
+          },
+          {
+            "title": "Optimization and scaling",
+            "description": "We shift budget toward what works and scale once your cost per lead stabilizes."
+          }
+        ],
+        "audience": {
+          "text": "We work with companies across Latin America, the United States and Canada that already sell through WhatsApp, lead forms or an online store and want predictable returns from their ad spend.",
+          "items": [
+            "Retail and service businesses that sell through WhatsApp",
+            "B2B companies that need qualified leads",
+            "Ecommerce brands that want a better ROAS",
+            "Sales teams that need a steady flow of prospects"
+          ]
+        },
+        "faq": [
+          {
+            "id": "trafficker",
+            "question": "What is a media buyer or digital trafficker?",
+            "answer": "It is the specialist who sets up, launches and optimizes a brand's paid campaigns on platforms like Meta Ads, Google Ads or TikTok Ads. They choose audiences, budgets and creatives and analyze the data to lower the cost per result. At NODUS every client gets a dedicated paid media specialist."
+          },
+          {
+            "id": "presupuesto",
+            "question": "Is the ad budget included in the plan?",
+            "answer": "No. The monthly plan covers strategy, ad creation and optimization. Ad spend is paid directly to Meta, Google or TikTok from your company's ad account, which always stays in your name."
+          },
+          {
+            "id": "plataformas",
+            "question": "Which platforms do you run ads on?",
+            "answer": "Mainly Meta Ads (Facebook, Instagram and click-to-WhatsApp campaigns), Google Ads (Search, Performance Max and YouTube) and TikTok Ads. We choose the mix based on where your customers are and which funnel stage needs results."
+          },
+          {
+            "id": "tiempo",
+            "question": "How long until paid media shows results?",
+            "answer": "Campaigns generate data from the first week. Cost per lead usually stabilizes between the first and second month of testing, once we know which angles, audiences and formats work for your business."
+          },
+          {
+            "id": "casos",
+            "question": "Do you have Meta Ads case studies?",
+            "answer": "Yes. For example, for SV Tejas y Acrílicos Internacional, a retail company in Colombia, messaging campaigns generated 2,314 conversations in five weeks. You can see more cases on our home page."
+          }
+        ],
+        "related": [
+          "estrategia-de-contenido",
+          "crm-arm"
+        ],
+        "ctaHeading": "Do you know what each lead costs you today?",
+        "ctaSubheading": "Book a free call: we audit your campaigns and send you a paid media plan within 24 hours."
+      },
+      "desarrollo-web": {
+        "navLabel": "Web development",
+        "serviceType": "Web development, website design and landing pages",
+        "metaTitle": "Web Development & Landing Page Design",
+        "metaDescription": "Fast, SEO-ready websites and conversion landing pages built with Next.js and connected to your CRM. Web development for companies across the Americas.",
+        "titleStart": "Web development",
+        "titleAccent": "that turns visitors into customers",
+        "intro": "We design and build websites, landing pages and custom tools made to sell: fast, measurable, easy to find on Google and connected to your CRM, forms and campaigns.",
+        "definition": {
+          "heading": "Why is your website part of your sales strategy?",
+          "paragraphs": [
+            "A business website isn't a digital brochure: it's where your ads land, where Google and AI assistants learn who you are and where a visitor decides whether to contact you. If it loads slowly, doesn't explain the offer or doesn't track conversions, your whole marketing budget performs worse.",
+            "That's why we build with Next.js and best practices for Core Web Vitals, technical SEO and accessibility, and connect every form or WhatsApp button to your CRM and analytics. The code, domain and hosting belong to your company from day one."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Conversion landing pages",
+            "description": "Single-offer pages for your campaigns, with persuasive copy, social proof and clear calls to action."
+          },
+          {
+            "title": "Business websites",
+            "description": "Multi-page sites, in English and Spanish if you need it, structured for SEO and to explain your services."
+          },
+          {
+            "title": "Technical SEO and speed",
+            "description": "Metadata, structured data, sitemaps and Core Web Vitals optimization so Google and AI engines understand your site."
+          },
+          {
+            "title": "Custom integrations",
+            "description": "Forms, payments, WhatsApp, CRM and automations connected to your website."
+          },
+          {
+            "title": "Dashboards and platforms",
+            "description": "Internal tools and custom dashboards when your operation needs them."
+          },
+          {
+            "title": "Hosting, domain and maintenance",
+            "description": "We manage deployment, domain and monthly updates so your site keeps working and improving."
+          }
+        ],
+        "process": [
+          {
+            "title": "Discovery",
+            "description": "We learn your offer, your ideal customer and what each page should get the visitor to do."
+          },
+          {
+            "title": "Architecture and content",
+            "description": "We define the sitemap, the keywords for each page and the copy that will convert."
+          },
+          {
+            "title": "Design and development",
+            "description": "We build the site with reusable components, tests and a focus on speed and accessibility."
+          },
+          {
+            "title": "Launch and measurement",
+            "description": "We go live, set up analytics and Search Console, and optimize with real data."
+          }
+        ],
+        "audience": {
+          "text": "It's for companies anywhere in Latin America or North America that need a website that generates sales opportunities, not just presence.",
+          "items": [
+            "Companies about to invest in ads that need a landing page that converts",
+            "Businesses with a slow, outdated site that doesn't show up on Google",
+            "Brands that need a bilingual English and Spanish website",
+            "Teams that want to connect their website to their CRM and WhatsApp"
+          ]
+        },
+        "faq": [
+          {
+            "id": "tecnologia",
+            "question": "What technology do you build websites with?",
+            "answer": "We mainly use Next.js and React, deployed on Vercel, because they deliver speed, strong technical SEO and easy integration with forms, payments and CRMs. When a project calls for it we also work with WordPress or Shopify."
+          },
+          {
+            "id": "landing-vs-web",
+            "question": "What's the difference between a landing page and a website?",
+            "answer": "A landing page focuses on one offer and one action, which makes it ideal for paid campaigns. A website has several pages to explain your company and services and to rank in search engines. Many companies need both."
+          },
+          {
+            "id": "seo",
+            "question": "Does the website include SEO?",
+            "answer": "Yes. Every site we build ships with technical SEO: metadata, structured data, a sitemap, optimized speed and a content structure built around your keywords. For ongoing growth in rankings, we pair it with our SEO service."
+          },
+          {
+            "id": "propiedad",
+            "question": "Who owns the domain, hosting and code?",
+            "answer": "Your company does. Domain and hosting accounts are created in your name and we hand over access to the code and documentation, so you never depend on us to run your site."
+          },
+          {
+            "id": "tiempos",
+            "question": "How long does it take to build a landing page?",
+            "answer": "It depends on scope, but a conversion landing page is usually ready within a few weeks, including copy, design, integrations and tracking. We give you a concrete timeline on the discovery call."
+          }
+        ],
+        "related": [
+          "posicionamiento-seo",
+          "pauta-digital"
+        ],
+        "ctaHeading": "Is your website working to sell?",
+        "ctaSubheading": "Book a free call and we'll send you a review of your site with clear priorities within 24 hours."
+      },
+      "automatizacion-ia": {
+        "navLabel": "AI automation",
+        "serviceType": "Business process automation and AI chatbots",
+        "metaTitle": "AI Automation & WhatsApp Chatbots",
+        "metaDescription": "AI WhatsApp chatbots, automated lead follow-up and n8n or Make workflows connected to your CRM, for companies across Latin America and North America.",
+        "titleStart": "AI automation",
+        "titleAccent": "that works for your team",
+        "intro": "We automate the repetitive work in your sales operation: WhatsApp replies, lead qualification and follow-up, reminders and reports. We combine AI chatbots with n8n or Make workflows so your team can spend its time closing deals.",
+        "definition": {
+          "heading": "What is AI process automation?",
+          "paragraphs": [
+            "AI automation connects your channels (WhatsApp, Instagram, website forms), your CRM and your internal tools so information flows on its own, and adds language models that understand your customers' messages, classify them and reply in your brand voice. The result is an operation that responds around the clock without losing human control.",
+            "At NODUS we design every automation with a clear handoff between bot and people: the assistant answers common questions and qualifies the prospect, and your team takes over the conversation when there's buying intent."
+          ]
+        },
+        "includes": [
+          {
+            "title": "AI WhatsApp chatbot",
+            "description": "An assistant that answers FAQs, qualifies prospects and books appointments in your brand voice, handing off to a person when needed."
+          },
+          {
+            "title": "Automated lead follow-up",
+            "description": "Sequences that remind, nurture and re-engage every prospect so none of them go cold."
+          },
+          {
+            "title": "Cross-tool workflows",
+            "description": "Integrations with n8n, Make or your systems' APIs to move data between forms, CRM, spreadsheets and email."
+          },
+          {
+            "title": "A self-updating funnel",
+            "description": "Leads move through stages automatically based on their replies and actions."
+          },
+          {
+            "title": "Automated reporting",
+            "description": "Lead, conversation and sales reports delivered to your inbox or dashboard without asking."
+          },
+          {
+            "title": "Documentation and ownership",
+            "description": "Every workflow is documented and owned by your company."
+          }
+        ],
+        "process": [
+          {
+            "title": "Process mapping",
+            "description": "We identify the manual tasks that take the most time and where prospects slip away."
+          },
+          {
+            "title": "Workflow design",
+            "description": "We define rules, messages, human handoff points and the tools to connect."
+          },
+          {
+            "title": "Build and testing",
+            "description": "We build the automations and test them with real cases before turning them on."
+          },
+          {
+            "title": "Monitoring and improvement",
+            "description": "We review metrics and conversations every month to fine-tune replies and rules."
+          }
+        ],
+        "audience": {
+          "text": "It's for companies in Latin America and North America that receive more messages or leads than they can answer on time.",
+          "items": [
+            "Businesses that sell through WhatsApp and Instagram",
+            "Sales teams losing leads to slow follow-up",
+            "Companies copying data between tools by hand",
+            "Leaders who need reports without having to ask for them"
+          ]
+        },
+        "faq": [
+          {
+            "id": "chatbot",
+            "question": "What can an AI WhatsApp chatbot do?",
+            "answer": "It can answer common questions, share product or pricing information, qualify prospects with key questions, book appointments and alert your team when a customer is ready to buy. We always set up a handoff to a person for cases the bot shouldn't handle."
+          },
+          {
+            "id": "herramientas",
+            "question": "Which tools do you use for automation?",
+            "answer": "We work with n8n, Make, ManyChat and Meta's official WhatsApp and Instagram APIs, plus CRMs like GoHighLevel, Zoho or our own Nodus CRM. We pick the tool based on your budget and what you already use."
+          },
+          {
+            "id": "equipo",
+            "question": "Will automation replace my sales team?",
+            "answer": "No. Automation handles the repetitive work, like answering the basics, following up or moving data, so your team can focus on conversations with buying intent."
+          },
+          {
+            "id": "datos",
+            "question": "Is it safe to use AI with my customers' data?",
+            "answer": "We design workflows to use only the data they need, with accounts in your company's name and a record of each contact's consent. Sensitive actions always require a person's confirmation."
+          },
+          {
+            "id": "tiempos",
+            "question": "How long does it take to implement an automation?",
+            "answer": "A simple workflow, like following up on form leads, can be live in a few days. An AI chatbot with several integrations usually takes a few weeks across design, testing and tuning."
+          }
+        ],
+        "related": [
+          "crm-arm",
+          "pauta-digital"
+        ],
+        "ctaHeading": "How many leads slip away today for lack of a reply?",
+        "ctaSubheading": "Book a free call and we'll show you which of your processes to automate first."
+      },
+      "crm-arm": {
+        "navLabel": "CRM and ARM",
+        "serviceType": "CRM implementation with automation and artificial intelligence (ARM)",
+        "metaTitle": "AI-Powered CRM with WhatsApp (ARM)",
+        "metaDescription": "ARM (Automatic Relationship Management): a CRM with a WhatsApp inbox, an automated sales pipeline and an AI assistant for companies across the Americas.",
+        "titleStart": "CRM with automation",
+        "titleAccent": "and artificial intelligence",
+        "intro": "We implement ARM, our way of taking the CRM one step further: a system where your company's conversations, leads, calendar and follow-up organize themselves, and an AI assistant helps you decide what to do next.",
+        "definition": {
+          "heading": "What is ARM (Automatic Relationship Management)?",
+          "paragraphs": [
+            "ARM, or Automatic Relationship Management, is the concept NODUS ECOSYSTEM uses for a CRM that doesn't depend on someone updating it by hand. In a traditional CRM your team logs every contact and moves every deal; in an ARM, WhatsApp, Instagram and Telegram messages land in a single inbox, a bot qualifies the prospect and moves it through the pipeline, and reminders and reports are generated automatically.",
+            "The difference between a CRM and an ARM is who does the operational work: in a CRM it's your team; in an ARM it's automation and AI, and your team steps in where it adds the most value: the sales conversation."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Unified message inbox",
+            "description": "WhatsApp, Instagram and Telegram in one place, with a bot that replies first and a one-click handoff to a person."
+          },
+          {
+            "title": "Automated sales pipeline",
+            "description": "Custom pipelines where leads move through stages based on the conversation, with a log of what the bot moved and what your team moved."
+          },
+          {
+            "title": "Consent-based contacts",
+            "description": "A contact base built from chat, with a record of each person's data processing consent."
+          },
+          {
+            "title": "Meta Ads and Instagram metrics",
+            "description": "Campaign and organic content results synced daily into the same dashboard."
+          },
+          {
+            "title": "Calendar and reminders",
+            "description": "Meetings synced with Google Calendar and Google Meet, with automatic reminders before each appointment."
+          },
+          {
+            "title": "NODIA, AI assistant",
+            "description": "It queries metrics, pipeline and calendar, summarizes conversations and suggests replies; any action it proposes needs your confirmation."
+          }
+        ],
+        "process": [
+          {
+            "title": "Sales diagnosis",
+            "description": "We map how your leads arrive today, who answers them and where they get lost."
+          },
+          {
+            "title": "Pipeline design",
+            "description": "We define stages, qualification rules and bot messages around your sales process."
+          },
+          {
+            "title": "Implementation and integrations",
+            "description": "We connect your channels, campaigns and calendar, and import your existing contacts."
+          },
+          {
+            "title": "Training and improvement",
+            "description": "We train your team and tune rules and replies every month based on the data."
+          }
+        ],
+        "audience": {
+          "text": "It's for companies and agencies in Latin America and North America that sell through messaging and need order in their pipeline without adding manual work.",
+          "items": [
+            "Businesses with a high volume of WhatsApp and Instagram messages",
+            "Sales teams that currently work from spreadsheets or notes",
+            "Marketing agencies managing several clients",
+            "Companies that want to measure the full journey, from ad to sale"
+          ]
+        },
+        "faq": [
+          {
+            "id": "crm-vs-arm",
+            "question": "What's the difference between a CRM and an ARM?",
+            "answer": "A CRM stores your customer information and depends on your team to keep it updated. An ARM (Automatic Relationship Management) automates that work: it receives messages, qualifies prospects, moves them through the pipeline, books meetings and sends reminders on its own, with AI that helps you prioritize."
+          },
+          {
+            "id": "cambiar-crm",
+            "question": "Do I need to switch CRMs to implement ARM?",
+            "answer": "Not necessarily. We can implement ARM on Nodus CRM, our platform, or on tools like GoHighLevel or Zoho if your company already uses them. On the discovery call we recommend the option with the best cost-to-result ratio."
+          },
+          {
+            "id": "whatsapp",
+            "question": "Does the CRM connect to WhatsApp?",
+            "answer": "Yes. WhatsApp, Instagram and Telegram messages arrive in a unified inbox; a bot replies first and your team can take over the conversation at any time and hand it back to the bot when done."
+          },
+          {
+            "id": "ia",
+            "question": "What does AI do inside the CRM?",
+            "answer": "NODIA, the Nodus CRM AI assistant, answers questions about your metrics, pipeline and calendar, summarizes conversations and suggests replies. It can propose actions, like moving a lead or booking a meeting, but always asks for your confirmation before carrying them out."
+          },
+          {
+            "id": "datos",
+            "question": "Does my company own its data and contacts?",
+            "answer": "Yes. Your contacts, conversations and sales data belong to your company. Each company only sees its own data, and every contact keeps its consent record."
+          }
+        ],
+        "related": [
+          "automatizacion-ia",
+          "pauta-digital"
+        ],
+        "ctaHeading": "Do your leads live in someone's WhatsApp?",
+        "ctaSubheading": "Book a free call and we'll show you how your sales process would run with ARM."
+      },
+      "posicionamiento-seo": {
+        "navLabel": "SEO and AI search",
+        "serviceType": "Search engine optimization (SEO) and generative engine optimization (GEO)",
+        "metaTitle": "SEO & AI Search Optimization (GEO) Agency",
+        "metaDescription": "Rank on Google and get cited by ChatGPT, Perplexity and Gemini: technical SEO, content and structured data for companies across Latin America and North America.",
+        "titleStart": "SEO that ranks",
+        "titleAccent": "on Google and in AI",
+        "intro": "We make your company show up when customers search for what you sell, both on Google and in AI assistants like ChatGPT, Perplexity or Gemini. We combine technical SEO, useful content and authority signals.",
+        "definition": {
+          "heading": "What is generative engine optimization (GEO)?",
+          "paragraphs": [
+            "SEO (search engine optimization) is the work of improving your site so it appears at the top of Google results. GEO (generative engine optimization) extends that work to AI answer engines: the goal is for ChatGPT, Perplexity, Gemini or Google's AI Overviews to cite your company when someone asks about your service.",
+            "Both share the same foundation: a fast, crawlable site, content that answers real questions clearly, structured data that explains who you are and mentions on trusted sources. That's why we work on them together."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Technical SEO audit",
+            "description": "Indexing, speed, Core Web Vitals, structured data, sitemaps and crawl errors."
+          },
+          {
+            "title": "Keyword research",
+            "description": "The terms your customers search for in each country and a map of which page should rank for each one."
+          },
+          {
+            "title": "On-page optimization",
+            "description": "Titles, descriptions, headings, internal links and content on your key pages."
+          },
+          {
+            "title": "Content for Google and AI",
+            "description": "Service pages, FAQs and articles with clear answers that AI engines can cite."
+          },
+          {
+            "title": "Entity and authority",
+            "description": "Google Business Profile, directories, organization structured data and mentions that strengthen your brand."
+          },
+          {
+            "title": "Monthly measurement",
+            "description": "Tracking in Search Console and Analytics, including traffic from AI assistants."
+          }
+        ],
+        "process": [
+          {
+            "title": "Audit",
+            "description": "We review your site, your current keywords and your competitors in search and in AI."
+          },
+          {
+            "title": "Strategy",
+            "description": "We prioritize technical fixes and define the keyword and content map."
+          },
+          {
+            "title": "Implementation",
+            "description": "We fix, optimize and publish content every month."
+          },
+          {
+            "title": "Tracking",
+            "description": "We measure rankings, clicks and AI mentions, and adjust the plan."
+          }
+        ],
+        "audience": {
+          "text": "It's for companies in Latin America and North America that want to stop relying only on ads and build a customer channel that grows over time.",
+          "items": [
+            "Service companies competing for searches in their country or region",
+            "Businesses with a new website that doesn't show up on Google yet",
+            "Brands that want to appear in ChatGPT and Perplexity answers",
+            "Sites that lost traffic after a Google update"
+          ]
+        },
+        "faq": [
+          {
+            "id": "tiempo",
+            "question": "How long does SEO take to show results?",
+            "answer": "Technical fixes can show impact within a few weeks, but organic rankings usually consolidate in three to six months, depending on keyword competition and your site's starting point."
+          },
+          {
+            "id": "chatgpt",
+            "question": "How do I get ChatGPT to recommend my company?",
+            "answer": "AI assistants cite sources they understand and trust. It helps to have content that answers specific questions, structured data describing your company, an llms.txt file, consistent directory profiles and mentions on third-party sites. No one can guarantee a recommendation, but these signals raise the odds of being cited."
+          },
+          {
+            "id": "pauta",
+            "question": "Does SEO replace paid media?",
+            "answer": "No, they complement each other. Paid media brings immediate results while SEO builds a traffic channel that doesn't depend on daily spend. Many of our clients combine both."
+          },
+          {
+            "id": "paises",
+            "question": "Do you do SEO for multiple countries or languages?",
+            "answer": "Yes. We work on English and Spanish sites for Latin America, the United States and Canada, with hreflang setup and keywords adapted to how people search in each market."
+          },
+          {
+            "id": "reporte",
+            "question": "What does the SEO report include?",
+            "answer": "Every month you get the trend of clicks, impressions and rankings in Search Console, the pages that grew the most, traffic from AI assistants and the actions for the next cycle."
+          }
+        ],
+        "related": [
+          "desarrollo-web",
+          "estrategia-de-contenido"
+        ],
+        "ctaHeading": "Does your company show up when people search for you?",
+        "ctaSubheading": "Book a free call and we'll send you an SEO and AI visibility review of your site."
+      },
+      "estrategia-de-contenido": {
+        "navLabel": "Content strategy",
+        "serviceType": "Content strategy and social media management",
+        "metaTitle": "Content Strategy & Social Media Management",
+        "metaDescription": "Social media content strategy with a conversion funnel, a monthly calendar and short-form video editing for companies across the Americas.",
+        "titleStart": "Content strategy",
+        "titleAccent": "that sells on social media",
+        "intro": "We turn your brand into content with a business goal: we research your audience, build a content funnel and produce a monthly calendar of posts and short videos that attract, educate and convert.",
+        "definition": {
+          "heading": "What is a social media content strategy?",
+          "paragraphs": [
+            "It's the plan that defines what your brand publishes, for whom, in which format and with what goal. Instead of posting for the sake of it, every piece plays a role in the funnel: attracting new audiences (TOFU), building trust (MOFU) or driving the purchase (BOFU).",
+            "At NODUS we measure content strategy with business metrics, not vanity metrics: conversations, leads and sales coming from your social channels. It also connects with paid media to amplify what performs best."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Audience research",
+            "description": "Market intelligence and psychographics of your ideal customer to learn what they care about and how they talk."
+          },
+          {
+            "title": "Content funnel",
+            "description": "Pillars and formats for every stage: awareness, consideration and conversion."
+          },
+          {
+            "title": "Monthly calendar",
+            "description": "A publishing plan we approve with you before each month starts."
+          },
+          {
+            "title": "Reels and short-form video editing",
+            "description": "Edited videos ready to post on Instagram, TikTok and Facebook."
+          },
+          {
+            "title": "Profile optimization",
+            "description": "Bios, highlights and links reviewed every month to turn visits into conversations."
+          },
+          {
+            "title": "Performance report",
+            "description": "Reach, engagement and, above all, the conversations and leads your content generates."
+          }
+        ],
+        "process": [
+          {
+            "title": "Research",
+            "description": "We analyze your audience, your competitors and your current content."
+          },
+          {
+            "title": "Strategy",
+            "description": "We define pillars, formats, tone and the content funnel."
+          },
+          {
+            "title": "Production",
+            "description": "We create the calendar and copy, and edit the videos."
+          },
+          {
+            "title": "Analysis",
+            "description": "We measure results and adjust next month's plan."
+          }
+        ],
+        "audience": {
+          "text": "It's for companies in Latin America and North America that post without a strategy, or don't post at all, and want their social media to drive sales.",
+          "items": [
+            "Brands that post without seeing business results",
+            "Businesses that need consistent content and have no in-house team",
+            "Companies about to invest in ads that need creatives",
+            "Founders who want to delegate social media without losing their voice"
+          ]
+        },
+        "faq": [
+          {
+            "id": "gestion",
+            "question": "Do you manage my company's social media?",
+            "answer": "We design the strategy, the monthly calendar and the content, and deliver edited videos ready to post. The exact scope of management, such as publishing or replying to comments, is defined in your monthly plan."
+          },
+          {
+            "id": "redes",
+            "question": "Which social networks do you work on?",
+            "answer": "Mainly Instagram, TikTok and Facebook, plus LinkedIn for B2B companies. We choose the networks based on where your ideal customer spends time."
+          },
+          {
+            "id": "embudo",
+            "question": "What is the TOFU, MOFU and BOFU funnel?",
+            "answer": "They are the stages of the buying journey: TOFU (top of funnel) attracts people who don't know you yet, MOFU (middle of funnel) builds trust with education and social proof, and BOFU (bottom of funnel) invites them to buy or reach out. A good content strategy balances all three."
+          },
+          {
+            "id": "medicion",
+            "question": "How do you measure whether content works?",
+            "answer": "Beyond reach and engagement, we measure the conversations, leads and sales that come from your social channels, so we know which content drives business and not just likes."
+          },
+          {
+            "id": "seo-social",
+            "question": "What is social SEO?",
+            "answer": "It's optimizing your profiles and posts with keywords, captions and text that help Instagram, TikTok and search engines show your content to people searching for topics related to your business."
+          }
+        ],
+        "related": [
+          "pauta-digital",
+          "posicionamiento-seo"
+        ],
+        "ctaHeading": "Is your social media bringing you customers?",
+        "ctaSubheading": "Book a free call and we'll send you a review of your content with an action plan."
+      }
+    }
   }
 }

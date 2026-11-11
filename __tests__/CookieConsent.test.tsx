@@ -4,11 +4,15 @@ import { CookieConsent } from '@/components/consent/CookieConsent'
 import { CONSENT_STORAGE_KEY, openConsentBanner } from '@/lib/consent'
 import esDict from '@/lib/i18n/es.json'
 
-type WindowWithDataLayer = Window & { dataLayer?: unknown[][] }
+type WindowWithDataLayer = Window & { dataLayer?: unknown[]; gtag?: unknown }
 
 const strings = esDict.cookieConsent
 
-const getDataLayer = (): unknown[][] => (window as WindowWithDataLayer).dataLayer ?? []
+const getDataLayer = (): unknown[][] =>
+  ((window as WindowWithDataLayer).dataLayer ?? []).map((entry) => {
+    expect(Object.prototype.toString.call(entry)).toBe('[object Arguments]')
+    return Array.from(entry as ArrayLike<unknown>)
+  })
 
 const getBanner = () => screen.queryByRole('region', { name: strings.ariaLabel })
 
@@ -16,6 +20,7 @@ describe('CookieConsent', () => {
   beforeEach(() => {
     window.localStorage.clear()
     ;(window as WindowWithDataLayer).dataLayer = []
+    delete (window as WindowWithDataLayer).gtag
   })
 
   afterEach(() => {

@@ -37,4 +37,17 @@ describe('FAQSection', () => {
     expect(schema['@type']).toBe('FAQPage')
     expect(schema.mainEntity).toHaveLength(esDict.faq.items.length)
   })
+
+  it('renders custom items and emits them as FAQPage JSON-LD', async () => {
+    const items = esDict.servicePages.items['crm-arm'].faq
+    render(await FAQSection({ items, heading: esDict.servicePages.common.faqHeading }))
+
+    for (const item of items) {
+      expect(screen.getByText(item.question)).toBeInTheDocument()
+    }
+    expect(screen.queryByText(esDict.faq.items[0].question)).not.toBeInTheDocument()
+    const script = document.querySelector('script[type="application/ld+json"]')
+    const schema = JSON.parse(script?.textContent ?? '{}') as { mainEntity?: unknown[] }
+    expect(schema.mainEntity).toHaveLength(items.length)
+  })
 })

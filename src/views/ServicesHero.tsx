@@ -26,7 +26,7 @@ export async function ServicesHero() {
       />
 
       <Container className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
-        <FadeIn>
+        <FadeIn immediate>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
             <h1 className="font-display">
               <AnimatedHeading

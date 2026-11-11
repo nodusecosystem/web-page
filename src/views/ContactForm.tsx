@@ -27,6 +27,7 @@ import { useBookingStore } from '@/lib/booking-store'
 import { cn } from '@/lib/cn'
 import { EMPTY_CONTACT_FORM } from '@/lib/constants/contact'
 import { CONTACT_COUNTRY, CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/constants/site'
+import { trackLead } from '@/lib/analytics'
 import { sendContactEmail } from '@/lib/emailjs'
 import { localePath } from '@/lib/format'
 import type { Locale } from '@/lib/i18n/dictionaries'
@@ -146,6 +147,7 @@ export function ContactForm({
         locale,
       })
       setStatus('success')
+      trackLead('form', { booked_call: booking ? 'yes' : 'no' })
     } catch (error) {
       console.error('EmailJS send failed:', error)
       setStatus('error')
@@ -204,6 +206,7 @@ export function ContactForm({
                     href={whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackLead('whatsapp', { placement: 'contact_form' })}
                     className="flex items-center gap-3 text-white/80 transition-colors hover:text-teal-light"
                   >
                     <WhatsAppIcon aria-hidden className="h-5 w-5 shrink-0 text-teal-light" />
@@ -338,7 +341,7 @@ export function ContactForm({
                       {strings.consent.label}{' '}
                       <Link
                         href={localePath(locale, '/politica-de-privacidad')}
-                        className="font-semibold text-teal-light underline-offset-2 hover:underline"
+                        className="font-semibold text-dark underline decoration-teal-light underline-offset-2 hover:text-teal-light"
                       >
                         {strings.consent.linkLabel}
                       </Link>

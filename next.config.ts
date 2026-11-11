@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/:path*",
+        source: "/:lang(es|en)/:path*",
         headers: [
           {
             key: "Link",

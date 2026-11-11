@@ -26,7 +26,7 @@ export async function AboutHero() {
       />
 
       <Container className="relative grid items-center gap-14 pt-32 pb-20 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:pb-28">
-        <FadeIn>
+        <FadeIn immediate>
           <div className="flex flex-col items-start gap-6">
             <h1 className="font-display">
               <AnimatedHeading

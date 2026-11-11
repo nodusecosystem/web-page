@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion'
 import { WhatsAppIcon } from '@/components/ui/social-icons'
+import { trackLead } from '@/lib/analytics'
 
 type FloatingWhatsAppProps = {
   href: string
@@ -18,6 +19,7 @@ export function FloatingWhatsApp({ href, ariaLabel, tooltip }: Readonly<Floating
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
+      onClick={() => trackLead('whatsapp', { placement: 'floating_button' })}
       initial={reduceMotion ? false : { opacity: 0 }}
       animate={reduceMotion ? false : { opacity: 1 }}
       transition={reduceMotion ? undefined : { delay: 1, duration: 0.4, ease: 'easeOut' }}

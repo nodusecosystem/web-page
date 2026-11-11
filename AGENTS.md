@@ -8,9 +8,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-# nodus: digital strategy — Guía para Agentes
+# NODUS ECOSYSTEM — Guía para Agentes
 
-Web bilingüe (es/en) de la agencia de estrategia digital **nodus: digital strategy**. Landing page de conversión en Next.js 16 (App Router) + TypeScript strict + Tailwind CSS v4.
+Web bilingüe (es/en) de la agencia de marketing y estrategia digital **NODUS ECOSYSTEM** (descriptor: «digital strategy»). Mercado: Latinoamérica y Norteamérica, base en Colombia. Usa siempre `SITE_NAME` (`NODUS ECOSYSTEM`) como nombre de entidad; no reintroduzcas variantes («nodus: digital strategy», «Nodus»). Landing page de conversión en Next.js 16 (App Router) + TypeScript strict + Tailwind CSS v4.
 
 ## Comandos
 
@@ -38,11 +38,11 @@ Web bilingüe (es/en) de la agencia de estrategia digital **nodus: digital strat
 ```
 src/
 ├── app/
-│   ├── [lang]/              # Rutas bilingües: /, /about, /services, /contact,
-│   │   │                    # /aviso-legal, /politica-de-privacidad, /politica-de-cookies
+│   ├── [lang]/              # Rutas bilingües: /, /about, /services, /services/[slug], /contact,
+│   │   │                    # /aviso-legal, /politica-de-privacidad, /politica-de-cookies, /onboarding (noindex)
 │   │   ├── fonts/           # Modica + Century Gothic (next/font/local)
 │   │   └── layout.tsx       # Metadata global, Header, Footer, WhatsApp, ScrollToTop
-│   ├── robots.ts, sitemap.ts, global-not-found.tsx
+│   ├── robots.ts, sitemap.ts, llms.txt/, llms-full.txt/, global-not-found.tsx
 ├── components/
 │   ├── ui/                  # Button, GlassButton, Card, Container, Section, Badge, Input, Textarea,
 │   │   │                    # Logo, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop,
@@ -50,12 +50,15 @@ src/
 │   │   ├── brand/           # IsotipoLogo, HorizontalLogo, LogoFull (SVG inline)
 │   │   └── reactbits/       # Efectos GSAP/WebGL (StrokeText, CursorGrid, GlassSurface, BorderGlow…)
 │   ├── animations/          # 'use client' — FadeIn, StaggerChildren, AnimatedHeading, AnimatedCounter, HeroBackground; PageTransition (server)
-│   └── layout/              # Header ('use client'), Footer (server)
+│   ├── layout/              # Header ('use client'), Footer (server), LanguageLinks ('use client')
+│   └── seo/                 # JsonLd (script ld+json escapado)
 ├── views/                   # Secciones complejas (Hero, Services, ContactForm…) — siempre Server Components
 ├── lib/
 │   ├── i18n/                # es.json, en.json, dictionaries.ts (getDictionary, LOCALES, Locale)
-│   ├── constants/           # site.ts (contacto/RRSS), contact.ts (formulario), icons.ts, tech-stack.ts
-│   ├── schema.ts            # JSON-LD
+│   ├── constants/           # site.ts (marca, contacto, área de servicio), services.ts (landings: ids, slugs por idioma, alternateLocalePath), contact.ts, icons.ts, tech-stack.ts
+│   ├── seo/                 # metadata.ts (buildPageMetadata: canonical, hreflang, OG, Twitter), breadcrumbs.ts
+│   ├── schema.ts            # JSON-LD como @graph enlazado por @id
+│   ├── llms.ts              # llms.txt y llms-full.txt
 │   ├── legal.ts             # Rutas + metadata de las páginas legales
 │   └── cn.ts, format.ts (format, localePath), types.ts, validation.ts, emailjs.ts, booking-store.ts, use-mobile.ts
 ├── proxy.ts                 # Redirección a /es o /en
@@ -118,16 +121,19 @@ Utilities custom: `text-gradient-brand`, `bg-grid-pattern` y `glass-panel*` (def
 - **Contacto y redes:** `src/lib/constants/site.ts` (email, teléfono, WhatsApp, RRSS).
 - **Formulario:** `src/lib/constants/contact.ts` + `src/lib/validation.ts` (los mensajes viven en el JSON).
 - **JSON-LD:** `src/lib/schema.ts`.
-- **Analítica y consentimiento:** GA4 en `src/components/analytics/GoogleAnalytics.tsx` (ID en `src/lib/constants/site.ts`), cargado con `next/script` (`afterInteractive`) solo en producción y con Consent Mode v2 (`denied` por defecto). El banner `src/components/consent/CookieConsent.tsx` guarda la decisión en `localStorage` (clave y helpers en `src/lib/consent.ts`); el botón «Preferencias de cookies» del footer permite revocarla. Textos en `cookieConsent.*` de los JSON.
+- **Landings de servicio:** ids y slugs en `src/lib/constants/services.ts`; copy en `servicePages.items.<id>` de ambos JSON (meta, hero, definición citable, incluye, proceso, audiencia, FAQ, relacionados, CTA). Añadir una landing = id + slugs + copy en los dos JSON.
+- **Analítica y consentimiento:** GA4 en `src/components/analytics/GoogleAnalytics.tsx` (ID en `src/lib/constants/site.ts`), cargado con `next/script` (`afterInteractive`) solo en producción y con Consent Mode v2 (`denied` por defecto). Los leads se miden con `trackLead` (`src/lib/analytics.ts`): `generate_lead` (formulario), `whatsapp_click` (botón flotante y formulario) y `schedule_call` (agendador); márcalos como eventos clave en GA4. El banner `src/components/consent/CookieConsent.tsx` guarda la decisión en `localStorage` (clave y helpers en `src/lib/consent.ts`); el botón «Preferencias de cookies» del footer permite revocarla. Textos en `cookieConsent.*` de los JSON.
 - **Páginas legales:** rutas y metadata en `src/lib/legal.ts`; hoy se sirven con `noindex` y con un contenido provisional hasta que se peguen los documentos definitivos.
 
 Para cambiar copias, casos o datos de contacto: **editar los JSON/constants**, nunca el código de las vistas.
 
 ## SEO Técnico
 
-- Metadata global en `src/app/[lang]/layout.tsx` (title template, description, openGraph, twitter, manifest, icons) y metadata por página con canonical y `hreflang` (es, en y `x-default`) en cada `page.tsx`.
-- JSON-LD inyectado por página: `ProfessionalService` (home), `FAQPage` (FAQSection), `AboutPage`, `ContactPage`, `ItemList` de servicios.
-- `src/app/sitemap.ts` (4 rutas × 2 idiomas con alternates) y `src/app/robots.ts`; las páginas legales quedan fuera del sitemap y llevan `noindex`.
+- **Toda metadata de página pasa por `buildPageMetadata`** (`src/lib/seo/metadata.ts`): Next fusiona `openGraph`/`twitter` de forma superficial, así que una página que defina `openGraph` a mano pierde la imagen, el locale y el site_name del layout. La factory genera canonical, `hreflang` (es, en, `x-default`, con slugs traducidos), OG completo (`es_LA`/`en_US`) y Twitter. Verificación de GSC/Bing por env (`GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`).
+- JSON-LD: un `@graph` por página con `ProfessionalService` (`/#organization`), `WebSite` (`/#website`), `WebPage`/`AboutPage`/`ContactPage`/`CollectionPage`, `BreadcrumbList` y `Service` por landing (CRM/ARM añade `DefinedTerm` y `SoftwareApplication`). `FAQSection` emite su propio `FAQPage`. Renderizar siempre con `<JsonLd>`.
+- `src/app/sitemap.ts` (home, services, 6 landings, about, contact × 2 idiomas, `lastModified` fijo en `CONTENT_UPDATED_AT`: actualízalo al cambiar contenido) y `src/app/robots.ts` (permite explícitamente los bots de IA de búsqueda y entrenamiento; no bloquea páginas `noindex` como `/onboarding`, porque el crawler tiene que poder leer esa etiqueta); las páginas legales quedan fuera del sitemap y llevan `noindex`.
+- GEO: `/llms.txt` (índice) y `/llms-full.txt` (contenido completo de las landings y FAQ) se generan desde los JSON en `src/lib/llms.ts`.
+- El selector de idioma (Header) y `LanguageLinks` (footer, enlaces rastreables) usan `alternateLocalePath`, que traduce el slug de las landings.
 - HTML semántico estricto: `<main>` único, **un solo `h1` por página** (incluidas `/services`, 404 y error), `<section>` con `id` para anclas, `aria-label` en navs, skip-link al inicio del `<main>`.
 - El matcher de `src/proxy.ts` excluye `_next` y cualquier ruta con extensión (estáticos, `site.webmanifest`, `robots.txt`, `sitemap.xml`).
 
@@ -137,7 +143,7 @@ Para cambiar copias, casos o datos de contacto: **editar los JSON/constants**, n
 - Imports explícitos desde `vitest` (`describe`, `it`, `expect`, `vi`) — sin globals.
 - `next/root-params` se mockea en los tests de server components: `vi.mock('next/root-params', () => ({ lang: () => Promise.resolve('es') }))`.
 - El setup (`vitest.setup.ts`) mockea IntersectionObserver/ResizeObserver/matchMedia y el contexto de canvas para framer-motion/GSAP/OGL.
-- Tests de componentes críticos: Button, GlassButton, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas. Añadir tests al crear UI nueva.
+- Tests de componentes críticos: Button, GlassButton, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas, ServiceLanding; y `seo.test.ts` (metadata, robots, sitemap, @graph, slugs, llms-full). Añadir tests al crear UI nueva.
 
 ## Política de calidad (Sonar / ESLint)
 

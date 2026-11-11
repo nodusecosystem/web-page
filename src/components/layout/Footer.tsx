@@ -1,13 +1,15 @@
+import { Mail, MapPin, Phone } from 'lucide-react'
 import Link from 'next/link'
-import { lang } from 'next/root-params'
 import { CookiePreferencesButton } from '@/components/consent/CookiePreferencesButton'
+import { LanguageLinks } from '@/components/layout/LanguageLinks'
 import { LogoFull } from '@/components/ui/brand/LogoFull'
 import { Container } from '@/components/ui/Container'
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from '@/components/ui/social-icons'
 import type { ComponentType, SVGProps } from 'react'
-import { SITE_NAME, SOCIAL_LINKS } from '@/lib/constants/site'
+import { SERVICE_PAGE_IDS, servicePagePath } from '@/lib/constants/services'
+import { CONTACT_EMAIL, CONTACT_PHONE, SITE_NAME, SOCIAL_LINKS } from '@/lib/constants/site'
 import { format, localePath } from '@/lib/format'
-import { getDictionary } from '@/lib/i18n/dictionaries'
+import { getDictionary, getLocale, LOCALES } from '@/lib/i18n/dictionaries'
 
 type SocialIcon = {
   label: string
@@ -23,7 +25,7 @@ const SOCIAL_ICONS: SocialIcon[] = [
 
 export async function Footer() {
   const dict = await getDictionary()
-  const locale = await lang()
+  const locale = await getLocale()
   const { footer, nav } = dict.layout
   const currentYear = new Date().getFullYear()
 
@@ -34,6 +36,23 @@ export async function Footer() {
           <div className="flex flex-col gap-5">
             <LogoFull theme="dark" className="h-42 w-auto" />
             <p className="max-w-xs text-sm leading-relaxed text-white/70">{footer.description}</p>
+            <address className="flex flex-col gap-2 text-sm text-white/70 not-italic">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-2 hover:text-teal-light">
+                <Mail aria-hidden className="h-4 w-4 text-teal-light" />
+                {CONTACT_EMAIL}
+              </a>
+              <a
+                href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}
+                className="inline-flex items-center gap-2 hover:text-teal-light"
+              >
+                <Phone aria-hidden className="h-4 w-4 text-teal-light" />
+                {CONTACT_PHONE}
+              </a>
+              <span className="inline-flex items-start gap-2">
+                <MapPin aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" />
+                {footer.serviceArea}
+              </span>
+            </address>
             <ul className="flex gap-3">
               {SOCIAL_ICONS.map(({ label, href, Icon }) => (
                 <li key={label}>
@@ -74,13 +93,13 @@ export async function Footer() {
               {footer.servicesHeading}
             </h2>
             <ul className="mt-5 flex flex-col gap-3">
-              {dict.services.items.map((service) => (
-                <li key={service.id}>
+              {SERVICE_PAGE_IDS.map((id) => (
+                <li key={id}>
                   <Link
-                    href={localePath(locale, '/services')}
+                    href={localePath(locale, servicePagePath(id, locale))}
                     className="text-sm text-white/70 transition-colors hover:text-teal-light"
                   >
-                    {service.title}
+                    {dict.servicePages.items[id].navLabel}
                   </Link>
                 </li>
               ))}
@@ -113,6 +132,11 @@ export async function Footer() {
           <p className="text-sm text-white/60">
             © {currentYear} {SITE_NAME}. {footer.rightsSuffix}
           </p>
+          <LanguageLinks
+            label={footer.languageLabel}
+            currentLocale={locale}
+            options={LOCALES.map((code) => ({ code, label: dict.layout.langToggle[code] }))}
+          />
           <p className="text-sm text-white/60">{footer.madeWith}</p>
         </div>
       </Container>

@@ -1,11 +1,13 @@
 import {
   BarChart3,
+  Contact,
   ClipboardCheck,
   Code2,
   FileText,
   Gauge,
   Handshake,
   Megaphone,
+  Search,
   Rocket,
   ShieldCheck,
   Target,
@@ -20,6 +22,15 @@ export const SERVICE_ICONS: Record<string, LucideIcon> = {
   'pauta-digital': Megaphone,
   desarrollo: Code2,
   automatizacion: Workflow,
+}
+
+export const SERVICE_PAGE_ICONS: Record<string, LucideIcon> = {
+  'pauta-digital': Megaphone,
+  'desarrollo-web': Code2,
+  'automatizacion-ia': Workflow,
+  'crm-arm': Contact,
+  'posicionamiento-seo': Search,
+  'estrategia-de-contenido': BarChart3,
 }
 
 export const HERO_STAT_ICONS: Record<string, LucideIcon> = {

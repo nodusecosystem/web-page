@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: dict.notFound.title,
     description: dict.notFound.description,
+    alternates: { canonical: null, languages: {} },
   }
 }
 

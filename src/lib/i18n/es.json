@@ -1,23 +1,25 @@
 {
   "site": {
-    "description": "Partner de crecimiento: planes mensuales de marketing digital, Meta Ads, desarrollo web y automatización para empresas que quieren crecer con datos.",
+    "description": "Agencia de marketing digital para empresas de LatAm y Norteamérica: pauta digital, desarrollo web, automatización con IA, CRM y SEO en planes mensuales.",
     "slogan": "Estrategia digital que convierte datos en crecimiento",
     "responseTime": "En menos de 24 horas con un plan de acción",
-    "whatsappMessage": "Hola nodus, quiero información sobre sus planes mensuales"
+    "whatsappMessage": "Hola NODUS, quiero información sobre sus planes mensuales"
   },
   "llms": {
-    "intro": "nodus: digital strategy es un partner de crecimiento para empresas de Latinoamérica y Norteamérica. Integra estrategia de contenido, campañas y pauta digital (Meta Ads y Google Ads), desarrollo web y software, y automatización y conversión en planes mensuales sin permanencia, con entregables claros y propiedad total de las cuentas, datos y activos digitales del cliente. Operación remote-first con base en Colombia; respuesta en menos de 24 horas con un plan de acción.",
+    "intro": "NODUS ECOSYSTEM (digital strategy) es una agencia de marketing digital y estrategia de crecimiento con base en Colombia que trabaja con empresas de Latinoamérica y Norteamérica. Integra pauta digital (Meta Ads, Google Ads y TikTok Ads), estrategia de contenido para redes sociales, desarrollo web y landing pages con Next.js, automatización con IA (chatbots de WhatsApp, n8n, Make), implementación de CRM bajo su concepto ARM (Automatic Relationship Management) y posicionamiento SEO y en motores de IA (GEO). Trabaja con planes mensuales sin permanencia, entregables claros y propiedad total de las cuentas, datos y activos digitales del cliente. Responde en menos de 24 horas con un plan de acción.",
     "keyFacts": [
       "Planes mensuales sin permanencia: el cliente decide cuándo ajustar o escalar.",
       "Propiedad 100% del cliente: cuentas publicitarias, código (Next.js), bases de datos CRM y automatizaciones desde el día uno.",
       "Modelo de resultados: métricas de negocio (CPA, ROAS, leads calificados) en lugar de métricas de vanidad.",
-      "Cobertura: Latinoamérica y Norteamérica, con comunicación en español e inglés."
+      "Cobertura: Latinoamérica y Norteamérica, con comunicación en español e inglés.",
+      "ARM (Automatic Relationship Management): concepto de NODUS para un CRM que se actualiza solo; bandeja unificada de WhatsApp, Instagram y Telegram, pipeline automático, agenda y el asistente de IA NODIA, sobre la plataforma Nodus CRM.",
+      "Base de operación: Colombia (remote-first); horario de atención de lunes a viernes, de 09:00 a 18:00 (hora de Colombia)."
     ]
   },
   "layout": {
     "skipToContent": "Saltar al contenido",
     "header": {
-      "logo": "Ir al inicio de nodus: digital strategy",
+      "logo": "Ir al inicio de NODUS ECOSYSTEM",
       "nav": "Navegación principal",
       "mobileNav": "Menú de navegación móvil",
       "openMenu": "Abrir menú de navegación",
@@ -53,7 +55,7 @@
       "en": "English"
     },
     "footer": {
-      "description": "Partner de crecimiento: planes mensuales de marketing, publicidad, desarrollo y automatización para empresas que quieren crecer con datos.",
+      "description": "Agencia de marketing digital con base en Colombia: pauta, desarrollo web, automatización con IA, CRM y SEO para empresas de LatAm y Norteamérica.",
       "navHeading": "Navegación",
       "servicesHeading": "Servicios",
       "legalHeading": "Legal",
@@ -73,12 +75,15 @@
       ],
       "rightsSuffix": "Todos los derechos reservados.",
       "madeWith": "Hecho con estrategia y datos.",
-      "socialAria": "Perfil de {platform} de nodus: digital strategy"
+      "socialAria": "Perfil de {platform} de {name}",
+      "contactHeading": "Contacto",
+      "serviceArea": "Colombia · Atendemos a toda Latinoamérica y Norteamérica",
+      "languageLabel": "Idioma"
     }
   },
   "hero": {
-    "titleStart": "Ecosistema digital de",
-    "titleMiddle": "Crecimiento",
+    "titleStart": "Agencia de marketing digital",
+    "titleMiddle": "para crecer con datos",
     "description": [
       { "text": "Ayudamos a tu ", "highlight": false },
       { "text": "empresa", "highlight": true },
@@ -326,8 +331,8 @@
   },
   "about": {
     "hero": {
-      "titleStart": "Somos tu partner de",
-      "titleAccent": "aceleración digital",
+      "titleStart": "Agencia digital de Colombia,",
+      "titleAccent": "partner de tu crecimiento",
       "description": "NODUS nació con una idea simple: las empresas no necesitan más actividad digital, necesitan resultados. Unimos estrategia, datos, tecnología y ejecución para acelerar el crecimiento de negocios ambiciosos.",
       "ctaPrimary": "Ver servicios",
       "ctaSecondary": "Hablemos",
@@ -390,34 +395,12 @@
         }
       ],
       "quote": "No vendemos tareas y promesas: implementamos un sistema de adquisición medible, escalable y respaldado por datos medibles."
-    },
-    "stats": {
-      "heading": "Cifras que nos respaldan",
-      "subheading": "El impacto acumulado de trabajar con estrategia, datos y ejecución mensual.",
-      "items": [
-        {
-          "value": "+40",
-          "label": "empresas aceleradas"
-        },
-        {
-          "value": "98%",
-          "label": "retención de clientes"
-        },
-        {
-          "value": "12+",
-          "label": "industrias digitalizadas"
-        },
-        {
-          "value": "3.2x",
-          "label": "ROAS medio en pauta"
-        }
-      ]
     }
   },
   "servicesPage": {
     "hero": {
-      "titleStart": "Planes mensuales con",
-      "titleAccent": "entregables claros",
+      "titleStart": "Servicios de marketing digital",
+      "titleAccent": "con entregables claros",
       "description": "Estrategia, pauta, desarrollo y automatización en un solo partner. Sabrás exactamente qué recibes cada mes.",
       "ctaPrimary": "Agenda una llamada",
       "ctaSecondary": "Ver entregables",
@@ -548,7 +531,7 @@
       "callTitle": "Sesión de diagnóstico",
       "callDetail": "20 minutos, gratuita, Google Meet",
       "confirm": "Confirmar videollamada",
-      "footnote": "Mockup visual: la integración real de agendamiento (Calendly / Cal.com) se conectará aquí."
+      "footnote": "Al confirmar, completa tus datos en el formulario de abajo y te enviamos la invitación de Google Meet por correo."
     }
   },
   "onboarding": {
@@ -809,7 +792,7 @@
       {
         "id": "plan-mensual",
         "question": "¿Cómo funciona el plan mensual?",
-        "answer": "Cada mes ejecutamos un ciclo continuo de diagnóstico, planificación, ejecución, optimización y reporte bajo la metodología ARR. El equipo trabaja por objetivos claros y tú decides cuándo ajustar o escalar el alcance según las prioridades de tu negocio."
+        "answer": "Cada mes ejecutamos un ciclo continuo de diagnóstico, planificación, ejecución, optimización y reporte con nuestra metodología de ciclo mensual. El equipo trabaja por objetivos claros y tú decides cuándo ajustar o escalar el alcance según las prioridades de tu negocio."
       },
       {
         "id": "permanencia",
@@ -873,8 +856,8 @@
     "contactLink": "O habla con nosotros"
   },
   "floatingWhatsApp": {
-    "ariaLabel": "Chatea con nodus por WhatsApp",
-    "tooltip": "Hola nodus, quiero información sobre sus planes mensuales"
+    "ariaLabel": "Chatea con NODUS por WhatsApp",
+    "tooltip": "Hola NODUS, quiero información sobre sus planes mensuales"
   },
   "scrollToTop": {
     "ariaLabel": "Volver al inicio"
@@ -890,7 +873,7 @@
   "legal": {
     "notice": {
       "title": "Aviso legal",
-      "description": "Información legal de nodus: digital strategy: titularidad del sitio, condiciones de uso y responsabilidades.",
+      "description": "Información legal de NODUS ECOSYSTEM: titularidad del sitio, condiciones de uso y responsabilidades.",
       "lastUpdated": "Última actualización: documento en preparación.",
       "sections": [
         {
@@ -903,7 +886,7 @@
     },
     "privacy": {
       "title": "Política de privacidad",
-      "description": "Cómo tratamos tus datos personales en nodus: digital strategy: finalidad, base legal, conservación y derechos.",
+      "description": "Cómo tratamos tus datos personales en NODUS ECOSYSTEM: finalidad, base legal, conservación y derechos.",
       "lastUpdated": "Última actualización: documento en preparación.",
       "sections": [
         {
@@ -916,7 +899,7 @@
     },
     "cookies": {
       "title": "Política de cookies",
-      "description": "Qué cookies y tecnologías similares utiliza el sitio de nodus: digital strategy y cómo puedes gestionarlas.",
+      "description": "Qué cookies y tecnologías similares utiliza el sitio de NODUS ECOSYSTEM y cómo puedes gestionarlas.",
       "lastUpdated": "Última actualización: documento en preparación.",
       "sections": [
         {
@@ -930,19 +913,19 @@
   },
   "metadata": {
     "home": {
-      "title": "NODUS ECOSYSTEM: digital strategy | Partner de estrategia digital"
+      "title": "Agencia de marketing digital en LatAm | NODUS ECOSYSTEM"
     },
     "about": {
-      "title": "Nosotros",
-      "description": "Descubre la historia, misión y filosofía de NODUS ECOSYSTEM: digital strategy. Un partner de aceleración digital que se mide por resultados, no por actividad."
+      "title": "Sobre NODUS: agencia digital de Colombia",
+      "description": "Conoce NODUS ECOSYSTEM, agencia de estrategia digital con base en Colombia que ayuda a empresas de LatAm y Norteamérica a crecer con datos, no con actividad."
     },
     "services": {
-      "title": "Servicios",
-      "description": "Estrategia digital y branding, campañas Meta Ads y Google Ads, desarrollo web con Next.js y automatización. Planes mensuales con entregables claros."
+      "title": "Servicios de marketing digital mensuales",
+      "description": "Pauta digital, desarrollo web, automatización con IA, CRM, SEO y contenido en planes mensuales sin permanencia para empresas de LatAm y Norteamérica."
     },
     "contact": {
-      "title": "Contacto",
-      "description": "Escríbenos o agenda una videollamada de diagnóstico. Te enviamos un plan de acción en menos de 24 horas."
+      "title": "Contacto: agenda tu diagnóstico gratuito",
+      "description": "Escríbenos o agenda una videollamada gratuita de diagnóstico con NODUS ECOSYSTEM. Te enviamos un plan de acción para tu empresa en menos de 24 horas."
     },
     "onboarding": {
       "title": "Onboarding del cliente",
@@ -954,5 +937,640 @@
     "description": "Ocurrió un error inesperado al cargar esta página. Puedes intentarlo de nuevo o volver al inicio.",
     "retry": "Intentar de nuevo",
     "backHome": "Volver al inicio"
+  },
+  "servicePages": {
+    "common": {
+      "eyebrow": "Servicio",
+      "breadcrumbLabel": "Ruta de navegación",
+      "includesHeading": "Qué incluye el servicio",
+      "processHeading": "Cómo trabajamos",
+      "audienceHeading": "¿Para quién es este servicio?",
+      "faqHeading": "Preguntas frecuentes",
+      "relatedHeading": "Servicios relacionados",
+      "relatedLink": "Ver servicio",
+      "ctaPrimary": "Agenda una llamada gratuita",
+      "ctaSecondary": "Ver todos los servicios",
+      "catalogName": "Servicios de NODUS ECOSYSTEM",
+      "landingLinksLabel": "Conoce más:"
+    },
+    "crmPlatform": {
+      "heading": "Nodus CRM: la plataforma detrás de ARM",
+      "text": "Implementamos ARM sobre Nodus CRM, nuestra plataforma propia, o sobre el CRM que tu empresa ya usa, como GoHighLevel o Zoho. El acceso a Nodus CRM es por invitación y se activa como parte de tu plan con NODUS.",
+      "linkLabel": "Conocer Nodus CRM"
+    },
+    "items": {
+      "pauta-digital": {
+        "navLabel": "Pauta digital",
+        "serviceType": "Gestión de campañas de publicidad digital en Meta Ads, Google Ads y TikTok Ads",
+        "metaTitle": "Agencia de pauta digital y trafficker",
+        "metaDescription": "Pauta digital en Meta Ads, Google Ads y TikTok Ads para empresas de LatAm y Norteamérica: trafficker dedicado, testing creativo y foco en tu costo por lead.",
+        "titleStart": "Agencia de pauta digital",
+        "titleAccent": "que baja tu costo por lead",
+        "intro": "Planificamos, lanzamos y optimizamos tus campañas en Meta Ads (Facebook, Instagram y WhatsApp), Google Ads y TikTok Ads. Un trafficker dedicado trabaja sobre tu diferencial real, prueba ángulos y creativos cada semana y reporta en métricas de negocio: conversaciones, leads calificados, costo por lead y ventas.",
+        "definition": {
+          "heading": "¿Qué hace una agencia de pauta digital?",
+          "paragraphs": [
+            "Una agencia de pauta digital gestiona la inversión publicitaria de tu empresa en plataformas como Meta, Google y TikTok: define audiencias, estructura las campañas, produce el copy y los creativos, instala la medición y optimiza el presupuesto para conseguir resultados al menor costo posible. El especialista que ejecuta ese trabajo en el día a día se conoce como trafficker digital.",
+            "En NODUS ECOSYSTEM la pauta no funciona aislada: se conecta con tu contenido, con tu web o landing de conversión y con la automatización que responde a cada lead por WhatsApp. Así el anuncio no termina en un clic, termina en una conversación que tu equipo puede cerrar."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Estrategia y estructura de campañas",
+            "description": "Objetivos, audiencias, presupuesto por etapa del embudo y estructura de cuentas en Meta Ads, Google Ads y TikTok Ads."
+          },
+          {
+            "title": "Copy y creativos que convierten",
+            "description": "Anuncios construidos sobre tu diferencial y testimonios reales, con piezas nuevas cada mes para evitar la fatiga creativa."
+          },
+          {
+            "title": "Testing A/B continuo",
+            "description": "Probamos ángulos de dolor y de resultado, formatos y públicos para encontrar las combinaciones con mejor costo por resultado."
+          },
+          {
+            "title": "Campañas a WhatsApp y formularios",
+            "description": "Campañas de mensajes y de clientes potenciales conectadas a tu CRM para que ningún lead quede sin respuesta."
+          },
+          {
+            "title": "Medición confiable",
+            "description": "Píxel de Meta, API de conversiones y etiquetas de Google configurados para medir conversiones reales, no solo clics."
+          },
+          {
+            "title": "Reporte mensual de negocio",
+            "description": "Inversión, conversaciones, costo por lead y recomendaciones de presupuesto en un reporte claro cada mes."
+          }
+        ],
+        "process": [
+          {
+            "title": "Auditoría de cuentas",
+            "description": "Revisamos tus campañas actuales, el píxel, las audiencias y el historial de resultados para detectar fugas de presupuesto."
+          },
+          {
+            "title": "Plan de campaña",
+            "description": "Definimos objetivos, públicos, presupuesto y los primeros ángulos creativos que vamos a probar."
+          },
+          {
+            "title": "Lanzamiento y testing",
+            "description": "Publicamos las campañas y probamos variantes durante las primeras semanas para encontrar las ganadoras."
+          },
+          {
+            "title": "Optimización y escala",
+            "description": "Movemos el presupuesto hacia lo que funciona y escalamos cuando el costo por lead se estabiliza."
+          }
+        ],
+        "audience": {
+          "text": "Trabajamos con empresas de Latinoamérica, Estados Unidos y Canadá que ya venden por WhatsApp, formulario o tienda online y quieren que su inversión en anuncios sea predecible.",
+          "items": [
+            "Negocios de retail y servicios que venden por WhatsApp",
+            "Empresas B2B que necesitan leads calificados",
+            "Marcas con tienda online que quieren mejorar su ROAS",
+            "Equipos comerciales que necesitan un volumen constante de prospectos"
+          ]
+        },
+        "faq": [
+          {
+            "id": "trafficker",
+            "question": "¿Qué es un trafficker digital?",
+            "answer": "Es el especialista que configura, publica y optimiza las campañas pagadas de una marca en plataformas como Meta Ads, Google Ads o TikTok Ads. Decide audiencias, presupuestos y creativos, y analiza los datos para bajar el costo por resultado. En NODUS cada cliente tiene un especialista en pauta dedicado."
+          },
+          {
+            "id": "presupuesto",
+            "question": "¿El presupuesto de pauta está incluido en el plan?",
+            "answer": "No. El plan mensual cubre la estrategia, la creación de anuncios y la optimización. La inversión en anuncios se paga directamente a Meta, Google o TikTok desde la cuenta publicitaria de tu empresa, que siempre queda a tu nombre."
+          },
+          {
+            "id": "plataformas",
+            "question": "¿En qué plataformas hacen pauta?",
+            "answer": "Principalmente en Meta Ads (Facebook, Instagram y campañas a WhatsApp), Google Ads (búsqueda, Performance Max y YouTube) y TikTok Ads. Elegimos la combinación según dónde está tu cliente y en qué etapa del embudo necesitas resultados."
+          },
+          {
+            "id": "tiempo",
+            "question": "¿Cuánto tarda en verse el resultado de la pauta?",
+            "answer": "Las campañas generan datos desde la primera semana. Normalmente el costo por lead se estabiliza entre el primer y el segundo mes de testing, cuando ya sabemos qué ángulos, públicos y formatos funcionan para tu negocio."
+          },
+          {
+            "id": "casos",
+            "question": "¿Tienen casos de resultados con Meta Ads?",
+            "answer": "Sí. Por ejemplo, para SV Tejas y Acrílicos Internacional, una empresa de retail en Colombia, las campañas de mensajes generaron 2.314 conversaciones en cinco semanas. Puedes ver más casos en nuestra página de inicio."
+          }
+        ],
+        "related": [
+          "estrategia-de-contenido",
+          "crm-arm"
+        ],
+        "ctaHeading": "¿Sabes cuánto te cuesta hoy cada lead?",
+        "ctaSubheading": "Agenda una llamada gratuita: auditamos tus campañas y te enviamos un plan de pauta en menos de 24 horas."
+      },
+      "desarrollo-web": {
+        "navLabel": "Desarrollo web",
+        "serviceType": "Desarrollo web, diseño de páginas web y landing pages",
+        "metaTitle": "Desarrollo web y landing pages a medida",
+        "metaDescription": "Diseño y desarrollo de páginas web y landing pages rápidas, optimizadas para SEO y conversión, con Next.js. Para empresas de LatAm y Norteamérica.",
+        "titleStart": "Desarrollo web",
+        "titleAccent": "que convierte visitas en clientes",
+        "intro": "Diseñamos y desarrollamos sitios web, landing pages y herramientas a medida pensadas para vender: rápidas, medibles, fáciles de encontrar en Google y conectadas a tu CRM, tus formularios y tus campañas.",
+        "definition": {
+          "heading": "¿Por qué tu página web es parte de tu estrategia comercial?",
+          "paragraphs": [
+            "Una página web para empresas no es un folleto digital: es el lugar donde aterrizan tus anuncios, donde Google y los asistentes de IA leen quién eres y donde un visitante decide si te escribe. Si carga lento, no explica bien la oferta o no mide conversiones, toda tu inversión en marketing rinde menos.",
+            "Por eso desarrollamos con Next.js y buenas prácticas de Core Web Vitals, SEO técnico y accesibilidad, y conectamos cada formulario o botón de WhatsApp con tu CRM y tu analítica. El código, el dominio y el hosting quedan a nombre de tu empresa desde el primer día."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Landing pages de conversión",
+            "description": "Páginas enfocadas en una sola oferta para tus campañas, con copy persuasivo, prueba social y llamadas a la acción claras."
+          },
+          {
+            "title": "Sitios web corporativos",
+            "description": "Webs de varias páginas, en español e inglés si lo necesitas, con una estructura pensada para SEO y para explicar tus servicios."
+          },
+          {
+            "title": "SEO técnico y velocidad",
+            "description": "Metadatos, datos estructurados, sitemap y optimización de Core Web Vitals para que Google y los motores de IA entiendan tu sitio."
+          },
+          {
+            "title": "Integraciones a medida",
+            "description": "Formularios, pagos, WhatsApp, CRM y automatizaciones conectados a tu web."
+          },
+          {
+            "title": "Dashboards y plataformas",
+            "description": "Herramientas internas y paneles personalizados cuando tu operación lo requiere."
+          },
+          {
+            "title": "Hosting, dominio y mantenimiento",
+            "description": "Gestionamos el despliegue, el dominio y los ajustes mensuales para que tu sitio siga funcionando y mejorando."
+          }
+        ],
+        "process": [
+          {
+            "title": "Descubrimiento",
+            "description": "Entendemos tu oferta, tu cliente ideal y lo que debe hacer el visitante en cada página."
+          },
+          {
+            "title": "Arquitectura y contenido",
+            "description": "Definimos el mapa del sitio, las palabras clave de cada página y los textos que van a convertir."
+          },
+          {
+            "title": "Diseño y desarrollo",
+            "description": "Construimos el sitio con componentes reutilizables, pruebas y foco en velocidad y accesibilidad."
+          },
+          {
+            "title": "Lanzamiento y medición",
+            "description": "Publicamos, configuramos la analítica y Search Console, y optimizamos con datos reales."
+          }
+        ],
+        "audience": {
+          "text": "Es para empresas de cualquier país de Latinoamérica o Norteamérica que necesitan una web que genere oportunidades de venta, no solo presencia.",
+          "items": [
+            "Empresas que van a invertir en pauta y necesitan una landing que convierta",
+            "Negocios con una web lenta, desactualizada o que no aparece en Google",
+            "Marcas que necesitan su sitio en español e inglés",
+            "Equipos que quieren conectar la web con su CRM y su WhatsApp"
+          ]
+        },
+        "faq": [
+          {
+            "id": "tecnologia",
+            "question": "¿Con qué tecnología desarrollan las páginas web?",
+            "answer": "Usamos principalmente Next.js y React, desplegados en Vercel, porque ofrecen velocidad, buen SEO técnico y facilidad para integrar formularios, pagos y CRM. Cuando el proyecto lo justifica también trabajamos con WordPress o Shopify."
+          },
+          {
+            "id": "landing-vs-web",
+            "question": "¿Cuál es la diferencia entre una landing page y un sitio web?",
+            "answer": "Una landing page se enfoca en una sola oferta y una sola acción, ideal para campañas de pauta. Un sitio web tiene varias páginas para explicar tu empresa y tus servicios y posicionar en buscadores. Muchas empresas necesitan ambas cosas."
+          },
+          {
+            "id": "seo",
+            "question": "¿La página web incluye SEO?",
+            "answer": "Sí. Todas nuestras webs salen con SEO técnico: metadatos, datos estructurados, sitemap, velocidad optimizada y una estructura de contenidos pensada para tus palabras clave. Si quieres crecer en posicionamiento de forma continua, lo complementamos con nuestro servicio de SEO."
+          },
+          {
+            "id": "propiedad",
+            "question": "¿A nombre de quién quedan el dominio, el hosting y el código?",
+            "answer": "De tu empresa. Las cuentas de dominio y hosting se crean a tu nombre y te entregamos el acceso al código y la documentación, para que nunca dependas de nosotros para operar tu sitio."
+          },
+          {
+            "id": "tiempos",
+            "question": "¿Cuánto tarda el desarrollo de una landing page?",
+            "answer": "Depende del alcance, pero una landing de conversión suele estar lista en pocas semanas, incluyendo textos, diseño, integraciones y medición. En la llamada de diagnóstico te damos un cronograma concreto."
+          }
+        ],
+        "related": [
+          "posicionamiento-seo",
+          "pauta-digital"
+        ],
+        "ctaHeading": "¿Tu web está trabajando para vender?",
+        "ctaSubheading": "Agenda una llamada gratuita y te enviamos un diagnóstico de tu sitio con prioridades claras en menos de 24 horas."
+      },
+      "automatizacion-ia": {
+        "navLabel": "Automatización con IA",
+        "serviceType": "Automatización de procesos y chatbots con inteligencia artificial",
+        "metaTitle": "Automatización con IA para empresas",
+        "metaDescription": "Chatbots de WhatsApp con IA, seguimiento automático de leads y flujos con n8n y Make conectados a tu CRM. Automatización para empresas de LatAm y Norteamérica.",
+        "titleStart": "Automatización con IA",
+        "titleAccent": "que trabaja por tu equipo",
+        "intro": "Automatizamos las tareas repetitivas de tu operación comercial: respuestas por WhatsApp, calificación y seguimiento de leads, recordatorios y reportes. Combinamos chatbots con inteligencia artificial y flujos en n8n o Make para que tu equipo dedique su tiempo a cerrar ventas.",
+        "definition": {
+          "heading": "¿Qué es la automatización de procesos con IA?",
+          "paragraphs": [
+            "La automatización con IA conecta tus canales (WhatsApp, Instagram, formularios web), tu CRM y tus herramientas internas para que la información fluya sola, y suma modelos de lenguaje que entienden los mensajes de tus clientes, los clasifican y responden en tu tono. El resultado es una operación que atiende a toda hora sin perder el control humano.",
+            "En NODUS diseñamos cada automatización con un traspaso claro entre el bot y las personas: el asistente responde preguntas frecuentes y califica al prospecto, y tu equipo toma la conversación cuando hay intención de compra."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Chatbot de WhatsApp con IA",
+            "description": "Un asistente que responde preguntas frecuentes, califica prospectos y agenda citas en tu tono de marca, con traspaso a una persona cuando hace falta."
+          },
+          {
+            "title": "Seguimiento automático de leads",
+            "description": "Secuencias que recuerdan, nutren y reactivan a cada prospecto para que ninguno se enfríe."
+          },
+          {
+            "title": "Flujos entre herramientas",
+            "description": "Integraciones con n8n, Make o la API de tus sistemas para mover datos entre formularios, CRM, hojas de cálculo y correo."
+          },
+          {
+            "title": "Embudo que se actualiza solo",
+            "description": "Los leads avanzan de etapa automáticamente según sus respuestas y acciones."
+          },
+          {
+            "title": "Reportes automatizados",
+            "description": "Informes de leads, conversaciones y ventas que llegan solos a tu correo o a tu panel."
+          },
+          {
+            "title": "Documentación y propiedad",
+            "description": "Cada flujo queda documentado y a nombre de tu empresa."
+          }
+        ],
+        "process": [
+          {
+            "title": "Mapa de procesos",
+            "description": "Identificamos las tareas manuales que más tiempo consumen y dónde se pierden prospectos."
+          },
+          {
+            "title": "Diseño del flujo",
+            "description": "Definimos reglas, mensajes, momentos de traspaso a una persona y las herramientas a conectar."
+          },
+          {
+            "title": "Implementación y pruebas",
+            "description": "Construimos las automatizaciones y las probamos con casos reales antes de activarlas."
+          },
+          {
+            "title": "Monitoreo y mejora",
+            "description": "Revisamos métricas y conversaciones cada mes para ajustar respuestas y reglas."
+          }
+        ],
+        "audience": {
+          "text": "Es para empresas de Latinoamérica y Norteamérica que reciben muchos mensajes o leads y no alcanzan a responderlos a tiempo.",
+          "items": [
+            "Negocios que venden por WhatsApp e Instagram",
+            "Equipos comerciales que pierden leads por falta de seguimiento",
+            "Empresas que copian datos a mano entre herramientas",
+            "Directivos que necesitan reportes sin tener que pedirlos"
+          ]
+        },
+        "faq": [
+          {
+            "id": "chatbot",
+            "question": "¿Qué puede hacer un chatbot de WhatsApp con IA?",
+            "answer": "Puede responder preguntas frecuentes, enviar información de productos o precios, calificar al prospecto con preguntas clave, agendar citas y avisar a tu equipo cuando un cliente está listo para comprar. Siempre configuramos un traspaso a una persona para los casos que el bot no debe resolver."
+          },
+          {
+            "id": "herramientas",
+            "question": "¿Qué herramientas usan para automatizar?",
+            "answer": "Trabajamos con n8n, Make, ManyChat y las API oficiales de Meta para WhatsApp e Instagram, además de CRM como GoHighLevel, Zoho o nuestro propio Nodus CRM. Elegimos la herramienta según tu presupuesto y lo que ya usas."
+          },
+          {
+            "id": "equipo",
+            "question": "¿La automatización reemplaza a mi equipo de ventas?",
+            "answer": "No. La automatización se encarga de lo repetitivo, como responder lo básico, hacer seguimiento o mover datos, para que tu equipo dedique su tiempo a las conversaciones con intención de compra."
+          },
+          {
+            "id": "datos",
+            "question": "¿Es seguro usar IA con los datos de mis clientes?",
+            "answer": "Diseñamos los flujos para usar solo los datos necesarios, con cuentas a nombre de tu empresa y registro del consentimiento de los contactos. Las acciones sensibles siempre requieren la confirmación de una persona."
+          },
+          {
+            "id": "tiempos",
+            "question": "¿Cuánto tiempo toma implementar una automatización?",
+            "answer": "Un flujo sencillo, como el seguimiento de los leads de un formulario, puede estar activo en pocos días. Un chatbot con IA y varias integraciones suele tomar algunas semanas entre diseño, pruebas y ajustes."
+          }
+        ],
+        "related": [
+          "crm-arm",
+          "pauta-digital"
+        ],
+        "ctaHeading": "¿Cuántos leads se pierden hoy por falta de respuesta?",
+        "ctaSubheading": "Agenda una llamada gratuita y te mostramos qué procesos de tu empresa conviene automatizar primero."
+      },
+      "crm-arm": {
+        "navLabel": "CRM y ARM",
+        "serviceType": "Implementación de CRM con automatización e inteligencia artificial (ARM)",
+        "metaTitle": "CRM con WhatsApp e IA: implementación ARM",
+        "metaDescription": "ARM (Automatic Relationship Management): CRM con WhatsApp, pipeline de ventas automático y asistente de IA para empresas de LatAm y Norteamérica.",
+        "titleStart": "CRM con automatización",
+        "titleAccent": "e inteligencia artificial",
+        "intro": "Implementamos ARM, nuestra forma de llevar el CRM un paso más allá: un sistema donde las conversaciones, los leads, la agenda y el seguimiento de tu empresa se organizan solos, y una inteligencia artificial te ayuda a decidir qué hacer con ellos.",
+        "definition": {
+          "heading": "¿Qué es ARM (Automatic Relationship Management)?",
+          "paragraphs": [
+            "ARM, o Automatic Relationship Management, es el concepto con el que NODUS ECOSYSTEM define un CRM que no depende de que alguien lo actualice a mano. En un CRM tradicional el equipo registra cada contacto y mueve cada oportunidad; en un ARM, los mensajes de WhatsApp, Instagram y Telegram entran a una sola bandeja, un bot califica al prospecto y lo mueve de etapa en el pipeline, y los recordatorios y reportes se generan solos.",
+            "La diferencia entre un CRM y un ARM está en quién hace el trabajo operativo: en el CRM lo hace tu equipo; en el ARM lo hacen las automatizaciones y la inteligencia artificial, y tu equipo interviene donde aporta más valor: en la conversación de venta."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Bandeja unificada de mensajes",
+            "description": "WhatsApp, Instagram y Telegram en un solo lugar, con un bot que atiende primero y traspaso a una persona en un clic."
+          },
+          {
+            "title": "Pipeline de ventas automático",
+            "description": "Embudos personalizados donde los leads avanzan de etapa según la conversación, con registro de qué movió el bot y qué movió tu equipo."
+          },
+          {
+            "title": "Contactos con consentimiento",
+            "description": "Una base de contactos construida desde el chat, con registro de la autorización para el tratamiento de datos."
+          },
+          {
+            "title": "Métricas de Meta Ads e Instagram",
+            "description": "Resultados de tus campañas y de tu contenido orgánico sincronizados cada día en el mismo panel."
+          },
+          {
+            "title": "Agenda y recordatorios",
+            "description": "Reuniones sincronizadas con Google Calendar y Google Meet, con recordatorios automáticos antes de cada cita."
+          },
+          {
+            "title": "NODIA, asistente de IA",
+            "description": "Consulta métricas, pipeline y agenda, resume conversaciones y sugiere respuestas; cualquier acción que proponga requiere tu confirmación."
+          }
+        ],
+        "process": [
+          {
+            "title": "Diagnóstico comercial",
+            "description": "Mapeamos cómo llegan tus leads hoy, quién responde y dónde se pierden."
+          },
+          {
+            "title": "Diseño del pipeline",
+            "description": "Definimos etapas, reglas de calificación y los mensajes del bot según tu proceso de venta."
+          },
+          {
+            "title": "Implementación e integraciones",
+            "description": "Conectamos tus canales, campañas y calendario, e importamos tus contactos existentes."
+          },
+          {
+            "title": "Capacitación y mejora",
+            "description": "Formamos a tu equipo y ajustamos reglas y respuestas cada mes con base en los datos."
+          }
+        ],
+        "audience": {
+          "text": "Es para empresas y agencias de Latinoamérica y Norteamérica que venden por mensajería y necesitan orden en sus prospectos sin sumar trabajo manual.",
+          "items": [
+            "Negocios con un alto volumen de mensajes de WhatsApp e Instagram",
+            "Equipos de ventas que hoy trabajan con hojas de cálculo o notas",
+            "Agencias de marketing que gestionan varios clientes",
+            "Empresas que quieren medir el recorrido completo, del anuncio a la venta"
+          ]
+        },
+        "faq": [
+          {
+            "id": "crm-vs-arm",
+            "question": "¿Cuál es la diferencia entre un CRM y un ARM?",
+            "answer": "Un CRM guarda la información de tus clientes y depende de que tu equipo la actualice. Un ARM (Automatic Relationship Management) automatiza esa operación: recibe los mensajes, califica a los prospectos, los mueve en el pipeline, agenda y envía recordatorios por sí solo, con inteligencia artificial que ayuda a priorizar."
+          },
+          {
+            "id": "cambiar-crm",
+            "question": "¿Necesito cambiar de CRM para implementar ARM?",
+            "answer": "No necesariamente. Podemos implementar ARM sobre Nodus CRM, nuestra plataforma, o sobre herramientas como GoHighLevel o Zoho si tu empresa ya las usa. En el diagnóstico te recomendamos la opción con mejor relación entre costo y resultado."
+          },
+          {
+            "id": "whatsapp",
+            "question": "¿El CRM se conecta con WhatsApp?",
+            "answer": "Sí. Los mensajes de WhatsApp, Instagram y Telegram llegan a una bandeja unificada; un bot responde primero y tu equipo puede tomar la conversación en cualquier momento y devolverla al bot cuando termine."
+          },
+          {
+            "id": "ia",
+            "question": "¿Qué hace la inteligencia artificial dentro del CRM?",
+            "answer": "NODIA, el asistente de IA de Nodus CRM, responde preguntas sobre tus métricas, tu pipeline y tu agenda, resume conversaciones y sugiere respuestas. Puede proponer acciones, como mover un lead o agendar una reunión, pero siempre te pide confirmación antes de ejecutarlas."
+          },
+          {
+            "id": "datos",
+            "question": "¿Los datos y contactos son de mi empresa?",
+            "answer": "Sí. La información de tus contactos, conversaciones y ventas pertenece a tu empresa. Cada compañía ve solo sus propios datos, y cada contacto conserva su registro de consentimiento."
+          }
+        ],
+        "related": [
+          "automatizacion-ia",
+          "pauta-digital"
+        ],
+        "ctaHeading": "¿Tus leads viven en el WhatsApp de alguien?",
+        "ctaSubheading": "Agenda una llamada gratuita y te mostramos cómo funcionaría tu proceso comercial con ARM."
+      },
+      "posicionamiento-seo": {
+        "navLabel": "SEO y posicionamiento en IA",
+        "serviceType": "Posicionamiento web SEO y optimización para motores de IA (GEO)",
+        "metaTitle": "Agencia SEO y posicionamiento en IA (GEO)",
+        "metaDescription": "Posicionamiento web en Google y visibilidad en ChatGPT, Perplexity y Gemini: SEO técnico, contenido y datos estructurados para empresas de LatAm y Norteamérica.",
+        "titleStart": "Posicionamiento SEO",
+        "titleAccent": "en Google y en la IA",
+        "intro": "Hacemos que tu empresa aparezca cuando tus clientes buscan lo que vendes, tanto en Google como en asistentes de inteligencia artificial como ChatGPT, Perplexity o Gemini. Combinamos SEO técnico, contenido útil y señales de autoridad.",
+        "definition": {
+          "heading": "¿Qué es el posicionamiento en motores de IA (GEO)?",
+          "paragraphs": [
+            "El SEO (Search Engine Optimization) es el trabajo de mejorar tu sitio para que aparezca en los primeros resultados de Google. El GEO (Generative Engine Optimization) amplía ese trabajo a los motores de respuesta con IA: busca que ChatGPT, Perplexity, Gemini o las AI Overviews de Google citen a tu empresa cuando alguien pregunta por tu servicio.",
+            "Ambos comparten la misma base: un sitio rápido y rastreable, contenido que responde preguntas reales con claridad, datos estructurados que explican quién eres y menciones en fuentes confiables. Por eso los trabajamos juntos."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Auditoría SEO técnica",
+            "description": "Indexación, velocidad, Core Web Vitals, datos estructurados, sitemap y errores de rastreo."
+          },
+          {
+            "title": "Investigación de palabras clave",
+            "description": "Los términos con los que tu cliente busca en cada país y el mapa de qué página debe posicionar cada uno."
+          },
+          {
+            "title": "Optimización on-page",
+            "description": "Títulos, descripciones, encabezados, enlazado interno y contenido de tus páginas clave."
+          },
+          {
+            "title": "Contenido para Google y la IA",
+            "description": "Páginas de servicio, preguntas frecuentes y artículos con respuestas claras que los motores de IA pueden citar."
+          },
+          {
+            "title": "Entidad y autoridad",
+            "description": "Perfil de empresa en Google, directorios, datos estructurados de organización y menciones que refuerzan tu marca."
+          },
+          {
+            "title": "Medición mensual",
+            "description": "Seguimiento en Search Console y Analytics, incluido el tráfico que llega desde asistentes de IA."
+          }
+        ],
+        "process": [
+          {
+            "title": "Auditoría",
+            "description": "Revisamos tu sitio, tus palabras clave actuales y a tus competidores en buscadores y en IA."
+          },
+          {
+            "title": "Estrategia",
+            "description": "Priorizamos las correcciones técnicas y definimos el mapa de palabras clave y contenidos."
+          },
+          {
+            "title": "Implementación",
+            "description": "Corregimos, optimizamos y publicamos contenido cada mes."
+          },
+          {
+            "title": "Seguimiento",
+            "description": "Medimos posiciones, clics y menciones en IA, y ajustamos el plan."
+          }
+        ],
+        "audience": {
+          "text": "Es para empresas de Latinoamérica y Norteamérica que quieren dejar de depender solo de la pauta y construir un canal de clientes que crece con el tiempo.",
+          "items": [
+            "Empresas de servicios que compiten en búsquedas de su país o región",
+            "Negocios con una web nueva que aún no aparece en Google",
+            "Marcas que quieren aparecer en las respuestas de ChatGPT y Perplexity",
+            "Sitios que perdieron tráfico tras una actualización de Google"
+          ]
+        },
+        "faq": [
+          {
+            "id": "tiempo",
+            "question": "¿Cuánto tarda el SEO en dar resultados?",
+            "answer": "Las correcciones técnicas pueden notarse en pocas semanas, pero el posicionamiento orgánico suele consolidarse entre tres y seis meses, según la competencia de tus palabras clave y el estado inicial de tu sitio."
+          },
+          {
+            "id": "chatgpt",
+            "question": "¿Cómo logro que ChatGPT recomiende mi empresa?",
+            "answer": "Los asistentes de IA citan fuentes que entienden y en las que confían. Ayuda tener contenido que responda preguntas concretas, datos estructurados que describan tu empresa, un archivo llms.txt, perfiles consistentes en directorios y menciones en sitios de terceros. Nadie puede garantizar una recomendación, pero estas señales aumentan la probabilidad de ser citado."
+          },
+          {
+            "id": "pauta",
+            "question": "¿El SEO reemplaza a la pauta digital?",
+            "answer": "No, se complementan. La pauta genera resultados inmediatos mientras el SEO construye un canal de tráfico que no depende de la inversión diaria. Muchos de nuestros clientes combinan ambos."
+          },
+          {
+            "id": "paises",
+            "question": "¿Hacen SEO para varios países o idiomas?",
+            "answer": "Sí. Trabajamos sitios en español e inglés para Latinoamérica, Estados Unidos y Canadá, con configuración hreflang y palabras clave adaptadas a cómo se busca en cada mercado."
+          },
+          {
+            "id": "reporte",
+            "question": "¿Qué incluye el reporte de SEO?",
+            "answer": "Cada mes recibes la evolución de clics, impresiones y posiciones en Search Console, las páginas que más crecieron, el tráfico desde asistentes de IA y las acciones del siguiente ciclo."
+          }
+        ],
+        "related": [
+          "desarrollo-web",
+          "estrategia-de-contenido"
+        ],
+        "ctaHeading": "¿Tu empresa aparece cuando te buscan?",
+        "ctaSubheading": "Agenda una llamada gratuita y te enviamos un diagnóstico de SEO y de visibilidad en IA de tu sitio."
+      },
+      "estrategia-de-contenido": {
+        "navLabel": "Estrategia de contenido",
+        "serviceType": "Estrategia de contenido y gestión de redes sociales",
+        "metaTitle": "Estrategia de contenido y redes sociales",
+        "metaDescription": "Estrategia de contenido para redes sociales con embudo de conversión, calendario mensual y edición de reels para empresas de LatAm y Norteamérica.",
+        "titleStart": "Estrategia de contenido",
+        "titleAccent": "que vende en redes sociales",
+        "intro": "Convertimos tu marca en contenido con objetivo comercial: investigamos a tu audiencia, construimos un embudo de contenido y producimos un calendario mensual de publicaciones y videos cortos que atraen, educan y convierten.",
+        "definition": {
+          "heading": "¿Qué es una estrategia de contenido para redes sociales?",
+          "paragraphs": [
+            "Es el plan que define qué publica tu marca, para quién, en qué formato y con qué objetivo. En lugar de publicar por publicar, cada pieza cumple un papel en el embudo: atraer nuevas audiencias (TOFU), generar confianza (MOFU) o impulsar la compra (BOFU).",
+            "En NODUS la estrategia de contenido se mide con métricas de negocio, no de vanidad: conversaciones, leads y ventas que llegan desde tus redes. Además se conecta con la pauta para amplificar lo que mejor funciona."
+          ]
+        },
+        "includes": [
+          {
+            "title": "Investigación de audiencia",
+            "description": "Inteligencia de mercado y psicografía de tu cliente ideal para saber qué le importa y cómo habla."
+          },
+          {
+            "title": "Embudo de contenido",
+            "description": "Pilares y formatos para cada etapa: atracción, consideración y conversión."
+          },
+          {
+            "title": "Calendario mensual",
+            "description": "Un plan de publicaciones que aprobamos contigo antes de empezar cada mes."
+          },
+          {
+            "title": "Edición de reels y videos cortos",
+            "description": "Videos editados y listos para publicar en Instagram, TikTok y Facebook."
+          },
+          {
+            "title": "Optimización de perfiles",
+            "description": "Biografías, destacados y enlaces revisados cada mes para convertir visitas en conversaciones."
+          },
+          {
+            "title": "Reporte de desempeño",
+            "description": "Alcance, interacción y, sobre todo, conversaciones y leads generados por el contenido."
+          }
+        ],
+        "process": [
+          {
+            "title": "Investigación",
+            "description": "Analizamos a tu audiencia, a tus competidores y tu contenido actual."
+          },
+          {
+            "title": "Estrategia",
+            "description": "Definimos pilares, formatos, tono y el embudo de contenido."
+          },
+          {
+            "title": "Producción",
+            "description": "Creamos el calendario y los textos, y editamos los videos."
+          },
+          {
+            "title": "Análisis",
+            "description": "Medimos resultados y ajustamos el plan del mes siguiente."
+          }
+        ],
+        "audience": {
+          "text": "Es para empresas de Latinoamérica y Norteamérica que publican sin estrategia, o no publican, y quieren que sus redes sociales generen ventas.",
+          "items": [
+            "Marcas que publican sin ver resultados comerciales",
+            "Negocios que necesitan contenido constante y no tienen equipo interno",
+            "Empresas que van a invertir en pauta y necesitan creativos",
+            "Fundadores que quieren delegar sus redes sin perder su voz"
+          ]
+        },
+        "faq": [
+          {
+            "id": "gestion",
+            "question": "¿Gestionan las redes sociales de mi empresa?",
+            "answer": "Diseñamos la estrategia, el calendario mensual y los contenidos, y editamos los videos listos para publicar. El alcance exacto de la gestión, como la publicación o la respuesta a comentarios, se define en tu plan mensual."
+          },
+          {
+            "id": "redes",
+            "question": "¿En qué redes sociales trabajan?",
+            "answer": "Principalmente en Instagram, TikTok y Facebook, y en LinkedIn para empresas B2B. Elegimos las redes según dónde está tu cliente ideal."
+          },
+          {
+            "id": "embudo",
+            "question": "¿Qué es el embudo TOFU, MOFU y BOFU?",
+            "answer": "Son las etapas del recorrido de compra: TOFU (parte alta) atrae a quien aún no te conoce, MOFU (parte media) genera confianza con educación y prueba social, y BOFU (parte baja) invita a comprar o a escribirte. Una buena estrategia de contenido equilibra las tres."
+          },
+          {
+            "id": "medicion",
+            "question": "¿Cómo se mide si el contenido funciona?",
+            "answer": "Además del alcance y la interacción, medimos las conversaciones, los leads y las ventas que llegan desde tus redes, para saber qué contenido genera negocio y no solo likes."
+          },
+          {
+            "id": "seo-social",
+            "question": "¿Qué es el SEO social?",
+            "answer": "Es optimizar tus perfiles y publicaciones con palabras clave, subtítulos y textos que ayudan a que Instagram, TikTok y los buscadores muestren tu contenido a quien busca temas relacionados con tu negocio."
+          }
+        ],
+        "related": [
+          "pauta-digital",
+          "posicionamiento-seo"
+        ],
+        "ctaHeading": "¿Tus redes sociales te traen clientes?",
+        "ctaSubheading": "Agenda una llamada gratuita y te enviamos un diagnóstico de tu contenido con un plan de acción."
+      }
+    }
   }
 }

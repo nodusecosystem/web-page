@@ -1,6 +1,10 @@
 {
-  "name": "nodus: digital strategy",
-  "short_name": "nodus",
+  "name": "NODUS ECOSYSTEM",
+  "short_name": "NODUS",
+  "description": "Digital marketing agency for Latin America and North America.",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "es",
   "icons": [
     {
       "src": "/android-chrome-192x192-v2.png",

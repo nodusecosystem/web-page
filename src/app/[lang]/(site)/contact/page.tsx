@@ -1,36 +1,30 @@
 import type { Metadata } from 'next'
-import { lang } from 'next/root-params'
 import { PageTransition } from '@/components/animations/PageTransition'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { FAQSection } from '@/components/ui/FAQSection'
-import { SITE_NAME, SITE_URL, buildWhatsAppLink } from '@/lib/constants/site'
-import { getDictionary, type Locale } from '@/lib/i18n/dictionaries'
-import { contactPageSchema } from '@/lib/schema'
+import { buildWhatsAppLink } from '@/lib/constants/site'
+import { getDictionary, getLocale } from '@/lib/i18n/dictionaries'
+import { staticPageSchema } from '@/lib/schema'
+import { buildPageMetadata, samePath } from '@/lib/seo/metadata'
 import { CallScheduler } from '@/views/CallScheduler'
 import { ContactForm } from '@/views/ContactForm'
 import { ContactHero } from '@/views/ContactHero'
 
 export async function generateMetadata(): Promise<Metadata> {
   const dict = await getDictionary()
-  const locale = await lang()
+  const locale = await getLocale()
 
-  return {
+  return buildPageMetadata({
+    locale,
+    paths: samePath('/contact'),
     title: dict.metadata.contact.title,
     description: dict.metadata.contact.description,
-    alternates: {
-      canonical: `/${locale}/contact`,
-      languages: { es: '/es/contact', en: '/en/contact', 'x-default': '/es/contact' },
-    },
-    openGraph: {
-      title: `${dict.metadata.contact.title} | ${SITE_NAME}`,
-      description: dict.metadata.contact.description,
-      url: `${SITE_URL}/${locale}/contact`,
-    },
-  }
+  })
 }
 
 export default async function ContactPage() {
   const dict = await getDictionary()
-  const locale = await lang()
+  const locale = await getLocale()
 
   return (
     <PageTransition>
@@ -40,15 +34,12 @@ export default async function ContactPage() {
         strings={dict.contact.form}
         responseTime={dict.site.responseTime}
         whatsappHref={buildWhatsAppLink(dict.site.whatsappMessage)}
-        locale={locale as Locale}
+        locale={locale}
         heading={dict.contact.altHeading}
         subheading={dict.contact.altSubheading}
       />
       <FAQSection className="bg-teal-light/5" />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema(dict, locale as Locale)) }}
-      />
+      <JsonLd data={staticPageSchema(dict, locale, 'contact')} />
     </PageTransition>
   )
 }

@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
 import { cn } from '@/lib/cn'
+import { alternateLocalePath } from '@/lib/constants/services'
+import type { Locale } from '@/lib/i18n/dictionaries'
 import { useGlassPointer } from '@/lib/use-glass-pointer'
 
 type HeaderLink = {
@@ -39,7 +41,7 @@ type HeaderProps = {
   langToggle: LangToggleStrings
 }
 
-const LANG_OPTIONS: { code: string; labelKey: 'es' | 'en' }[] = [
+const LANG_OPTIONS: { code: Locale; labelKey: Locale }[] = [
   { code: 'es', labelKey: 'es' },
   { code: 'en', labelKey: 'en' },
 ]
@@ -161,11 +163,6 @@ export function Header({
 
   const closeMenu = () => setIsMenuOpen(false)
 
-  const alternateHref = (locale: string) => {
-    const segments = pathname.split('/')
-    segments[1] = locale
-    return segments.join('/') || '/'
-  }
 
   const langDropdown = (
     <div ref={langRef} className="relative">
@@ -199,7 +196,7 @@ export function Header({
                 <Link
                   key={option.code}
                   role="menuitem"
-                  href={alternateHref(option.code)}
+                  href={alternateLocalePath(pathname, option.code)}
                   aria-current={isActive ? 'true' : undefined}
                   onClick={() => {
                     setIsLangOpen(false)

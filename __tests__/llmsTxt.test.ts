@@ -10,7 +10,7 @@ describe('llms.txt', () => {
   const lines = content.split('\n')
 
   it('follows the llms.txt v2 structure', () => {
-    expect(lines[0]).toBe('# NODUS ECOSYSTEM: digital strategy')
+    expect(lines[0]).toBe('# NODUS ECOSYSTEM')
     expect(lines[1]).toBe('')
     expect(lines[2]).toMatch(/^> /)
     expect(lines[3]).toMatch(/^> /)
