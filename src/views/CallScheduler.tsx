@@ -1,4 +1,5 @@
 import { lang } from 'next/root-params'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { BookingCalendar } from '@/components/ui/BookingCalendar'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -19,9 +20,10 @@ export async function CallScheduler() {
           <p className="mt-4 text-lg text-dark/60">{scheduler.subheading}</p>
         </div>
 
-        <BookingCalendar strings={scheduler} locale={locale} today={new Date().toISOString()} />
-
-        <p className="mt-6 text-center text-sm text-dark/60">{scheduler.footnote}</p>
+        <ScrollReveal>
+          <BookingCalendar strings={scheduler} locale={locale} today={new Date().toISOString()} />
+          <p className="mt-6 text-center text-sm text-dark/60">{scheduler.footnote}</p>
+        </ScrollReveal>
       </Container>
     </Section>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight, Check } from 'lucide-react'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import TiltedCard from '@/components/ui/reactbits/TiltedCard'
 import { SERVICE_ICONS } from '@/lib/constants/icons'
 
@@ -55,10 +56,11 @@ function ServiceCardContent({ service, ctaLink }: Readonly<{ service: GridServic
 
 export function ServicesGrid({ services, ctaLink }: Readonly<ServicesGridProps>) {
   return (
-    <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-16 grid gap-10 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-3 lg:[--reveal-cols:3]">
       {services.map((service, index) => (
-        <div
+        <ScrollReveal
           key={service.id}
+          index={index}
           className={index === 3 ? 'h-130 lg:col-start-2' : 'h-130'}
         >
           <TiltedCard
@@ -72,7 +74,7 @@ export function ServicesGrid({ services, ctaLink }: Readonly<ServicesGridProps>)
             rotateAmplitude={8}
             overlayContent={<ServiceCardContent service={service} ctaLink={ctaLink} />}
           />
-        </div>
+        </ScrollReveal>
       ))}
     </div>
   )

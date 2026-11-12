@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { lang } from 'next/root-params'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { GlowCursor } from '@/components/ui/GlowCursor'
@@ -28,15 +29,17 @@ export async function CTASection({ heading, subheading }: Readonly<CTASectionPro
         className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-teal-light/15 blur-3xl"
       />
       <GlowCursor>
-        <Container className="relative flex flex-col items-center gap-6 text-center">
-          <h2 className="font-display max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-            {heading ?? cta.heading}
-          </h2>
-          <p className="max-w-xl text-lg text-white/70">{subheading ?? cta.subheading}</p>
-          <Button href={localePath(locale, '/contact')} size="lg" variant="solid">
-            {cta.button}
-            <ArrowRight aria-hidden className="h-4 w-4" />
-          </Button>
+        <Container className="relative">
+          <ScrollReveal className="flex flex-col items-center gap-6 text-center">
+            <h2 className="font-display max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+              {heading ?? cta.heading}
+            </h2>
+            <p className="max-w-xl text-lg text-white/70">{subheading ?? cta.subheading}</p>
+            <Button href={localePath(locale, '/contact')} size="lg" variant="solid">
+              {cta.button}
+              <ArrowRight aria-hidden className="h-4 w-4" />
+            </Button>
+          </ScrollReveal>
         </Container>
       </GlowCursor>
     </Section>

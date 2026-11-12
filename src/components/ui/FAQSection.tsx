@@ -1,4 +1,5 @@
 import { ChevronDown } from 'lucide-react'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
@@ -35,23 +36,24 @@ export async function FAQSection({ id, items, heading, subheading, className }: 
 
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
           {faqItems.map((item) => (
-            <details
-              key={item.id}
-              className="group rounded-2xl border border-teal-light/25 bg-white p-5 transition-all duration-300 open:border-teal-light open:bg-teal-light/5 open:shadow-md open:glass-highlight"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-dark [&::-webkit-details-marker]:hidden">
-                {item.question}
-                <ChevronDown
-                  aria-hidden
-                  className="h-5 w-5 shrink-0 text-teal-light transition-transform duration-300 group-open:rotate-180"
-                />
-              </summary>
-              <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-open:grid-rows-[1fr] group-open:opacity-100">
-                <div className="overflow-hidden">
-                  <p className="pt-3 text-sm leading-relaxed text-dark/60">{item.answer}</p>
+            <ScrollReveal key={item.id}>
+              <details
+                className="group rounded-2xl border border-teal-light/25 bg-white p-5 transition-all duration-300 open:border-teal-light open:bg-teal-light/5 open:shadow-md open:glass-highlight"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-dark [&::-webkit-details-marker]:hidden">
+                  {item.question}
+                  <ChevronDown
+                    aria-hidden
+                    className="h-5 w-5 shrink-0 text-teal-light transition-transform duration-300 group-open:rotate-180"
+                  />
+                </summary>
+                <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-open:grid-rows-[1fr] group-open:opacity-100">
+                  <div className="overflow-hidden">
+                    <p className="pt-3 text-sm leading-relaxed text-dark/60">{item.answer}</p>
+                  </div>
                 </div>
-              </div>
-            </details>
+              </details>
+            </ScrollReveal>
           ))}
         </div>
       </Container>

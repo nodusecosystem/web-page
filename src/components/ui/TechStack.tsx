@@ -1,3 +1,4 @@
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { TECH_STACK } from '@/lib/constants/tech-stack'
@@ -9,29 +10,31 @@ export async function TechStack() {
 
   return (
     <section className="overflow-hidden py-10 sm:py-12">
-      <Container>
-        <p className="text-center text-sm font-semibold tracking-wider text-dark/60 uppercase">
-          {dict.techStack.heading}
-        </p>
-      </Container>
-      <div className="group relative mt-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <ul className="flex w-max animate-marquee gap-4 group-hover:[animation-play-state:paused]">
-          {MARQUEE_ITEMS.map((tech, index) => {
-            const Icon = tech.icon
-            return (
-              <li
-                key={`${tech.id}-${index}`}
-                className="flex items-center gap-2.5 rounded-full border border-teal-light/25 bg-white px-5 py-2.5 shadow-sm"
-              >
-                <Icon aria-hidden className="h-4 w-4 text-teal-light" />
-                <span className="text-sm font-semibold whitespace-nowrap text-dark/70">
-                  {tech.name}
-                </span>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+      <ScrollReveal>
+        <Container>
+          <p className="text-center text-sm font-semibold tracking-wider text-dark/60 uppercase">
+            {dict.techStack.heading}
+          </p>
+        </Container>
+        <div className="group relative mt-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <ul className="flex w-max animate-marquee gap-4 group-hover:[animation-play-state:paused]">
+            {MARQUEE_ITEMS.map((tech, index) => {
+              const Icon = tech.icon
+              return (
+                <li
+                  key={`${tech.id}-${index}`}
+                  className="flex items-center gap-2.5 rounded-full border border-teal-light/25 bg-white px-5 py-2.5 shadow-sm"
+                >
+                  <Icon aria-hidden className="h-4 w-4 text-teal-light" />
+                  <span className="text-sm font-semibold whitespace-nowrap text-dark/70">
+                    {tech.name}
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </ScrollReveal>
     </section>
   )
 }

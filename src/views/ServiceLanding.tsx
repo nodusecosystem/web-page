@@ -2,6 +2,7 @@ import { ArrowRight, Check, ChevronRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
 import { HeroBackground } from '@/components/animations/HeroBackground'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
@@ -101,29 +102,31 @@ function LandingHero({
 function Definition({ page, platform }: Readonly<{ page: ServicePage; platform?: Dictionary['servicePages']['crmPlatform'] }>) {
   return (
     <Section className="bg-white">
-      <Container className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
-        <div>
+      <Container className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-16 lg:[--reveal-cols:2]">
+        <ScrollReveal>
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">{page.definition.heading}</h2>
           {page.definition.paragraphs.map((paragraph) => (
             <p key={paragraph} className="mt-5 text-lg leading-relaxed text-dark/70">
               {paragraph}
             </p>
           ))}
-        </div>
+        </ScrollReveal>
         {platform ? (
-          <Card variant="glass" className="flex flex-col gap-4 self-start">
-            <h3 className="font-display text-xl font-bold">{platform.heading}</h3>
-            <p className="text-sm leading-relaxed text-white/80">{platform.text}</p>
-            <a
-              href={CRM_URL}
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-light hover:text-white"
-            >
-              {platform.linkLabel}
-              <ExternalLink aria-hidden className="h-4 w-4" />
-            </a>
-          </Card>
+          <ScrollReveal index={1} className="self-start">
+            <Card variant="glass" className="flex flex-col gap-4">
+              <h3 className="font-display text-xl font-bold">{platform.heading}</h3>
+              <p className="text-sm leading-relaxed text-white/80">{platform.text}</p>
+              <a
+                href={CRM_URL}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-light hover:text-white"
+              >
+                {platform.linkLabel}
+                <ExternalLink aria-hidden className="h-4 w-4" />
+              </a>
+            </Card>
+          </ScrollReveal>
         ) : null}
       </Container>
     </Section>
@@ -135,16 +138,18 @@ function Includes({ page, heading }: Readonly<{ page: ServicePage; heading: stri
     <Section className="bg-teal-light/5">
       <Container>
         <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
-        <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {page.includes.map((item) => (
+        <ul className="mt-12 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-3 lg:[--reveal-cols:3]">
+          {page.includes.map((item, index) => (
             <li key={item.title}>
-              <Card variant="plain" className="flex h-full flex-col gap-3">
-                <div className="flex items-start gap-3">
-                  <Check aria-hidden className="mt-1 h-5 w-5 shrink-0 text-teal-light" />
-                  <h3 className="font-display text-lg font-bold">{item.title}</h3>
-                </div>
-                <p className="text-sm leading-relaxed text-dark/70">{item.description}</p>
-              </Card>
+              <ScrollReveal index={index} className="h-full">
+                <Card variant="plain" className="flex h-full flex-col gap-3">
+                  <div className="flex items-start gap-3">
+                    <Check aria-hidden className="mt-1 h-5 w-5 shrink-0 text-teal-light" />
+                    <h3 className="font-display text-lg font-bold">{item.title}</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-dark/70">{item.description}</p>
+                </Card>
+              </ScrollReveal>
             </li>
           ))}
         </ul>
@@ -158,19 +163,21 @@ function Process({ page, heading }: Readonly<{ page: ServicePage; heading: strin
     <Section className="bg-white">
       <Container>
         <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
-        <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-4 lg:[--reveal-cols:4]">
           {page.process.map((step, index) => (
-            <li key={step.title} className="flex flex-col gap-3 rounded-2xl border border-dark/10 p-6">
-              <div className="flex items-center gap-3">
-                <span
-                  aria-hidden
-                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-dark font-sans text-sm font-bold text-teal-light"
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="font-display text-lg font-bold">{step.title}</h3>
-              </div>
-              <p className="text-sm leading-relaxed text-dark/70">{step.description}</p>
+            <li key={step.title}>
+              <ScrollReveal index={index} className="flex h-full flex-col gap-3 rounded-2xl border border-dark/10 p-6">
+                <div className="flex items-center gap-3">
+                  <span
+                    aria-hidden
+                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-dark font-sans text-sm font-bold text-teal-light"
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="font-display text-lg font-bold">{step.title}</h3>
+                </div>
+                <p className="text-sm leading-relaxed text-dark/70">{step.description}</p>
+              </ScrollReveal>
             </li>
           ))}
         </ol>
@@ -182,19 +189,21 @@ function Process({ page, heading }: Readonly<{ page: ServicePage; heading: strin
 function Audience({ page, heading }: Readonly<{ page: ServicePage; heading: string }>) {
   return (
     <Section className="bg-dark text-white">
-      <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-        <div>
+      <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16 lg:[--reveal-cols:2]">
+        <ScrollReveal>
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
           <p className="mt-5 text-lg leading-relaxed text-white/70">{page.audience.text}</p>
-        </div>
-        <ul className="flex flex-col gap-4">
-          {page.audience.items.map((item) => (
-            <li key={item} className="flex items-start gap-3 text-base text-white/85">
-              <Check aria-hidden className="mt-1 h-5 w-5 shrink-0 text-teal-light" />
-              {item}
-            </li>
-          ))}
-        </ul>
+        </ScrollReveal>
+        <ScrollReveal index={1}>
+          <ul className="flex flex-col gap-4">
+            {page.audience.items.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-base text-white/85">
+                <Check aria-hidden className="mt-1 h-5 w-5 shrink-0 text-teal-light" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </ScrollReveal>
       </Container>
     </Section>
   )
@@ -213,26 +222,28 @@ function RelatedServices({
         <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
           {common.relatedHeading}
         </h2>
-        <ul className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
-          {ids.map((id) => {
+        <ul className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2 md:[--reveal-cols:2]">
+          {ids.map((id, index) => {
             const Icon = SERVICE_PAGE_ICONS[id] ?? Check
             return (
               <li key={id}>
-                <Link
-                  href={localePath(locale, servicePagePath(id, locale))}
-                  className="group flex h-full items-center gap-4 rounded-2xl border border-dark/10 p-6 transition-colors hover:border-teal-light focus-visible:outline-2 focus-visible:outline-teal-light"
-                >
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-dark text-teal-light">
-                    <Icon aria-hidden className="h-6 w-6" />
-                  </span>
-                  <span className="flex flex-col">
-                    <span className="font-display text-lg font-bold">{items[id].navLabel}</span>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-dark/70 group-hover:text-dark">
-                      {common.relatedLink}
-                      <ArrowRight aria-hidden className="h-4 w-4" />
+                <ScrollReveal index={index} className="h-full">
+                  <Link
+                    href={localePath(locale, servicePagePath(id, locale))}
+                    className="group flex h-full items-center gap-4 rounded-2xl border border-dark/10 p-6 transition-colors hover:border-teal-light focus-visible:outline-2 focus-visible:outline-teal-light"
+                  >
+                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-dark text-teal-light">
+                      <Icon aria-hidden className="h-6 w-6" />
                     </span>
-                  </span>
-                </Link>
+                    <span className="flex flex-col">
+                      <span className="font-display text-lg font-bold">{items[id].navLabel}</span>
+                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-dark/70 group-hover:text-dark">
+                        {common.relatedLink}
+                        <ArrowRight aria-hidden className="h-4 w-4" />
+                      </span>
+                    </span>
+                  </Link>
+                </ScrollReveal>
               </li>
             )
           })}
