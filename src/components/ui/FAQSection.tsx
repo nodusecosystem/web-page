@@ -27,12 +27,12 @@ export async function FAQSection({ id, items, heading, subheading, className }: 
   return (
     <section id={id} className={cn('scroll-mt-20 py-20 sm:py-28', className)}>
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {heading ?? faq.heading}
           </h2>
           {subheading ? <p className="mt-4 text-lg text-dark/60">{subheading}</p> : null}
-        </div>
+        </ScrollReveal>
 
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
           {faqItems.map((item) => (

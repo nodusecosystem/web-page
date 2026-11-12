@@ -12,12 +12,12 @@ export async function Philosophy() {
   return (
     <Section className="bg-teal-light/5">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {philosophy.heading}
           </h2>
           <p className="mt-4 text-lg text-dark/60">{philosophy.subheading}</p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 sm:[--reveal-cols:2]">
           {philosophy.points.map((point, index) => {

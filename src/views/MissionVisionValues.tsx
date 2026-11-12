@@ -13,12 +13,12 @@ export async function MissionVisionValues() {
   return (
     <Section className="bg-white">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {purpose.heading}
           </h2>
           <p className="mt-4 text-lg text-dark/60">{purpose.subheading}</p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2]">
           <ScrollReveal className="h-full">
@@ -43,9 +43,11 @@ export async function MissionVisionValues() {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-center font-display text-2xl font-bold tracking-tight">
-            {purpose.valuesTitle}
-          </h3>
+          <ScrollReveal>
+            <h3 className="text-center font-display text-2xl font-bold tracking-tight">
+              {purpose.valuesTitle}
+            </h3>
+          </ScrollReveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:[--reveal-cols:2]">
             {purpose.values.map((value, index) => {
               const Icon = ABOUT_VALUE_ICONS[value.id]

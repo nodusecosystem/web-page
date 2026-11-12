@@ -12,12 +12,12 @@ export async function Methodology() {
   return (
     <Section id="metodologia" className="bg-teal-light/5">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {methodology.heading}
           </h2>
           <p className="mt-4 text-lg text-dark/60">{methodology.subheading}</p>
-        </div>
+        </ScrollReveal>
 
         <ol className="mt-16 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-5 lg:[--reveal-cols:5]">
           {methodology.steps.map((step, index) => {

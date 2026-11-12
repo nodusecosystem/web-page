@@ -137,7 +137,9 @@ function Includes({ page, heading }: Readonly<{ page: ServicePage; heading: stri
   return (
     <Section className="bg-teal-light/5">
       <Container>
-        <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
+        <ScrollReveal>
+          <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
+        </ScrollReveal>
         <ul className="mt-12 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-3 lg:[--reveal-cols:3]">
           {page.includes.map((item, index) => (
             <li key={item.title}>
@@ -162,7 +164,9 @@ function Process({ page, heading }: Readonly<{ page: ServicePage; heading: strin
   return (
     <Section className="bg-white">
       <Container>
-        <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
+        <ScrollReveal>
+          <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
+        </ScrollReveal>
         <ol className="mt-12 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-4 lg:[--reveal-cols:4]">
           {page.process.map((step, index) => (
             <li key={step.title}>
@@ -219,9 +223,11 @@ function RelatedServices({
   return (
     <Section className="bg-white">
       <Container>
-        <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          {common.relatedHeading}
-        </h2>
+        <ScrollReveal>
+          <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            {common.relatedHeading}
+          </h2>
+        </ScrollReveal>
         <ul className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2 md:[--reveal-cols:2]">
           {ids.map((id, index) => {
             const Icon = SERVICE_PAGE_ICONS[id] ?? Check

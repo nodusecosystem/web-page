@@ -11,23 +11,25 @@ export async function SocialProof() {
   return (
     <Section id="resultados" className="bg-white">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {socialProof.heading}
           </h2>
           <p className="mt-4 text-lg text-dark/60">{socialProof.subheading}</p>
-        </div>
+        </ScrollReveal>
 
-        <ul
-          aria-label={socialProof.clientsAriaLabel}
-          className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
-        >
-          {socialProof.clients.map((client) => (
-            <li key={client} className="font-display text-lg font-bold text-dark/60">
-              {client}
-            </li>
-          ))}
-        </ul>
+        <ScrollReveal>
+          <ul
+            aria-label={socialProof.clientsAriaLabel}
+            className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
+          >
+            {socialProof.clients.map((client) => (
+              <li key={client} className="font-display text-lg font-bold text-dark/60">
+                {client}
+              </li>
+            ))}
+          </ul>
+        </ScrollReveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-3 lg:[--reveal-cols:3]">
           {socialProof.cases.map((caseStudy, index) => (

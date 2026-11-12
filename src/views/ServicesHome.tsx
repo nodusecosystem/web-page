@@ -1,3 +1,4 @@
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { ServicesGrid } from '@/components/ui/ServicesGrid'
@@ -10,12 +11,12 @@ export async function ServicesHome() {
   return (
     <Section id="servicios" className="bg-white">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {services.heading}
           </h2>
           <p className="mt-4 text-lg text-dark/60">{services.subheading}</p>
-        </div>
+        </ScrollReveal>
 
         <ServicesGrid services={services.items} ctaLink={services.ctaLink} />
       </Container>

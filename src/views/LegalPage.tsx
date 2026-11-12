@@ -1,3 +1,4 @@
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { getDictionary } from '@/lib/i18n/dictionaries'
@@ -21,14 +22,16 @@ export async function LegalPage({ documentKey }: Readonly<LegalPageProps>) {
 
         <div className="mt-10 flex flex-col gap-10">
           {legalDocument.sections.map((section) => (
-            <article key={section.heading} className="flex flex-col gap-3">
-              <h2 className="font-display text-xl font-bold text-dark">{section.heading}</h2>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="text-base leading-relaxed text-dark/70">
-                  {paragraph}
-                </p>
-              ))}
-            </article>
+            <ScrollReveal key={section.heading}>
+              <article className="flex flex-col gap-3">
+                <h2 className="font-display text-xl font-bold text-dark">{section.heading}</h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-base leading-relaxed text-dark/70">
+                    {paragraph}
+                  </p>
+                ))}
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </Container>
