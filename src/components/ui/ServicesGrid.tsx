@@ -70,10 +70,7 @@ export function ServicesGrid({ services, ctaLink }: Readonly<ServicesGridProps>)
             imageWidth="100%"
             scaleOnHover={1.03}
             rotateAmplitude={8}
-            showMobileWarning={false}
-            showTooltip={false}
             overlayContent={<ServiceCardContent service={service} ctaLink={ctaLink} />}
-            displayOverlayContent
           />
         </div>
       ))}

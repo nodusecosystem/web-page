@@ -29,7 +29,7 @@ Web bilingüe (es/en) del growth partner de marketing y estrategia digital **NOD
 
 - **Next.js 16.x** (App Router, Turbopack) — leer `node_modules/next/dist/docs/` antes de tocar APIs de Next. Hay cambios breaking respecto a versiones anteriores.
 - React 19, TypeScript 5 (strict), Tailwind CSS v4 (CSS-first, sin `tailwind.config.ts`).
-- `lucide-react` (iconos), `framer-motion` (solo cliente; hoy solo `TiltedCard`), `gsap` (efectos reactbits), `ogl` (WebGL), `zustand` (booking store), `@emailjs/browser` (envío del formulario), `clsx` + `tailwind-merge` (utility `cn`).
+- `lucide-react` (iconos), `gsap` (efectos reactbits), `ogl` (WebGL), `zustand` (booking store), `@emailjs/browser` (envío del formulario), `clsx` + `tailwind-merge` (utility `cn`).
 - **i18n sin librerías**: diccionarios en `src/lib/i18n/{es,en}.json`, lectura con `lang()` de `next/root-params` y redirección por `Accept-Language` en `src/proxy.ts`.
 - Vitest + React Testing Library + jest-dom.
 
@@ -89,7 +89,7 @@ src/
 - Los efectos de canvas/WebGL (`CursorGrid`, `GlowCursorFx`) solo se montan en desktop (`useIsMobile`) y tras idle/visibilidad; `HeroBackground` los difiere.
 - **Ningún loop de `requestAnimationFrame` corre en reposo**: `CursorGrid` y `GlowCursorFx` duermen cuando no hay nada visible que pintar (sin puntero, apagado o fuera de pantalla) y despiertan con el puntero o un `IntersectionObserver`.
 - `Section` usa `content-visibility: auto` con `contain-intrinsic-size`.
-- **No añadir framer-motion** para entradas, salidas o reveals (antes iba en el bundle de todas las páginas). Entradas con la variante `starting:` (`@starting-style`) y salidas con `usePresence` + clase de salida; `prefers-reduced-motion` con `usePrefersReducedMotion` (`lib/use-reduced-motion.ts`).
+- **Sin framer-motion** (eliminado: ~44 KB gz en el bundle). Entradas/salidas/reveals con CSS; efectos con inercia con `createSpringAnimator` (`lib/spring.ts`, mismos parámetros físicos que `useSpring`), que solo corre mientras hay movimiento. Entradas con la variante `starting:` (`@starting-style`) y salidas con `usePresence` + clase de salida; `prefers-reduced-motion` con `usePrefersReducedMotion` (`lib/use-reduced-motion.ts`).
 - **Efectos ligados al puntero sin `setState` por frame**: escribir variables CSS en el nodo (`style.setProperty`), como `useGlassPointer` y `BorderGlow`.
 - SDKs que solo se usan en una acción (p. ej. `@emailjs/browser`) se importan con `import()` en esa acción. `gtag.js` va con `lazyOnload`; el init (consentimiento + cola en `dataLayer`) con `afterInteractive`.
 
@@ -149,8 +149,8 @@ Para cambiar copias, casos o datos de contacto: **editar los JSON/constants**, n
 - Tests en `__tests__/*.test.tsx` (Vitest + RTL + jest-dom).
 - Imports explícitos desde `vitest` (`describe`, `it`, `expect`, `vi`) — sin globals.
 - `next/root-params` se mockea en los tests de server components: `vi.mock('next/root-params', () => ({ lang: () => Promise.resolve('es') }))`.
-- El setup (`vitest.setup.ts`) mockea IntersectionObserver/ResizeObserver/matchMedia y el contexto de canvas para framer-motion/GSAP/OGL.
-- Tests de componentes críticos: Button, GlassButton, ScrollReveal, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas, ServiceLanding; y `seo.test.ts` (metadata, robots, sitemap, @graph, slugs, llms-full). Añadir tests al crear UI nueva.
+- El setup (`vitest.setup.ts`) mockea IntersectionObserver/ResizeObserver/matchMedia y el contexto de canvas para GSAP/OGL.
+- Tests de componentes críticos: Button, GlassButton, ScrollReveal, TiltedCard, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas, ServiceLanding; y `seo.test.ts` (metadata, robots, sitemap, @graph, slugs, llms-full). Añadir tests al crear UI nueva.
 
 ## Política de calidad (Sonar / ESLint)
 
