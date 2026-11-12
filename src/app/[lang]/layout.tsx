@@ -1,28 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import localFont from 'next/font/local'
 import { lang } from 'next/root-params'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 import { CookieConsent } from '@/components/consent/CookieConsent'
-import { GlassFilterDefs } from '@/components/ui/GlassButton'
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site'
+import { fontVariables } from '@/lib/fonts'
 import { getDictionary, getLocale } from '@/lib/i18n/dictionaries'
 import { buildPageMetadata, samePath, siteVerification } from '@/lib/seo/metadata'
 import '@/styles/globals.css'
 import '@/styles/glass-button.css'
-
-const modica = localFont({
-  src: './fonts/modica-medium.ttf',
-  weight: '500',
-  variable: '--font-modica',
-  display: 'swap',
-})
-
-const century = localFont({
-  src: './fonts/Century-Gothic.ttf',
-  weight: '400',
-  variable: '--font-century',
-  display: 'swap',
-})
 
 export async function generateMetadata(): Promise<Metadata> {
   const dict = await getDictionary()
@@ -75,7 +60,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const locale = await lang()
 
   return (
-    <html lang={locale} className={`${modica.variable} ${century.variable}`}>
+    <html lang={locale} className={fontVariables}>
       <body className="bg-white font-sans text-dark antialiased">
         <link rel="describedby" href="/llms.txt" type="text/markdown" />
         <a
@@ -84,7 +69,6 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         >
           {dict.layout.skipToContent}
         </a>
-        <GlassFilterDefs />
         {children}
         <CookieConsent strings={dict.cookieConsent} locale={locale} />
         <GoogleAnalytics />

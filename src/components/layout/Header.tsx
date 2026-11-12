@@ -246,7 +246,10 @@ export function Header({
             ref={navRef}
             onPointerMove={handleNavPointerMove}
             aria-label={ariaLabels.nav}
-            className="glass-surface glass-nav variant-outline hidden md:flex"
+            className={cn(
+              'glass-surface glass-nav variant-outline hidden md:flex',
+              isPastViewport && 'on-panel',
+            )}
           >
             {links.map((link) => (
               <Link

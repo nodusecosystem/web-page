@@ -172,18 +172,20 @@
   text-decoration: none;
   white-space: nowrap;
 
-  /* Refracción real del fondo con el filtro SVG (<GlassFilterDefs/>). Si el
-     navegador no soporta url() en backdrop-filter, la declaración con url()
-     se ignora y queda el blur simple. */
   -webkit-backdrop-filter: blur(6px) saturate(160%);
   backdrop-filter: blur(6px) saturate(160%);
-  -webkit-backdrop-filter: blur(6px) saturate(160%) url(#glass-distortion);
-  backdrop-filter: blur(6px) saturate(160%) url(#glass-distortion);
 
   /* Inclinación 3D: --rx/--ry las fija el puntero desde JS; --ty/--s vienen
      de CSS (hover/active), así JS y CSS no compiten por la propiedad. */
   transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
     translateY(var(--ty, 0px)) scale(var(--s, 1));
+}
+
+/* El relleno sólido es opaco: el fondo filtrado nunca se vería y el
+   backdrop-filter solo costaría GPU en cada frame. */
+.glass-btn.variant-solid {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .glass-btn:hover {
@@ -256,6 +258,13 @@
   gap: 0.25rem;
   border-radius: 999px;
   padding: 0.375rem 0.5rem;
+}
+
+/* Con el panel del header activo, ese panel ya desenfoca la página y es la
+   raíz del backdrop de la nav: un segundo blur solo vería el panel plano. */
+.glass-nav.on-panel {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 /* --- Anillo del hero --------------------------------------------------- */

@@ -4,6 +4,7 @@ import { useEffect, useRef, type RefObject } from 'react'
 import { Mesh, Program, Renderer, Triangle } from 'ogl'
 
 const MAX_POINTS = 64
+const FADE_EPSILON = 0.002
 
 interface GlowCursorFxConfig {
   color: string
@@ -222,12 +223,24 @@ export default function GlowCursorFx({
     let lastFrameTime = performance.now()
     let raf = 0
     let destroyed = false
+    let running = false
+    let visible = true
+
+    // El loop duerme cuando la estela ya es invisible (apagada o fuera de
+    // pantalla) y lo despiertan el puntero, un resize o volver a ser visible.
+    const wake = () => {
+      if (running || destroyed || !visible) return
+      running = true
+      lastFrameTime = performance.now()
+      raf = requestAnimationFrame(render)
+    }
 
     const resize = () => {
       width = Math.max(container.clientWidth, 1)
       height = Math.max(container.clientHeight, 1)
       renderer?.setSize(width, height)
       program.uniforms.uResolution.value = [width, height]
+      wake()
     }
 
     const initializeTrail = (x: number, y: number) => {
@@ -252,6 +265,7 @@ export default function GlowCursorFx({
       target.y = y
       pointerInside = true
       lastInputTime = performance.now()
+      wake()
     }
 
     const onPointerLeave = () => {
@@ -290,6 +304,8 @@ export default function GlowCursorFx({
       const fadeStep = (16.667 * delta) / Math.max(config.fadeDuration, 16)
       const fadeTarget = initialized && config.enabled && !shouldFade ? 1 : 0
       fade += (fadeTarget - fade) * Math.min(1, fadeStep * 7)
+      const settled = fadeTarget === 0 && fade < FADE_EPSILON
+      if (settled) fade = 0
 
       program.uniforms.uPointCount.value = clamp(Math.round(config.trailLength), 2, MAX_POINTS)
       program.uniforms.uColor.value = hexToRgb(config.color)
@@ -307,21 +323,30 @@ export default function GlowCursorFx({
       program.uniforms.uFade.value = fade
 
       renderer?.render({ scene: mesh })
-      if (!destroyed) raf = requestAnimationFrame(render)
+      if (!destroyed && visible && !settled) {
+        raf = requestAnimationFrame(render)
+      } else {
+        running = false
+      }
     }
 
     const resizeObserver = new ResizeObserver(resize)
     resizeObserver.observe(container)
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting
+      if (visible) wake()
+    })
+    visibilityObserver.observe(container)
     container.addEventListener('pointermove', updatePointer)
     container.addEventListener('pointerenter', updatePointer)
     container.addEventListener('pointerleave', onPointerLeave)
     resize()
-    raf = requestAnimationFrame(render)
 
     return () => {
       destroyed = true
       cancelAnimationFrame(raf)
       resizeObserver.disconnect()
+      visibilityObserver.disconnect()
       container.removeEventListener('pointermove', updatePointer)
       container.removeEventListener('pointerenter', updatePointer)
       container.removeEventListener('pointerleave', onPointerLeave)

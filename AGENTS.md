@@ -40,7 +40,6 @@ src/
 ├── app/
 │   ├── [lang]/              # Rutas bilingües: /, /about, /services, /services/[slug], /contact,
 │   │   │                    # /aviso-legal, /politica-de-privacidad, /politica-de-cookies, /onboarding (noindex)
-│   │   ├── fonts/           # Modica + Century Gothic (next/font/local)
 │   │   └── layout.tsx       # Metadata global, Header, Footer, WhatsApp, ScrollToTop
 │   ├── robots.ts, sitemap.ts, llms.txt/, llms-full.txt/, global-not-found.tsx
 ├── components/
@@ -60,9 +59,10 @@ src/
 │   ├── schema.ts            # JSON-LD como @graph enlazado por @id
 │   ├── llms.ts              # llms.txt y llms-full.txt
 │   ├── legal.ts             # Rutas + metadata de las páginas legales
+│   ├── fonts.ts             # Modica + Century Gothic (next/font/local), compartidas por layout y global-not-found
 │   └── cn.ts, format.ts (format, localePath), types.ts, validation.ts, emailjs.ts, booking-store.ts, use-mobile.ts
 ├── proxy.ts                 # Redirección a /es o /en
-└── styles/globals.css       # Tokens de diseño (@theme)
+└── styles/                  # globals.css (tokens @theme), glass-button.css, fonts/ (TTF de marca)
 ```
 
 ## Reglas de React y Rendimiento
@@ -77,13 +77,15 @@ src/
 `Button` delega en `GlassButton` (`components/ui/`): vidrio esmerilado con borde refractado, brillo que sigue al puntero, inclinación 3D y ripple, **solo CSS + JS mínimo** (`styles/glass-button.css`), sin WebGL/GSAP. Variantes `solid` (CTA teal), `outline` (vidrio oscuro, tinta teal) y `ghost` (vidrio claro, tinta dark), tamaños `sm|md|lg`. No reintroducir efectos canvas en botones: eran el mayor coste de JS por página.
 
 - **Tilt 3D**: `--rx/--ry` (máx. 9°) las fija `useGlassPointer` desde el puntero; `--ty/--s` vienen de CSS (hover/active). Se combinan en un solo `transform` para que JS y CSS no compitan. Con `prefers-reduced-motion` no se inclina.
-- **Refracción real**: los botones usan `backdrop-filter: … url(#glass-distortion)`; el filtro SVG lo define `GlassFilterDefs`, montado **una sola vez** en `app/[lang]/layout.tsx`. Si el navegador no soporta `url()` en `backdrop-filter`, queda el blur simple. Solo botones: la nav y el anillo usan la superficie compartida sin tilt ni refracción.
+- **Sin filtros SVG en `backdrop-filter`**: el vidrio es solo `blur()` + `saturate()`. La refracción con `url(#filtro)` (botones y `GlassSurface` de las Card) se eliminó: sobre fondos lisos no se veía y se recalculaba en cada frame (GPU). No reintroducirla.
+- **`backdrop-filter` solo donde se ve**: los botones `solid` son opacos y no lo llevan; la nav del header lo quita (`on-panel`) cuando el panel `glass-panel-strong` ya desenfoca. Cada `backdrop-filter` visible se recalcula en cada frame de scroll o animación.
 
 ### Core Web Vitals (medido con Lighthouse)
 
 - **El contenido crítico del hero no se oculta en SSR.** `FadeIn` acepta `immediate` para renderizar sin animación de entrada (evita que el LCP dependa de la hidratación); `Hero` lo usa en la columna de texto.
 - `AnimatedHeading` reserva la altura de línea en SSR con `md:h-[var(--heading-line-height)]` y `minHeight` en cliente, para que el swap a `StrokeText` (canvas/SVG) no produzca CLS. En móvil el texto se renderiza natural.
-- Los efectos WebGL (`CursorGrid`, `GlassSurface`, `GlowCursorFx`) solo se montan en desktop (`useIsMobile`) y tras idle/visibilidad; `HeroBackground` los difiere.
+- Los efectos de canvas/WebGL (`CursorGrid`, `GlowCursorFx`) solo se montan en desktop (`useIsMobile`) y tras idle/visibilidad; `HeroBackground` los difiere.
+- **Ningún loop de `requestAnimationFrame` corre en reposo**: `CursorGrid` y `GlowCursorFx` duermen cuando no hay nada visible que pintar (sin puntero, apagado o fuera de pantalla) y despiertan con el puntero o un `IntersectionObserver`.
 - `Section` usa `content-visibility: auto` con `contain-intrinsic-size`.
 
 ### Transición de página (wipe)
@@ -111,7 +113,7 @@ Definidos en `src/styles/globals.css` (`@theme`). **No** inventar colores fuera 
 | `dark` | `#000F13` | Fondos oscuros, texto principal, navbar |
 | `white` | `#ffffff` | Fondos claros, texto sobre oscuro |
 
-Tipografías: **Modica** (titulares → `font-display`) y **Century Gothic** (cuerpo → `font-sans`), cargadas con `next/font/local` en `src/app/[lang]/layout.tsx`.
+Tipografías: **Modica** (titulares → `font-display`) y **Century Gothic** (cuerpo → `font-sans`), cargadas con `next/font/local` en `src/lib/fonts.ts` (`fontVariables`), usadas por `app/[lang]/layout.tsx` y `global-not-found.tsx`. No añadir fuentes de `next/font/google`: se cuelan en el CSS global y se precargan en todas las páginas.
 
 Utilities custom: `text-gradient-brand`, `bg-grid-pattern` y `glass-panel*` (definidas con `@utility`).
 

@@ -16,9 +16,10 @@ describe('Card', () => {
     }
   })
 
-  it('applies the glass surface to every variant', () => {
+  it('applies a CSS-only glass surface, without SVG refraction filters', () => {
     const { container } = render(<Card variant="glass">X</Card>)
-    expect(container.querySelector('svg')).toBeInTheDocument()
+    expect(container.querySelector('[style*="backdrop-filter: blur(4px)"]')).toBeInTheDocument()
+    expect(container.querySelector('filter')).not.toBeInTheDocument()
   })
 
   it('renders the plain variant without glow, glass or canvas layers', () => {

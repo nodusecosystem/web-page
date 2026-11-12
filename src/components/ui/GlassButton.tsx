@@ -23,36 +23,6 @@ type GlassButtonProps = {
 const RIPPLE_DURATION_MS = 650
 const MAX_TILT_DEG = 9
 
-/**
- * Filtro SVG de refracción que usan los botones en `backdrop-filter`.
- * Montar una sola vez cerca de la raíz (layout); no pinta nada.
- */
-export function GlassFilterDefs() {
-  return (
-    <svg aria-hidden width="0" height="0" className="absolute overflow-hidden">
-      <defs>
-        <filter id="glass-distortion" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.009 0.009"
-            numOctaves="2"
-            seed="7"
-            result="noise"
-          />
-          <feGaussianBlur in="noise" stdDeviation="3" result="softNoise" />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="softNoise"
-            scale="34"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-      </defs>
-    </svg>
-  )
-}
-
 export function GlassButton({
   children,
   variant = 'solid',

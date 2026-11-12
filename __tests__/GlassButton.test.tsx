@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { GlassButton, GlassFilterDefs } from '@/components/ui/GlassButton'
+import { GlassButton } from '@/components/ui/GlassButton'
 
 describe('GlassButton', () => {
   it('renders a native button by default', () => {
@@ -105,15 +105,5 @@ describe('GlassButton', () => {
     expect(label).toBeInTheDocument()
     expect(label).toHaveTextContent('Empieza')
     expect(label?.querySelector('svg')).toBeInTheDocument()
-  })
-})
-
-describe('GlassFilterDefs', () => {
-  it('defines the refraction filter used by the buttons', () => {
-    const { container } = render(<GlassFilterDefs />)
-    const filter = container.querySelector('filter#glass-distortion')
-    expect(filter).toBeInTheDocument()
-    expect(filter?.querySelector('feTurbulence')).toBeInTheDocument()
-    expect(filter?.querySelector('feDisplacementMap')).toBeInTheDocument()
   })
 })

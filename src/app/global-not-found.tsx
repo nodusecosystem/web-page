@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { SITE_NAME } from '@/lib/constants/site'
+import { fontVariables } from '@/lib/fonts'
 import '@/styles/globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: `404 - Página no encontrada | ${SITE_NAME}`,
@@ -29,7 +27,7 @@ const STRINGS = {
 
 export default function GlobalNotFound() {
   return (
-    <html lang="es" className={`${inter.className} bg-dark`}>
+    <html lang="es" className={`${fontVariables} bg-dark`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
