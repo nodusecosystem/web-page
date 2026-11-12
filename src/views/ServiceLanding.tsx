@@ -1,7 +1,6 @@
 import { ArrowRight, Check, ChevronRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
-import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
@@ -70,7 +69,7 @@ function LandingHero({
         className="pointer-events-none absolute -top-40 -right-40 h-120 w-120 rounded-full bg-teal-light/25 blur-3xl"
       />
       <Container className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
-        <FadeIn immediate>
+        <div>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
             <Breadcrumbs locale={locale} label={common.breadcrumbLabel} items={breadcrumbs} />
             <h1 className="font-display">
@@ -93,7 +92,7 @@ function LandingHero({
               </Button>
             </div>
           </div>
-        </FadeIn>
+        </div>
       </Container>
     </section>
   )

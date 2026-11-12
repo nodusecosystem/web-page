@@ -1,6 +1,6 @@
 import { ArrowRight, Check, FileCheck2 } from 'lucide-react'
 import Link from 'next/link'
-import { FadeIn } from '@/components/animations/FadeIn'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -30,7 +30,7 @@ export async function ServiceDetails() {
           {dict.services.items.map((service, index) => {
             const Icon = SERVICE_ICONS[service.id] ?? Check
             return (
-              <FadeIn key={service.id}>
+              <ScrollReveal key={service.id}>
                 <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
                   <div
                     className={cn(
@@ -90,7 +90,7 @@ export async function ServiceDetails() {
                     </Card>
                   </div>
                 </div>
-              </FadeIn>
+              </ScrollReveal>
             )
           })}
         </div>

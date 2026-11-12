@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { act, fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import { FloatingWhatsApp } from '@/components/ui/FloatingWhatsApp'
 import { buildWhatsAppLink } from '@/lib/constants/site'
 import esDict from '@/lib/i18n/es.json'
@@ -22,6 +22,29 @@ describe('FloatingWhatsApp', () => {
   it('includes the tooltip with the pre-filled message', () => {
     render(<FloatingWhatsApp {...WHATSAPP_PROPS} />)
     expect(screen.getByText(esDict.floatingWhatsApp.tooltip)).toBeInTheDocument()
+  })
+
+  it('pulses once on appearance and again every 10 seconds', () => {
+    vi.useFakeTimers()
+    try {
+      render(<FloatingWhatsApp {...WHATSAPP_PROPS} />)
+      const firstPulse = screen.getByTestId('whatsapp-pulse')
+      expect(firstPulse).toHaveClass('motion-safe:animate-ping-once')
+
+      act(() => {
+        vi.advanceTimersByTime(9_999)
+      })
+      expect(screen.getByTestId('whatsapp-pulse')).toBe(firstPulse)
+
+      act(() => {
+        vi.advanceTimersByTime(1)
+      })
+      const nextPulse = screen.getByTestId('whatsapp-pulse')
+      expect(nextPulse).not.toBe(firstPulse)
+      expect(nextPulse).toHaveClass('motion-safe:animate-ping-once')
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('tracks a whatsapp_click lead event when clicked', () => {

@@ -29,7 +29,7 @@ Web bilingüe (es/en) del growth partner de marketing y estrategia digital **NOD
 
 - **Next.js 16.x** (App Router, Turbopack) — leer `node_modules/next/dist/docs/` antes de tocar APIs de Next. Hay cambios breaking respecto a versiones anteriores.
 - React 19, TypeScript 5 (strict), Tailwind CSS v4 (CSS-first, sin `tailwind.config.ts`).
-- `lucide-react` (iconos), `framer-motion` (solo cliente), `gsap` (efectos reactbits), `ogl` (WebGL), `zustand` (booking store), `@emailjs/browser` (envío del formulario), `clsx` + `tailwind-merge` (utility `cn`).
+- `lucide-react` (iconos), `framer-motion` (solo cliente; hoy solo `TiltedCard`), `gsap` (efectos reactbits), `ogl` (WebGL), `zustand` (booking store), `@emailjs/browser` (envío del formulario), `clsx` + `tailwind-merge` (utility `cn`).
 - **i18n sin librerías**: diccionarios en `src/lib/i18n/{es,en}.json`, lectura con `lang()` de `next/root-params` y redirección por `Accept-Language` en `src/proxy.ts`.
 - Vitest + React Testing Library + jest-dom.
 
@@ -48,7 +48,7 @@ src/
 │   │   │                    # BookingCalendar, GlowCursor, ServicesGrid
 │   │   ├── brand/           # IsotipoLogo, HorizontalLogo, LogoFull (SVG inline)
 │   │   └── reactbits/       # Efectos GSAP/WebGL (StrokeText, CursorGrid, GlassSurface, BorderGlow…)
-│   ├── animations/          # 'use client' — FadeIn, StaggerChildren, AnimatedHeading, AnimatedCounter, HeroBackground; PageTransition (server)
+│   ├── animations/          # 'use client' — AnimatedHeading, AnimatedCounter, HeroBackground; server: ScrollReveal, PageTransition
 │   ├── layout/              # Header ('use client'), Footer (server), LanguageLinks ('use client')
 │   └── seo/                 # JsonLd (script ld+json escapado)
 ├── views/                   # Secciones complejas (Hero, Services, ContactForm…) — siempre Server Components
@@ -69,7 +69,7 @@ src/
 ## Reglas de React y Rendimiento
 
 1. **Server Components por defecto.** `'use client'` solo en hojas finales interactivas: `Header`, `ContactForm`, `BookingCalendar`, `GlowCursor` y los wrappers de `animations/`/`reactbits/`.
-2. **Las vistas (views/) SIEMPRE son Server Components.** Las animaciones se aplican anidando wrappers cliente (`FadeIn`, `StaggerItem`) — nunca marques una vista entera como `'use client'`.
+2. **Las vistas (views/) SIEMPRE son Server Components.** Las animaciones se aplican anidando wrappers (`ScrollReveal`, solo CSS) o clases de animación — nunca marques una vista entera como `'use client'`.
 3. Componentes pequeños, sin lógica compleja en el render. Complejidad cognitiva baja (Sonar).
 4. Los enlaces internos se construyen con `localePath(locale, path)`; `GlassButton` renderiza `next/link` para rutas internas y `<a>` para externas/anclas.
 
@@ -83,12 +83,13 @@ src/
 
 ### Core Web Vitals (medido con Lighthouse)
 
-- **El contenido crítico del hero no se oculta en SSR.** `FadeIn` acepta `immediate` para renderizar sin animación de entrada (evita que el LCP dependa de la hidratación); `Hero` lo usa en la columna de texto.
+- **El contenido nunca llega oculto en el HTML.** Los heros no usan reveal: la columna de texto se pinta directa (LCP) y la secundaria entra con `motion-safe:animate-fade-in-up` (CSS, al cargar).
+- **Scroll reveal** (`ScrollReveal` + `.scroll-reveal` en `globals.css`): animación scroll-driven nativa (`animation-timeline: view()`), ligada al scroll y reversible, también en móvil. Se anima el contenido, nunca la `<section>` (sus fondos alternos se verían desplazarse). Cascada: pasar `index` a cada item y declarar en el grid las columnas por breakpoint con `--reveal-cols` (p. ej. `md:[--reveal-cols:2] lg:[--reveal-cols:3]`); el retraso solo se aplica dentro de la fila. Sin soporte o con `prefers-reduced-motion`, el contenido se ve sin animación.
 - `AnimatedHeading` reserva la altura de línea en SSR con `md:h-[var(--heading-line-height)]` y `minHeight` en cliente, para que el swap a `StrokeText` (canvas/SVG) no produzca CLS. En móvil el texto se renderiza natural.
 - Los efectos de canvas/WebGL (`CursorGrid`, `GlowCursorFx`) solo se montan en desktop (`useIsMobile`) y tras idle/visibilidad; `HeroBackground` los difiere.
 - **Ningún loop de `requestAnimationFrame` corre en reposo**: `CursorGrid` y `GlowCursorFx` duermen cuando no hay nada visible que pintar (sin puntero, apagado o fuera de pantalla) y despiertan con el puntero o un `IntersectionObserver`.
 - `Section` usa `content-visibility: auto` con `contain-intrinsic-size`.
-- **Nada de framer-motion en componentes del layout** (`Header`, `ScrollToTop`, `FloatingWhatsApp`): se cargaría en todas las páginas. Entradas con la variante `starting:` (`@starting-style`) y salidas con `usePresence` + clase de salida; `prefers-reduced-motion` con `usePrefersReducedMotion` (`lib/use-reduced-motion.ts`).
+- **No añadir framer-motion** para entradas, salidas o reveals (antes iba en el bundle de todas las páginas). Entradas con la variante `starting:` (`@starting-style`) y salidas con `usePresence` + clase de salida; `prefers-reduced-motion` con `usePrefersReducedMotion` (`lib/use-reduced-motion.ts`).
 - **Efectos ligados al puntero sin `setState` por frame**: escribir variables CSS en el nodo (`style.setProperty`), como `useGlassPointer` y `BorderGlow`.
 - SDKs que solo se usan en una acción (p. ej. `@emailjs/browser`) se importan con `import()` en esa acción. `gtag.js` va con `lazyOnload`; el init (consentimiento + cola en `dataLayer`) con `afterInteractive`.
 
@@ -149,7 +150,7 @@ Para cambiar copias, casos o datos de contacto: **editar los JSON/constants**, n
 - Imports explícitos desde `vitest` (`describe`, `it`, `expect`, `vi`) — sin globals.
 - `next/root-params` se mockea en los tests de server components: `vi.mock('next/root-params', () => ({ lang: () => Promise.resolve('es') }))`.
 - El setup (`vitest.setup.ts`) mockea IntersectionObserver/ResizeObserver/matchMedia y el contexto de canvas para framer-motion/GSAP/OGL.
-- Tests de componentes críticos: Button, GlassButton, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas, ServiceLanding; y `seo.test.ts` (metadata, robots, sitemap, @graph, slugs, llms-full). Añadir tests al crear UI nueva.
+- Tests de componentes críticos: Button, GlassButton, ScrollReveal, Header, ContactForm, Hero, Footer, Input, Textarea, FAQSection, TechStack, FloatingWhatsApp, ScrollToTop, BookingFlow, LegalPage, PageCtas, ServiceLanding; y `seo.test.ts` (metadata, robots, sitemap, @graph, slugs, llms-full). Añadir tests al crear UI nueva.
 
 ## Política de calidad (Sonar / ESLint)
 

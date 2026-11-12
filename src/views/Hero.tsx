@@ -1,6 +1,5 @@
 import { ArrowRight, Check } from 'lucide-react'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
-import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
@@ -30,7 +29,7 @@ export async function Hero() {
       />
 
       <Container className="relative grid min-h-svh items-center gap-16 py-20 sm:py-24 lg:grid-cols-2 lg:gap-12">
-        <FadeIn immediate>
+        <div>
           <div className="flex flex-col items-start gap-6">
             <h1 className="font-display">
               <AnimatedHeading
@@ -64,9 +63,9 @@ export async function Hero() {
               </Button>
             </div>
           </div>
-        </FadeIn>
+        </div>
 
-        <FadeIn delay={0.15}>
+        <div className="motion-safe:animate-fade-in-up">
           <div className="relative mx-auto flex aspect-square max-w-md items-center justify-center">
             <div
               aria-hidden
@@ -98,7 +97,7 @@ export async function Hero() {
               )
             })}
           </dl>
-        </FadeIn>
+        </div>
       </Container>
     </section>
   )

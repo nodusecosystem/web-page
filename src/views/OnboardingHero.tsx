@@ -1,4 +1,3 @@
-import { FadeIn } from '@/components/animations/FadeIn'
 import { Container } from '@/components/ui/Container'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { Clock, ShieldCheck } from 'lucide-react'
@@ -14,7 +13,7 @@ export async function OnboardingHero() {
         className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-light/20 blur-3xl"
       />
       <Container className="relative pt-28 pb-16 sm:pt-36 sm:pb-20">
-        <FadeIn immediate>
+        <div>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
             <p className="text-xs font-bold tracking-[0.2em] text-teal-light uppercase">
               {hero.eyebrow}
@@ -34,7 +33,7 @@ export async function OnboardingHero() {
               </p>
             </div>
           </div>
-        </FadeIn>
+        </div>
       </Container>
     </section>
   )

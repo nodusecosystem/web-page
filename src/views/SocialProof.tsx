@@ -1,4 +1,4 @@
-import { StaggerChildren, StaggerItem } from '@/components/animations/StaggerChildren'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -29,9 +29,9 @@ export async function SocialProof() {
           ))}
         </ul>
 
-        <StaggerChildren className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {socialProof.cases.map((caseStudy) => (
-            <StaggerItem key={caseStudy.id} className="h-full">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-3 lg:[--reveal-cols:3]">
+          {socialProof.cases.map((caseStudy, index) => (
+            <ScrollReveal key={caseStudy.id} index={index} className="h-full">
               <Card variant="elevated" className="flex h-full flex-col gap-5">
                 <div>
                   <h3 className="font-display text-lg font-bold">{caseStudy.client}</h3>
@@ -69,9 +69,9 @@ export async function SocialProof() {
                   </footer>
                 </blockquote>
               </Card>
-            </StaggerItem>
+            </ScrollReveal>
           ))}
-        </StaggerChildren>
+        </div>
       </Container>
     </Section>
   )

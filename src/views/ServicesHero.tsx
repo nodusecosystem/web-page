@@ -1,7 +1,6 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { lang } from 'next/root-params'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
-import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
@@ -26,7 +25,7 @@ export async function ServicesHero() {
       />
 
       <Container className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
-        <FadeIn immediate>
+        <div>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
             <h1 className="font-display">
               <AnimatedHeading
@@ -56,7 +55,7 @@ export async function ServicesHero() {
               ))}
             </ul>
           </div>
-        </FadeIn>
+        </div>
       </Container>
     </section>
   )

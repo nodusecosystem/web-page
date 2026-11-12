@@ -1,7 +1,12 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { WhatsAppIcon } from '@/components/ui/social-icons'
 import { trackLead } from '@/lib/analytics'
+import { cn } from '@/lib/cn'
+import { usePrefersReducedMotion } from '@/lib/use-reduced-motion'
+
+const PULSE_INTERVAL_MS = 10_000
 
 type FloatingWhatsAppProps = {
   href: string
@@ -10,6 +15,17 @@ type FloatingWhatsAppProps = {
 }
 
 export function FloatingWhatsApp({ href, ariaLabel, tooltip }: Readonly<FloatingWhatsAppProps>) {
+  const reduceMotion = usePrefersReducedMotion()
+  const [pulse, setPulse] = useState(0)
+
+  // Un pulso al aparecer y otro cada 10 s: un ping infinito obligaba a
+  // repintar (y recalcular los backdrop-filter) en cada frame.
+  useEffect(() => {
+    if (reduceMotion) return
+    const timer = window.setInterval(() => setPulse((count) => count + 1), PULSE_INTERVAL_MS)
+    return () => window.clearInterval(timer)
+  }, [reduceMotion])
+
   return (
     <a
       href={href}
@@ -26,7 +42,15 @@ export function FloatingWhatsApp({ href, ariaLabel, tooltip }: Readonly<Floating
         {tooltip}
       </span>
       <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-teal-light text-dark shadow-lg transition-transform duration-200 group-hover:scale-105">
-        <span aria-hidden className="absolute inset-0 hidden animate-ping rounded-full bg-teal-light opacity-60 sm:block" />
+        <span
+          key={pulse}
+          aria-hidden
+          data-testid="whatsapp-pulse"
+          className={cn(
+            'absolute inset-0 hidden rounded-full bg-teal-light opacity-60 motion-safe:animate-ping-once sm:block',
+            pulse === 0 && '[animation-delay:1400ms]',
+          )}
+        />
         <WhatsAppIcon className="relative" />
       </span>
     </a>

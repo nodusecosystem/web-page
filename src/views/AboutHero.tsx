@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { lang } from 'next/root-params'
 import { AnimatedHeading } from '@/components/animations/AnimatedHeading'
-import { FadeIn } from '@/components/animations/FadeIn'
 import { HeroBackground } from '@/components/animations/HeroBackground'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
@@ -26,7 +25,7 @@ export async function AboutHero() {
       />
 
       <Container className="relative grid items-center gap-14 pt-32 pb-20 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:pb-28">
-        <FadeIn immediate>
+        <div>
           <div className="flex flex-col items-start gap-6">
             <h1 className="font-display">
               <AnimatedHeading
@@ -47,16 +46,16 @@ export async function AboutHero() {
               </Button>
             </div>
           </div>
-        </FadeIn>
+        </div>
 
-        <FadeIn delay={0.15}>
+        <div className="motion-safe:animate-fade-in-up">
           <figure className="relative mx-auto max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
             <blockquote className="font-display text-xl leading-relaxed font-semibold text-white/90">
               “{dict.site.slogan}”
             </blockquote>
             <figcaption className="mt-4 text-sm text-white/60">{hero.quoteCaption}</figcaption>
           </figure>
-        </FadeIn>
+        </div>
       </Container>
     </section>
   )

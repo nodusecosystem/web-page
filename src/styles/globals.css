@@ -26,10 +26,27 @@
     ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 48s linear infinite;
-  --animate-fade-in-late: fade-in 0.4s ease-out 1s both;
+  --animate-fade-in-late: fade-in 0.4s ease-out 1s backwards;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out 0.15s backwards;
+  --animate-ping-once: ping-once 1s cubic-bezier(0, 0, 0.2, 1) forwards;
 
   @keyframes fade-in {
     from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      translate: 0 24px;
+    }
+  }
+
+  @keyframes ping-once {
+    75%,
+    100% {
+      transform: scale(2);
       opacity: 0;
     }
   }
@@ -99,6 +116,46 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgb(91 199 208 / 0.2);
+}
+
+/* Scroll reveal (ScrollReveal): el contenido sube y aparece ligado al scroll
+   (reversible), con animaciones scroll-driven nativas y sin JS. Sin soporte
+   del navegador o con prefers-reduced-motion se muestra directamente.
+   El rango va en vh y no en % del elemento: en una tarjeta equivale al de
+   bycarolinarincon (entry 30% → cover 35%), pero un bloque alto termina
+   cuando su borde superior llega a media pantalla en vez de seguir
+   moviéndose mientras se lee.
+   Cascada: cada item lleva --reveal-index y su grid declara las columnas de
+   cada breakpoint en --reveal-cols; solo se retrasa la columna dentro de la
+   fila, así las filas siguientes no acumulan retraso. */
+:root {
+  --reveal-distance: clamp(32px, 10vh, 96px);
+  --reveal-start: 10vh;
+  --reveal-end: 45vh;
+  --reveal-step: 3vh;
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    --reveal-offset: calc(mod(var(--reveal-index, 0), var(--reveal-cols, 1)) * var(--reveal-step));
+    animation: scroll-reveal linear both;
+    animation-timeline: view();
+    animation-range: cover calc(var(--reveal-start) + var(--reveal-offset))
+      cover calc(var(--reveal-end) + var(--reveal-offset));
+  }
+
+  @keyframes scroll-reveal {
+    from {
+      opacity: 0;
+      translate: 0 var(--reveal-distance);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    animation: none;
+  }
 }
 
 /* Transición de página (PageTransition): un panel dark con borde diagonal

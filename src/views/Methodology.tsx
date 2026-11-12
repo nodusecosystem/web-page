@@ -1,4 +1,4 @@
-import { FadeIn } from '@/components/animations/FadeIn'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -19,12 +19,12 @@ export async function Methodology() {
           <p className="mt-4 text-lg text-dark/60">{methodology.subheading}</p>
         </div>
 
-        <ol className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-16 grid gap-6 md:grid-cols-2 md:[--reveal-cols:2] lg:grid-cols-5 lg:[--reveal-cols:5]">
           {methodology.steps.map((step, index) => {
             const Icon = METHODOLOGY_ICONS[step.id]
             return (
               <li key={step.id}>
-                <FadeIn delay={index * 0.1} className="h-full">
+                <ScrollReveal index={index} className="h-full">
                   <Card variant="elevated" className="flex h-full flex-col gap-4">
                     <div className="flex items-center justify-between">
                       <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-dark text-teal-light">
@@ -40,7 +40,7 @@ export async function Methodology() {
                       {step.duration}
                     </span>
                   </Card>
-                </FadeIn>
+                </ScrollReveal>
               </li>
             )
           })}

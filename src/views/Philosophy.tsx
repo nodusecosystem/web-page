@@ -1,4 +1,4 @@
-import { FadeIn } from '@/components/animations/FadeIn'
+import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { PHILOSOPHY_ICONS } from '@/lib/constants/icons'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { Card } from '@/components/ui/Card'
@@ -19,11 +19,11 @@ export async function Philosophy() {
           <p className="mt-4 text-lg text-dark/60">{philosophy.subheading}</p>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 sm:[--reveal-cols:2]">
           {philosophy.points.map((point, index) => {
             const Icon = PHILOSOPHY_ICONS[point.id]
             return (
-              <FadeIn key={point.id} delay={index * 0.1} className="h-full">
+              <ScrollReveal key={point.id} index={index} className="h-full">
                 <Card variant="bordered" className="flex h-full flex-col gap-4">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-dark text-teal-light">
                     {Icon ? <Icon aria-hidden className="h-5 w-5" /> : null}
@@ -31,16 +31,16 @@ export async function Philosophy() {
                   <h3 className="font-display text-base font-bold">{point.title}</h3>
                   <p className="text-sm leading-relaxed text-dark/60">{point.description}</p>
                 </Card>
-              </FadeIn>
+              </ScrollReveal>
             )
           })}
         </div>
 
-        <FadeIn delay={0.2}>
+        <ScrollReveal>
           <p className="mx-auto mt-12 max-w-2xl border-l-4 border-teal-light pl-5 text-lg font-semibold text-dark/80">
             {philosophy.quote}
           </p>
-        </FadeIn>
+        </ScrollReveal>
       </Container>
     </Section>
   )
