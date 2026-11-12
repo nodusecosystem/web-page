@@ -5,6 +5,7 @@ import {
   CONTACT_PHONE,
   CRM_URL,
   OG_IMAGE,
+  RELATED_SEARCH_TERMS,
   SERVICE_AREA,
   SITE_ALTERNATE_NAMES,
   SITE_LOGO_PATH,
@@ -48,7 +49,7 @@ export function organizationNode(dict: Dictionary, locale: Locale): SchemaNode {
     priceRange: '$$',
     address: { '@type': 'PostalAddress', addressCountry: CONTACT_COUNTRY_CODE },
     areaServed: areaServed(),
-    knowsAbout: SERVICE_PAGE_IDS.map((id) => items[id].serviceType),
+    knowsAbout: [...SERVICE_PAGE_IDS.map((id) => items[id].serviceType), ...RELATED_SEARCH_TERMS[locale]],
     knowsLanguage: ['es', 'en'],
     contactPoint: {
       '@type': 'ContactPoint',

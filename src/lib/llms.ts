@@ -5,6 +5,7 @@ import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
   CRM_URL,
+  RELATED_SEARCH_TERMS,
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
@@ -114,6 +115,9 @@ function buildHeader(): string[] {
     es.llms.intro,
     '',
     en.llms.intro,
+    '',
+    `Términos de búsqueda relacionados: ${RELATED_SEARCH_TERMS.es.join(', ')}.`,
+    `Related search terms: ${RELATED_SEARCH_TERMS.en.join(', ')}.`,
     '',
   ]
 }

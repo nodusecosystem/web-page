@@ -25,7 +25,7 @@ describe('buildPageMetadata', () => {
   const metadata = buildPageMetadata({
     locale: 'es',
     paths: { es: '/services/pauta-digital', en: '/services/paid-media' },
-    title: 'Agencia de pauta digital',
+    title: 'Pauta digital',
     description: 'Descripción',
   })
 
@@ -35,11 +35,11 @@ describe('buildPageMetadata', () => {
       siteName: SITE_NAME,
       locale: 'es_LA',
       alternateLocale: ['en_US'],
-      title: `Agencia de pauta digital | ${SITE_NAME}`,
+      title: `Pauta digital | ${SITE_NAME}`,
       url: '/es/services/pauta-digital',
     })
     expect(metadata.openGraph?.images).toEqual([expect.objectContaining({ url: '/images/og-image.jpg' })])
-    expect(metadata.twitter).toMatchObject({ title: `Agencia de pauta digital | ${SITE_NAME}`, description: 'Descripción' })
+    expect(metadata.twitter).toMatchObject({ title: `Pauta digital | ${SITE_NAME}`, description: 'Descripción' })
   })
 
   it('links each locale to its own translated slug', () => {
@@ -112,6 +112,7 @@ describe('JSON-LD graph', () => {
       name: SITE_NAME,
       logo: expect.objectContaining({ url: `${SITE_URL}/isotipo.png` }),
       alternateName: expect.arrayContaining(['Nodus Digital']),
+      knowsAbout: expect.arrayContaining(['agencia de marketing digital']),
     })
     expect(organization?.areaServed).toEqual(
       expect.arrayContaining([{ '@type': 'Place', name: 'Latin America' }, { '@type': 'Country', name: 'United States' }]),

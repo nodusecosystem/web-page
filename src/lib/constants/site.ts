@@ -1,6 +1,23 @@
 export const SITE_NAME = 'NODUS ECOSYSTEM'
 export const SITE_TAGLINE = 'digital strategy'
 export const SITE_ALTERNATE_NAMES = ['NODUS', 'Nodus Ecosystem', 'Nodus Digital', 'nodus: digital strategy']
+export const RELATED_SEARCH_TERMS = {
+  es: [
+    'agencia de marketing digital',
+    'agencia de pauta digital',
+    'agencia de desarrollo web',
+    'agencia SEO',
+    'agencia de automatización con IA',
+  ],
+  en: [
+    'digital marketing agency',
+    'paid media agency',
+    'web development agency',
+    'SEO agency',
+    'AI automation agency',
+  ],
+} as const
+
 export const SITE_URL = 'https://nodusecosystem.com'
 export const SITE_LOGO_PATH = '/isotipo.png'
 export const OG_IMAGE = { path: '/images/og-image.jpg', width: 1200, height: 630 } as const

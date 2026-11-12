@@ -140,8 +140,10 @@ function Includes({ page, heading }: Readonly<{ page: ServicePage; heading: stri
           {page.includes.map((item) => (
             <li key={item.title}>
               <Card variant="plain" className="flex h-full flex-col gap-3">
-                <Check aria-hidden className="h-6 w-6 text-teal-light" />
-                <h3 className="font-display text-lg font-bold">{item.title}</h3>
+                <div className="flex items-start gap-3">
+                  <Check aria-hidden className="mt-1 h-5 w-5 shrink-0 text-teal-light" />
+                  <h3 className="font-display text-lg font-bold">{item.title}</h3>
+                </div>
                 <p className="text-sm leading-relaxed text-dark/70">{item.description}</p>
               </Card>
             </li>
@@ -160,13 +162,15 @@ function Process({ page, heading }: Readonly<{ page: ServicePage; heading: strin
         <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {page.process.map((step, index) => (
             <li key={step.title} className="flex flex-col gap-3 rounded-2xl border border-dark/10 p-6">
-              <span
-                aria-hidden
-                className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-dark font-sans text-lg font-bold text-teal-light"
-              >
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="font-display text-lg font-bold">{step.title}</h3>
+              <div className="flex items-center gap-3">
+                <span
+                  aria-hidden
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-dark font-sans text-sm font-bold text-teal-light"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-display text-lg font-bold">{step.title}</h3>
+              </div>
               <p className="text-sm leading-relaxed text-dark/70">{step.description}</p>
             </li>
           ))}

@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # NODUS ECOSYSTEM — Guía para Agentes
 
-Web bilingüe (es/en) de la agencia de marketing y estrategia digital **NODUS ECOSYSTEM** (descriptor: «digital strategy»). Mercado: Latinoamérica y Norteamérica, base en Colombia. Usa siempre `SITE_NAME` (`NODUS ECOSYSTEM`) como nombre de entidad; no reintroduzcas variantes («nodus: digital strategy», «Nodus»). Landing page de conversión en Next.js 16 (App Router) + TypeScript strict + Tailwind CSS v4.
+Web bilingüe (es/en) del growth partner de marketing y estrategia digital **NODUS ECOSYSTEM** (descriptor: «digital strategy»). Mercado: Latinoamérica y Norteamérica, base en Colombia. Usa siempre `SITE_NAME` (`NODUS ECOSYSTEM`) como nombre de entidad; no reintroduzcas variantes («nodus: digital strategy», «Nodus»). Vocabulario de marca: **growth partner** (no «agencia») en todo texto visible; «agencia» solo vive en campos para máquinas (`RELATED_SEARCH_TERMS`: `knowsAbout` y `llms.txt`), nunca como texto oculto al usuario (Google lo penaliza). El asistente de IA del CRM se llama **Mar-IA**. No se ofrece edición de video. Landing page de conversión en Next.js 16 (App Router) + TypeScript strict + Tailwind CSS v4.
 
 ## Comandos
 

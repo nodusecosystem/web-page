@@ -1,18 +1,18 @@
 {
   "site": {
-    "description": "Digital marketing agency for companies across Latin America and North America: paid media, web development, AI automation, CRM and SEO in monthly plans.",
+    "description": "Digital marketing growth partner for companies across Latin America and North America: paid media, web development, AI automation, CRM and SEO in monthly plans.",
     "slogan": "Digital strategy that turns data into growth",
     "responseTime": "In less than 24 hours with an action plan",
     "whatsappMessage": "Hi NODUS, I'd like to know more about your monthly plans"
   },
   "llms": {
-    "intro": "NODUS ECOSYSTEM (digital strategy) is a digital marketing and growth strategy agency based in Colombia that works with companies across Latin America and North America. It combines paid media (Meta Ads, Google Ads and TikTok Ads), social media content strategy, web development and landing pages with Next.js, AI automation (WhatsApp chatbots, n8n, Make), CRM implementation under its ARM concept (Automatic Relationship Management) and SEO and AI search optimization (GEO). It works in no-lock-in monthly plans with clear deliverables and full client ownership of accounts, data and digital assets. It replies within 24 hours with an action plan.",
+    "intro": "NODUS ECOSYSTEM (digital strategy) is a digital marketing and growth strategy partner based in Colombia that works with companies across Latin America and North America. It combines paid media (Meta Ads, Google Ads and TikTok Ads), social media content strategy, web development and landing pages with Next.js, AI automation (WhatsApp chatbots, n8n, Make), CRM implementation under its ARM concept (Automatic Relationship Management) and SEO and AI search optimization (GEO). It works in no-lock-in monthly plans with clear deliverables and full client ownership of accounts, data and digital assets. It replies within 24 hours with an action plan.",
     "keyFacts": [
       "Monthly plans with no lock-in: the client decides when to adjust or scale.",
       "100% client ownership: ad accounts, code (Next.js), CRM databases and automations from day one.",
       "Results model: business metrics (CPA, ROAS, qualified leads) instead of vanity metrics.",
       "Coverage: Latin America and North America, with communication in Spanish and English.",
-      "ARM (Automatic Relationship Management): the NODUS concept for a self-updating CRM; a unified WhatsApp, Instagram and Telegram inbox, an automated pipeline, calendar and the NODIA AI assistant, built on the Nodus CRM platform.",
+      "ARM (Automatic Relationship Management): the NODUS concept for a self-updating CRM; a unified WhatsApp, Instagram and Telegram inbox, an automated pipeline, calendar and the Mar-IA AI assistant, built on the Nodus CRM platform.",
       "Operating base: Colombia (remote-first); business hours Monday to Friday, 09:00 to 18:00 (Colombia time)."
     ]
   },
@@ -55,7 +55,7 @@
       "en": "English"
     },
     "footer": {
-      "description": "Digital marketing agency based in Colombia: paid media, web development, AI automation, CRM and SEO for companies across Latin America and North America.",
+      "description": "Digital marketing growth partner based in Colombia: paid media, web development, AI automation, CRM and SEO for companies across Latin America and North America.",
       "navHeading": "Navigation",
       "servicesHeading": "Services",
       "legalHeading": "Legal",
@@ -82,8 +82,8 @@
     }
   },
   "hero": {
-    "titleStart": "Digital marketing agency",
-    "titleMiddle": "built for growth",
+    "titleStart": "Digital marketing growth partner",
+    "titleMiddle": "built on data",
     "description": [
       { "text": "We help your ", "highlight": false },
       { "text": "business", "highlight": true },
@@ -126,12 +126,10 @@
         "features": [
           "Market intelligence and brand psychographics",
           "Multichannel conversion funnel (TOFU · MOFU · BOFU)",
-          "Content architecture and positioning (Social SEO)",
-          "Video content editing (reels and short formats)"
+          "Content architecture and positioning (Social SEO)"
         ],
         "deliverables": [
           "Approved monthly content calendar",
-          "Edited videos ready to publish (reels and short formats)",
           "Monthly profile and bio optimization",
           "Monthly content performance report"
         ]
@@ -331,8 +329,8 @@
   },
   "about": {
     "hero": {
-      "titleStart": "A digital agency from Colombia,",
-      "titleAccent": "your growth partner",
+      "titleStart": "A digital growth partner from Colombia,",
+      "titleAccent": "built for your growth",
       "titleEnd": "",
       "description": "NODUS was born with a simple idea: companies don't need more digital activity, they need results. We combine strategy, data, technology and execution to accelerate the growth of ambitious businesses.",
       "ctaPrimary": "View services",
@@ -914,11 +912,11 @@
   },
   "metadata": {
     "home": {
-      "title": "Digital Marketing Agency for the Americas | NODUS ECOSYSTEM"
+      "title": "Digital Growth Partner for the Americas | NODUS ECOSYSTEM"
     },
     "about": {
-      "title": "About NODUS: Digital Growth Agency",
-      "description": "Meet NODUS ECOSYSTEM, a digital strategy agency based in Colombia that helps companies across Latin America and North America grow with data, not busywork."
+      "title": "About NODUS: Your Digital Growth Partner",
+      "description": "Meet NODUS ECOSYSTEM, a digital growth strategy partner based in Colombia that helps companies across Latin America and North America grow with data, not busywork."
     },
     "services": {
       "title": "Digital Marketing Services, Monthly Plans",
@@ -963,15 +961,15 @@
       "pauta-digital": {
         "navLabel": "Paid media",
         "serviceType": "Paid advertising management on Meta Ads, Google Ads and TikTok Ads",
-        "metaTitle": "Paid Media Agency: Meta Ads & Google Ads",
+        "metaTitle": "Paid Media Management: Meta & Google Ads",
         "metaDescription": "Paid media on Meta Ads, Google Ads and TikTok Ads for companies across the Americas: a dedicated media buyer, creative testing and a focus on cost per lead.",
-        "titleStart": "Paid media agency",
+        "titleStart": "Paid media",
         "titleAccent": "that lowers your cost per lead",
         "intro": "We plan, launch and optimize your campaigns on Meta Ads (Facebook, Instagram and WhatsApp), Google Ads and TikTok Ads. A dedicated media buyer works from your real differentiator, tests angles and creatives every week and reports on business metrics: conversations, qualified leads, cost per lead and sales.",
         "definition": {
-          "heading": "What does a paid media agency do?",
+          "heading": "What does a paid media partner do?",
           "paragraphs": [
-            "A paid media agency manages your company's ad spend on platforms like Meta, Google and TikTok: it defines audiences, structures campaigns, produces copy and creatives, sets up tracking and optimizes the budget to get results at the lowest possible cost. The specialist who runs this work day to day is often called a media buyer or, in Latin America, a digital trafficker.",
+            "A paid media partner manages your company's ad spend on platforms like Meta, Google and TikTok: it defines audiences, structures campaigns, produces copy and creatives, sets up tracking and optimizes the budget to get results at the lowest possible cost. The specialist who runs this work day to day is often called a media buyer or, in Latin America, a digital trafficker.",
             "At NODUS ECOSYSTEM paid media never runs in isolation: it connects with your content, your website or conversion landing page and the automation that answers every lead on WhatsApp. That way an ad doesn't end in a click, it ends in a conversation your team can close."
           ]
         },
@@ -1303,7 +1301,7 @@
             "description": "Meetings synced with Google Calendar and Google Meet, with automatic reminders before each appointment."
           },
           {
-            "title": "NODIA, AI assistant",
+            "title": "Mar-IA, AI assistant",
             "description": "It queries metrics, pipeline and calendar, summarizes conversations and suggests replies; any action it proposes needs your confirmation."
           }
         ],
@@ -1353,7 +1351,7 @@
           {
             "id": "ia",
             "question": "What does AI do inside the CRM?",
-            "answer": "NODIA, the Nodus CRM AI assistant, answers questions about your metrics, pipeline and calendar, summarizes conversations and suggests replies. It can propose actions, like moving a lead or booking a meeting, but always asks for your confirmation before carrying them out."
+            "answer": "Mar-IA, the Nodus CRM AI assistant, answers questions about your metrics, pipeline and calendar, summarizes conversations and suggests replies. It can propose actions, like moving a lead or booking a meeting, but always asks for your confirmation before carrying them out."
           },
           {
             "id": "datos",
@@ -1371,7 +1369,7 @@
       "posicionamiento-seo": {
         "navLabel": "SEO and AI search",
         "serviceType": "Search engine optimization (SEO) and generative engine optimization (GEO)",
-        "metaTitle": "SEO & AI Search Optimization (GEO) Agency",
+        "metaTitle": "SEO & AI Search Optimization (GEO)",
         "metaDescription": "Rank on Google and get cited by ChatGPT, Perplexity and Gemini: technical SEO, content and structured data for companies across Latin America and North America.",
         "titleStart": "SEO that ranks",
         "titleAccent": "on Google and in AI",
@@ -1474,10 +1472,10 @@
         "navLabel": "Content strategy",
         "serviceType": "Content strategy and social media management",
         "metaTitle": "Content Strategy & Social Media Management",
-        "metaDescription": "Social media content strategy with a conversion funnel, a monthly calendar and short-form video editing for companies across the Americas.",
+        "metaDescription": "Social media content strategy with a conversion funnel, a monthly calendar and profile optimization for companies across the Americas.",
         "titleStart": "Content strategy",
         "titleAccent": "that sells on social media",
-        "intro": "We turn your brand into content with a business goal: we research your audience, build a content funnel and produce a monthly calendar of posts and short videos that attract, educate and convert.",
+        "intro": "We turn your brand into content with a business goal: we research your audience, build a content funnel and plan a monthly calendar of posts that attract, educate and convert.",
         "definition": {
           "heading": "What is a social media content strategy?",
           "paragraphs": [
@@ -1499,8 +1497,8 @@
             "description": "A publishing plan we approve with you before each month starts."
           },
           {
-            "title": "Reels and short-form video editing",
-            "description": "Edited videos ready to post on Instagram, TikTok and Facebook."
+            "title": "Social SEO",
+            "description": "Keywords, captions and text that help Instagram, TikTok and search engines show your content to the people looking for it."
           },
           {
             "title": "Profile optimization",
@@ -1522,7 +1520,7 @@
           },
           {
             "title": "Production",
-            "description": "We create the calendar and copy, and edit the videos."
+            "description": "We create the calendar and the copy for each piece."
           },
           {
             "title": "Analysis",
@@ -1542,7 +1540,7 @@
           {
             "id": "gestion",
             "question": "Do you manage my company's social media?",
-            "answer": "We design the strategy, the monthly calendar and the content, and deliver edited videos ready to post. The exact scope of management, such as publishing or replying to comments, is defined in your monthly plan."
+            "answer": "We design the strategy and the monthly content calendar. The exact scope of management, such as publishing or replying to comments, is defined in your monthly plan."
           },
           {
             "id": "redes",

@@ -1,6 +1,6 @@
 import Script from 'next/script'
 import { GA_MEASUREMENT_ID } from '@/lib/constants/site'
-import { CONSENT_STORAGE_KEY } from '@/lib/consent'
+import { CONSENT_STORAGE_KEY, INTERNAL_TRAFFIC_STORAGE_KEY } from '@/lib/consent'
 
 export function GoogleAnalytics() {
   if (process.env.NODE_ENV !== 'production') return null
@@ -27,8 +27,17 @@ gtag('consent', 'default', {
   ad_personalization: consent,
   wait_for_update: 500
 });
+var internal = false;
+try {
+  var flag = new URLSearchParams(window.location.search).get('traffic_type');
+  if (flag === 'internal') window.localStorage.setItem('${INTERNAL_TRAFFIC_STORAGE_KEY}', '1');
+  if (flag === 'external') window.localStorage.removeItem('${INTERNAL_TRAFFIC_STORAGE_KEY}');
+  internal = window.localStorage.getItem('${INTERNAL_TRAFFIC_STORAGE_KEY}') === '1';
+} catch (error) {
+  internal = false;
+}
 gtag('js', new Date());
-gtag('config', '${GA_MEASUREMENT_ID}');`}
+gtag('config', '${GA_MEASUREMENT_ID}', internal ? { traffic_type: 'internal' } : {});`}
       </Script>
     </>
   )

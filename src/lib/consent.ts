@@ -1,6 +1,7 @@
 import { getGtag } from '@/lib/analytics'
 
 export const CONSENT_STORAGE_KEY = 'nodus-cookie-consent'
+export const INTERNAL_TRAFFIC_STORAGE_KEY = 'nodus-internal-traffic'
 export const OPEN_CONSENT_EVENT = 'nodus:open-cookie-consent'
 
 export type ConsentValue = 'granted' | 'denied'

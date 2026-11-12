@@ -1,18 +1,18 @@
 {
   "site": {
-    "description": "Agencia de marketing digital para empresas de LatAm y Norteamérica: pauta digital, desarrollo web, automatización con IA, CRM y SEO en planes mensuales.",
+    "description": "Growth partner de marketing digital para empresas de LatAm y Norteamérica: pauta digital, desarrollo web, automatización con IA, CRM y SEO en planes mensuales.",
     "slogan": "Estrategia digital que convierte datos en crecimiento",
     "responseTime": "En menos de 24 horas con un plan de acción",
     "whatsappMessage": "Hola NODUS, quiero información sobre sus planes mensuales"
   },
   "llms": {
-    "intro": "NODUS ECOSYSTEM (digital strategy) es una agencia de marketing digital y estrategia de crecimiento con base en Colombia que trabaja con empresas de Latinoamérica y Norteamérica. Integra pauta digital (Meta Ads, Google Ads y TikTok Ads), estrategia de contenido para redes sociales, desarrollo web y landing pages con Next.js, automatización con IA (chatbots de WhatsApp, n8n, Make), implementación de CRM bajo su concepto ARM (Automatic Relationship Management) y posicionamiento SEO y en motores de IA (GEO). Trabaja con planes mensuales sin permanencia, entregables claros y propiedad total de las cuentas, datos y activos digitales del cliente. Responde en menos de 24 horas con un plan de acción.",
+    "intro": "NODUS ECOSYSTEM (digital strategy) es un growth partner de marketing digital y estrategia de crecimiento con base en Colombia que trabaja con empresas de Latinoamérica y Norteamérica. Integra pauta digital (Meta Ads, Google Ads y TikTok Ads), estrategia de contenido para redes sociales, desarrollo web y landing pages con Next.js, automatización con IA (chatbots de WhatsApp, n8n, Make), implementación de CRM bajo su concepto ARM (Automatic Relationship Management) y posicionamiento SEO y en motores de IA (GEO). Trabaja con planes mensuales sin permanencia, entregables claros y propiedad total de las cuentas, datos y activos digitales del cliente. Responde en menos de 24 horas con un plan de acción.",
     "keyFacts": [
       "Planes mensuales sin permanencia: el cliente decide cuándo ajustar o escalar.",
       "Propiedad 100% del cliente: cuentas publicitarias, código (Next.js), bases de datos CRM y automatizaciones desde el día uno.",
       "Modelo de resultados: métricas de negocio (CPA, ROAS, leads calificados) en lugar de métricas de vanidad.",
       "Cobertura: Latinoamérica y Norteamérica, con comunicación en español e inglés.",
-      "ARM (Automatic Relationship Management): concepto de NODUS para un CRM que se actualiza solo; bandeja unificada de WhatsApp, Instagram y Telegram, pipeline automático, agenda y el asistente de IA NODIA, sobre la plataforma Nodus CRM.",
+      "ARM (Automatic Relationship Management): concepto de NODUS para un CRM que se actualiza solo; bandeja unificada de WhatsApp, Instagram y Telegram, pipeline automático, agenda y el asistente de IA Mar-IA, sobre la plataforma Nodus CRM.",
       "Base de operación: Colombia (remote-first); horario de atención de lunes a viernes, de 09:00 a 18:00 (hora de Colombia)."
     ]
   },
@@ -55,7 +55,7 @@
       "en": "English"
     },
     "footer": {
-      "description": "Agencia de marketing digital con base en Colombia: pauta, desarrollo web, automatización con IA, CRM y SEO para empresas de LatAm y Norteamérica.",
+      "description": "Growth partner de marketing digital con base en Colombia: pauta, desarrollo web, automatización con IA, CRM y SEO para empresas de LatAm y Norteamérica.",
       "navHeading": "Navegación",
       "servicesHeading": "Servicios",
       "legalHeading": "Legal",
@@ -82,7 +82,7 @@
     }
   },
   "hero": {
-    "titleStart": "Agencia de marketing digital",
+    "titleStart": "Growth partner de marketing digital",
     "titleMiddle": "para crecer con datos",
     "description": [
       { "text": "Ayudamos a tu ", "highlight": false },
@@ -126,12 +126,10 @@
         "features": [
           "Inteligencia de mercado y psicografía de marca",
           "Embudo de conversión multicanal (TOFU · MOFU · BOFU)",
-          "Arquitectura y posicionamiento de contenido (SEO Social)",
-          "Edición de contenido en video (reels y formatos cortos)"
+          "Arquitectura y posicionamiento de contenido (SEO Social)"
         ],
         "deliverables": [
           "Calendario de contenido mensual aprobado",
-          "Videos editados y listos para publicar (reels y formatos cortos)",
           "Optimización mensual de perfiles y biografías",
           "Reporte mensual de desempeño de contenido"
         ]
@@ -331,8 +329,8 @@
   },
   "about": {
     "hero": {
-      "titleStart": "Agencia digital de Colombia,",
-      "titleAccent": "partner de tu crecimiento",
+      "titleStart": "Growth partner digital de Colombia,",
+      "titleAccent": "aliado de tu crecimiento",
       "description": "NODUS nació con una idea simple: las empresas no necesitan más actividad digital, necesitan resultados. Unimos estrategia, datos, tecnología y ejecución para acelerar el crecimiento de negocios ambiciosos.",
       "ctaPrimary": "Ver servicios",
       "ctaSecondary": "Hablemos",
@@ -913,11 +911,11 @@
   },
   "metadata": {
     "home": {
-      "title": "Agencia de marketing digital en LatAm | NODUS ECOSYSTEM"
+      "title": "Growth partner de marketing digital en LatAm | NODUS ECOSYSTEM"
     },
     "about": {
-      "title": "Sobre NODUS: agencia digital de Colombia",
-      "description": "Conoce NODUS ECOSYSTEM, agencia de estrategia digital con base en Colombia que ayuda a empresas de LatAm y Norteamérica a crecer con datos, no con actividad."
+      "title": "Sobre NODUS: growth partner digital de Colombia",
+      "description": "Conoce NODUS ECOSYSTEM, growth partner de estrategia digital con base en Colombia que ayuda a empresas de LatAm y Norteamérica a crecer con datos, no con actividad."
     },
     "services": {
       "title": "Servicios de marketing digital mensuales",
@@ -962,15 +960,15 @@
       "pauta-digital": {
         "navLabel": "Pauta digital",
         "serviceType": "Gestión de campañas de publicidad digital en Meta Ads, Google Ads y TikTok Ads",
-        "metaTitle": "Agencia de pauta digital y trafficker",
+        "metaTitle": "Pauta digital y trafficker dedicado",
         "metaDescription": "Pauta digital en Meta Ads, Google Ads y TikTok Ads para empresas de LatAm y Norteamérica: trafficker dedicado, testing creativo y foco en tu costo por lead.",
-        "titleStart": "Agencia de pauta digital",
+        "titleStart": "Pauta digital",
         "titleAccent": "que baja tu costo por lead",
         "intro": "Planificamos, lanzamos y optimizamos tus campañas en Meta Ads (Facebook, Instagram y WhatsApp), Google Ads y TikTok Ads. Un trafficker dedicado trabaja sobre tu diferencial real, prueba ángulos y creativos cada semana y reporta en métricas de negocio: conversaciones, leads calificados, costo por lead y ventas.",
         "definition": {
-          "heading": "¿Qué hace una agencia de pauta digital?",
+          "heading": "¿Qué hace un partner de pauta digital?",
           "paragraphs": [
-            "Una agencia de pauta digital gestiona la inversión publicitaria de tu empresa en plataformas como Meta, Google y TikTok: define audiencias, estructura las campañas, produce el copy y los creativos, instala la medición y optimiza el presupuesto para conseguir resultados al menor costo posible. El especialista que ejecuta ese trabajo en el día a día se conoce como trafficker digital.",
+            "Un partner de pauta digital gestiona la inversión publicitaria de tu empresa en plataformas como Meta, Google y TikTok: define audiencias, estructura las campañas, produce el copy y los creativos, instala la medición y optimiza el presupuesto para conseguir resultados al menor costo posible. El especialista que ejecuta ese trabajo en el día a día se conoce como trafficker digital.",
             "En NODUS ECOSYSTEM la pauta no funciona aislada: se conecta con tu contenido, con tu web o landing de conversión y con la automatización que responde a cada lead por WhatsApp. Así el anuncio no termina en un clic, termina en una conversación que tu equipo puede cerrar."
           ]
         },
@@ -1302,7 +1300,7 @@
             "description": "Reuniones sincronizadas con Google Calendar y Google Meet, con recordatorios automáticos antes de cada cita."
           },
           {
-            "title": "NODIA, asistente de IA",
+            "title": "Mar-IA, asistente de IA",
             "description": "Consulta métricas, pipeline y agenda, resume conversaciones y sugiere respuestas; cualquier acción que proponga requiere tu confirmación."
           }
         ],
@@ -1352,7 +1350,7 @@
           {
             "id": "ia",
             "question": "¿Qué hace la inteligencia artificial dentro del CRM?",
-            "answer": "NODIA, el asistente de IA de Nodus CRM, responde preguntas sobre tus métricas, tu pipeline y tu agenda, resume conversaciones y sugiere respuestas. Puede proponer acciones, como mover un lead o agendar una reunión, pero siempre te pide confirmación antes de ejecutarlas."
+            "answer": "Mar-IA, el asistente de IA de Nodus CRM, responde preguntas sobre tus métricas, tu pipeline y tu agenda, resume conversaciones y sugiere respuestas. Puede proponer acciones, como mover un lead o agendar una reunión, pero siempre te pide confirmación antes de ejecutarlas."
           },
           {
             "id": "datos",
@@ -1370,7 +1368,7 @@
       "posicionamiento-seo": {
         "navLabel": "SEO y posicionamiento en IA",
         "serviceType": "Posicionamiento web SEO y optimización para motores de IA (GEO)",
-        "metaTitle": "Agencia SEO y posicionamiento en IA (GEO)",
+        "metaTitle": "SEO y posicionamiento en IA (GEO)",
         "metaDescription": "Posicionamiento web en Google y visibilidad en ChatGPT, Perplexity y Gemini: SEO técnico, contenido y datos estructurados para empresas de LatAm y Norteamérica.",
         "titleStart": "Posicionamiento SEO",
         "titleAccent": "en Google y en la IA",
@@ -1473,10 +1471,10 @@
         "navLabel": "Estrategia de contenido",
         "serviceType": "Estrategia de contenido y gestión de redes sociales",
         "metaTitle": "Estrategia de contenido y redes sociales",
-        "metaDescription": "Estrategia de contenido para redes sociales con embudo de conversión, calendario mensual y edición de reels para empresas de LatAm y Norteamérica.",
+        "metaDescription": "Estrategia de contenido para redes sociales con embudo de conversión, calendario mensual y optimización de perfiles para empresas de LatAm y Norteamérica.",
         "titleStart": "Estrategia de contenido",
         "titleAccent": "que vende en redes sociales",
-        "intro": "Convertimos tu marca en contenido con objetivo comercial: investigamos a tu audiencia, construimos un embudo de contenido y producimos un calendario mensual de publicaciones y videos cortos que atraen, educan y convierten.",
+        "intro": "Convertimos tu marca en contenido con objetivo comercial: investigamos a tu audiencia, construimos un embudo de contenido y planificamos un calendario mensual de publicaciones que atraen, educan y convierten.",
         "definition": {
           "heading": "¿Qué es una estrategia de contenido para redes sociales?",
           "paragraphs": [
@@ -1498,8 +1496,8 @@
             "description": "Un plan de publicaciones que aprobamos contigo antes de empezar cada mes."
           },
           {
-            "title": "Edición de reels y videos cortos",
-            "description": "Videos editados y listos para publicar en Instagram, TikTok y Facebook."
+            "title": "SEO social",
+            "description": "Palabras clave, subtítulos y textos que ayudan a Instagram, TikTok y a los buscadores a mostrar tu contenido a quien lo busca."
           },
           {
             "title": "Optimización de perfiles",
@@ -1521,7 +1519,7 @@
           },
           {
             "title": "Producción",
-            "description": "Creamos el calendario y los textos, y editamos los videos."
+            "description": "Creamos el calendario y los textos de cada pieza."
           },
           {
             "title": "Análisis",
@@ -1541,7 +1539,7 @@
           {
             "id": "gestion",
             "question": "¿Gestionan las redes sociales de mi empresa?",
-            "answer": "Diseñamos la estrategia, el calendario mensual y los contenidos, y editamos los videos listos para publicar. El alcance exacto de la gestión, como la publicación o la respuesta a comentarios, se define en tu plan mensual."
+            "answer": "Diseñamos la estrategia y el calendario mensual de contenidos. El alcance exacto de la gestión, como la publicación o la respuesta a comentarios, se define en tu plan mensual."
           },
           {
             "id": "redes",
