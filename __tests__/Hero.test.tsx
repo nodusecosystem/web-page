@@ -33,6 +33,14 @@ describe('Hero', () => {
     )
   })
 
+  it('highlights every service area, including CRM (ARM)', async () => {
+    render(await Hero())
+    for (const stat of esDict.hero.stats) {
+      expect(screen.getByText(stat.label, { selector: 'dd span' })).toBeInTheDocument()
+    }
+    expect(screen.getByText('CRM (ARM)', { selector: 'dd span' })).toBeInTheDocument()
+  })
+
   it('renders the brand isotipo as inline SVG (no image request)', async () => {
     const { container } = render(await Hero())
     const isotipo = container.querySelector('svg[width="100%"]')

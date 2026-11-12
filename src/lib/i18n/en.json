@@ -111,6 +111,10 @@
       {
         "id": "automatizacion",
         "label": "Active automations"
+      },
+      {
+        "id": "crm",
+        "label": "CRM (ARM)"
       }
     ]
   },

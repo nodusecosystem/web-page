@@ -5,8 +5,17 @@ import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { HeroLogoRing } from '@/components/ui/HeroLogoRing'
 import { Logo } from '@/components/ui/Logo'
+import { cn } from '@/lib/cn'
 import { HERO_STAT_ICONS } from '@/lib/constants/icons'
 import { getDictionary } from '@/lib/i18n/dictionaries'
+
+/**
+ * Cinco áreas: en móvil y en la columna estrecha (lg), 2 por fila y la última a lo ancho; con más
+ * espacio (sm, xl), 3 arriba y 2 centradas abajo en una rejilla de 6 (en una fila de 5, «Automatizaciones»
+ * no cabe en la tarjeta).
+ */
+const STAT_LAYOUT =
+  'last:col-span-2 sm:col-span-2 sm:nth-4:col-start-2 lg:col-span-1 lg:nth-4:col-start-auto lg:last:col-span-2 xl:col-span-2 xl:nth-4:col-start-2'
 
 export async function Hero() {
   const dict = await getDictionary()
@@ -78,13 +87,16 @@ export async function Hero() {
               className="relative h-56 w-56 sm:h-72 sm:w-72"
             />
           </div>
-          <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+          <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-6 lg:grid-cols-2 xl:grid-cols-6">
             {hero.stats.map((stat) => {
               const Icon = HERO_STAT_ICONS[stat.id] ?? Check
               return (
                 <div
                   key={stat.id}
-                  className="flex flex-col items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur"
+                  className={cn(
+                    'flex flex-col items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur',
+                    STAT_LAYOUT,
+                  )}
                 >
                   <dt className="sr-only">{stat.label}</dt>
                   <dd className="flex flex-col items-center gap-3">

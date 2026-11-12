@@ -38,6 +38,7 @@ export const HERO_STAT_ICONS: Record<string, LucideIcon> = {
   ads: Megaphone,
   desarrollo: Code2,
   automatizacion: Workflow,
+  crm: Contact,
 }
 
 export const METHODOLOGY_ICONS: Record<string, LucideIcon> = {
