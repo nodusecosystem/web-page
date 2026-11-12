@@ -1,12 +1,12 @@
 {
   "site": {
-    "description": "Growth partner de marketing digital para empresas de LatAm y Norteamérica: pauta digital, desarrollo web, automatización con IA, CRM y SEO en planes mensuales.",
+    "description": "Agencia y growth partner de marketing digital para empresas de LatAm y Norteamérica: pauta, desarrollo web, automatización con IA, CRM y SEO.",
     "slogan": "Estrategia digital que convierte datos en crecimiento",
     "responseTime": "En menos de 24 horas con un plan de acción",
     "whatsappMessage": "Hola NODUS, quiero información sobre sus planes mensuales"
   },
   "llms": {
-    "intro": "NODUS ECOSYSTEM (digital strategy) es un growth partner de marketing digital y estrategia de crecimiento con base en Colombia que trabaja con empresas de Latinoamérica y Norteamérica. Integra pauta digital (Meta Ads, Google Ads y TikTok Ads), estrategia de contenido para redes sociales, desarrollo web y landing pages con Next.js, automatización con IA (chatbots de WhatsApp, n8n, Make), implementación de CRM bajo su concepto ARM (Automatic Relationship Management) y posicionamiento SEO y en motores de IA (GEO). Trabaja con planes mensuales sin permanencia, entregables claros y propiedad total de las cuentas, datos y activos digitales del cliente. Responde en menos de 24 horas con un plan de acción.",
+    "intro": "NODUS ECOSYSTEM (digital strategy) es una agencia de marketing digital y growth partner de estrategia de crecimiento con base en Colombia que trabaja con empresas de Latinoamérica y Norteamérica. Integra pauta digital (Meta Ads, Google Ads y TikTok Ads), estrategia de contenido para redes sociales, desarrollo web y landing pages con Next.js, automatización con IA (chatbots de WhatsApp, n8n, Make), implementación de CRM bajo su concepto ARM (Automatic Relationship Management) y posicionamiento SEO y en motores de IA (GEO). Trabaja con planes mensuales sin permanencia, entregables claros y propiedad total de las cuentas, datos y activos digitales del cliente. Responde en menos de 24 horas con un plan de acción.",
     "keyFacts": [
       "Planes mensuales sin permanencia: el cliente decide cuándo ajustar o escalar.",
       "Propiedad 100% del cliente: cuentas publicitarias, código (Next.js), bases de datos CRM y automatizaciones desde el día uno.",
@@ -911,15 +911,15 @@
   },
   "metadata": {
     "home": {
-      "title": "Growth partner de marketing digital en LatAm | NODUS ECOSYSTEM"
+      "title": "Agencia y growth partner de marketing digital | NODUS ECOSYSTEM"
     },
     "about": {
-      "title": "Sobre NODUS: growth partner digital de Colombia",
-      "description": "Conoce NODUS ECOSYSTEM, growth partner de estrategia digital con base en Colombia que ayuda a empresas de LatAm y Norteamérica a crecer con datos, no con actividad."
+      "title": "Sobre NODUS: agencia y growth partner",
+      "description": "Agencia de estrategia digital y growth partner en Colombia para empresas de LatAm y Norteamérica que quieren crecer con datos."
     },
     "services": {
-      "title": "Servicios de marketing digital mensuales",
-      "description": "Pauta digital, desarrollo web, automatización con IA, CRM, SEO y contenido en planes mensuales sin permanencia para empresas de LatAm y Norteamérica."
+      "title": "Servicios de agencia de marketing digital",
+      "description": "Agencia y growth partner: pauta digital, desarrollo web, automatización con IA, CRM, SEO y contenido en planes mensuales sin permanencia."
     },
     "contact": {
       "title": "Contacto: agenda tu diagnóstico gratuito",
@@ -960,8 +960,8 @@
       "pauta-digital": {
         "navLabel": "Pauta digital",
         "serviceType": "Gestión de campañas de publicidad digital en Meta Ads, Google Ads y TikTok Ads",
-        "metaTitle": "Pauta digital y trafficker dedicado",
-        "metaDescription": "Pauta digital en Meta Ads, Google Ads y TikTok Ads para empresas de LatAm y Norteamérica: trafficker dedicado, testing creativo y foco en tu costo por lead.",
+        "metaTitle": "Agencia de pauta digital y trafficker",
+        "metaDescription": "Agencia de pauta digital y growth partner en crecimiento: Meta Ads, Google Ads y TikTok Ads con trafficker dedicado.",
         "titleStart": "Pauta digital",
         "titleAccent": "que baja tu costo por lead",
         "intro": "Planificamos, lanzamos y optimizamos tus campañas en Meta Ads (Facebook, Instagram y WhatsApp), Google Ads y TikTok Ads. Un trafficker dedicado trabaja sobre tu diferencial real, prueba ángulos y creativos cada semana y reporta en métricas de negocio: conversaciones, leads calificados, costo por lead y ventas.",
@@ -1062,8 +1062,8 @@
       "desarrollo-web": {
         "navLabel": "Desarrollo web",
         "serviceType": "Desarrollo web, diseño de páginas web y landing pages",
-        "metaTitle": "Desarrollo web y landing pages a medida",
-        "metaDescription": "Diseño y desarrollo de páginas web y landing pages rápidas, optimizadas para SEO y conversión, con Next.js. Para empresas de LatAm y Norteamérica.",
+        "metaTitle": "Agencia de desarrollo web y landing pages",
+        "metaDescription": "Agencia de desarrollo web y growth partner: páginas y landings rápidas, optimizadas para SEO y conversión, con Next.js.",
         "titleStart": "Desarrollo web",
         "titleAccent": "que convierte visitas en clientes",
         "intro": "Diseñamos y desarrollamos sitios web, landing pages y herramientas a medida pensadas para vender: rápidas, medibles, fáciles de encontrar en Google y conectadas a tu CRM, tus formularios y tus campañas.",
@@ -1164,8 +1164,8 @@
       "automatizacion-ia": {
         "navLabel": "Automatización con IA",
         "serviceType": "Automatización de procesos y chatbots con inteligencia artificial",
-        "metaTitle": "Automatización con IA para empresas",
-        "metaDescription": "Chatbots de WhatsApp con IA, seguimiento automático de leads y flujos con n8n y Make conectados a tu CRM. Automatización para empresas de LatAm y Norteamérica.",
+        "metaTitle": "Agencia de automatización con IA",
+        "metaDescription": "Agencia de automatización con IA y growth partner: chatbots de WhatsApp, seguimiento de leads y flujos con n8n y Make.",
         "titleStart": "Automatización con IA",
         "titleAccent": "que trabaja por tu equipo",
         "intro": "Automatizamos las tareas repetitivas de tu operación comercial: respuestas por WhatsApp, calificación y seguimiento de leads, recordatorios y reportes. Combinamos chatbots con inteligencia artificial y flujos en n8n o Make para que tu equipo dedique su tiempo a cerrar ventas.",
@@ -1368,8 +1368,8 @@
       "posicionamiento-seo": {
         "navLabel": "SEO y posicionamiento en IA",
         "serviceType": "Posicionamiento web SEO y optimización para motores de IA (GEO)",
-        "metaTitle": "SEO y posicionamiento en IA (GEO)",
-        "metaDescription": "Posicionamiento web en Google y visibilidad en ChatGPT, Perplexity y Gemini: SEO técnico, contenido y datos estructurados para empresas de LatAm y Norteamérica.",
+        "metaTitle": "Agencia SEO y posicionamiento en IA (GEO)",
+        "metaDescription": "Agencia SEO y growth partner: posicionamiento en Google y visibilidad en ChatGPT, Perplexity y Gemini.",
         "titleStart": "Posicionamiento SEO",
         "titleAccent": "en Google y en la IA",
         "intro": "Hacemos que tu empresa aparezca cuando tus clientes buscan lo que vendes, tanto en Google como en asistentes de inteligencia artificial como ChatGPT, Perplexity o Gemini. Combinamos SEO técnico, contenido útil y señales de autoridad.",
@@ -1470,8 +1470,8 @@
       "estrategia-de-contenido": {
         "navLabel": "Estrategia de contenido",
         "serviceType": "Estrategia de contenido y gestión de redes sociales",
-        "metaTitle": "Estrategia de contenido y redes sociales",
-        "metaDescription": "Estrategia de contenido para redes sociales con embudo de conversión, calendario mensual y optimización de perfiles para empresas de LatAm y Norteamérica.",
+        "metaTitle": "Agencia de contenido y redes sociales",
+        "metaDescription": "Agencia de estrategia de contenido y growth partner para redes sociales: embudo, calendario mensual y perfiles optimizados.",
         "titleStart": "Estrategia de contenido",
         "titleAccent": "que vende en redes sociales",
         "intro": "Convertimos tu marca en contenido con objetivo comercial: investigamos a tu audiencia, construimos un embudo de contenido y planificamos un calendario mensual de publicaciones que atraen, educan y convierten.",

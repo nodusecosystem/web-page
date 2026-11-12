@@ -1,12 +1,12 @@
 {
   "site": {
-    "description": "Digital marketing growth partner for companies across Latin America and North America: paid media, web development, AI automation, CRM and SEO in monthly plans.",
+    "description": "Digital marketing agency and growth partner for companies across Latin America and North America: paid media, web development, AI automation, CRM and SEO.",
     "slogan": "Digital strategy that turns data into growth",
     "responseTime": "In less than 24 hours with an action plan",
     "whatsappMessage": "Hi NODUS, I'd like to know more about your monthly plans"
   },
   "llms": {
-    "intro": "NODUS ECOSYSTEM (digital strategy) is a digital marketing and growth strategy partner based in Colombia that works with companies across Latin America and North America. It combines paid media (Meta Ads, Google Ads and TikTok Ads), social media content strategy, web development and landing pages with Next.js, AI automation (WhatsApp chatbots, n8n, Make), CRM implementation under its ARM concept (Automatic Relationship Management) and SEO and AI search optimization (GEO). It works in no-lock-in monthly plans with clear deliverables and full client ownership of accounts, data and digital assets. It replies within 24 hours with an action plan.",
+    "intro": "NODUS ECOSYSTEM (digital strategy) is a digital marketing agency and growth strategy partner based in Colombia that works with companies across Latin America and North America. It combines paid media (Meta Ads, Google Ads and TikTok Ads), social media content strategy, web development and landing pages with Next.js, AI automation (WhatsApp chatbots, n8n, Make), CRM implementation under its ARM concept (Automatic Relationship Management) and SEO and AI search optimization (GEO). It works in no-lock-in monthly plans with clear deliverables and full client ownership of accounts, data and digital assets. It replies within 24 hours with an action plan.",
     "keyFacts": [
       "Monthly plans with no lock-in: the client decides when to adjust or scale.",
       "100% client ownership: ad accounts, code (Next.js), CRM databases and automations from day one.",
@@ -912,15 +912,15 @@
   },
   "metadata": {
     "home": {
-      "title": "Digital Growth Partner for the Americas | NODUS ECOSYSTEM"
+      "title": "Digital Marketing Agency & Growth Partner | NODUS ECOSYSTEM"
     },
     "about": {
-      "title": "About NODUS: Your Digital Growth Partner",
-      "description": "Meet NODUS ECOSYSTEM, a digital growth strategy partner based in Colombia that helps companies across Latin America and North America grow with data, not busywork."
+      "title": "About NODUS: Agency & Growth Partner",
+      "description": "A digital strategy agency and growth partner based in Colombia that helps companies across Latin America and North America grow with data, not busywork."
     },
     "services": {
-      "title": "Digital Marketing Services, Monthly Plans",
-      "description": "Paid media, web development, AI automation, CRM, SEO and content strategy in no-lock-in monthly plans for companies across Latin America and North America."
+      "title": "Digital Marketing Agency Services",
+      "description": "Agency and growth partner: paid media, web development, AI automation, CRM, SEO and content strategy in no-lock-in monthly plans."
     },
     "contact": {
       "title": "Contact: Book a Free Strategy Call",
@@ -961,8 +961,8 @@
       "pauta-digital": {
         "navLabel": "Paid media",
         "serviceType": "Paid advertising management on Meta Ads, Google Ads and TikTok Ads",
-        "metaTitle": "Paid Media Management: Meta & Google Ads",
-        "metaDescription": "Paid media on Meta Ads, Google Ads and TikTok Ads for companies across the Americas: a dedicated media buyer, creative testing and a focus on cost per lead.",
+        "metaTitle": "Paid Media Agency: Meta & Google Ads",
+        "metaDescription": "Paid media agency and growth partner: Meta Ads, Google Ads and TikTok Ads with a dedicated media buyer and a focus on cost per lead.",
         "titleStart": "Paid media",
         "titleAccent": "that lowers your cost per lead",
         "intro": "We plan, launch and optimize your campaigns on Meta Ads (Facebook, Instagram and WhatsApp), Google Ads and TikTok Ads. A dedicated media buyer works from your real differentiator, tests angles and creatives every week and reports on business metrics: conversations, qualified leads, cost per lead and sales.",
@@ -1063,8 +1063,8 @@
       "desarrollo-web": {
         "navLabel": "Web development",
         "serviceType": "Web development, website design and landing pages",
-        "metaTitle": "Web Development & Landing Page Design",
-        "metaDescription": "Fast, SEO-ready websites and conversion landing pages built with Next.js and connected to your CRM. Web development for companies across the Americas.",
+        "metaTitle": "Web Development Agency & Landing Pages",
+        "metaDescription": "Web development agency and growth partner: fast, SEO-ready websites and conversion landing pages built with Next.js and connected to your CRM.",
         "titleStart": "Web development",
         "titleAccent": "that turns visitors into customers",
         "intro": "We design and build websites, landing pages and custom tools made to sell: fast, measurable, easy to find on Google and connected to your CRM, forms and campaigns.",
@@ -1165,8 +1165,8 @@
       "automatizacion-ia": {
         "navLabel": "AI automation",
         "serviceType": "Business process automation and AI chatbots",
-        "metaTitle": "AI Automation & WhatsApp Chatbots",
-        "metaDescription": "AI WhatsApp chatbots, automated lead follow-up and n8n or Make workflows connected to your CRM, for companies across Latin America and North America.",
+        "metaTitle": "AI Automation Agency & WhatsApp Chatbots",
+        "metaDescription": "AI automation agency and growth partner: WhatsApp chatbots, automated lead follow-up and n8n or Make workflows connected to your CRM.",
         "titleStart": "AI automation",
         "titleAccent": "that works for your team",
         "intro": "We automate the repetitive work in your sales operation: WhatsApp replies, lead qualification and follow-up, reminders and reports. We combine AI chatbots with n8n or Make workflows so your team can spend its time closing deals.",
@@ -1369,8 +1369,8 @@
       "posicionamiento-seo": {
         "navLabel": "SEO and AI search",
         "serviceType": "Search engine optimization (SEO) and generative engine optimization (GEO)",
-        "metaTitle": "SEO & AI Search Optimization (GEO)",
-        "metaDescription": "Rank on Google and get cited by ChatGPT, Perplexity and Gemini: technical SEO, content and structured data for companies across Latin America and North America.",
+        "metaTitle": "SEO & AI Search Optimization (GEO) Agency",
+        "metaDescription": "SEO agency and growth partner: rank on Google and get cited by ChatGPT, Perplexity and Gemini with technical SEO, content and structured data.",
         "titleStart": "SEO that ranks",
         "titleAccent": "on Google and in AI",
         "intro": "We make your company show up when customers search for what you sell, both on Google and in AI assistants like ChatGPT, Perplexity or Gemini. We combine technical SEO, useful content and authority signals.",
@@ -1471,8 +1471,8 @@
       "estrategia-de-contenido": {
         "navLabel": "Content strategy",
         "serviceType": "Content strategy and social media management",
-        "metaTitle": "Content Strategy & Social Media Management",
-        "metaDescription": "Social media content strategy with a conversion funnel, a monthly calendar and profile optimization for companies across the Americas.",
+        "metaTitle": "Content Strategy & Social Media Agency",
+        "metaDescription": "Content strategy agency and growth partner for social media: conversion funnel, monthly calendar and profile optimization.",
         "titleStart": "Content strategy",
         "titleAccent": "that sells on social media",
         "intro": "We turn your brand into content with a business goal: we research your audience, build a content funnel and plan a monthly calendar of posts that attract, educate and convert.",
