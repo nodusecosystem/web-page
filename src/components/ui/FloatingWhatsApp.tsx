@@ -1,6 +1,5 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
 import { WhatsAppIcon } from '@/components/ui/social-icons'
 import { trackLead } from '@/lib/analytics'
 
@@ -11,19 +10,14 @@ type FloatingWhatsAppProps = {
 }
 
 export function FloatingWhatsApp({ href, ariaLabel, tooltip }: Readonly<FloatingWhatsAppProps>) {
-  const reduceMotion = useReducedMotion()
-
   return (
-    <motion.a
+    <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
       onClick={() => trackLead('whatsapp', { placement: 'floating_button' })}
-      initial={reduceMotion ? false : { opacity: 0 }}
-      animate={reduceMotion ? false : { opacity: 1 }}
-      transition={reduceMotion ? undefined : { delay: 1, duration: 0.4, ease: 'easeOut' }}
-      className="group fixed bottom-5 right-7 z-40 flex items-center gap-3 md:right-8 md:bottom-6"
+      className="group fixed bottom-5 right-7 z-40 flex items-center gap-3 motion-safe:animate-fade-in-late md:right-8 md:bottom-6"
     >
       <span
         aria-hidden
@@ -35,6 +29,6 @@ export function FloatingWhatsApp({ href, ariaLabel, tooltip }: Readonly<Floating
         <span aria-hidden className="absolute inset-0 hidden animate-ping rounded-full bg-teal-light opacity-60 sm:block" />
         <WhatsAppIcon className="relative" />
       </span>
-    </motion.a>
+    </a>
   )
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Globe, Menu, X } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -12,6 +11,7 @@ import { cn } from '@/lib/cn'
 import { alternateLocalePath } from '@/lib/constants/services'
 import type { Locale } from '@/lib/i18n/dictionaries'
 import { useGlassPointer } from '@/lib/use-glass-pointer'
+import { usePresence } from '@/lib/use-presence'
 
 type HeaderLink = {
   label: string
@@ -50,6 +50,9 @@ const LIGHT_TOP_PAGES = new Set(['/contact'])
 
 const HEADER_MATCH_POINT = 24
 
+const LANG_MENU_EXIT_MS = 150
+const MOBILE_MENU_EXIT_MS = 200
+
 const HEADER_THEME_RE = /rgba?\(\s*(\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/
 
 export function Header({
@@ -71,6 +74,8 @@ export function Header({
   const navRef = useRef<HTMLElement>(null)
   const rafRef = useRef(0)
   const { handlePointerMove: handleNavPointerMove } = useGlassPointer(navRef)
+  const langMenu = usePresence(isLangOpen, LANG_MENU_EXIT_MS)
+  const mobileMenu = usePresence(isMenuOpen, MOBILE_MENU_EXIT_MS)
 
   useEffect(() => {
     const readViewport = () => {
@@ -180,43 +185,41 @@ export function Header({
         <Globe aria-hidden className="h-5 w-5" />
       </button>
 
-      <AnimatePresence>
-        {isLangOpen ? (
-          <motion.div
-            role="menu"
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.15 }}
-            className="absolute top-full right-0 z-10 mt-2 w-40 overflow-hidden rounded-xl border border-teal-light/25 bg-dark/90 p-1.5 shadow-lg backdrop-blur-xl"
-          >
-            {LANG_OPTIONS.map((option) => {
-              const isActive = option.code === currentLocale
-              return (
-                <Link
-                  key={option.code}
-                  role="menuitem"
-                  href={alternateLocalePath(pathname, option.code)}
-                  aria-current={isActive ? 'true' : undefined}
-                  onClick={() => {
-                    setIsLangOpen(false)
-                    closeMenu()
-                  }}
-                  className={cn(
-                    'flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors',
-                    isActive
-                      ? 'font-semibold text-teal-light'
-                      : 'text-white/70 hover:bg-white/10',
-                  )}
-                >
-                  {langToggle[option.labelKey]}
-                  {isActive ? <Check aria-hidden className="h-4 w-4" /> : null}
-                </Link>
-              )
-            })}
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      {langMenu.mounted ? (
+        <div
+          role="menu"
+          className={cn(
+            'absolute top-full right-0 z-10 mt-2 w-40 overflow-hidden rounded-xl border border-teal-light/25 bg-dark/90 p-1.5 shadow-lg backdrop-blur-xl',
+            '[transition:opacity_150ms_ease-out,translate_150ms_ease-out] starting:-translate-y-1 starting:opacity-0',
+            langMenu.leaving && 'pointer-events-none -translate-y-1 opacity-0',
+          )}
+        >
+          {LANG_OPTIONS.map((option) => {
+            const isActive = option.code === currentLocale
+            return (
+              <Link
+                key={option.code}
+                role="menuitem"
+                href={alternateLocalePath(pathname, option.code)}
+                aria-current={isActive ? 'true' : undefined}
+                onClick={() => {
+                  setIsLangOpen(false)
+                  closeMenu()
+                }}
+                className={cn(
+                  'flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors',
+                  isActive
+                    ? 'font-semibold text-teal-light'
+                    : 'text-white/70 hover:bg-white/10',
+                )}
+              >
+                {langToggle[option.labelKey]}
+                {isActive ? <Check aria-hidden className="h-4 w-4" /> : null}
+              </Link>
+            )
+          })}
+        </div>
+      ) : null}
     </div>
   )
 
@@ -288,39 +291,37 @@ export function Header({
         </Container>
       </div>
 
-      <AnimatePresence>
-        {isMenuOpen ? (
-          <motion.nav
-            id="mobile-menu"
-            aria-label={ariaLabels.mobileNav}
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden"
-          >
-            <div className="glass-panel-strong w-full">
-              <Container className="flex flex-col gap-1 py-4">
-                {links.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="rounded-lg px-3 py-2.5 text-base font-medium text-white hover:bg-teal-light/10"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="pt-2">
-                  <Button href={cta.href} onClick={closeMenu} className="w-full">
-                    {cta.label}
-                  </Button>
-                </div>
-              </Container>
-            </div>
-          </motion.nav>
-        ) : null}
-      </AnimatePresence>
+      {mobileMenu.mounted ? (
+        <nav
+          id="mobile-menu"
+          aria-label={ariaLabels.mobileNav}
+          className={cn(
+            'md:hidden',
+            '[transition:opacity_200ms_ease-out,translate_200ms_ease-out] starting:-translate-y-2 starting:opacity-0',
+            mobileMenu.leaving && 'pointer-events-none -translate-y-2 opacity-0',
+          )}
+        >
+          <div className="glass-panel-strong w-full">
+            <Container className="flex flex-col gap-1 py-4">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="rounded-lg px-3 py-2.5 text-base font-medium text-white hover:bg-teal-light/10"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="pt-2">
+                <Button href={cta.href} onClick={closeMenu} className="w-full">
+                  {cta.label}
+                </Button>
+              </div>
+            </Container>
+          </div>
+        </nav>
+      ) : null}
     </header>
   )
 }

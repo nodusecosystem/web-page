@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { fireEvent, render, waitFor } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import { Card } from '@/components/ui/Card'
 
 describe('Card', () => {
@@ -20,6 +20,29 @@ describe('Card', () => {
     const { container } = render(<Card variant="glass">X</Card>)
     expect(container.querySelector('[style*="backdrop-filter: blur(4px)"]')).toBeInTheDocument()
     expect(container.querySelector('filter')).not.toBeInTheDocument()
+  })
+
+  it('drives the border glow with CSS variables instead of re-rendering on pointer move', async () => {
+    const { container } = render(<Card>Contenido</Card>)
+    const glowRoot = container.firstElementChild as HTMLElement
+    vi.spyOn(glowRoot, 'getBoundingClientRect').mockReturnValue({
+      x: 0,
+      y: 0,
+      top: 0,
+      left: 0,
+      right: 200,
+      bottom: 100,
+      width: 200,
+      height: 100,
+      toJSON: () => ({}),
+    } as DOMRect)
+
+    fireEvent.pointerMove(glowRoot, { clientX: 200, clientY: 50 })
+
+    await waitFor(() => {
+      expect(glowRoot.style.getPropertyValue('--border-glow-angle')).toBe('90.000deg')
+      expect(glowRoot.style.getPropertyValue('--border-glow-proximity')).toBe('1')
+    })
   })
 
   it('renders the plain variant without glow, glass or canvas layers', () => {

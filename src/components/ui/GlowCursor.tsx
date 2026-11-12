@@ -1,25 +1,14 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useRef, useSyncExternalStore, type ReactNode } from 'react'
+import { useRef, type ReactNode } from 'react'
 import { useIsMobile } from '@/lib/use-mobile'
+import { usePrefersReducedMotion } from '@/lib/use-reduced-motion'
 import { cn } from '@/lib/cn'
 
 const GlowCursorFx = dynamic(() => import('@/components/ui/reactbits/GlowCursorFx'), {
   ssr: false,
 })
-
-const MOTION_QUERY = '(prefers-reduced-motion: reduce)'
-
-function subscribe(callback: () => void) {
-  const list = window.matchMedia(MOTION_QUERY)
-  list.addEventListener('change', callback)
-  return () => list.removeEventListener('change', callback)
-}
-
-function getSnapshot() {
-  return window.matchMedia(MOTION_QUERY).matches
-}
 
 type GlowCursorProps = {
   children: ReactNode
@@ -27,7 +16,7 @@ type GlowCursorProps = {
 }
 
 export function GlowCursor({ children, className }: GlowCursorProps) {
-  const reduceMotion = useSyncExternalStore(subscribe, getSnapshot, () => false)
+  const reduceMotion = usePrefersReducedMotion()
   const isMobile = useIsMobile()
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)

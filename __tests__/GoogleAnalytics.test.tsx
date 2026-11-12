@@ -1,15 +1,15 @@
-import { render } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 import { GA_MEASUREMENT_ID } from '@/lib/constants/site'
 import { INTERNAL_TRAFFIC_STORAGE_KEY } from '@/lib/consent'
 
-const getInjectedScripts = (): HTMLScriptElement[] =>
-  Array.from(document.body.querySelectorAll('script[data-nscript="afterInteractive"]'))
+const getInjectedScripts = (strategy = 'afterInteractive'): HTMLScriptElement[] =>
+  Array.from(document.body.querySelectorAll(`script[data-nscript="${strategy}"]`))
 
 describe('GoogleAnalytics', () => {
   afterEach(() => {
-    for (const script of getInjectedScripts()) script.remove()
+    for (const script of [...getInjectedScripts(), ...getInjectedScripts('lazyOnload')]) script.remove()
     vi.unstubAllEnvs()
   })
 
@@ -17,15 +17,24 @@ describe('GoogleAnalytics', () => {
     vi.stubEnv('NODE_ENV', 'development')
     render(<GoogleAnalytics />)
     expect(getInjectedScripts()).toHaveLength(0)
+    expect(getInjectedScripts('lazyOnload')).toHaveLength(0)
   })
 
-  it('loads gtag.js and configures the measurement ID in production', () => {
+  it('defers gtag.js until after load and configures the measurement ID in production', async () => {
     vi.stubEnv('NODE_ENV', 'production')
     render(<GoogleAnalytics />)
 
-    const scripts = getInjectedScripts()
-    const loader = scripts.find((script) => script.src.includes('googletagmanager.com/gtag/js'))
+    const loader = await waitFor(() => {
+      const script = getInjectedScripts('lazyOnload').find((item) =>
+        item.src.includes('googletagmanager.com/gtag/js'),
+      )
+      expect(script).toBeDefined()
+      return script
+    })
     expect(loader).toHaveAttribute('src', expect.stringContaining(GA_MEASUREMENT_ID))
+
+    const scripts = getInjectedScripts()
+    expect(scripts.some((script) => script.src.includes('googletagmanager.com'))).toBe(false)
 
     const config = scripts.find((script) => script.textContent?.includes("gtag('config'"))
     expect(config?.textContent).toContain("gtag('consent', 'default'")

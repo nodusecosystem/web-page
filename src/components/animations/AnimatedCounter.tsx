@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useReducedMotion } from 'framer-motion'
 import { cn } from '@/lib/cn'
 import { useIsMobile } from '@/lib/use-mobile'
+import { usePrefersReducedMotion } from '@/lib/use-reduced-motion'
 
 type AnimatedCounterProps = {
   value: string | number
@@ -18,7 +18,7 @@ export function AnimatedCounter({
   value,
   className,
 }: Readonly<AnimatedCounterProps>) {
-  const reduceMotion = useReducedMotion()
+  const reduceMotion = usePrefersReducedMotion()
   const isMobile = useIsMobile()
   const ref = useRef<HTMLSpanElement>(null)
   const [inView, setInView] = useState(false)

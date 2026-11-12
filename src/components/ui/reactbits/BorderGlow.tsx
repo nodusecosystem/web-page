@@ -59,7 +59,16 @@ function animateValue({ start = 0, end = 100, duration = 1000, delay = 0, ease =
   setTimeout(() => requestAnimationFrame(tick), delay);
 }
 
-const GRADIENT_POSITIONS = ['80% 55%', '69% 34%', '8% 6%', '41% 38%', '86% 85%', '82% 18%', '51% 4%'];
+const ANGLE_VAR = '--border-glow-angle';
+const PROXIMITY_VAR = '--border-glow-proximity';
+const INITIAL_ANGLE = '45deg';
+
+/** Opacidad 0–1 según la cercanía del puntero al borde, resuelta en CSS. */
+function opacityFromProximity(sensitivity: number): string {
+  return `max(0, calc((var(${PROXIMITY_VAR}, 0) * 100 - ${sensitivity}) / ${100 - sensitivity}))`;
+}
+
+const GRADIENT_POSITIONS =['80% 55%', '69% 34%', '8% 6%', '41% 38%', '86% 85%', '82% 18%', '51% 4%'];
 const COLOR_MAP = [0, 1, 2, 0, 1, 2, 1];
 
 function buildMeshGradients(colors: string[]): string[] {
@@ -88,9 +97,16 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [cursorAngle, setCursorAngle] = useState(45);
-  const [edgeProximity, setEdgeProximity] = useState(0);
   const [sweepActive, setSweepActive] = useState(false);
+
+  // Ángulo y proximidad cambian en cada frame de puntero: van como variables
+  // CSS en el nodo (sin re-render de React); los estilos las leen con var().
+  const setCursorAngle = useCallback((degrees: number) => {
+    cardRef.current?.style.setProperty(ANGLE_VAR, `${degrees.toFixed(3)}deg`);
+  }, []);
+  const setEdgeProximity = useCallback((proximity: number) => {
+    cardRef.current?.style.setProperty(PROXIMITY_VAR, String(proximity));
+  }, []);
 
   const getCenterOfElement = useCallback((el: HTMLElement) => {
     const { width, height } = el.getBoundingClientRect();
@@ -137,7 +153,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       setEdgeProximity(getEdgeProximity(current, x, y));
       setCursorAngle(getCursorAngle(current, x, y));
     });
-  }, [getEdgeProximity, getCursorAngle]);
+  }, [getEdgeProximity, getCursorAngle, setEdgeProximity, setCursorAngle]);
 
   useEffect(() => {
     return () => {
@@ -166,21 +182,17 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       onUpdate: v => setEdgeProximity(v / 100),
       onEnd: () => setSweepActive(false),
     });
-  }, [animated]);
+  }, [animated, setCursorAngle, setEdgeProximity]);
 
   const colorSensitivity = edgeSensitivity + 20;
   const isVisible = isHovered || sweepActive;
-  const borderOpacity = isVisible
-    ? Math.max(0, (edgeProximity * 100 - colorSensitivity) / (100 - colorSensitivity))
-    : 0;
-  const glowOpacity = isVisible
-    ? Math.max(0, (edgeProximity * 100 - edgeSensitivity) / (100 - edgeSensitivity))
-    : 0;
+  const borderOpacity = isVisible ? opacityFromProximity(colorSensitivity) : '0';
+  const glowOpacity = isVisible ? opacityFromProximity(edgeSensitivity) : '0';
 
   const meshGradients = buildMeshGradients(colors);
   const borderBg = meshGradients.map(g => `${g} border-box`);
   const fillBg = meshGradients.map(g => `${g} padding-box`);
-  const angleDeg = `${cursorAngle.toFixed(3)}deg`;
+  const angleDeg = `var(${ANGLE_VAR}, ${INITIAL_ANGLE})`;
 
   return (
     <div
@@ -241,7 +253,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
           ].join(', '),
           maskComposite: 'subtract, add, add, add, add, add',
           WebkitMaskComposite: 'source-out, source-over, source-over, source-over, source-over, source-over',
-          opacity: borderOpacity * fillOpacity,
+          opacity: `calc(${borderOpacity} * ${fillOpacity})`,
           mixBlendMode: 'soft-light',
           transition: isVisible ? 'opacity 0.25s ease-out' : 'opacity 0.75s ease-in-out',
         } as React.CSSProperties}

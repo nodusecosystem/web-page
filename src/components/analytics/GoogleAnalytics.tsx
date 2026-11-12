@@ -5,11 +5,13 @@ import { CONSENT_STORAGE_KEY, INTERNAL_TRAFFIC_STORAGE_KEY } from '@/lib/consent
 export function GoogleAnalytics() {
   if (process.env.NODE_ENV !== 'production') return null
 
+  // gtag.js (~180 KB) se carga tras el load para no competir con la página;
+  // el init es mínimo y va antes: deja consentimiento y eventos en dataLayer.
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <Script id="ga4-init" strategy="afterInteractive">
         {`window.dataLayer = window.dataLayer || [];

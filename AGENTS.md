@@ -60,9 +60,10 @@ src/
 │   ├── llms.ts              # llms.txt y llms-full.txt
 │   ├── legal.ts             # Rutas + metadata de las páginas legales
 │   ├── fonts.ts             # Modica + Century Gothic (next/font/local), compartidas por layout y global-not-found
-│   └── cn.ts, format.ts (format, localePath), types.ts, validation.ts, emailjs.ts, booking-store.ts, use-mobile.ts
+│   └── cn.ts, format.ts (format, localePath), types.ts, validation.ts, emailjs.ts, booking-store.ts, use-mobile.ts,
+│                            # use-reduced-motion.ts, use-presence.ts (montaje durante la salida CSS)
 ├── proxy.ts                 # Redirección a /es o /en
-└── styles/                  # globals.css (tokens @theme), glass-button.css, fonts/ (TTF de marca)
+└── styles/                  # globals.css (tokens @theme), glass-button.css, fonts/ (WOFF2 de marca)
 ```
 
 ## Reglas de React y Rendimiento
@@ -87,6 +88,9 @@ src/
 - Los efectos de canvas/WebGL (`CursorGrid`, `GlowCursorFx`) solo se montan en desktop (`useIsMobile`) y tras idle/visibilidad; `HeroBackground` los difiere.
 - **Ningún loop de `requestAnimationFrame` corre en reposo**: `CursorGrid` y `GlowCursorFx` duermen cuando no hay nada visible que pintar (sin puntero, apagado o fuera de pantalla) y despiertan con el puntero o un `IntersectionObserver`.
 - `Section` usa `content-visibility: auto` con `contain-intrinsic-size`.
+- **Nada de framer-motion en componentes del layout** (`Header`, `ScrollToTop`, `FloatingWhatsApp`): se cargaría en todas las páginas. Entradas con la variante `starting:` (`@starting-style`) y salidas con `usePresence` + clase de salida; `prefers-reduced-motion` con `usePrefersReducedMotion` (`lib/use-reduced-motion.ts`).
+- **Efectos ligados al puntero sin `setState` por frame**: escribir variables CSS en el nodo (`style.setProperty`), como `useGlassPointer` y `BorderGlow`.
+- SDKs que solo se usan en una acción (p. ej. `@emailjs/browser`) se importan con `import()` en esa acción. `gtag.js` va con `lazyOnload`; el init (consentimiento + cola en `dataLayer`) con `afterInteractive`.
 
 ### Transición de página (wipe)
 
@@ -113,7 +117,7 @@ Definidos en `src/styles/globals.css` (`@theme`). **No** inventar colores fuera 
 | `dark` | `#000F13` | Fondos oscuros, texto principal, navbar |
 | `white` | `#ffffff` | Fondos claros, texto sobre oscuro |
 
-Tipografías: **Modica** (titulares → `font-display`) y **Century Gothic** (cuerpo → `font-sans`), cargadas con `next/font/local` en `src/lib/fonts.ts` (`fontVariables`), usadas por `app/[lang]/layout.tsx` y `global-not-found.tsx`. No añadir fuentes de `next/font/google`: se cuelan en el CSS global y se precargan en todas las páginas.
+Tipografías: **Modica** (titulares → `font-display`) y **Century Gothic** (cuerpo → `font-sans`), en WOFF2 (Century Gothic subseteada a latín, hinting conservado), cargadas con `next/font/local` en `src/lib/fonts.ts` (`fontVariables`), usadas por `app/[lang]/layout.tsx` y `global-not-found.tsx`. No añadir fuentes de `next/font/google`: se cuelan en el CSS global y se precargan en todas las páginas.
 
 Utilities custom: `text-gradient-brand`, `bg-grid-pattern` y `glass-panel*` (definidas con `@utility`).
 

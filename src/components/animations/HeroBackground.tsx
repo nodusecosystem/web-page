@@ -2,15 +2,15 @@
 
 import dynamic from 'next/dynamic'
 import { useEffect, useRef, useState } from 'react'
-import { useReducedMotion } from 'framer-motion'
 import { useIsMobile } from '@/lib/use-mobile'
+import { usePrefersReducedMotion } from '@/lib/use-reduced-motion'
 
 const CursorGrid = dynamic(() => import('@/components/ui/reactbits/CursorGrid'), {
   ssr: false,
 })
 
 export function HeroBackground() {
-  const reduceMotion = useReducedMotion()
+  const reduceMotion = usePrefersReducedMotion()
   const isMobile = useIsMobile()
   const containerRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)

@@ -26,6 +26,13 @@
     ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 48s linear infinite;
+  --animate-fade-in-late: fade-in 0.4s ease-out 1s both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
 
   @keyframes marquee {
     from {
